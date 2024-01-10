@@ -3,7 +3,7 @@
   "vendorProductId": 875824848,
   "macros": [
     "fjfjfj1!{KC_ENT}",
-    "",
+    "{+KC_LCTL}{+KC_LSFT}{+KC_LALT}{+KC_LGUI}{+KC_P5}{-KC_LCTL}{-KC_LSFT}{-KC_LALT}{-KC_LGUI}1",
     "",
     "",
     "",
@@ -22,7 +22,7 @@
   "layers": [
     [
       "C(KC_1)",
-      "KC_ESC",
+      "KC_GESC",
       "KC_BRID",
       "KC_BRIU",
       "0xc1",
@@ -166,7 +166,8 @@
       "HYPR(KC_6)",
       "HYPR(KC_7)",
       "HYPR(KC_8)",
-      "HYPR(KC_NO)",
+      "HYPR(KC_9)",
+      "HYPR(KC_9)",
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
@@ -176,7 +177,6 @@
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
-      "MEH(KC_TAB)",
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
@@ -274,16 +274,16 @@
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
+      "MEH(KC_1)",
+      "HYPR(KC_2)",
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
+      "HYPR(KC_6)",
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS",
+      "MEH(KC_0)",
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
@@ -345,9 +345,9 @@
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS",
+      "TO(1)",
+      "TO(2)",
+      "TO(3)",
       "KC_TRNS",
       "KC_TRNS",
       "KC_CAPS",
@@ -364,7 +364,7 @@
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
-      "OSL(1)",
+      "TO(0)",
       "KC_TRNS",
       "KC_TRNS"
     ],
@@ -487,10 +487,22 @@
   ],
   "encoders": [
     [
-      ["C(KC_RGHT)", "C(KC_LEFT)"],
-      ["KC_VOLD", "KC_VOLU"],
-      ["KC_VOLD", "KC_VOLU"],
-      ["RGB_VAD", "RGB_VAI"]
+      [
+        "C(KC_RGHT)",
+        "C(KC_LEFT)"
+      ],
+      [
+        "KC_VOLD",
+        "KC_VOLU"
+      ],
+      [
+        "KC_VOLD",
+        "KC_VOLU"
+      ],
+      [
+        "RGB_VAD",
+        "RGB_VAI"
+      ]
     ]
   ]
 }
