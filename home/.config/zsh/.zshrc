@@ -1,5 +1,6 @@
 # Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
+[[ -f "$ZDOTDIR/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$ZDOTDIR/.fig/shell/zshrc.pre.zsh"
 # ------------------------------------------------------------------------------
 
 #
@@ -35,7 +36,7 @@ _extend_path "$DOTFILES/bin"
 _extend_path "$HOME/.npm-global/bin"
 _extend_path "$HOME/.rvm/bin"
 _extend_path "$HOME/.yarn/bin"
-_extend_path "$HOME/.config/yarn/global/node_modules/.bin"
+_extend_path "$XDG_CONFIG_HOME/yarn/global/node_modules/.bin"
 _extend_path "$HOME/.bun/bin"
 
 # Extend $NODE_PATH
@@ -70,7 +71,7 @@ if [[ -n "$SSH_CONNECTION" ]]; then
     export EDITOR='vi'
   fi
 else
-  export EDITOR='vim'
+  export EDITOR='nvim'
 fi
 
 # Better formatting for time command
@@ -93,69 +94,76 @@ fi
 # Dependencies
 # ------------------------------------------------------------------------------
 
-# Spaceship project directory (for local development)
-SPACESHIP_PROJECT="$HOME/Projects/Repos/spaceship/spaceship-prompt"
-
-# Reset zgen on change
 ZGEN_RESET_ON_CHANGE=(
-  ${HOME}/.zshrc
+  ${ZDOTDIR}/.zshrc
+  ${ZDOTDIR}/.zsh.local
+  ${ZDOTDIR}/.zprofile
   ${DOTFILES}/lib/*.zsh
 )
 
-# Load zgen
-source "${HOME}/.zgen/zgen.zsh"
+# Automatically add symlinks
+ZGENOM_AUTO_ADD_BIN=1
 
-# Load zgen init script
-if ! zgen saved; then
-    echo "Creating a zgen save"
+function zvm_config() {
+  ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+  ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+}
 
-    zgen oh-my-zsh
+# Load zgenom
+source "${ZDOTDIR}/.zgenom/zgenom.zsh"
+zgenom autoupdate
 
-    # Oh-My-Zsh plugins
-    zgen oh-my-zsh plugins/git
-    zgen oh-my-zsh plugins/history-substring-search
-    zgen oh-my-zsh plugins/sudo
-    zgen oh-my-zsh plugins/command-not-found
-    zgen oh-my-zsh plugins/npm
-    zgen oh-my-zsh plugins/yarn
-    zgen oh-my-zsh plugins/nvm
-    zgen oh-my-zsh plugins/extract
-    zgen oh-my-zsh plugins/ssh-agent
-    zgen oh-my-zsh plugins/gpg-agent
-    zgen oh-my-zsh plugins/macos
-    zgen oh-my-zsh plugins/vscode
-    zgen oh-my-zsh plugins/gh
-    zgen oh-my-zsh plugins/common-aliases
-    zgen oh-my-zsh plugins/docker
+# Load zgenom init script
+if ! zgenom saved; then
+    zgenom ohmyzsh
+
+    # OhMyZsh plugins
+    zgenom ohmyzsh plugins/git
+    zgenom ohmyzsh plugins/history-substring-search
+    zgenom ohmyzsh plugins/sudo
+    zgenom ohmyzsh plugins/command-not-found
+    zgenom ohmyzsh plugins/npm
+    zgenom ohmyzsh plugins/nvm
+    zgenom ohmyzsh plugins/extract
+    zgenom ohmyzsh plugins/ssh-agent
+    zgenom ohmyzsh plugins/macos
+    zgenom ohmyzsh plugins/gh
+    zgenom ohmyzsh plugins/common-aliases
+    zgenom ohmyzsh plugins/brew
+    zgenom ohmyzsh plugins/sfdx
+    zgenom ohmyzsh plugins/aliases
+    zgenom ohmyzsh plugins/iterm2
+    zgenom ohmyzsh plugins/thefuck
+    zgenom ohmyzsh plugins/vi-mode
 
     # Custom plugins
-    zgen load chriskempson/base16-shell
-    zgen load djui/alias-tips
-    zgen load agkozak/zsh-z
-    zgen load marzocchi/zsh-notify
-    zgen load hlissner/zsh-autopair
-    zgen load zsh-users/zsh-syntax-highlighting
-    zgen load zsh-users/zsh-autosuggestions
+    zgenom load jeffreytse/zsh-vi-mode
+    zgenom load djui/alias-tips
+    zgenom load agkozak/zsh-z
+    zgenom load marzocchi/zsh-notify
+    zgenom load hlissner/zsh-autopair
+    zgenom load zsh-users/zsh-syntax-highlighting
+    zgenom load zdharma-continuum/fast-syntax-highlighting
+    zgenom load zsh-users/zsh-autosuggestions
+    zgenom load spaceship-prompt/spaceship-vi-mode
+    zgenom load unixorn/autoupdate-zgenom
+    zgenom load unixorn/fzf-zsh-plugin
     
     # Files
-    zgen load $DOTFILES/lib
-    zgen load $DOTFILES/custom
+    zgenom load $DOTFILES/lib
+    zgenom load $DOTFILES/custom
 
-    # Load Spaceship prompt from remote
-    if [[ ! -d "$SPACESHIP_PROJECT" ]]; then
-      zgen load spaceship-prompt/spaceship-prompt spaceship
-    fi
+    # Spaceship Prompt
+    zgenom load spaceship-prompt/spaceship-prompt spaceship
 
     # Completions
-    zgen load zsh-users/zsh-completions src
+    zgenom load zsh-users/zsh-completions src
 
     # Save all to init script
-    zgen save
-fi
-
-# Load Spaceship form local project
-if [[ -d "$SPACESHIP_PROJECT" ]]; then
-  source "$SPACESHIP_PROJECT/spaceship.zsh"
+    zgenom save
+    
+    # Compile your zsh files
+    zgenom compile $ZDOTDIR
 fi
 
 # ------------------------------------------------------------------------------
@@ -179,6 +187,7 @@ if [ -s "$HOME/.bun/_bun" ]; then
 fi
 
 # Fuzzy finder bindings
+export FZF_BASE="$HOME/.fzf"
 if [ -f "$HOME/.fzf.zsh" ]; then
   source "$HOME/.fzf.zsh"
 fi
@@ -188,11 +197,13 @@ fi
 # ------------------------------------------------------------------------------
 
 # Source local configuration
-if [[ -f "$HOME/.zshlocal" ]]; then
-  source "$HOME/.zshlocal"
+if [[ -f "$ZDOTDIR/.zsh.local" ]]; then
+  source "$ZDOTDIR/.zsh.local"
 fi
 
 # ------------------------------------------------------------------------------
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+[[ -f "$ZDOTDIR/.fig/shell/zshrc.post.zsh" ]] && builtin source "$ZDOTDIR/.fig/shell/zshrc.post.zsh"
+
