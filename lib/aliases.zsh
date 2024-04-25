@@ -1,14 +1,26 @@
+# .zshenv → .zprofile → .zshrc → .zlogin → .zlogout
+
 #
 # Aliases
 #
 
-# Enable aliases to be sudo’ed
-#   http://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo
-alias sudo='sudo '
+# Enable askpass for Sudo
+if _exists askpass; then
+  if askpass -c; then
+    alias sudo='sudo -A '
+  else
+    askpass -s
+    alias sudo='sudo -A '
+  fi
+fi
 
-_exists() {
-  command -v $1 > /dev/null 2>&1
-}
+# CLI
+alias quiet=" >& /dev/null "
+alias grab="sudo chown $USER"
+alias alias rmf="rm -f"
+
+# Reboot without user password on login - useful for encrypted system with Bluetooth keyboards
+alias restart="sudo fdesetup authrestart -delayminutes 0"
 
 # Avoid stupidity with trash-cli:
 # https://github.com/sindresorhus/trash-cli
@@ -22,6 +34,10 @@ alias clr='clear'
 
 # Go to the /home/$USER (~) directory and clears window of your terminal
 alias q="~ && clear"
+
+# Fast config edit
+alias ez="$EDITOR $ZDOTDIR/{aliases.zsh,zshenv,.zshrc,.zprofile} && reload"
+alias ezhost="$EDITOR $ZDOTDIR/zsh.$HOST && reload"
 
 # Folders Shortcuts
 [ -d ~/Downloads ]            && alias dl='cd ~/Downloads'
@@ -43,6 +59,15 @@ alias o='open'
 alias oo='open .'
 alias term='open -a iterm.app'
 
+# Homebrew
+alias bi="brew install"
+alias brm="brew remove"
+alias bs="brew search"
+alias bsd="brew search --desc --eval-all"
+alias bdump="brew bundle dump --all --describe --force --global"
+alias badopt="brew install --cask --adopt"
+alias bl="brew list -ltr"
+
 # Run scripts
 alias update="source $DOTFILES/scripts/update"
 alias bootstrap="source $DOTFILES/scripts/bootstrap"
@@ -51,7 +76,7 @@ alias bootstrap="source $DOTFILES/scripts/bootstrap"
 alias dotfiles="code $DOTFILES"
 
 # Quick reload of zsh environment
-alias reload="source $ZDOTDIR/.zshrc"
+alias reload="source $HOME/.zshenv && source $ZDOTDIR/.zprofile && source $ZDOTDIR/.zshrc"
 
 # My IP
 alias myip='ifconfig | sed -En "s/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p"'
@@ -70,7 +95,16 @@ if _exists tldr; then
   alias help="tldr"
 fi
 
+# Git
+alias grc="gh repo create"
 alias git-root='cd $(git rev-parse --show-toplevel)'
+
+# GitHub Copilot Suggestions
+alias cops="gh copilot suggest"
+alias cope="gh copilot explain"
+
+# Editing
+alias vim="$EDITOR" # Fallback
 
 if _exists lsd; then
   unalias ls
@@ -83,6 +117,10 @@ fi
 if _exists bat; then
   # Run to list all themes:
   #   bat --list-themes
-  export BAT_THEME='base16'
-  alias cat='bat'
+  export BAT_THEME='gruvbox-dark'
+  alias bat="bat --color=always"
+  alias cat="bat --paging=never"
 fi
+
+# Fuck helper
+_exists fuck && alias f="fuck"

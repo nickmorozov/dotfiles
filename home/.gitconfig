@@ -15,6 +15,7 @@
   excludesfile = ~/.gitignore
   attributesfile = ~/.gitattributes
   ignorecase = false
+	pager = diff-so-fancy | less --tabs=4 -RF
 
 [push]
   default = current
@@ -97,10 +98,10 @@
 
 # Add LFS commands
 [filter "lfs"]
-  required = true
-  clean = git-lfs clean -- %f
-  smudge = git-lfs smudge -- %f
-  process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
 
 # Include local settings from .gitlocal
 # Requires Git 1.7.10
@@ -114,7 +115,7 @@
 [include]
   path = ~/.gitlocal
 [user]
-	email = mail@nickmorozov.net
+	email = neurodeep@gmail.com
 	name = Nick Morozov
 [credential "https://github.com"]
 	helper = 
@@ -122,3 +123,5 @@
 [credential "https://gist.github.com"]
 	helper = 
 	helper = !/usr/local/bin/gh auth git-credential
+[interactive]
+	diffFilter = diff-so-fancy --patch

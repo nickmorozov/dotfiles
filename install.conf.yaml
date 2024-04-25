@@ -17,14 +17,17 @@
     - ~/.config
 
 - shell:
+    - description: Settings OSX defaults
+      command: ./scripts/osx
+    
     - description: Installing submodules
       command: git submodule update --init --recursive
 
+    - description: Installing Github Copilot
+      command: gh extension install github/gh-copilot
+
     - description: Installing zgenom
       command: ./scripts/zgenom
-
-    - description: iTerm2 Shell Integration
-      command: ./scripts/iterm
 
     - description: Pointing Services to iCloud
       command: ./scripts/services
