@@ -11,3 +11,6 @@
 [submodule "home/.local/repos/focus-manager"]
 	path = home/.local/repos/focus-manager
 	url = git@github.com:nickmorozov/focus-manager.git
+[submodule "home/.local/repos/osx-calendar-syncer"]
+	path = home/.local/repos/osx-calendar-syncer
+	url = git@github.com:nickmorozov/osx-calendar-syncer.git
