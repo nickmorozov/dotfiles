@@ -24,6 +24,48 @@ _extend_path() {
   fi
 }
 
+# Extend $NODE_PATH
+if [ -d ~/.npm-global ]; then
+  export NODE_PATH="$NODE_PATH:$HOME/.npm-global/lib/node_modules"
+fi
+
+# Default pager
+export PAGER='less'
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+# less options
+less_opts=(
+  # Quit if entire file fits on first screen.
+  -FX
+  # Ignore case in searches that do not contain uppercase.
+  --ignore-case
+  # Allow ANSI colour escapes, but no other escapes.
+  --RAW-CONTROL-CHARS
+  # Quiet the terminal bell. (when trying to scroll past the end of the buffer)
+  --quiet
+  # Do not complain when we are on a dumb terminal.
+  --dumb
+)
+export LESS="${less_opts[*]}"
+
+# Default editor for local and remote sessions
+if [[ -n "$SSH_CONNECTION" ]]; then
+  # on the server
+  export VIEWER='cat'
+  if _exists vim; then
+    export EDITOR='vim'
+  else
+    export EDITOR='vi'
+  fi
+else
+  export EDITOR='nvim'
+  if _exists bat; then
+    export VIEWER='bat'
+  else
+    export VIEWER='cat'
+  fi
+fi
+
 # ZSH Specific envs
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
@@ -51,7 +93,7 @@ if [ ! -f "$HOME/.hushlogin" ]; then
 fi
 
 # Add custom bin to $PATH
-_extend_path "/usr/local/bin" # Added by Toolbox
+_extend_path "/usr/local/bin" # Added for Jetbrains Toolbox
 _extend_path "$HOME/.local/bin"
 _extend_path "$HOME/.npm-global/bin"
 _extend_path "$HOME/.rvm/bin"
@@ -59,4 +101,3 @@ _extend_path "$HOME/.yarn/bin"
 _extend_path "$HOME/.bun/bin"
 _extend_path "$DOTFILES/bin"
 _extend_path "$XDG_CONFIG_HOME/yarn/global/node_modules/.bin"
-

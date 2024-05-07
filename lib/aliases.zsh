@@ -1,8 +1,8 @@
 # .zshenv → .zprofile → .zshrc → .zlogin → .zlogout
 
-#
+#############################################
 # Aliases
-#
+#############################################
 
 # Enable askpass for Sudo
 if _exists askpass; then
@@ -14,10 +14,16 @@ if _exists askpass; then
   fi
 fi
 
+# Extract helper
+alias unrar="7z"
+alias unzip="7z x"
+alias xr="x -r"
+
 # CLI
 alias quiet=" >& /dev/null "
 alias grab="sudo chown $USER"
-alias alias rmf="rm -f"
+alias rmf="rm -f"
+alias rmr="rm -r"
 
 # Reboot without user password on login - useful for encrypted system with Bluetooth keyboards
 alias restart="sudo fdesetup authrestart -delayminutes 0"
@@ -36,8 +42,7 @@ alias clr='clear'
 alias q="~ && clear"
 
 # Fast config edit
-alias ez="$EDITOR $ZDOTDIR/{aliases.zsh,zshenv,.zshrc,.zprofile} && reload"
-alias ezhost="$EDITOR $ZDOTDIR/zsh.$HOST && reload"
+alias ez="$EDITOR $ZDOTDIR/{aliases.zsh,zshenv,.zshrc,.zprofile,zsh.$HOST} && zgenom reset && reload"
 
 # Folders Shortcuts
 [ -d ~/Downloads ]            && alias dl='cd ~/Downloads'
@@ -50,6 +55,7 @@ alias ezhost="$EDITOR $ZDOTDIR/zsh.$HOST && reload"
 
 # Commands Shortcuts
 alias e="$EDITOR"
+alias v="$VIEWER"
 alias -- +x='chmod +x'
 alias x+='chmod +x'
 
@@ -71,6 +77,17 @@ alias bl="brew list -ltr"
 # Run scripts
 alias update="source $DOTFILES/scripts/update"
 alias bootstrap="source $DOTFILES/scripts/bootstrap"
+
+# Python
+alias vact="source ./venv/bin/activate"
+alias venv="virtualenv venv && vact"
+alias pipreq="pip install -r requirements.txt"
+if _exists python3; then
+  alias py="python3"
+else
+  alias py="python"
+fi
+alias pym="py main.py"
 
 # Quick jump to dotfiles
 alias dotfiles="code $DOTFILES"
@@ -96,7 +113,8 @@ if _exists tldr; then
 fi
 
 # Git
-alias grc="gh repo create"
+alias ghrc="gh repo create"
+alias ghrv="gh repo view --web"
 alias git-root='cd $(git rev-parse --show-toplevel)'
 
 # GitHub Copilot Suggestions
@@ -124,3 +142,9 @@ fi
 
 # Fuck helper
 _exists fuck && alias f="fuck"
+
+# Dock
+alias add_dock_spacer_small="defaults write com.apple.dock persistent-apps -array-add '{tile-type=\"small-spacer-tile\";}' && killall Dock"
+alias add_dock_spacer_normal="defaults write com.apple.dock persistent-apps -array-add '{tile-type=\"spacer-tile\";}' && killall Dock"
+alias add_dock_spacer_flex="defaults write com.apple.dock persistent-apps -array-add '{tile-type=\"flex-spacer-tile\";}' && killall Dock"
+
