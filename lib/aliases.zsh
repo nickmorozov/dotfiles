@@ -116,6 +116,12 @@ fi
 alias ghrc="gh repo create"
 alias ghrv="gh repo view --web"
 alias git-root='cd $(git rev-parse --show-toplevel)'
+function gcgp {
+  gcmsg $@ && gp
+}
+function gcgpa {
+  gcam $@ && gp
+}
 
 # GitHub Copilot Suggestions
 alias cops="gh copilot suggest"
