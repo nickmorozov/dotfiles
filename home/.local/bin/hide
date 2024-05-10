@@ -1,8 +1,1 @@
-#!/usr/bin/env zsh
-
-alias sudo && exit 1
-
-for f in "$@"
-do
-	chflags hidden "$f" || quite sudo chflags hidden "$f" || { unalias sudo && askpass | sudo -T "$f" }
-done
+/Users/nick/Projects/Repos/osx-bin-utils/hide
