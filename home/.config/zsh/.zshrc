@@ -9,25 +9,6 @@
 # Environment
 # ------------------------------------------------------------------------------
 
-# Title
-export DISABLE_AUTO_TITLE="true"
-
-# Export path to root of dotfiles repo
-export DOTFILES=${DOTFILES:="$HOME/.dotfiles"}
-
-# Locale
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-export LANGUAGE=en_US.UTF-8
-
-# Z Navigation
-export _Z_DATA="$ZDOTDIR/.z"
-
-# Homebrew
-export HOMEBREW_NO_ENV_HINTS="true"
-export HOMEBREW_INSTALL_BADGE="☕️"
-export HOMEBREW_COLOR="true"
-
 HB_CNF_HANDLER="$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
 if [ -f "$HB_CNF_HANDLER" ]; then
     source "$HB_CNF_HANDLER"
@@ -55,20 +36,6 @@ fi
 # ------------------------------------------------------------------------------
 # Dependencies
 # ------------------------------------------------------------------------------
-
-ZGEN_RESET_ON_CHANGE=(
-  ${HOME}/.zshenv
-  ${ZDOTDIR}/.zprofile
-  ${ZDOTDIR}/.zshrc
-  ${ZDOTDIR}/.zlogin
-  ${ZDOTDIR}/.zlogout
-  ${ZDOTDIR}/zsh.${HOST}
-  ${DOTFILES}/lib/*.zsh # Upstream scripts
-  ${SPACESHIP_CONFIG}
-)
-
-# Automatically add symlinks
-ZGENOM_AUTO_ADD_BIN=1
 
 function zvm_config() {
   ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
@@ -175,6 +142,7 @@ fi
 export FZF_BASE="$HOME/.fzf"
 if [ -f "$HOME/.fzf.zsh" ]; then
   source "$HOME/.fzf.zsh"
+  eval "$(fzf --zsh)"
 fi
 
 # ------------------------------------------------------------------------------

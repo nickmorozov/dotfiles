@@ -42,7 +42,8 @@ alias clr='clear'
 alias q="~ && clear"
 
 # Fast config edit
-alias ez="$EDITOR $ZDOTDIR/{aliases.zsh,zshenv,.zshrc,.zprofile,zsh.$HOST} && zgenom reset && reload"
+alias ez="$EDITOR $ZDOTDIR/{zshenv,.zshrc,.zprofile,zsh.$HOST}"
+alias ea="$EDITOR $DOTFILES/lib/aliases.zsh"
 
 # Folders Shortcuts
 [ -d ~/Downloads ]            && alias dl='cd ~/Downloads'
@@ -73,6 +74,7 @@ alias bsd="brew search --desc --eval-all"
 alias bdump="brew bundle dump --all --describe --force --global"
 alias badopt="brew install --cask --adopt"
 alias bl="brew list -ltr"
+alias bcall="brew caveats $(brew list)"
 
 # Run scripts
 alias update="source $DOTFILES/scripts/update"
@@ -114,6 +116,8 @@ fi
 
 # Git
 alias ghrc="gh repo create"
+alias ghrcp="ghrc --public --push --source='.' --description "
+alias ghrcpr="ghrc --private --push --source='.' --description "
 alias ghrv="gh repo view --web"
 alias git-root='cd $(git rev-parse --show-toplevel)'
 function gcgp {
@@ -150,7 +154,75 @@ fi
 _exists fuck && alias f="fuck"
 
 # Dock
-alias add_dock_spacer_small="defaults write com.apple.dock persistent-apps -array-add '{tile-type=\"small-spacer-tile\";}' && killall Dock"
-alias add_dock_spacer_normal="defaults write com.apple.dock persistent-apps -array-add '{tile-type=\"spacer-tile\";}' && killall Dock"
-alias add_dock_spacer_flex="defaults write com.apple.dock persistent-apps -array-add '{tile-type=\"flex-spacer-tile\";}' && killall Dock"
+function dock {
+    local usage=(
+      'Usage:'
+      '  dock toggle|position|size|spacer'
+      '    toggle (hide/unhide)'
+      '    position [left|right|bottom]'
+      '    size <16-128>'
+      '    spacer [app|other] [normal|small|flex]]'
+    )
+
+  if [[ -z $1 ]]; then
+    printf '%s\n' $usage && return 1
+  fi
+
+  if [[ 'toggle' = $1 ]]; then
+    if [[ $(defaults read com.apple.dock "autohide") -eq 1 ]]; then
+      defaults write com.apple.dock "autohide" -bool "false" || return 1
+    else
+      defaults write com.apple.dock "autohide" -bool "true" || return 1
+    fi
+  fi
+
+  if [[ 'position' = $1 ]]; then
+    if [[ -z $2 || $2 != (left|right|bottom) ]]; then
+      printf '%s\n' $usage && return 1
+    fi
+
+    defaults write com.apple.dock "orientation" -string $2 || return 1
+  fi
+
+  if [[ 'size' = $1 ]]; then
+    if [[ -z $2 || $2 -lt 0 || $2 -gt 128 ]]; then
+      printf '%s\n' $usage && return 1
+    fi
+
+    defaults write com.apple.dock "tilesize" -int $2 || return 1
+  fi
+
+  if [[ 'spacer' = $1 ]]; then
+    if [[ -z $2 || -z $3 || $2 != (app|other) || $3 != (normal|small|flex) ]]; then
+      printf '%s\n' $usage && return 1
+    fi
+
+    cmd='defaults write com.apple.dock persistent-'
+
+    if [[ 'app' = $2 ]]; then
+      cmd+='apps'
+      cmd+=" -array-add '{tile-type="
+    else
+      cmd+='others'
+      cmd+=" -array-add '{tile-data={}; tile-type="
+    fi
+
+
+    if [[ 'small' = $3 ]]; then
+        cmd+='"small-spacer-tile"'
+      elif [[ 'flex' = $3 ]]; then
+        cmd+='"flex-spacer-tile"'
+      else
+        cmd+='"spacer-tile"'
+    fi
+
+    cmd+=";}'"
+
+    echo $cmd
+    eval $cmd || return 1
+  fi
+
+  killall Dock && echo "Success!"
+}
+
 
