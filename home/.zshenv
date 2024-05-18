@@ -76,6 +76,26 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export ZSH_CACHE_DIR="$XDG_CACHE_HOME/zsh"
 export ZSH_COMPDUMP="$ZSH_CACHE_DIR/.zcompdump-$UID"
 
+# Title
+export DISABLE_AUTO_TITLE="true"
+
+# Export path to root of dotfiles repo
+export DOTFILES=${DOTFILES:="$HOME/.dotfiles"}
+
+# Locale
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+
+# Z Navigation
+export _Z_DATA="$ZDOTDIR/.z"
+
+# Homebrew
+export HOMEBREW_NO_ENV_HINTS="true"
+export HOMEBREW_INSTALL_BADGE="☕️"
+export HOMEBREW_COLOR="true"
+
+
 # Sudo askpass implementation. TODO: replace with gpg
 export SUDO_ASKPASS="$HOME/.local/bin/askpass"
 
@@ -91,6 +111,20 @@ fi
 if [ ! -f "$HOME/.hushlogin" ]; then
   touch "$HOME/.hushlogin"
 fi
+
+ZGEN_RESET_ON_CHANGE=(
+  ${HOME}/.zshenv
+  ${ZDOTDIR}/.zprofile
+  ${ZDOTDIR}/.zshrc
+  ${ZDOTDIR}/.zlogin
+  ${ZDOTDIR}/.zlogout
+  ${ZDOTDIR}/zsh.${HOST}
+  ${DOTFILES}/lib/*.zsh # Upstream scripts
+  ${SPACESHIP_CONFIG}
+)
+
+# Automatically add symlinks
+ZGENOM_AUTO_ADD_BIN=1
 
 # Add custom bin to $PATH
 _extend_path "/usr/local/bin" # Added for Jetbrains Toolbox

@@ -84022,7 +84022,7 @@
 	<key>DimOnlyText</key>
 	<true/>
 	<key>DoubleClickPerformsSmartSelection</key>
-	<true/>
+	<false/>
 	<key>EnableAPIServer</key>
 	<false/>
 	<key>EnableDivisionView</key>
@@ -84143,9 +84143,9 @@
 	<key>HideActivityIndicator</key>
 	<false/>
 	<key>HideFromDockAndAppSwitcher</key>
-	<false/>
-	<key>HideMenuBarInFullscreen</key>
 	<true/>
+	<key>HideMenuBarInFullscreen</key>
+	<false/>
 	<key>HideScrollbar</key>
 	<true/>
 	<key>HideTab</key>
@@ -84761,7 +84761,7 @@
 			<key>Close Sessions On End</key>
 			<integer>1</integer>
 			<key>Columns</key>
-			<integer>300</integer>
+			<integer>200</integer>
 			<key>Command</key>
 			<string>zsh</string>
 			<key>Cursor Boost</key>
@@ -85522,7 +85522,7 @@
 			<key>Right Option Key Sends</key>
 			<integer>0</integer>
 			<key>Rows</key>
-			<integer>100</integer>
+			<integer>50</integer>
 			<key>Screen</key>
 			<integer>-2</integer>
 			<key>Scrollback Lines</key>
@@ -88041,6 +88041,8 @@
 	<true/>
 	<key>SplitPaneDimmingAmount</key>
 	<real>0.4999689165133871</real>
+	<key>StatusBarIcon</key>
+	<false/>
 	<key>StatusBarPosition</key>
 	<integer>1</integer>
 	<key>StretchTabsToFillBar</key>
