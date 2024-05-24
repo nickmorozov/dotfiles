@@ -1,0 +1,117 @@
+<application>
+  <component name="ActionHistoryManager">
+    <ids>
+      <option value="ShowReformatFileDialog" />
+      <option value="StringManipulation.Shortcuts" />
+      <option value="AnalyzeMenu" />
+      <option value="ReformatWithPrettierAction" />
+      <option value="InstallNodeLocalDependencies" />
+      <option value="RestartIde" />
+      <option value="CopyReferencePopupGroup" />
+      <option value="ActivateMessagesToolWindow" />
+      <option value="ChangeKeymap" />
+      <option value="CodeFormatGroup" />
+    </ids>
+  </component>
+  <component name="EduSettings">
+    <option name="javaUiLibrary" value="JCEF" />
+  </component>
+  <component name="FileEditorProviderManager">{
+  &quot;selectedProviders&quot;: {
+    &quot;text-editor,scripted-data-editor&quot;: &quot;text-editor&quot;,
+    &quot;com.illuminatedcloud.intellij.metadata.editor.fileEditorProvider.MetadataFileEditorProvider,com.illuminatedcloud.intellij.metadata.editor.fileEditorProvider.MetaXmlFileEditorProvider&quot;: &quot;com.illuminatedcloud.intellij.metadata.editor.fileEditorProvider.MetadataFileEditorProvider&quot;,
+    &quot;com.illuminatedcloud.intellij.metadata.editor.fileEditorProvider.MetadataFileEditorProvider,com.illuminatedcloud.intellij.metadata.editor.fileEditorProvider.MetaXmlFileEditorProvider,text-editor&quot;: &quot;com.illuminatedcloud.intellij.metadata.editor.fileEditorProvider.MetadataFileEditorProvider&quot;,
+    &quot;com.illuminatedcloud.intellij.lwc.editor.fileEditorProvider.LightningWebComponentHtmlFileEditorProvider,com.illuminatedcloud.intellij.lwc.editor.fileEditorProvider.LightningWebComponentJavaScriptFileEditorProvider,com.illuminatedcloud.intellij.metadata.editor.fileEditorProvider.MetaXmlFileEditorProvider&quot;: &quot;com.illuminatedcloud.intellij.lwc.editor.fileEditorProvider.LightningWebComponentJavaScriptFileEditorProvider&quot;
+  }
+}</component>
+  <component name="LangManager">
+    <option name="languageName" value="JAVA" />
+  </component>
+  <component name="NotRoamableUiSettings">
+    <option name="fontFace" value="Fira Code" />
+    <option name="fontSize" value="14.0" />
+    <option name="presentationModeIdeScale" value="1.75" />
+    <option name="overrideLafFonts" value="true" />
+  </component>
+  <component name="PropertyService"><![CDATA[{
+  "keyToString": {
+    "ApexSupport.hideIgnoredTests": "false",
+    "ApexSupport.hidePassedTests": "false",
+    "ApexSupport.scrollToSource": "true",
+    "ApexSupport.selectFirtsDefect": "true",
+    "BLOCK_TERMINAL_LAST_USED_DATE": "1716426941",
+    "BLOCK_TERMINAL_LAST_USED_VERSION": "241.15989.150",
+    "CUSTOMIZE_ACTIONS": "illum\nillu\nwidget",
+    "Educational.recentCoursesFilled": "true",
+    "Educational.stepikOAuthReset": "true",
+    "FindSplitterProportion": "0.42712843",
+    "GitExtensions.ExecutablePath": "",
+    "InstalledPluginsSearchHistory": "/downloaded\n/downloaded /disabled\n/bundled /disabled\n/bundled /enabled\n/bundled",
+    "KEYMAP": "bookmark",
+    "LAST_CALCULATED_COLOR_INDEX_KEY": "3",
+    "LAST_EXTRACTOR_SCRIPTS_CLEANUP_VERSION/data/aggregators": "IU-241.17011.79",
+    "LayoutCode.codeCleanup": "true",
+    "LayoutCode.doNotKeepLineBreaks": "true",
+    "LayoutCode.optimizeImports": "false",
+    "LayoutCode.processChangedText": "false",
+    "LayoutCode.rearrangeEntriesApex": "false",
+    "LayoutCode.rearrangeEntriesECMAScript 6": "false",
+    "LogAnalyzerPanel.filterTextField": "paymentRequest\nMETHOD_ENTRY",
+    "MarketplacePluginsSearchHistory": "Mermaid /vendor:JetBrains\nrelative line\nrelative  line /sortBy:rating\nrelative  line/sortBy:rating\nrelative  /sortBy:rating",
+    "RunOnceActivity.Run Grazie Token Refresher": "true",
+    "RunOnceActivity.java.code.vision.default.position.was.set": "true",
+    "RunOnceActivity.llm.installer.activate.toolwindow": "true",
+    "RunOnceActivity.zielu.gittoolbox.worktree.promo.1": "true",
+    "SettingsSearchHistory": "reformat code\non save\n8\nnew line\nai",
+    "com.intellij.openapi.roots.ui.configuration.TabbedModuleEditor.selectedEditor": "Sources",
+    "defaultJdkConfigured": "true",
+    "delete.locally.added.files": "true",
+    "dir.diff.space.button.info": "3",
+    "enter_selection_count": "3",
+    "evlsprt3.241": "4",
+    "experimental.ui.on.first.startup": "true",
+    "experimental.ui.used.version": "241.17011.79",
+    "export.settings.path": "/Users/nick/Library/Mobile Documents/com~apple~CloudDocs/settings.zip",
+    "fileTypeChangedCounter": "6",
+    "fontSizeToResetConsole": "16.0",
+    "fontSizeToResetEditor": "16.0",
+    "got.it.tooltip.copilot.inlayGotIt": "1",
+    "got.it.tooltip.copilot.inlayPartialGotIt": "1",
+    "got.it.tooltip.new.terminal.promotion": "1",
+    "got.it.tooltip.reader.mode.got.it": "1",
+    "ide.memory.adjusted": "true",
+    "ideavim.statistics.timestamp": "1716328482414",
+    "ift.hide.welcome.screen.promo": "true",
+    "installed.kotlin.plugin.version": "241.17011.79-IJ",
+    "llm.installer.last.toolwindow.state": "LLM_INSTALLER_HIDDEN",
+    "migrated.non.roamable.values.from.general.settings": "true",
+    "previousColorScheme": "_@user_Dark",
+    "registry.to.advanced.settings.migration.build": "IU-241.17011.79",
+    "settings.code.style.selected.tab.Apex": "Blank Lines",
+    "settings.code.style.selected.tab.CSS": "Blank Lines",
+    "settings.code.style.selected.tab.HTML": "Tabs and Indents",
+    "settings.code.style.selected.tab.JAVA": "Blank Lines",
+    "settings.code.style.selected.tab.JSON": "Blank Lines",
+    "settings.code.style.selected.tab.JavaScript": "Tabs and Indents",
+    "settings.code.style.selected.tab.Markdown": "Wrapping and Braces",
+    "settings.code.style.selected.tab.XML": "Tabs and Indents",
+    "settings.code.style.selected.tab.yaml": "Wrapping and Braces",
+    "tab_selection_count": "2",
+    "toolwindow.showToolWindowsNames.ts": "2024-05-20T12:32:42.259122",
+    "toolwindow.showToolWindowsNames.value": "true",
+    "ts.lib.d.ts.version": "5.4.3",
+    "vcs.history.diff.splitter.proportion": "0.48521125"
+  },
+  "keyToStringList": {
+    "fileTypeDetectors": [
+      "com.intellij.ide.scratch.ScratchFileServiceImpl$Detector",
+      "com.intellij.profiler.ultimate.hprof.impl.HprofFileTypeDetector",
+      "com.intellij.javascript.debugger.sourcemap.SourceMapFileType$MyFileTypeDetector",
+      "org.jetbrains.plugins.textmate.TextMateFileType$TextMateFileDetector"
+    ]
+  }
+}]]></component>
+  <component name="json_parser_conf">
+    <option name="jsonParserLastDisplayTime" value="1716286210793" />
+  </component>
+</application>

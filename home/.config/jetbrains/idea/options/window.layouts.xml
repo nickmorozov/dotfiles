@@ -1,0 +1,235 @@
+<application>
+  <component name="ToolWindowLayout"><![CDATA[{
+  "activeLayoutName": "Nick's Layout",
+  "layouts": {
+    "Nick's Layout": {
+      "v2": [
+        {
+          "id": "Project",
+          "order": 0,
+          "contentUiType": "COMBO",
+          "isActiveOnStart": true,
+          "isVisible": true,
+          "weight": 0.19491525,
+          "sideWeight": 0.5003209
+        },
+        {
+          "id": "Codiumate Chat",
+          "order": 1,
+          "isVisible": true,
+          "weight": 0.33035713
+        },
+        {
+          "id": "Welcome to GitHub Copilot",
+          "order": 2,
+          "isShowStripeButton": false,
+          "weight": 0.32999486
+        },
+        {
+          "id": "Commit",
+          "order": 3,
+          "isActiveOnStart": true,
+          "isVisible": true,
+          "weight": 0.19491525,
+          "sideWeight": 0.4996791,
+          "isSplit": true
+        },
+        {
+          "id": "Structure",
+          "order": 4,
+          "weight": 0.25,
+          "isSplit": true
+        },
+        {
+          "id": "Python Console",
+          "order": 0,
+          "anchor": "BOTTOM",
+          "isShowStripeButton": false,
+          "weight": 0.33001807,
+          "sideWeight": 0.37885627,
+          "isSplit": true
+        },
+        {
+          "id": "Version Control",
+          "order": 1,
+          "anchor": "BOTTOM",
+          "isActiveOnStart": true,
+          "isVisible": true,
+          "weight": 0.33001807,
+          "sideWeight": 0.5003453
+        },
+        {
+          "id": "Problems",
+          "order": 2,
+          "anchor": "BOTTOM"
+        },
+        {
+          "id": "PackageSearch",
+          "order": 3,
+          "anchor": "BOTTOM",
+          "isShowStripeButton": false,
+          "weight": 0.33001807
+        },
+        {
+          "id": "GitHub Actions",
+          "order": 4,
+          "anchor": "BOTTOM",
+          "isShowStripeButton": false,
+          "weight": 0.33001807
+        },
+        {
+          "id": "Python Packages",
+          "order": 5,
+          "anchor": "BOTTOM",
+          "isShowStripeButton": false,
+          "weight": 0.33001807
+        },
+        {
+          "id": "Salesforce Functions",
+          "order": 6,
+          "anchor": "BOTTOM",
+          "isShowStripeButton": false
+        },
+        {
+          "id": "Services",
+          "order": 7,
+          "anchor": "BOTTOM",
+          "isShowStripeButton": false,
+          "weight": 0.33001807
+        },
+        {
+          "id": "SOQL Query",
+          "order": 8,
+          "anchor": "BOTTOM",
+          "weight": 0.33001807,
+          "sideWeight": 0.773794
+        },
+        {
+          "id": "Anonymous Apex",
+          "order": 9,
+          "anchor": "BOTTOM"
+        },
+        {
+          "id": "Terminal",
+          "order": 10,
+          "anchor": "BOTTOM",
+          "weight": 0.33001807,
+          "isSplit": true
+        },
+        {
+          "id": "Log Analyzer",
+          "order": 11,
+          "anchor": "BOTTOM",
+          "isSplit": true
+        },
+        {
+          "id": "Illuminated Cloud",
+          "order": 12,
+          "anchor": "BOTTOM",
+          "weight": 0.33001807,
+          "sideWeight": 0.19723435,
+          "isSplit": true
+        },
+        {
+          "id": "Run",
+          "order": 13,
+          "anchor": "BOTTOM",
+          "isShowStripeButton": false,
+          "weight": 0.1992164,
+          "isSplit": true
+        },
+        {
+          "id": "Problems View",
+          "order": 14,
+          "anchor": "BOTTOM",
+          "weight": 0.33001807,
+          "isSplit": true
+        },
+        {
+          "id": "Messages",
+          "order": 15,
+          "anchor": "BOTTOM"
+        },
+        {
+          "id": "Notifications",
+          "order": 16,
+          "anchor": "BOTTOM",
+          "isActiveOnStart": true,
+          "isVisible": true,
+          "weight": 0.33001807,
+          "sideWeight": 0.4996547,
+          "isSplit": true
+        },
+        {
+          "id": "AIAssistant",
+          "order": 0,
+          "anchor": "RIGHT",
+          "isShowStripeButton": false,
+          "weight": 0.24987158
+        },
+        {
+          "id": "Database",
+          "order": 1,
+          "anchor": "RIGHT",
+          "weight": 0.25
+        },
+        {
+          "id": "Gradle",
+          "order": 2,
+          "anchor": "RIGHT",
+          "weight": 0.25
+        },
+        {
+          "id": "Maven",
+          "order": 3,
+          "anchor": "RIGHT",
+          "weight": 0.25
+        },
+        {
+          "id": "CodeGPT",
+          "order": 4,
+          "anchor": "RIGHT",
+          "weight": 0.32999486
+        },
+        {
+          "id": "Codiumate Tests",
+          "order": 5,
+          "anchor": "RIGHT",
+          "isVisible": true,
+          "weight": 0.33035713
+        },
+        {
+          "id": "DevPilot",
+          "order": 6,
+          "anchor": "RIGHT"
+        },
+        {
+          "id": "GitHub Copilot Chat",
+          "order": 7,
+          "anchor": "RIGHT",
+          "weight": 0.32999486
+        },
+        {
+          "id": "github.copilotToolWindow",
+          "order": 8,
+          "anchor": "RIGHT",
+          "weight": 0.32999486
+        },
+        {
+          "id": "Json Parser",
+          "order": 9,
+          "anchor": "RIGHT",
+          "weight": 0.32999486,
+          "isSplit": true
+        }
+      ],
+      "unifiedWeights": {
+        "top": 0.33,
+        "left": 0.19491525,
+        "bottom": 0.33001807,
+        "right": 0.24987158
+      }
+    }
+  }
+}]]></component>
+</application>

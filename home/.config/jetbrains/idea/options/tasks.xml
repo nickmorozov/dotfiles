@@ -1,0 +1,6 @@
+<application>
+  <component name="TaskSettings">
+    <option name="ALWAYS_DISPLAY_COMBO" value="true" />
+    <option name="LOWER_CASE_BRANCH" value="true" />
+  </component>
+</application>

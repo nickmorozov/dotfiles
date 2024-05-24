@@ -1,0 +1,56 @@
+<scheme name="_@user_Atom One Light (Material)" version="142" parent_scheme="Default">
+  <option name="FONT_SCALE" value="1.0" />
+  <metaInfo>
+    <property name="created">2024-01-17T20:33:32</property>
+    <property name="ide">idea</property>
+    <property name="ideVersion">2023.3.2.0.0</property>
+    <property name="modified">2024-02-16T14:12:57</property>
+    <property name="originalScheme">Atom One Light (Material)</property>
+    <property name="partialSave">true</property>
+    <property name="pluginId">com.chrisrm.idea.MaterialThemeUI</property>
+  </metaInfo>
+  <console-font>
+    <option name="EDITOR_FONT_NAME" value="JetBrains Mono" />
+    <option name="EDITOR_FONT_SIZE" value="12" />
+  </console-font>
+  <console-font>
+    <option name="EDITOR_FONT_NAME" value="Menlo" />
+    <option name="EDITOR_FONT_SIZE" value="12" />
+  </console-font>
+  <option name="CONSOLE_LINE_SPACING" value="1.4" />
+  <colors>
+    <option name="FILESTATUS_ADDED" value="49d0c5" />
+    <option name="FILESTATUS_DELETED" value="de3d3b" />
+    <option name="FILESTATUS_HIJACKED" value="2aa298" />
+    <option name="FILESTATUS_IDEA_FILESTATUS_DELETED_FROM_FILE_SYSTEM" value="de3d3b" />
+    <option name="FILESTATUS_IDEA_FILESTATUS_IGNORED" value="93a1a1" />
+    <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_BOTH_CONFLICTS" value="c96765" />
+    <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_CONFLICTS" value="c96765" />
+    <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_PROPERTY_CONFLICTS" value="c96765" />
+    <option name="FILESTATUS_IGNORE.PROJECT_VIEW.IGNORED" value="dbedff" />
+    <option name="FILESTATUS_MERGED" value="e0af02" />
+    <option name="FILESTATUS_MODIFIED" value="6fbef6" />
+    <option name="FILESTATUS_OBSOLETE" value="ffcb6b" />
+    <option name="FILESTATUS_SUPPRESSED" value="403f53" />
+    <option name="FILESTATUS_SWITCHED" value="2aa298" />
+    <option name="FILESTATUS_UNKNOWN" value="4876d6" />
+    <option name="FILESTATUS_addedOutside" value="2aa298" />
+    <option name="FILESTATUS_changelistConflict" value="c96765" />
+    <option name="FILESTATUS_modifiedOutside" value="e0af02" />
+  </colors>
+  <attributes>
+    <option name="KOTLIN_LABEL">
+      <value>
+        <option name="FOREGROUND" value="252b39" />
+      </value>
+    </option>
+    <option name="MATCHED_BRACE_ATTRIBUTES">
+      <value>
+        <option name="BACKGROUND" value="e5e5e6" />
+        <option name="FONT_TYPE" value="1" />
+        <option name="EFFECT_COLOR" value="557ecf" />
+        <option name="EFFECT_TYPE" value="4" />
+      </value>
+    </option>
+  </attributes>
+</scheme>

@@ -1,0 +1,20 @@
+<application>
+  <component name="SettingsSyncSettings">
+    <option name="disabledSubcategories">
+      <map>
+        <entry key="PLUGINS">
+          <value>
+            <list>
+              <option value="Pythonid" />
+              <option value="com.ppolivka.plugin.gitcleaner" />
+              <option value="nl.bryanderidder.regexrenamefiles" />
+              <option value="some.awesome" />
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="migrationFromOldStorageChecked" value="true" />
+    <option name="syncEnabled" value="true" />
+  </component>
+</application>

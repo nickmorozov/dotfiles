@@ -1,0 +1,23 @@
+<application>
+  <component name="Trusted.Paths">
+    <option name="TRUSTED_PROJECT_PATHS">
+      <map>
+        <entry key="$USER_HOME$/.dotfiles/home/.local/repos/osx-calendar-syncer" value="true" />
+        <entry key="$USER_HOME$/Projects/Job/isys" value="true" />
+        <entry key="$USER_HOME$/Projects/Job/quantum" value="true" />
+        <entry key="$USER_HOME$/Projects/Repos/calendar-syncer" value="true" />
+        <entry key="$USER_HOME$/Projects/Repos/focus-manager" value="true" />
+      </map>
+    </option>
+  </component>
+  <component name="Trusted.Paths.Settings">
+    <option name="TRUSTED_PATHS">
+      <list>
+        <option value="$USER_HOME$/.dotfiles/home/.local/repos" />
+        <option value="$USER_HOME$/Projects/Job" />
+        <option value="$USER_HOME$/Projects/Job" />
+        <option value="$USER_HOME$/Projects/Repos" />
+      </list>
+    </option>
+  </component>
+</application>

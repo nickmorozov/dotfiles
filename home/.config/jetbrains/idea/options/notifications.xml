@@ -1,0 +1,12 @@
+<application>
+  <component name="NotificationConfiguration">
+    <notification groupId="IlluminatedCloudAnonymousApex" displayType="TOOL_WINDOW" playSound="true" />
+    <notification groupId="IlluminatedCloudLogAnalyzer" displayType="TOOL_WINDOW" />
+    <notification groupId="IlluminatedCloudMessages" displayType="TOOL_WINDOW" playSound="true" />
+    <notification groupId="IlluminatedCloudSalesforceFunctions" displayType="TOOL_WINDOW" playSound="true" />
+    <notification groupId="IlluminatedCloudSoqlQuery" displayType="TOOL_WINDOW" playSound="true" />
+    <notification groupId="IlluminatedCloudStatusBar" playSound="true" />
+    <notification groupId="jps configuration error" displayType="TOOL_WINDOW" shouldLog="false" />
+    <notification groupId="System shortcuts conflicts" />
+  </component>
+</application>

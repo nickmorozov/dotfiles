@@ -1,0 +1,32 @@
+<application>
+  <component name="ProjectManager">
+    <defaultProject>
+      <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "settings.editor.selected.configurable": "advanced.settings"
+  }
+}]]></component>
+      <component name="TaskManager">
+        <task active="true" id="Default" summary="Default task">
+          <created>1716233687884</created>
+          <option name="number" value="Default" />
+          <option name="presentableId" value="Default" />
+          <updated>1716233687884</updated>
+          <workItem from="1716233691260" duration="856000" />
+        </task>
+        <servers />
+      </component>
+      <component name="TimeTrackingManager">
+        <option name="totallyTimeSpent" value="856000" />
+      </component>
+      <component name="WindowStateProjectService">
+        <state x="257" y="213" width="1378" height="1172" key="SettingsEditor" timestamp="1716234057046">
+          <screen x="0" y="25" width="2930" height="1667" />
+        </state>
+        <state x="257" y="213" width="1378" height="1172" key="SettingsEditor/-3008.25.3008.1667/0.25.2930.1667" timestamp="1716234057046" />
+        <state x="904" y="283" key="SettingsEditor/-3008.25.3008.1667/0.25.2932.1667" timestamp="1716233351630" />
+        <state x="789" y="244" key="SettingsEditor/0.25.2560.1415/2560.25.2560.1415" timestamp="1714038882695" />
+      </component>
+    </defaultProject>
+  </component>
+</application>
