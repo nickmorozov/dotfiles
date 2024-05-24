@@ -29,8 +29,8 @@ EOF
 }
 
 # Personal/Work Focus Toggle
-PERSONAL_APPS=('Safari' 'DatWeatherDoe' 'Karabiner-Menu' 'Karabiner-Elements')
-WORK_APPS=('Microsoft Edge' 'Slack' 'Microsoft Teams (work or school)' 'Microsoft Teams' 'MSTeams' 'IntelliJ IDEA' 'HazeOver' 'Dato' 'JetBrains Toolbox' 'LogiTune' 'Moom' 'Cisco AnyConnect Secure Mobility Client')
+PERSONAL_APPS=('Safari' 'DatWeatherDoe')
+WORK_APPS=('Microsoft Edge' 'Slack' 'Microsoft Teams (work or school)' 'Microsoft Teams' 'MSTeams' 'IntelliJ IDEA' 'HazeOver' 'Dato' 'JetBrains Toolbox' 'LogiTune' 'Moom' 'Cisco AnyConnect Secure Mobility Client', 'zoom.us')
 
 # Work Focus
 dbw() {
@@ -63,7 +63,7 @@ dbp() {
     _launch "$app"
   done
 
-  focus -s "Default"
+  focus -s
 
   _activate "${PERSONAL_APPS[1]}"
 }
