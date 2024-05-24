@@ -11,6 +11,10 @@
 	<array/>
 	<key>AdjustWindowForFontSizeChange</key>
 	<false/>
+	<key>AiMaxTokens</key>
+	<integer>128000</integer>
+	<key>AiModel</key>
+	<string>gpt-4-turbo</string>
 	<key>AllowClipboardAccess</key>
 	<true/>
 	<key>AllowTabbarInTitlebarAccessoryBigSur</key>
@@ -84021,6 +84025,8 @@
 	<false/>
 	<key>DimOnlyText</key>
 	<true/>
+	<key>DockIconTogglesWindow</key>
+	<false/>
 	<key>DoubleClickPerformsSmartSelection</key>
 	<false/>
 	<key>EnableAPIServer</key>
@@ -85360,20 +85366,6 @@
 					<integer>10</integer>
 					<key>Text</key>
 					<string>[24;2~</string>
-				</dict>
-				<key>0xf728-0x0</key>
-				<dict>
-					<key>Action</key>
-					<integer>11</integer>
-					<key>Text</key>
-					<string>0x4</string>
-				</dict>
-				<key>0xf728-0x80000</key>
-				<dict>
-					<key>Action</key>
-					<integer>10</integer>
-					<key>Text</key>
-					<string>d</string>
 				</dict>
 				<key>0xf729-0x20000</key>
 				<dict>
@@ -88048,7 +88040,7 @@
 	<key>StretchTabsToFillBar</key>
 	<true/>
 	<key>SwitchPaneModifier</key>
-	<integer>5</integer>
+	<integer>9</integer>
 	<key>SwitchTabModifier</key>
 	<integer>9</integer>
 	<key>SwitchWindowModifier</key>
