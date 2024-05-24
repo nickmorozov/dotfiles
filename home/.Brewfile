@@ -361,8 +361,6 @@ cask "intune-company-portal"
 cask "iterm2"
 # JetBrains tools manager
 cask "jetbrains-toolbox"
-# Keyboard customiser
-cask "karabiner-elements"
 # Interface for reading and syncing eBooks
 cask "kindle"
 # Optimise your webcam, headset, and Logi Dock for video meetings
