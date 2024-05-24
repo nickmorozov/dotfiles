@@ -1,0 +1,46 @@
+<application>
+  <component name="DimensionService">
+    <location key="find.popup.-5120.0.5120.2880@192dpi" x="-3032" y="278" />
+    <location key="find.popup.0.0.6016.3384@192dpi" x="1474" y="328" />
+    <size key="find.popup.-5120.0.5120.2880@192dpi" width="1294" height="1668" />
+    <size key="GridCell.Tab.0.left.0.0.6016.3384@192dpi" width="2484" height="1010" />
+    <size key="GridCell.Tab.0.center.0.0.6016.3384@192dpi" width="2484" height="1010" />
+    <size key="GridCell.Tab.0.right.0.0.6016.3384@192dpi" width="2484" height="1010" />
+    <size key="GridCell.Tab.0.bottom.0.0.6016.3384@192dpi" width="2484" height="1010" />
+    <size key="find.popup.0.0.6016.3384@192dpi" width="1624" height="1710" />
+    <size key="GridCell.Tab.0.left.0.0.3584.2240@192dpi" width="2840" height="1020" />
+    <size key="GridCell.Tab.0.center.0.0.3584.2240@192dpi" width="2840" height="1020" />
+    <size key="GridCell.Tab.0.right.0.0.3584.2240@192dpi" width="2840" height="1020" />
+    <size key="GridCell.Tab.0.bottom.0.0.3584.2240@192dpi" width="2840" height="1020" />
+    <size key="GridCell.Tab.1.left.0.0.6016.3384@192dpi" width="2484" height="1010" />
+    <size key="GridCell.Tab.1.center.0.0.6016.3384@192dpi" width="2484" height="1010" />
+    <size key="GridCell.Tab.1.right.0.0.6016.3384@192dpi" width="2484" height="1010" />
+    <size key="GridCell.Tab.1.bottom.0.0.6016.3384@192dpi" width="2484" height="1010" />
+  </component>
+  <component name="WindowManager">
+    <frame x="-2204" y="359" width="1400" height="1000" />
+  </component>
+  <component name="WindowStateApplicationService">
+    <state width="910" height="141" key="ShowUsagesActions.dimensionServiceKey" timestamp="1716426824750">
+      <screen x="0" y="25" width="2941" height="1667" />
+    </state>
+    <state width="1103" height="141" key="ShowUsagesActions.dimensionServiceKey/-3008.25.3008.1667/0.25.2936.1667" timestamp="1716289959227" />
+    <state width="910" height="141" key="ShowUsagesActions.dimensionServiceKey/-3008.25.3008.1667/0.25.2941.1667" timestamp="1716426824750" />
+    <state width="798" height="213" key="ShowUsagesActions.dimensionServiceKey/0.25.2940.1667/-3008.25.3008.1667" timestamp="1716335484579" />
+    <state x="-1505" y="715" width="1005" height="813" key="WELCOME_SCREEN" timestamp="1716505773505">
+      <screen x="-3008" y="25" width="3008" height="1667" />
+    </state>
+    <state x="1280" y="605" width="800" height="650" key="WELCOME_SCREEN/-2560.0.2560.1440/0.25.2560.1415" timestamp="1715136055707" />
+    <state x="1465" y="715" width="1000" height="813" key="WELCOME_SCREEN/-3008.25.3008.1667/0.25.2930.1667" timestamp="1716234596876" />
+    <state x="1466" y="708" width="916" height="766" key="WELCOME_SCREEN/-3008.25.3008.1667/0.25.2932.1667" timestamp="1716233277232" />
+    <state x="1468" y="715" width="1003" height="813" key="WELCOME_SCREEN/-3008.25.3008.1667/0.25.2938.1667" timestamp="1716351870158" />
+    <state x="-1505" y="715" width="1005" height="813" key="WELCOME_SCREEN/-3008.25.3008.1667/0.25.2941.1667" timestamp="1716505773505" />
+    <state x="973" y="536" width="800" height="650" key="WELCOME_SCREEN/0.25.1742.1095" timestamp="1716328154651" />
+    <state x="1280" y="605" width="800" height="650" key="WELCOME_SCREEN/0.25.2560.1415/2560.25.2560.1415" timestamp="1714038955749" />
+    <state x="1469" y="745" width="1350" height="990" key="WELCOME_SCREEN/0.25.2938.1667/-3008.25.3008.1667" timestamp="1716328465228" />
+    <state x="1134" y="630" key="ide.config.custom.settings" timestamp="1716234506389">
+      <screen x="0" y="25" width="2930" height="1667" />
+    </state>
+    <state x="1134" y="630" key="ide.config.custom.settings/-3008.25.3008.1667/0.25.2930.1667" timestamp="1716234506389" />
+  </component>
+</application>

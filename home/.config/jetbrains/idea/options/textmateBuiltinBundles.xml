@@ -1,0 +1,10 @@
+<application>
+  <component name="TextMateBuiltinBundlesSettings">
+    <option name="turnedOffBundleNames">
+      <list>
+        <option value="css" />
+        <option value="javascript" />
+      </list>
+    </option>
+  </component>
+</application>

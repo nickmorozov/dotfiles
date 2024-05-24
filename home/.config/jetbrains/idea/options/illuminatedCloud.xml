@@ -1,0 +1,70 @@
+<application>
+  <component name="IlluminatedCloudSettings">
+    <option name="addToolbarToNewUi" value="false" />
+    <option name="alwaysCollectCodeCoverage" value="true" />
+    <option name="alwaysRunUnitTestsAsync" value="true" />
+    <option name="connectionConfigs">
+      <list>
+        <IlluminatedCloudConnectionConfig>
+          <option name="connectionName" value="isys-dev" />
+          <option name="connectionType" value="OAUTH" />
+          <option name="ensureFieldReadAccess" value="false" />
+          <option name="loginUrl" value="" />
+          <option name="organizationType" value="OAUTH" />
+          <option name="username" value="nmorozov@corraogroup.com.isys.corraodev" />
+        </IlluminatedCloudConnectionConfig>
+        <IlluminatedCloudConnectionConfig>
+          <option name="connectionName" value="isys-prod" />
+          <option name="connectionType" value="OAUTH" />
+          <option name="ensureFieldReadAccess" value="false" />
+          <option name="loginUrl" value="" />
+          <option name="organizationType" value="DEVHUB" />
+          <option name="username" value="nmorozov@corraogroup.com.isys" />
+        </IlluminatedCloudConnectionConfig>
+        <IlluminatedCloudConnectionConfig>
+          <option name="checkForConflicts" value="true" />
+          <option name="connectionName" value="qd-dev" />
+          <option name="connectionType" value="OAUTH" />
+          <option name="loginSharingModel" value="SHARED" />
+          <option name="loginUrl" value="" />
+          <option name="organizationType" value="OAUTH" />
+          <option name="username" value="cgadmin@qdusa.com.prod.devpro" />
+        </IlluminatedCloudConnectionConfig>
+        <IlluminatedCloudConnectionConfig>
+          <option name="checkForConflicts" value="true" />
+          <option name="confirmWrites" value="true" />
+          <option name="confirmWritesDefaultResponse" value="SAME_AS_LAST" />
+          <option name="connectionName" value="qd-prod" />
+          <option name="connectionType" value="OAUTH" />
+          <option name="disableDeployOnSaveWhenConfirmWrites" value="true" />
+          <option name="ensureFieldReadAccess" value="false" />
+          <option name="loginSharingModel" value="SHARED" />
+          <option name="loginUrl" value="" />
+          <option name="organizationType" value="OAUTH" />
+          <option name="username" value="cgadmin@qdusa.com.prod" />
+        </IlluminatedCloudConnectionConfig>
+        <IlluminatedCloudConnectionConfig>
+          <option name="checkForConflicts" value="true" />
+          <option name="connectionName" value="qd-uat" />
+          <option name="connectionType" value="OAUTH" />
+          <option name="loginSharingModel" value="SHARED" />
+          <option name="loginUrl" value="" />
+          <option name="organizationType" value="OAUTH" />
+          <option name="username" value="cgadmin@qdusa.com.prod.partial" />
+        </IlluminatedCloudConnectionConfig>
+      </list>
+    </option>
+    <option name="defaultToChangedOnly" value="true" />
+    <option name="editDelay" value="10000" />
+    <option name="lastChangeNotesVersion" value="2.3.1.4" />
+    <option name="retrieveAddedMetadataPolicy" value="ALL" />
+    <option name="selectedConnectionIndex" value="4" />
+    <option name="selectedTabIndex" value="4" />
+    <option name="sortPackageXmlEntries" value="true" />
+    <option name="updateOrgMetadataCacheOnSuccessfulDeployment" value="true" />
+    <option name="validateApexOnEdit" value="true" />
+    <option name="validateOtherMetadataOnEdit" value="true" />
+    <option name="validateVisualforceOnEdit" value="true" />
+    <option name="validateVisualforceWhenLocalErrorsArePresent" value="false" />
+  </component>
+</application>

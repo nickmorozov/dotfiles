@@ -1,0 +1,60 @@
+<scheme name="_@user_Solarized Dark (Material)" version="142" parent_scheme="Darcula">
+  <option name="FONT_SCALE" value="1.0" />
+  <metaInfo>
+    <property name="created">2023-08-08T08:54:37</property>
+    <property name="ide">idea</property>
+    <property name="ideVersion">2023.2.0.0</property>
+    <property name="modified">2024-01-26T22:55:02</property>
+    <property name="originalScheme">Solarized Dark (Material)</property>
+    <property name="partialSave">true</property>
+  </metaInfo>
+  <console-font>
+    <option name="EDITOR_FONT_NAME" value="JetBrains Mono" />
+    <option name="EDITOR_FONT_SIZE" value="12" />
+  </console-font>
+  <console-font>
+    <option name="EDITOR_FONT_NAME" value="Menlo" />
+    <option name="EDITOR_FONT_SIZE" value="12" />
+  </console-font>
+  <option name="CONSOLE_LINE_SPACING" value="1.6" />
+  <colors>
+    <option name="FILESTATUS_ADDED" value="72f1b8" />
+    <option name="FILESTATUS_DELETED" value="fe4450" />
+    <option name="FILESTATUS_HIJACKED" value="fede5d" />
+    <option name="FILESTATUS_IDEA_FILESTATUS_DELETED_FROM_FILE_SYSTEM" value="fe4450" />
+    <option name="FILESTATUS_IDEA_FILESTATUS_IGNORED" value="ffffff59" />
+    <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_BOTH_CONFLICTS" value="3edf9" />
+    <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_CONFLICTS" value="3edf9" />
+    <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_PROPERTY_CONFLICTS" value="3edf9" />
+    <option name="FILESTATUS_IDEA_SVN_FILESTATUS_EXTERNAL" value="22863a" />
+    <option name="FILESTATUS_IDEA_SVN_FILESTATUS_OBSTRUCTED" value="727238" />
+    <option name="FILESTATUS_IDEA_SVN_REPLACED" value="a7700" />
+    <option name="FILESTATUS_IGNORE.PROJECT_VIEW.IGNORED" value="dbedff" />
+    <option name="FILESTATUS_MERGED" value="36f9f6" />
+    <option name="FILESTATUS_MODIFIED" value="f92aad" />
+    <option name="FILESTATUS_NOT_CHANGED_IMMEDIATE" value="b893ce" />
+    <option name="FILESTATUS_NOT_CHANGED_RECURSIVE" value="b893ce" />
+    <option name="FILESTATUS_OBSOLETE" value="ffcb6b" />
+    <option name="FILESTATUS_SUPPRESSED" value="848bbd" />
+    <option name="FILESTATUS_SWITCHED" value="fede5d" />
+    <option name="FILESTATUS_UNKNOWN" value="999999" />
+    <option name="FILESTATUS_addedOutside" value="3edf9" />
+    <option name="FILESTATUS_changelistConflict" value="a148ab" />
+    <option name="FILESTATUS_modifiedOutside" value="a148ab" />
+  </colors>
+  <attributes>
+    <option name="KOTLIN_LABEL">
+      <value>
+        <option name="EFFECT_TYPE" value="1" />
+      </value>
+    </option>
+    <option name="MATCHED_BRACE_ATTRIBUTES">
+      <value>
+        <option name="BACKGROUND" value="2e4c52" />
+        <option name="FONT_TYPE" value="1" />
+        <option name="EFFECT_COLOR" value="ffcc00" />
+        <option name="EFFECT_TYPE" value="4" />
+      </value>
+    </option>
+  </attributes>
+</scheme>

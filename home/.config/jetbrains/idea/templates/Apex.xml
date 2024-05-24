@@ -1,0 +1,7 @@
+<templateSet group="Apex">
+  <template name="sret" value="if (true) return;&#10;$END$" description="Safe early return for debugging" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="APEX" value="true" />
+    </context>
+  </template>
+</templateSet>

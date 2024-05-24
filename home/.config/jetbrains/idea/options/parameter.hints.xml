@@ -1,0 +1,5 @@
+<application>
+  <component name="ParameterNameHintsSettings">
+    <option id="com.illuminatedcloud.intellij.editor.ApexParameterNameHints.OPTION_SHOW_NAME_FOR_ALL_ARGUMENTS" value="true" />
+  </component>
+</application>

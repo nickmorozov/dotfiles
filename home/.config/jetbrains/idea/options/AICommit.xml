@@ -1,0 +1,7 @@
+<application>
+  <component name="com.github.blarc.ai.commits.intellij.plugin.settings.AppSettings">
+    <option name="lastVersion" value="1.6.0" />
+    <option name="openAIModelId" value="gpt-4" />
+    <option name="locale" value="en-NU" />
+  </component>
+</application>

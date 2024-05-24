@@ -114,8 +114,8 @@ export SUDO_ASKPASS="$HOME/.local/bin/askpass"
 export SPACESHIP_CONFIG="$XDG_CONFIG_HOME/spaceship/config.zsh"
 
 # Jetbrains
-export IDEA_PROPERTIES="$XDG_CONFIG_HOME/jetbrains/idea.properties"
-export IDEA_VM_OPTIONS="$XDG_CONFIG_HOME/jetbrains/idea.vmoptions"
+export IDEA_PROPERTIES="$XDG_CONFIG_HOME/jetbrains/idea/idea.properties"
+export IDEA_VM_OPTIONS="$XDG_CONFIG_HOME/jetbrains/idea/idea.vmoptions"
 
 # Create host file
 if [ ! -f "$ZDOTDIR/zsh.$HOST" ]; then

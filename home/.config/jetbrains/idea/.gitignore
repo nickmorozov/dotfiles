@@ -1,0 +1,18 @@
+# Binary
+*.db
+
+# Large folders with binaries or repos
+event-log-metadata/
+extensions/
+illuminatedCloud2/
+javascript/
+plugins/
+settingsSync/
+ssl/
+tasks/
+workspace/
+
+# Probably not needed
+migration/
+jdbc-drivers/
+

@@ -1,0 +1,7 @@
+<application>
+  <component name="IntentionManagerSettings">
+    <ignoreAction name="Salesforce/Tool Window/Anonymous Apex/Debug in Anonymous Apex" />
+    <ignoreAction name="Salesforce/Tool Window/Anonymous Apex/Open in Anonymous Apex" />
+    <ignoreAction name="Salesforce/Tool Window/SOQL Query/Open in SOQL Query" />
+  </component>
+</application>

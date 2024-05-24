@@ -1,0 +1,40 @@
+<scheme name="_@user_Darcula" version="142" parent_scheme="Darcula">
+  <metaInfo>
+    <property name="created">2023-10-24T15:30:24</property>
+    <property name="ide">idea</property>
+    <property name="ideVersion">2023.2.3.0.0</property>
+    <property name="modified">2024-01-26T08:31:33</property>
+    <property name="originalScheme">Darcula</property>
+  </metaInfo>
+  <colors>
+    <option name="FILESTATUS_ADDED" value="85e89d" />
+    <option name="FILESTATUS_DELETED" value="959da5" />
+    <option name="FILESTATUS_HIJACKED" value="b392f0" />
+    <option name="FILESTATUS_IDEA_FILESTATUS_DELETED_FROM_FILE_SYSTEM" value="959da5" />
+    <option name="FILESTATUS_IDEA_FILESTATUS_IGNORED" value="dbedff" />
+    <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_BOTH_CONFLICTS" value="f97583" />
+    <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_CONFLICTS" value="f97583" />
+    <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_PROPERTY_CONFLICTS" value="f97583" />
+    <option name="FILESTATUS_IGNORE.PROJECT_VIEW.IGNORED" value="dbedff" />
+    <option name="FILESTATUS_MERGED" value="b392f0" />
+    <option name="FILESTATUS_MODIFIED" value="79b8ff" />
+    <option name="FILESTATUS_NOT_CHANGED_IMMEDIATE" value="79b8ff" />
+    <option name="FILESTATUS_NOT_CHANGED_RECURSIVE" value="79b8ff" />
+    <option name="FILESTATUS_OBSOLETE" value="959da5" />
+    <option name="FILESTATUS_SUPPRESSED" value="959da5" />
+    <option name="FILESTATUS_SWITCHED" value="ffab70" />
+    <option name="FILESTATUS_UNKNOWN" value="ffab70" />
+    <option name="FILESTATUS_addedOutside" value="ffea7f" />
+    <option name="FILESTATUS_changelistConflict" value="f97583" />
+    <option name="FILESTATUS_modifiedOutside" value="b392f0" />
+  </colors>
+  <attributes>
+    <option name="MT_DIRECTORIES">
+      <value>
+        <option name="FOREGROUND" value="a9b7c6" />
+        <option name="BACKGROUND" value="2b2b2b" />
+        <option name="EFFECT_TYPE" value="5" />
+      </value>
+    </option>
+  </attributes>
+</scheme>
