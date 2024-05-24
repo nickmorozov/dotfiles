@@ -9,6 +9,17 @@
 # Environment
 # ------------------------------------------------------------------------------
 
+# Start the SSH agent if not already running
+if [ -z "$SSH_AUTH_SOCK" ]; then
+  eval "$(ssh-agent -s)"
+fi
+
+# Add SSH key
+ssh-add -l &>/dev/null
+if [ $? -eq 1 ]; then
+  ssh-add --apple-use-keychain ~/.ssh/id_rsa  # Add key to the keychain and agent
+fi
+
 HB_CNF_HANDLER="$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
 if [ -f "$HB_CNF_HANDLER" ]; then
     source "$HB_CNF_HANDLER"
@@ -58,7 +69,6 @@ if ! zgenom saved; then
     zgenom ohmyzsh plugins/npm
     zgenom ohmyzsh plugins/nvm
     zgenom ohmyzsh plugins/extract
-    zgenom ohmyzsh plugins/ssh-agent
     zgenom ohmyzsh plugins/macos
     zgenom ohmyzsh plugins/gh
     zgenom ohmyzsh plugins/common-aliases
@@ -67,6 +77,8 @@ if ! zgenom saved; then
     zgenom ohmyzsh plugins/aliases
     zgenom ohmyzsh plugins/iterm2
     zgenom ohmyzsh plugins/thefuck
+    zgenom ohmyzsh plugins/dotenv
+    zgenom ohmyzsh plugins/ssh-agent
 
     # Custom plugins
     zgenom load jeffreytse/zsh-vi-mode
@@ -79,8 +91,8 @@ if ! zgenom saved; then
     zgenom load zsh-users/zsh-autosuggestions
     zgenom load unixorn/autoupdate-zgenom
     zgenom load unixorn/fzf-zsh-plugin
-    zgenom load amyreese/zsh-titles 
-    
+    zgenom load amyreese/zsh-titles
+
     # Files
     zgenom load $DOTFILES/lib
     zgenom load $DOTFILES/custom
@@ -93,10 +105,12 @@ if ! zgenom saved; then
 
     # Save all to init script
     zgenom save
-    
+
     # Compile your zsh files
     zgenom compile $ZGEN_RESET_ON_CHANGE
 fi
+
+zstyle :omz:plugins:ssh-agent identities id_rsa
 
 zgenom clean
 
@@ -148,6 +162,14 @@ fi
 # ------------------------------------------------------------------------------
 # Overrides
 # ------------------------------------------------------------------------------
+
+if [ -f "$ZDOTDIR/aliases.zsh" ]; then
+  source "$ZDOTDIR/aliases.zsh"
+
+  for s in $ZDOTDIR/*.zsh; do
+    source $s
+  done
+fi
 
 # Source local configuration
 if [ -f "zsh.$HOST" ]; then

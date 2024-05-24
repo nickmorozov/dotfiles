@@ -9,6 +9,7 @@
 # Enable aliases to be sudo’ed
 #   http://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo
 alias sudo='sudo '
+alias quiet=" >& /dev/null "
 
 # Check if command exists
 _exists() {
@@ -22,6 +23,16 @@ _extend_path() {
   if ! $( echo "$PATH" | tr ":" "\n" | grep -qx "$1" ) ; then
     export PATH="$1:$PATH"
   fi
+}
+
+# Colored output
+
+_green() {
+  echo -e "\e[32m$@\e[0m"
+}
+
+_red() {
+  echo -e "\e[31m$@\e[0m"
 }
 
 # Extend $NODE_PATH
@@ -102,6 +113,10 @@ export SUDO_ASKPASS="$HOME/.local/bin/askpass"
 # Spaceship config
 export SPACESHIP_CONFIG="$XDG_CONFIG_HOME/spaceship/config.zsh"
 
+# Jetbrains
+export IDEA_PROPERTIES="$XDG_CONFIG_HOME/jetbrains/idea.properties"
+export IDEA_VM_OPTIONS="$XDG_CONFIG_HOME/jetbrains/idea.vmoptions"
+
 # Create host file
 if [ ! -f "$ZDOTDIR/zsh.$HOST" ]; then
   touch "$ZDOTDIR/zsh.$HOST"
@@ -119,6 +134,7 @@ ZGEN_RESET_ON_CHANGE=(
   ${ZDOTDIR}/.zlogin
   ${ZDOTDIR}/.zlogout
   ${ZDOTDIR}/zsh.${HOST}
+  ${ZDOTDIR}/*.zsh
   ${DOTFILES}/lib/*.zsh # Upstream scripts
   ${SPACESHIP_CONFIG}
 )
