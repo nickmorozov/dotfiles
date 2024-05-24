@@ -99,6 +99,8 @@ brew "lzo"
 brew "pixman"
 # Vector graphics library with cross-device output support
 brew "cairo"
+# Tool for emulating mouse and keyboard events
+brew "cliclick"
 # GNU multiple precision arithmetic library
 brew "gmp"
 # GNU File, Shell, and Text utilities
@@ -331,6 +333,8 @@ cask "datweatherdoe"
 cask "discord"
 # Utility to show apps badges from the dock in the menu bar
 cask "doll"
+# Tool to hide status bar icons
+cask "dozer"
 # Free monospaced font with programming ligatures
 cask "font-fira-code"
 # Developer targeted fonts with a high number of glyphs
@@ -359,6 +363,8 @@ cask "iterm2"
 cask "jetbrains-toolbox"
 # Keyboard customiser
 cask "karabiner-elements"
+# Interface for reading and syncing eBooks
+cask "kindle"
 # Optimise your webcam, headset, and Logi Dock for video meetings
 cask "logitune"
 # Mouse utility to add gesture functions and smooth scrolling to 3rd party mice
@@ -371,14 +377,24 @@ cask "microsoft-auto-update"
 cask "microsoft-edge"
 # Spreadsheet software
 cask "microsoft-excel"
+# OpenJDK distribution from Microsoft
+cask "microsoft-openjdk"
+# OpenJDK distribution from Microsoft
+cask "microsoft-openjdk@11"
 # Meet, chat, call, and collaborate in just one place
 cask "microsoft-teams"
 # Word processor
 cask "microsoft-word"
 # Utility to move and zoom windows—on one display
 cask "moom"
+# App to write, plan, collaborate, and get organised
+cask "notion"
+# Calendar for professionals and teams
+cask "notion-calendar"
 # Digital audio production application
 cask "reaper"
+# Tool for sending personal documents to Kindles from Macs
+cask "send-to-kindle"
 # Salesforce CLI tools
 cask "sf"
 # Team communication and collaboration software
@@ -407,20 +423,22 @@ mas "Actions", id: 1586435171
 mas "Affinity Photo", id: 824183456
 mas "Amphetamine", id: 937984704
 mas "Barbee", id: 1548711022
+mas "Controller", id: 1198176727
 mas "DaisyDisk", id: 411643860
 mas "Dato", id: 1470584107
 mas "GarageBand", id: 682658836
 mas "Ghostery – Privacy Ad Blocker", id: 1436953057
-mas "Home Assistant", id: 1099568401
 mas "Mapper", id: 1589391989
 mas "Noir", id: 1592917505
 mas "Paste", id: 967805235
 mas "Photomator", id: 1444636541
+mas "Planet Tab", id: 6444109404
 mas "Signal Shifter", id: 6446061552
 mas "Spaced", id: 1666327168
 mas "Spotica Menu", id: 570549457
 mas "StopTheMadness Pro", id: 6471380298
 mas "Typist", id: 415166115
+mas "Vimkey", id: 1585682577
 mas "Xcode", id: 497799835
 mas "Xnip", id: 1221250572
 vscode "aaron-bond.better-comments"
