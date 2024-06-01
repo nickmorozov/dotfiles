@@ -4,7 +4,10 @@
 #############################################
 
 if _exists sf; then
-  alias sfl="sf org list --all"
+  sfl() {
+    sf org list --all
+  }
+
   alias sfalias="sf alias set"
 
   function sfd {

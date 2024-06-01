@@ -2,38 +2,6 @@
   <component name="RecentProjectsManager">
     <option name="additionalInfo">
       <map>
-        <entry key="$USER_HOME$/Projects/Job/quantum">
-          <value>
-            <RecentProjectMetaInfo frameTitle="quantum [~/Projects/Job/quantum] – /Users/nick/Projects/Job/quantum/src/main/default/lwc/authNetPaymentAuthorization/authNetPaymentAuthorization.js" projectWorkspaceId="2gkMnTAHwHjKZuZ8O09hez2wg1R">
-              <option name="activationTimestamp" value="1716426953222" />
-              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
-              <option name="build" value="IU-241.15989.150" />
-              <option name="buildTimestamp" value="1714390920000" />
-              <option name="colorInfo">
-                <RecentProjectColorInfo associatedIndex="0" />
-              </option>
-              <frame x="0" y="55" width="8640" height="3673" extendedState="6" />
-              <option name="productionCode" value="IU" />
-              <option name="projectOpenTimestamp" value="1716406791442" />
-            </RecentProjectMetaInfo>
-          </value>
-        </entry>
-        <entry key="$USER_HOME$/Projects/Job/isys">
-          <value>
-            <RecentProjectMetaInfo frameTitle="isys [~/Projects/Job/isys] – /Users/nick/Projects/Job/isys/.eslintrc" projectWorkspaceId="2gkMnFJP0FMLcRKv06OgsS4hOeZ">
-              <option name="activationTimestamp" value="1716426940629" />
-              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
-              <option name="build" value="IU-241.15989.150" />
-              <option name="buildTimestamp" value="1714390920000" />
-              <option name="colorInfo">
-                <RecentProjectColorInfo associatedIndex="2" />
-              </option>
-              <frame x="4" y="29" width="1947" height="1659" />
-              <option name="productionCode" value="IU" />
-              <option name="projectOpenTimestamp" value="1716426942423" />
-            </RecentProjectMetaInfo>
-          </value>
-        </entry>
         <entry key="$USER_HOME$/Projects/Repos/focus-manager">
           <value>
             <RecentProjectMetaInfo frameTitle="focus-manager [~/Projects/Repos/focus-manager] – /Users/nick/Projects/Repos/focus-manager/focus" projectWorkspaceId="2gsz9HXIT1h7gM4FgpIQtfDjLI3">
@@ -50,24 +18,56 @@
             </RecentProjectMetaInfo>
           </value>
         </entry>
-        <entry key="$USER_HOME$/Projects/Repos/calendar-syncer">
+        <entry key="$USER_HOME$/Projects/Job/quantum">
           <value>
-            <RecentProjectMetaInfo frameTitle="calendar-syncer [~/Projects/Repos/calendar-syncer] – /Users/nick/Projects/Repos/calendar-syncer/syncer" opened="true" projectWorkspaceId="2gAMoaWF6GAWIY9f6Id1wxYD9zT">
-              <option name="activationTimestamp" value="1716507445741" />
+            <RecentProjectMetaInfo frameTitle="quantum [~/Projects/Job/quantum] – /Users/nick/Projects/Job/quantum/.env" projectWorkspaceId="2gkMnTAHwHjKZuZ8O09hez2wg1R">
+              <option name="activationTimestamp" value="1716828988070" />
               <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
               <option name="build" value="IU-241.17011.79" />
               <option name="buildTimestamp" value="1716355440000" />
               <option name="colorInfo">
                 <RecentProjectColorInfo associatedIndex="0" />
               </option>
-              <frame x="-2204" y="359" width="1400" height="1000" />
+              <frame x="1767" y="25" width="1172" height="1667" />
               <option name="productionCode" value="IU" />
-              <option name="projectOpenTimestamp" value="1716505788595" />
+              <option name="projectOpenTimestamp" value="1716828960843" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Projects/Repos/calendar-syncer">
+          <value>
+            <RecentProjectMetaInfo frameTitle="calendar-syncer [~/Projects/Repos/calendar-syncer] – /Users/nick/Projects/Repos/calendar-syncer/jest.config.js" projectWorkspaceId="2gAMoaWF6GAWIY9f6Id1wxYD9zT">
+              <option name="activationTimestamp" value="1716936060221" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="build" value="IU-241.17011.79" />
+              <option name="buildTimestamp" value="1716355440000" />
+              <option name="colorInfo">
+                <RecentProjectColorInfo associatedIndex="0" />
+              </option>
+              <frame x="0" y="25" width="1792" height="1095" extendedState="6" />
+              <option name="productionCode" value="IU" />
+              <option name="projectOpenTimestamp" value="1716936039411" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Projects/Job/isys">
+          <value>
+            <RecentProjectMetaInfo frameTitle="isys [~/Projects/Job/isys] – /Users/nick/Projects/Job/isys/.gitmodules" projectWorkspaceId="2gkMnFJP0FMLcRKv06OgsS4hOeZ">
+              <option name="activationTimestamp" value="1717177143465" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="build" value="IU-241.17011.79" />
+              <option name="buildTimestamp" value="1716355440000" />
+              <option name="colorInfo">
+                <RecentProjectColorInfo associatedIndex="2" />
+              </option>
+              <frame x="0" y="25" width="2939" height="1667" extendedState="6" />
+              <option name="productionCode" value="IU" />
+              <option name="projectOpenTimestamp" value="1717003263680" />
             </RecentProjectMetaInfo>
           </value>
         </entry>
       </map>
     </option>
-    <option name="lastOpenedProject" value="$USER_HOME$/Projects/Repos/calendar-syncer" />
+    <option name="lastOpenedProject" value="$USER_HOME$/Projects/Job/isys" />
   </component>
 </application>

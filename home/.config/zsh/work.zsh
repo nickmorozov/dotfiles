@@ -30,7 +30,8 @@ EOF
 
 # Personal/Work Focus Toggle
 PERSONAL_APPS=('Safari' 'DatWeatherDoe')
-WORK_APPS=('Microsoft Edge' 'Slack' 'Microsoft Teams (work or school)' 'Microsoft Teams' 'MSTeams' 'IntelliJ IDEA' 'HazeOver' 'Dato' 'JetBrains Toolbox' 'LogiTune' 'Moom' 'Cisco AnyConnect Secure Mobility Client', 'zoom.us')
+WORK_APPS=('Microsoft Edge' 'Slack' 'Microsoft Teams (work or school)' 'Microsoft Teams' 'MSTeams' 'IntelliJ IDEA Ultimate' 'HazeOver' 'JetBrains Toolbox' 'LogiTune' 'Moom' 'Cisco AnyConnect Secure Mobility Client', 'zoom.us', 'ChatGPT')
+MUSIC_APPS=('Reaper' 'Akai Professional MPK Mini III Program Editor' 'Focusrite Control')
 
 # Work Focus
 dbw() {
@@ -38,11 +39,12 @@ dbw() {
   _toggle_stage_manager
 
   for app in "${PERSONAL_APPS[@]}"; do
-    _quit "$app"
+    _quit "$app" || killall "$app"
   done
 
   for app in "${WORK_APPS[@]}"; do
-    _launch "$app"
+    oa "$app.app" || _launch "$app"
+    _activate "$app"
   done
 
   focus -s "Work"
@@ -56,16 +58,29 @@ dbp() {
   _toggle_stage_manager
 
   for app in "${WORK_APPS[@]}"; do
-    _quit "$app"
+    _quit "$app" || killall "$app"
   done
 
   for app in "${PERSONAL_APPS[@]}"; do
-    _launch "$app"
+    _launch "$app" || oa "$app.app"
+    _activate "$app"
   done
 
-  focus -s
+  focus -s ""
 
   _activate "${PERSONAL_APPS[1]}"
+}
+
+dbm() {
+  for app in "${MUSIC_APPS[@]}"; do
+    oa "$app.app" || _launch "$app"
+  done
+}
+
+dbmc() {
+  for app in "${MUSIC_APPS[@]}"; do
+    _quit "$app" || killall "$app.app"
+  done
 }
 
 # Toggle

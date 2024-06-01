@@ -8,12 +8,13 @@
         <IlluminatedCloudConnectionConfig>
           <option name="connectionName" value="isys-dev" />
           <option name="connectionType" value="OAUTH" />
-          <option name="ensureFieldReadAccess" value="false" />
           <option name="loginUrl" value="" />
           <option name="organizationType" value="OAUTH" />
           <option name="username" value="nmorozov@corraogroup.com.isys.corraodev" />
         </IlluminatedCloudConnectionConfig>
         <IlluminatedCloudConnectionConfig>
+          <option name="checkForConflicts" value="true" />
+          <option name="confirmWrites" value="true" />
           <option name="connectionName" value="isys-prod" />
           <option name="connectionType" value="OAUTH" />
           <option name="ensureFieldReadAccess" value="false" />
@@ -23,6 +24,14 @@
         </IlluminatedCloudConnectionConfig>
         <IlluminatedCloudConnectionConfig>
           <option name="checkForConflicts" value="true" />
+          <option name="confirmWrites" value="true" />
+          <option name="connectionName" value="isys-uat" />
+          <option name="connectionType" value="OAUTH" />
+          <option name="loginUrl" value="" />
+          <option name="organizationType" value="OAUTH" />
+          <option name="username" value="nmorozov@corraogroup.com.isys.implement" />
+        </IlluminatedCloudConnectionConfig>
+        <IlluminatedCloudConnectionConfig>
           <option name="connectionName" value="qd-dev" />
           <option name="connectionType" value="OAUTH" />
           <option name="loginSharingModel" value="SHARED" />
@@ -58,8 +67,8 @@
     <option name="editDelay" value="10000" />
     <option name="lastChangeNotesVersion" value="2.3.1.4" />
     <option name="retrieveAddedMetadataPolicy" value="ALL" />
-    <option name="selectedConnectionIndex" value="4" />
-    <option name="selectedTabIndex" value="4" />
+    <option name="selectedConnectionIndex" value="5" />
+    <option name="selectedTabIndex" value="1" />
     <option name="sortPackageXmlEntries" value="true" />
     <option name="updateOrgMetadataCacheOnSuccessfulDeployment" value="true" />
     <option name="validateApexOnEdit" value="true" />

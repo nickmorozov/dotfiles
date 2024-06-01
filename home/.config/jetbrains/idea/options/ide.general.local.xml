@@ -1,5 +1,6 @@
 <application>
   <component name="GeneralLocalSettings">
     <option name="defaultProjectDirectory" />
+    <option name="useDefaultBrowser" value="false" />
   </component>
 </application>

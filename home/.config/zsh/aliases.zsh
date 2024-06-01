@@ -4,6 +4,7 @@
 #############################################
 
 alias zshplugins="la $ZGEN_SOURCE/sources/ohmyzsh/ohmyzsh/___/plugins"
+alias pslist="ps -U nick | grep Applications | sed -E 's/.*Applications\/(.*)\.app\/.*/\1/g' | sed -E 's/.*Web App.*bundlepath.*Applications\/(.*)\.app --sand.*/\1/g' | grep -v 'tty' | grep -v 'Frameworks' | g | sort -u"
 
 # Fast config edit
 alias eze="$EDITOR $ZDOTDIR/zshenv"
@@ -11,6 +12,17 @@ alias ezr="$EDITOR $ZDOTDIR/.zshrc"
 alias ezz="$EDITOR $ZDOTDIR/{zshenv,.zshrc,.zprofile,zsh.$HOST}"
 alias ea="$EDITOR $ZDOTDIR/aliases.zsh"
 alias eaa="$EDITOR $ZDOTDIR/*.zsh"
+
+# Crontab
+alias crontab-save="crontab -l > $HOME/.crontab"
+
+# Dotfiles
+dot-save() {
+  test -z $1 && return 1
+
+  mv "$1" "$HOME/.dotfiles/home"
+  ln -s "$HOME/.dotfiles/home/$1"
+}
 
 # Homebrew
 alias bi="brew install"

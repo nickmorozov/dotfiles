@@ -151,3 +151,21 @@ _extend_path "$HOME/.yarn/bin"
 _extend_path "$HOME/.bun/bin"
 _extend_path "$DOTFILES/bin"
 _extend_path "$XDG_CONFIG_HOME/yarn/global/node_modules/.bin"
+
+# ------------------------------------------------------------------------------
+# Overrides
+# ------------------------------------------------------------------------------
+
+if [ -f "$ZDOTDIR/aliases.zsh" ]; then
+  source "$ZDOTDIR/aliases.zsh"
+
+  for s in $ZDOTDIR/*.zsh; do
+    source $s
+  done
+fi
+
+# Source local configuration
+if [ -f "zsh.$HOST" ]; then
+  source "zsh.$HOST"
+fi
+

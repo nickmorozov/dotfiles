@@ -5,13 +5,30 @@
     "Nick's Layout": {
       "v2": [
         {
+          "id": "Bookmarks",
+          "isShowStripeButton": false,
+          "isSplit": true
+        },
+        {
+          "id": "Merge Requests",
+          "isShowStripeButton": false
+        },
+        {
+          "id": "Pull Requests",
+          "isShowStripeButton": false
+        },
+        {
+          "id": "Settings Sync History",
+          "isShowStripeButton": false
+        },
+        {
           "id": "Project",
           "order": 0,
           "contentUiType": "COMBO",
           "isActiveOnStart": true,
           "isVisible": true,
-          "weight": 0.19491525,
-          "sideWeight": 0.5003209
+          "weight": 0.21177456,
+          "sideWeight": 0.500503
         },
         {
           "id": "Codiumate Chat",
@@ -28,8 +45,6 @@
         {
           "id": "Commit",
           "order": 3,
-          "isActiveOnStart": true,
-          "isVisible": true,
           "weight": 0.19491525,
           "sideWeight": 0.4996791,
           "isSplit": true
@@ -37,8 +52,26 @@
         {
           "id": "Structure",
           "order": 4,
-          "weight": 0.25,
+          "isActiveOnStart": true,
+          "isVisible": true,
+          "weight": 0.21177456,
+          "sideWeight": 0.499497,
           "isSplit": true
+        },
+        {
+          "id": "TypeScript",
+          "anchor": "BOTTOM",
+          "isShowStripeButton": false
+        },
+        {
+          "id": "Profiler",
+          "anchor": "BOTTOM",
+          "isShowStripeButton": false
+        },
+        {
+          "id": "TODO",
+          "anchor": "BOTTOM",
+          "isShowStripeButton": false
         },
         {
           "id": "Python Console",
@@ -53,8 +86,6 @@
           "id": "Version Control",
           "order": 1,
           "anchor": "BOTTOM",
-          "isActiveOnStart": true,
-          "isVisible": true,
           "weight": 0.33001807,
           "sideWeight": 0.5003453
         },
@@ -131,8 +162,15 @@
           "isSplit": true
         },
         {
-          "id": "Run",
+          "id": "Messages",
           "order": 13,
+          "anchor": "BOTTOM",
+          "weight": 0.33013698,
+          "isSplit": true
+        },
+        {
+          "id": "Run",
+          "order": 14,
           "anchor": "BOTTOM",
           "isShowStripeButton": false,
           "weight": 0.1992164,
@@ -140,24 +178,33 @@
         },
         {
           "id": "Problems View",
-          "order": 14,
+          "order": 15,
           "anchor": "BOTTOM",
-          "weight": 0.33001807,
+          "weight": 0.33013698,
           "isSplit": true
         },
         {
-          "id": "Messages",
-          "order": 15,
-          "anchor": "BOTTOM"
-        },
-        {
           "id": "Notifications",
-          "order": 16,
+          "order": 17,
           "anchor": "BOTTOM",
-          "isActiveOnStart": true,
-          "isVisible": true,
           "weight": 0.33001807,
           "sideWeight": 0.4996547,
+          "isSplit": true
+        },
+        {
+          "id": "String Manipulation",
+          "anchor": "RIGHT",
+          "isShowStripeButton": false
+        },
+        {
+          "id": "Endpoints",
+          "anchor": "RIGHT",
+          "isShowStripeButton": false
+        },
+        {
+          "id": "Coverage",
+          "anchor": "RIGHT",
+          "isShowStripeButton": false,
           "isSplit": true
         },
         {
@@ -225,8 +272,8 @@
       ],
       "unifiedWeights": {
         "top": 0.33,
-        "left": 0.19491525,
-        "bottom": 0.33001807,
+        "left": 0.21177456,
+        "bottom": 0.33013698,
         "right": 0.24987158
       }
     }

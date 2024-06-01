@@ -84149,7 +84149,7 @@
 	<key>HideActivityIndicator</key>
 	<false/>
 	<key>HideFromDockAndAppSwitcher</key>
-	<true/>
+	<false/>
 	<key>HideMenuBarInFullscreen</key>
 	<false/>
 	<key>HideScrollbar</key>
@@ -84962,15 +84962,15 @@
 			<key>HotKey Modifier Flags</key>
 			<integer>0</integer>
 			<key>HotKey Window Animates</key>
-			<false/>
+			<true/>
 			<key>HotKey Window AutoHides</key>
 			<true/>
 			<key>HotKey Window Dock Click Action</key>
-			<integer>2</integer>
+			<integer>0</integer>
 			<key>HotKey Window Floats</key>
-			<false/>
-			<key>HotKey Window Reopens On Activation</key>
 			<true/>
+			<key>HotKey Window Reopens On Activation</key>
+			<false/>
 			<key>Icon</key>
 			<integer>1</integer>
 			<key>Idle Code</key>
@@ -88018,7 +88018,7 @@
 	<key>SeparateWindowTitlePerTab</key>
 	<true/>
 	<key>ShowFullScreenTabBar</key>
-	<true/>
+	<false/>
 	<key>ShowHintsInSplitPaneMenuItems</key>
 	<true/>
 	<key>ShowNewOutputIndicator</key>

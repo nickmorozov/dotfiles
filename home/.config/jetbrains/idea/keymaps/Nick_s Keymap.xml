@@ -299,7 +299,6 @@
   </action>
   <action id="IlluminatedCloud.DeployModifiedMetadata" />
   <action id="IlluminatedCloud.ForceSave">
-    <keyboard-shortcut first-keystroke="meta s" />
     <keyboard-shortcut first-keystroke="meta alt i" second-keystroke="s" />
   </action>
   <action id="IlluminatedCloud.ForceValidate">
@@ -452,6 +451,9 @@
   </action>
   <action id="SmartUnSelect">
     <keyboard-shortcut first-keystroke="shift ctrl meta left" />
+  </action>
+  <action id="StringManipulation.ToolWindow.Replace.SaveAction">
+    <keyboard-shortcut first-keystroke="meta s" />
   </action>
   <action id="SwitchCoverage">
     <keyboard-shortcut first-keystroke="meta alt i" second-keystroke="c" />
