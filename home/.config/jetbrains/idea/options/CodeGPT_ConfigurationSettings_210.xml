@@ -1,5 +1,6 @@
 <application>
   <component name="CodeGPT_ConfigurationSettings_210">
     <option name="autocompletionPostProcessingEnabled" value="false" />
+    <option name="ignoreGitCommitTokenLimit" value="true" />
   </component>
 </application>

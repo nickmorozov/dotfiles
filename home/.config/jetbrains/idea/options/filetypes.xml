@@ -2,7 +2,9 @@
   <component name="FileTypeManager" version="19">
     <extensionMap>
       <mapping pattern="scratch_26.csv" type="AUTO_DETECTED" />
+      <mapping ext="db" type="AUTO_DETECTED" />
       <mapping ext="ds" type="JavaScript" />
+      <mapping ext="sdef" type="XML" />
       <removed_mapping ext="7z" approved="true" type="ARCHIVE_7ZIP" />
       <removed_mapping ext="apk" approved="true" type="ARCHIVE" />
       <removed_mapping ext="bash" approved="true" type="Shell Script" />

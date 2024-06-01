@@ -7,6 +7,9 @@
   <component name="ProjectViewFileNesting">
     <nesting-rules>
       <NestingRule child-file-suffix=".cjs.map" parent-file-suffix=".cjs" />
+      <NestingRule child-file-suffix=".cls-meta.xml" parent-file-suffix=".cls" />
+      <NestingRule child-file-suffix="Test.cls" parent-file-suffix=".cls" />
+      <NestingRule child-file-suffix="_Test.cls" parent-file-suffix=".cls" />
       <NestingRule child-file-suffix="Controller.js" parent-file-suffix=".cmp" />
       <NestingRule child-file-suffix="Helper.js" parent-file-suffix=".cmp" />
       <NestingRule child-file-suffix="Renderer.js" parent-file-suffix=".cmp" />
@@ -24,6 +27,9 @@
       <NestingRule child-file-suffix=".svg" parent-file-suffix=".design" />
       <NestingRule child-file-suffix=".js" parent-file-suffix=".es6" />
       <NestingRule child-file-suffix=".js.map" parent-file-suffix=".es6" />
+      <NestingRule child-file-suffix=".css" parent-file-suffix=".html" />
+      <NestingRule child-file-suffix=".js" parent-file-suffix=".html" />
+      <NestingRule child-file-suffix=".js-meta.xml" parent-file-suffix=".html" />
       <NestingRule child-file-suffix="-compiled.js" parent-file-suffix=".js" />
       <NestingRule child-file-suffix="-compiled.js.map" parent-file-suffix=".js" />
       <NestingRule child-file-suffix=".js.map" parent-file-suffix=".js" />
@@ -80,7 +86,6 @@
     <option name="SHOW_NAVIGATION_BAR_MEMBERS" value="false" />
     <option name="SHOW_PINNED_TABS_IN_A_SEPARATE_ROW" value="true" />
     <option name="SHOW_TOOL_WINDOW_NAMES" value="true" />
-    <option name="SORT_TABS_ALPHABETICALLY" value="true" />
     <option name="TOOL_WINDOW_LEFT_SIDE_CUSTOM_WIDTH" value="59" />
     <option name="TOOL_WINDOW_RIGHT_SIDE_CUSTOM_WIDTH" value="61" />
     <option name="WIDESCREEN_SUPPORT" value="true" />

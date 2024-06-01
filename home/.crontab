@@ -1,0 +1,5 @@
+SHELL=/usr/local/bin/zsh
+
+0 8-23,0 * * * shortcuts run "Sync Events"
+0 8-10 * * * focus -g | quiet grep 'Work' || dbw
+0 16-22 * * * focus -g | quiet grep 'Work' && dbp
