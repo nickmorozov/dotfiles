@@ -41,6 +41,3 @@ bower_components
 /home/Torrents
 /home/iCloud*
 
-# SSH
-/home/.ssh
-
