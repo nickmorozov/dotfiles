@@ -151,6 +151,7 @@ _extend_path "$HOME/.yarn/bin"
 _extend_path "$HOME/.bun/bin"
 _extend_path "$DOTFILES/bin"
 _extend_path "$XDG_CONFIG_HOME/yarn/global/node_modules/.bin"
+_extend_path "/Applications/Xcode.app/Contents/Developer/usr/bin"
 
 # ------------------------------------------------------------------------------
 # Overrides

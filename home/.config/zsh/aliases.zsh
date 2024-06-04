@@ -6,15 +6,25 @@
 alias zshplugins="la $ZGEN_SOURCE/sources/ohmyzsh/ohmyzsh/___/plugins"
 alias pslist="ps -U nick | grep Applications | sed -E 's/.*Applications\/(.*)\.app\/.*/\1/g' | sed -E 's/.*Web App.*bundlepath.*Applications\/(.*)\.app --sand.*/\1/g' | grep -v 'tty' | grep -v 'Frameworks' | g | sort -u"
 
+# File Manager
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
 # Fast config edit
-alias eze="$EDITOR $ZDOTDIR/zshenv"
+alias ez="$EDITOR $ZDOTDIR/zshenv"
 alias ezr="$EDITOR $ZDOTDIR/.zshrc"
 alias ezz="$EDITOR $ZDOTDIR/{zshenv,.zshrc,.zprofile,zsh.$HOST}"
 alias ea="$EDITOR $ZDOTDIR/aliases.zsh"
 alias eaa="$EDITOR $ZDOTDIR/*.zsh"
 
 # Crontab
-alias crontab-save="crontab -l > $HOME/.crontab"
+alias crontab-save="crontab -l >> $HOME/.crontab"
 
 # Dotfiles
 dot-save() {
@@ -32,7 +42,8 @@ alias bsd="brew search --desc --eval-all"
 alias bdump="brew bundle dump --all --describe --force --global"
 alias badopt="brew install --cask --adopt"
 alias bl="brew list -ltr"
-alias bcall="brew caveats $(brew list)"
+alias bcaveats="brew caveats $(brew list)"
+alias bdeps="brew deps --tree --installed"
 
 # Python
 alias vact="source ./venv/bin/activate"
