@@ -1,4 +1,3 @@
-tap "glezseoane/tap"
 tap "homebrew/autoupdate"
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
@@ -135,34 +134,10 @@ brew "fbthrift"
 brew "fb303"
 # Shared library for Watchman and Eden projects
 brew "edencommon"
-# CLI program that accepts piped input and presents files for selection
-brew "fpp"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
 # Implementation of the Unicode BiDi algorithm
 brew "fribidi"
-# Command-line fuzzy finder written in Go
-brew "fzf"
-# GNU database manager
-brew "gdbm"
-# Toolkit for image loading and pixel buffer manipulation
-brew "gdk-pixbuf"
-# GitHub command-line tool
-brew "gh"
-# JBIG2 decoder and library (for monochrome documents)
-brew "jbig2dec"
-# International domain name library
-brew "libidn"
-# Library for JPEG-2000 image manipulation
-brew "openjpeg"
-# Interpreter for PostScript and PDF
-brew "ghostscript"
-# Distributed revision control system
-brew "git"
-# Enable transparent encryption/decryption of files in a git repo
-brew "git-crypt"
-# Quickly rewrite git repository history
-brew "git-filter-repo"
-# Git extension for versioning large files
-brew "git-lfs"
 # C string library for manipulating Unicode strings
 brew "libunistring"
 # International domain name library (IDNA2008, Punycode and TR46)
@@ -179,6 +154,42 @@ brew "p11-kit"
 brew "unbound", restart_service: true
 # GNU Transport Layer Security (TLS) Library
 brew "gnutls"
+# Smart font renderer for non-Roman scripts
+brew "graphite2"
+# OpenType text shaping engine
+brew "harfbuzz"
+# Library for JPEG-2000 image manipulation
+brew "openjpeg"
+# Framework for layout and rendering of i18n text
+brew "pango"
+# H.265/HEVC encoder
+brew "x265"
+# Create thumbnails for your video files
+brew "ffmpegthumbnailer"
+# CLI program that accepts piped input and presents files for selection
+brew "fpp"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# GNU database manager
+brew "gdbm"
+# Toolkit for image loading and pixel buffer manipulation
+brew "gdk-pixbuf"
+# GitHub command-line tool
+brew "gh"
+# JBIG2 decoder and library (for monochrome documents)
+brew "jbig2dec"
+# International domain name library
+brew "libidn"
+# Interpreter for PostScript and PDF
+brew "ghostscript"
+# Distributed revision control system
+brew "git"
+# Enable transparent encryption/decryption of files in a git repo
+brew "git-crypt"
+# Quickly rewrite git repository history
+brew "git-filter-repo"
+# Git extension for versioning large files
+brew "git-lfs"
 # Common error values for all GnuPG components
 brew "libgpg-error"
 # Assuan IPC Library
@@ -191,26 +202,16 @@ brew "libksba"
 brew "libusb"
 # New GNU portable threads library
 brew "npth"
-# Open source suite of directory software
-brew "openldap"
 # Passphrase entry dialog utilizing the Assuan protocol
 brew "pinentry"
-# GNU Pretty Good Privacy (PGP) package
-brew "gnupg", link: false
-# Smart font renderer for non-Roman scripts
-brew "graphite2"
 # GNU grep, egrep and fgrep
 brew "grep"
-# OpenType text shaping engine
-brew "harfbuzz"
 # Library for manipulating JPEG-2000 images
 brew "jasper"
 # Open h.265 video codec implementation
 brew "libde265"
 # Database of common MIME types
 brew "shared-mime-info"
-# H.265/HEVC encoder
-brew "x265"
 # ISO/IEC 23008-12:2017 HEIF file format decoder and encoder
 brew "libheif"
 # C/C++ seam carving library
@@ -231,8 +232,6 @@ brew "jpeg"
 brew "jq"
 # Command-line launcher for macOS, in the spirit of `open`
 brew "launch"
-# Framework for layout and rendering of i18n text
-brew "pango"
 # Library to render SVG files using Cairo
 brew "librsvg"
 # Very basic terminfo library
@@ -267,10 +266,14 @@ brew "node"
 brew "nvm"
 # Development kit for the Java programming language
 brew "openjdk@11"
+# Open source suite of directory software
+brew "openldap"
 # 7-Zip (high compression file archiver) implementation
 brew "p7zip"
 # Perl compatible regular expressions library
 brew "pcre"
+# PDF rendering library (based on the xpdf-3.0 code base)
+brew "poppler"
 # Generic syntax highlighter
 brew "pygments"
 # Interpreted, interactive, object-oriented programming language
@@ -303,6 +306,8 @@ brew "transmission-cli", restart_service: true
 brew "tree"
 # Build, bundle & ship your Rust WASM application to the web
 brew "trunk"
+# Command-line unarchiving tools supporting multiple formats
+brew "unar"
 # Tool for creating isolated virtual python environments
 brew "virtualenv"
 # Meta-level vim package manager
@@ -311,8 +316,14 @@ brew "volt"
 brew "watchman"
 # Internet file retriever
 brew "wget"
+# Access X11 clipboards from the command-line
+brew "xclip"
 # JavaScript package manager
 brew "yarn"
+# Blazing fast terminal file manager written in Rust, based on async I/O
+brew "yazi"
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
 # UNIX shell (command interpreter)
 brew "zsh"
 # Fish-like fast/unobtrusive autosuggestions for zsh
@@ -327,6 +338,8 @@ brew "rafaelgarrido/caveats/brew-caveats"
 cask "appcleaner"
 # Integrated CAD, CAM, CAE, and PCB software
 cask "autodesk-fusion"
+# Two-panel file manager
+cask "commander-one"
 # Menu bar weather app
 cask "datweatherdoe"
 # Voice and text chat software
@@ -339,18 +352,18 @@ cask "dozer"
 cask "font-fira-code"
 # Developer targeted fonts with a high number of glyphs
 cask "font-fira-code-nerd-font"
+# Developer targeted fonts with a high number of glyphs
+cask "font-symbols-only-nerd-font"
 # PDF reader
 cask "foxitreader"
+# Tool to measure the computer system's performance
+cask "geekbench"
+# Cross-platform AI benchmark to evaluate AI workload performance
+cask "geekbench-ml"
 # Desktop client for GitHub repositories
 cask "github"
 # Utility to provide quick look previews for files that aren't natively supported
 cask "glance"
-# Client for the Google Drive storage service
-cask "google-drive"
-# Tools to protect your emails and files
-cask "gpg-suite"
-# Sheet music editor software for guitar, bass, keyboards, drums and more
-cask "guitar-pro"
 # Desktop automation application
 cask "hammerspoon"
 # Windows manager and desktop organiser
@@ -385,10 +398,8 @@ cask "microsoft-teams"
 cask "microsoft-word"
 # Utility to move and zoom windows—on one display
 cask "moom"
-# App to write, plan, collaborate, and get organised
-cask "notion"
-# Calendar for professionals and teams
-cask "notion-calendar"
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
 # Digital audio production application
 cask "reaper"
 # Tool for sending personal documents to Kindles from Macs
@@ -399,8 +410,6 @@ cask "sf"
 cask "slack"
 # Music streaming service
 cask "spotify"
-# Video game digital distribution service
-cask "steam"
 # VPN client for secure internet access and private browsing
 cask "surfshark"
 # Enable Windows-like program quitting when all windows are closed
@@ -424,7 +433,6 @@ mas "Barbee", id: 1548711022
 mas "Controller", id: 1198176727
 mas "DaisyDisk", id: 411643860
 mas "Dato", id: 1470584107
-mas "GarageBand", id: 682658836
 mas "Ghostery – Privacy Ad Blocker", id: 1436953057
 mas "Mapper", id: 1589391989
 mas "Noir", id: 1592917505
@@ -435,6 +443,7 @@ mas "Signal Shifter", id: 6446061552
 mas "Spaced", id: 1666327168
 mas "Spotica Menu", id: 570549457
 mas "StopTheMadness Pro", id: 6471380298
+mas "Tonebridge Guitar Effects", id: 1263858588
 mas "Typist", id: 415166115
 mas "Vimkey", id: 1585682577
 mas "Xcode", id: 497799835

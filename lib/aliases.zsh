@@ -106,8 +106,8 @@ gcgpa() {
 
 if _exists lsd; then
   unalias ls
-  alias ls='lsd'
-  alias lt='lsd --tree'
+  alias ls='lsd -v'
+  alias ltree='lsd --tree'
 fi
 
 # cat with syntax highlighting

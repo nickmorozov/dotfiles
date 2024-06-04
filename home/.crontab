@@ -3,3 +3,17 @@ SHELL=/usr/local/bin/zsh
 0 8-23,0 * * * shortcuts run "Sync Events"
 0 8-10 * * * focus -g | quiet grep 'Work' || dbw
 0 16-22 * * * focus -g | quiet grep 'Work' && dbp
+SHELL=/usr/local/bin/zsh
+
+# ┌────────── minute (0 - 59)
+# │ ┌──────── hour (0 - 23)
+# │ │ ┌────── day of month (1 - 31)
+# │ │ │ ┌──── month (1 - 12)
+# │ │ │ │ ┌── day of week (0 - 6 => Sunday - Saturday, or
+# │ │ │ │ │                1 - 7 => Monday - Sunday)
+# ↓ ↓ ↓ ↓ ↓
+# * * * * * command
+
+0 8-23,0 * * * shortcuts run "Sync Events"
+0 8-10 * * 1-5 focus -g | quiet grep 'Work' || dbw
+0 18-22 * * * focus -g | quiet grep 'Work' && dbp
