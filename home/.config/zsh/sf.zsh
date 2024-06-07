@@ -22,9 +22,9 @@ if _exists sf; then
     if [[ ! -z $1 ]]; then
 
       if [[ $1 == 'p' ]]; then
-        sf org login web --instance-url https://$2.my.salesforce.com
+        sf org login web --instance-url https://$2.my.salesforce.com --alias $3
         elif [[ $1 == 's' ]]; then
-        sf org login web --instance-url https://$2.sandbox.my.salesforce.com
+        sf org login web --instance-url https://$2.sandbox.my.salesforce.com --alias $3
       fi
 
     else

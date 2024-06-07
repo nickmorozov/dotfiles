@@ -9,6 +9,8 @@
 # Environment
 # ------------------------------------------------------------------------------
 
+setopt NUMERIC_GLOB_SORT
+
 # Start the SSH agent if not already running
 if [ -z "$SSH_AUTH_SOCK" ]; then
   eval "$(ssh-agent -s)"
