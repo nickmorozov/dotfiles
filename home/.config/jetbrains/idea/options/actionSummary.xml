@@ -127,7 +127,7 @@
       <i c="6" l="1716829041038" />
     </e>
     <e n="EditorBackSpace">
-      <i c="2042" l="1717004713746" />
+      <i c="2043" l="1717776561365" />
     </e>
     <e n="EditorChooseLookupItem">
       <i c="229" l="1716935483208" />
@@ -199,7 +199,7 @@
       <i c="216" l="1716935179279" />
     </e>
     <e n="EditorPaste">
-      <i c="542" l="1717004535008" />
+      <i c="543" l="1717776559992" />
     </e>
     <e n="EditorPreviousWord">
       <i c="283" l="1717004308085" />
@@ -307,7 +307,7 @@
       <i c="7" l="1716291383810" />
     </e>
     <e n="IlluminatedCloud.ConfigureApplication">
-      <i c="4" l="1716843607629" />
+      <i c="5" l="1717776648780" />
     </e>
     <e n="IlluminatedCloud.ForceSave">
       <i c="105" l="1716426868608" />
@@ -319,7 +319,7 @@
       <i c="2" l="1716419536854" />
     </e>
     <e n="IlluminatedCloud.Retrieve">
-      <i c="10" l="1716846493513" />
+      <i c="11" l="1717776756790" />
     </e>
     <e n="Inline">
       <i c="3" l="1716926936245" />
@@ -574,7 +574,7 @@
       <i c="1" l="1714038929565" />
     </e>
     <e n="WelcomeScreen.OpenProject">
-      <i c="4" l="1716505776148" />
+      <i c="5" l="1717776369623" />
     </e>
     <e n="WelcomeScreen.Plugins">
       <i c="2" l="1716746646254" />
@@ -611,6 +611,12 @@
     </e>
     <e n="com.illuminatedcloud.intellij.log.toolWindow.logAnalyzer.config.LogConfigDialog$2">
       <i c="6" l="1716426653843" />
+    </e>
+    <e n="com.illuminatedcloud.intellij.plugin.moduleType.validation.IlluminatedCloudInvalidModuleNotification$1">
+      <i c="2" l="1717776727655" />
+    </e>
+    <e n="com.illuminatedcloud.intellij.plugin.settings.application.IlluminatedCloudApplicationConnectionsTab$8">
+      <i c="1" l="1717776652719" />
     </e>
     <e n="com.illuminatedcloud.intellij.statusBarWidget.connection.EditConnectionAction">
       <i c="1" l="1716292456482" />
@@ -709,7 +715,7 @@
       <i c="2" l="1716925048066" />
     </e>
     <e n="com.intellij.ide.ui.customization.CustomisedActionGroup">
-      <i c="9" l="1716843603934" />
+      <i c="10" l="1717776642935" />
     </e>
     <e n="com.intellij.ide.ui.customization.CustomizableActionsPanel$3">
       <i c="14" l="1716250101204" />
@@ -736,7 +742,7 @@
       <i c="7" l="1716831383563" />
     </e>
     <e n="com.intellij.notification.NotificationAction$Simple">
-      <i c="14" l="1717176888046" />
+      <i c="15" l="1717776419913" />
     </e>
     <e n="com.intellij.openapi.actionSystem.AnActionWrapper">
       <i c="3859" l="1716331813108" />
@@ -772,7 +778,7 @@
       <i c="3" l="1716925813855" />
     </e>
     <e n="com.intellij.openapi.fileEditor.impl.tabActions.CloseTab">
-      <i c="52" l="1717003267465" />
+      <i c="53" l="1717776516248" />
     </e>
     <e n="com.intellij.openapi.keymap.impl.ui.KeymapPanel$7">
       <i c="1" l="1716335049987" />
