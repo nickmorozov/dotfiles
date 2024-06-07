@@ -66,8 +66,32 @@
             </RecentProjectMetaInfo>
           </value>
         </entry>
+        <entry key="$USER_HOME$/Projects/Job/kurtz-fargo">
+          <value>
+            <RecentProjectMetaInfo opened="true" projectWorkspaceId="2hXp2jNshKEDCGn59R9Wj6SS9hF">
+              <option name="activationTimestamp" value="1717779616460" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="build" value="IU-241.17011.79" />
+              <option name="buildTimestamp" value="1716355440000" />
+              <option name="productionCode" value="IU" />
+              <option name="projectOpenTimestamp" value="1717776403271" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Projects/Job/quantum-design">
+          <value>
+            <RecentProjectMetaInfo opened="true" projectWorkspaceId="2gkMnTAHwHjKZuZ8O09hez2wg1R">
+              <option name="activationTimestamp" value="1717783109453" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="build" value="IU-241.17011.79" />
+              <option name="buildTimestamp" value="1716355440000" />
+              <option name="productionCode" value="IU" />
+              <option name="projectOpenTimestamp" value="1717783109352" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
       </map>
     </option>
-    <option name="lastOpenedProject" value="$USER_HOME$/Projects/Job/isys" />
+    <option name="lastOpenedProject" value="$USER_HOME$/Projects/Job/quantum-design" />
   </component>
 </application>

@@ -6,6 +6,7 @@
           <value>
             <list>
               <option value="Pythonid" />
+              <option value="com.github.blarc.ai-commits-intellij-plugin" />
               <option value="com.ppolivka.plugin.gitcleaner" />
               <option value="nl.bryanderidder.regexrenamefiles" />
               <option value="some.awesome" />

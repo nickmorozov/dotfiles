@@ -32,6 +32,31 @@
           <option name="username" value="nmorozov@corraogroup.com.isys.implement" />
         </IlluminatedCloudConnectionConfig>
         <IlluminatedCloudConnectionConfig>
+          <option name="connectionName" value="kurtz-fargo-dev" />
+          <option name="connectionType" value="OAUTH" />
+          <option name="loginUrl" value="" />
+          <option name="organizationType" value="OAUTH" />
+          <option name="username" value="cgadmin@kurtzfargo.com.devpro" />
+        </IlluminatedCloudConnectionConfig>
+        <IlluminatedCloudConnectionConfig>
+          <option name="confirmWrites" value="true" />
+          <option name="connectionName" value="kurtz-fargo-prod" />
+          <option name="connectionType" value="OAUTH" />
+          <option name="ensureFieldReadAccess" value="false" />
+          <option name="loginUrl" value="" />
+          <option name="organizationType" value="OAUTH" />
+          <option name="username" value="cgadmin@kurtzfargo.com" />
+        </IlluminatedCloudConnectionConfig>
+        <IlluminatedCloudConnectionConfig>
+          <option name="confirmWrites" value="true" />
+          <option name="connectionName" value="kurtz-fargo-uat" />
+          <option name="connectionType" value="OAUTH" />
+          <option name="ensureFieldReadAccess" value="false" />
+          <option name="loginUrl" value="" />
+          <option name="organizationType" value="OAUTH" />
+          <option name="username" value="cgadmin@kurtzfargo.com.uat" />
+        </IlluminatedCloudConnectionConfig>
+        <IlluminatedCloudConnectionConfig>
           <option name="connectionName" value="qd-dev" />
           <option name="connectionType" value="OAUTH" />
           <option name="loginSharingModel" value="SHARED" />
@@ -65,9 +90,9 @@
     </option>
     <option name="defaultToChangedOnly" value="true" />
     <option name="editDelay" value="10000" />
-    <option name="lastChangeNotesVersion" value="2.3.1.4" />
+    <option name="lastChangeNotesVersion" value="2.3.1.5" />
     <option name="retrieveAddedMetadataPolicy" value="ALL" />
-    <option name="selectedConnectionIndex" value="5" />
+    <option name="selectedConnectionIndex" value="3" />
     <option name="selectedTabIndex" value="1" />
     <option name="sortPackageXmlEntries" value="true" />
     <option name="updateOrgMetadataCacheOnSuccessfulDeployment" value="true" />
