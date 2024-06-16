@@ -134,6 +134,8 @@ brew "fbthrift"
 brew "fb303"
 # Shared library for Watchman and Eden projects
 brew "edencommon"
+# Perl lib for reading and writing EXIF metadata
+brew "exiftool"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 # Implementation of the Unicode BiDi algorithm
@@ -282,6 +284,8 @@ brew "tcl-tk"
 brew "python@3.8"
 # Tools for and transforming and inspecting PDF files
 brew "qpdf"
+# Perl-powered file rename script with many helpful built-ins
+brew "rename"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Autoformat shell script source code
@@ -336,19 +340,16 @@ brew "rafaelgarrido/caveats/brew-caveats"
 cask "appcleaner"
 # Integrated CAD, CAM, CAE, and PCB software
 cask "autodesk-fusion"
+# Open links in any browser
+cask "choosy"
 # Two-panel file manager
 cask "commander-one"
-# Menu bar weather app
-cask "datweatherdoe"
 # Voice and text chat software
 cask "discord"
 # Tool to hide status bar icons
 cask "dozer"
-# Free monospaced font with programming ligatures
 cask "font-fira-code"
-# Developer targeted fonts with a high number of glyphs
 cask "font-fira-code-nerd-font"
-# Developer targeted fonts with a high number of glyphs
 cask "font-symbols-only-nerd-font"
 # PDF reader
 cask "foxitreader"
@@ -356,22 +357,18 @@ cask "foxitreader"
 cask "geekbench"
 # Cross-platform AI benchmark to evaluate AI workload performance
 cask "geekbench-ml"
-# Desktop client for GitHub repositories
-cask "github"
 # Utility to provide quick look previews for files that aren't natively supported
 cask "glance"
+# Web browser
+cask "google-chrome"
 # Desktop automation application
 cask "hammerspoon"
 # Windows manager and desktop organiser
 cask "hazeover"
-# App to manage access to corporate apps, data, and resources
-cask "intune-company-portal"
 # Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
 # JetBrains tools manager
 cask "jetbrains-toolbox"
-# Interface for reading and syncing eBooks
-cask "kindle"
 # Optimise your webcam, headset, and Logi Dock for video meetings
 cask "logitune"
 # Mouse utility to add gesture functions and smooth scrolling to 3rd party mice
@@ -380,18 +377,12 @@ cask "mac-mouse-fix"
 cask "melodics"
 # Provides updates to various Microsoft products
 cask "microsoft-auto-update"
-# Web browser
-cask "microsoft-edge"
-# Spreadsheet software
-cask "microsoft-excel"
 # OpenJDK distribution from Microsoft
 cask "microsoft-openjdk"
 # OpenJDK distribution from Microsoft
 cask "microsoft-openjdk@11"
 # Meet, chat, call, and collaborate in just one place
 cask "microsoft-teams"
-# Word processor
-cask "microsoft-word"
 # Utility to move and zoom windows—on one display
 cask "moom"
 # Knowledge base that works on top of a local folder of plain text Markdown files
@@ -404,8 +395,12 @@ cask "send-to-kindle"
 cask "sf"
 # Team communication and collaboration software
 cask "slack"
+# Desktop client for Salesforce.com platform
+cask "soqlxplorer"
 # Music streaming service
 cask "spotify"
+# Video game digital distribution service
+cask "steam"
 # VPN client for secure internet access and private browsing
 cask "surfshark"
 # Enable Windows-like program quitting when all windows are closed
@@ -418,8 +413,6 @@ cask "the-unarchiver"
 cask "timing"
 # Keyboard configurator
 cask "via"
-# Open-source code editor
-cask "visual-studio-code"
 # Video communication and virtual meeting platform
 cask "zoom"
 mas "Actions", id: 1586435171

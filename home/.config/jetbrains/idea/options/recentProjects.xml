@@ -68,11 +68,15 @@
         </entry>
         <entry key="$USER_HOME$/Projects/Job/kurtz-fargo">
           <value>
-            <RecentProjectMetaInfo opened="true" projectWorkspaceId="2hXp2jNshKEDCGn59R9Wj6SS9hF">
-              <option name="activationTimestamp" value="1717779616460" />
+            <RecentProjectMetaInfo frameTitle="kurtz-fargo [~/Projects/Job/kurtz-fargo] – /Users/nick/Projects/Job/kurtz-fargo/sfdx-project.json" projectWorkspaceId="2hXp2jNshKEDCGn59R9Wj6SS9hF">
+              <option name="activationTimestamp" value="1718036300532" />
               <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
               <option name="build" value="IU-241.17011.79" />
               <option name="buildTimestamp" value="1716355440000" />
+              <option name="colorInfo">
+                <RecentProjectColorInfo associatedIndex="5" />
+              </option>
+              <frame x="644" y="353" width="1400" height="1000" />
               <option name="productionCode" value="IU" />
               <option name="projectOpenTimestamp" value="1717776403271" />
             </RecentProjectMetaInfo>
@@ -80,11 +84,15 @@
         </entry>
         <entry key="$USER_HOME$/Projects/Job/quantum-design">
           <value>
-            <RecentProjectMetaInfo opened="true" projectWorkspaceId="2gkMnTAHwHjKZuZ8O09hez2wg1R">
-              <option name="activationTimestamp" value="1717783109453" />
+            <RecentProjectMetaInfo frameTitle="AuthorizeNetAdapter" opened="true" projectWorkspaceId="2gkMnTAHwHjKZuZ8O09hez2wg1R">
+              <option name="activationTimestamp" value="1718046565711" />
               <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
               <option name="build" value="IU-241.17011.79" />
               <option name="buildTimestamp" value="1716355440000" />
+              <option name="colorInfo">
+                <RecentProjectColorInfo associatedIndex="0" />
+              </option>
+              <frame x="0" y="0" width="2304" height="1415" extendedState="6" />
               <option name="productionCode" value="IU" />
               <option name="projectOpenTimestamp" value="1717783109352" />
             </RecentProjectMetaInfo>

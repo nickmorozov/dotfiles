@@ -79,7 +79,7 @@
     "experimental.ui.on.first.startup": "true",
     "experimental.ui.used.version": "241.17011.79",
     "export.settings.path": "/Users/nick/Library/Mobile Documents/com~apple~CloudDocs/settings.zip",
-    "fileTypeChangedCounter": "30",
+    "fileTypeChangedCounter": "36",
     "fontSizeToResetConsole": "16.0",
     "fontSizeToResetEditor": "16.0",
     "got.it.tooltip.copilot.inlayGotIt": "1",
@@ -121,6 +121,6 @@
   }
 }]]></component>
   <component name="json_parser_conf">
-    <option name="jsonParserLastDisplayTime" value="1716286210793" />
+    <option name="jsonParserLastDisplayTime" value="1717783894436" />
   </component>
 </application>

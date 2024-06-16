@@ -4,9 +4,7 @@
 #############################################
 
 if _exists sf; then
-  sfl() {
-    sf org list --all
-  }
+  alias sfl="sf org list --all --verbose"
 
   alias sfalias="sf alias set"
 
@@ -20,12 +18,22 @@ if _exists sf; then
 
   function sfa {
     if [[ ! -z $1 ]]; then
-
-      if [[ $1 == 'p' ]]; then
-        sf org login web --instance-url https://$2.my.salesforce.com --alias $3
-        elif [[ $1 == 's' ]]; then
-        sf org login web --instance-url https://$2.sandbox.my.salesforce.com --alias $3
+      if [[ -z $2 ]]; then
+        echo "Usage: sfa <instance-name> <alias>"
+        return 1
       fi
+
+      URL="https://"
+
+      if [[ $1 =~ '--' ]]; then
+        URL+="$1.sandbox"
+        # sf org login web --instance-url https://$1.sandbox.my.salesforce.com --alias $2
+      else
+        URL+="$1"
+        # sf org login web --instance-url https://$1.my.salesforce.com --alias $2
+      fi
+
+      sf org login web --instance-url $URL.my.salesforce.com --alias $2
 
     else
       sf org login web
