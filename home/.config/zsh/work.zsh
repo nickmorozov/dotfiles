@@ -28,14 +28,17 @@ end tell
 EOF
 }
 
+alias dbs="db safari"
+alias dbc="db chrome"
+
 # Personal/Work Focus Toggle
 PERSONAL_APPS=('Safari' 'DatWeatherDoe')
-WORK_APPS=('Microsoft Edge' 'Slack' 'Microsoft Teams (work or school)' 'Microsoft Teams' 'MSTeams' 'IntelliJ IDEA Ultimate' 'HazeOver' 'JetBrains Toolbox' 'LogiTune' 'Moom' 'Cisco AnyConnect Secure Mobility Client', 'zoom.us', 'ChatGPT')
+WORK_APPS=('Google Chrome' 'Slack' 'Microsoft Teams (work or school)' 'Microsoft Teams' 'MSTeams' 'IntelliJ IDEA Ultimate' 'HazeOver' 'JetBrains Toolbox' 'LogiTune' 'Moom' 'Cisco AnyConnect Secure Mobility Client' 'zoom.us' 'ChatGPT' 'Stickies')
 MUSIC_APPS=('Reaper' 'Akai Professional MPK Mini III Program Editor' 'Focusrite Control')
 
 # Work Focus
 dbw() {
-  db edgemac
+  db chrome
   _toggle_stage_manager
 
   for app in "${PERSONAL_APPS[@]}"; do
@@ -43,11 +46,9 @@ dbw() {
   done
 
   for app in "${WORK_APPS[@]}"; do
-    oa "$app.app" || _launch "$app"
+    oa "$app" || _launch "$app"
     _activate "$app"
   done
-
-  focus -s "Work"
 
   _activate "${WORK_APPS[1]}"
 }
@@ -62,11 +63,9 @@ dbp() {
   done
 
   for app in "${PERSONAL_APPS[@]}"; do
-    _launch "$app" || oa "$app.app"
+    oa "$app" || _launch "$app"
     _activate "$app"
   done
-
-  focus -s ""
 
   _activate "${PERSONAL_APPS[1]}"
 }

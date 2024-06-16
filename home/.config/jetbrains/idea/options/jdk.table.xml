@@ -307,6 +307,30 @@
       </roots>
     </jdk>
     <jdk version="2">
+      <name value="IlluminatedCloud (kurtz-fargo/kurtz-fargo-uat)" />
+      <type value="IlluminatedCloud" />
+      <version value="201511031443" />
+      <homePath value="$USER_HOME$/Projects/Job/kurtz-fargo/IlluminatedCloud/kurtz_fargo_uat" />
+      <roots>
+        <annotationsPath>
+          <root type="composite" />
+        </annotationsPath>
+        <classPath>
+          <root type="composite">
+            <root url="jar://$USER_HOME$/Projects/Job/kurtz-fargo/IlluminatedCloud/kurtz_fargo_uat/OfflineSymbolTable.zip!/" type="simple" />
+          </root>
+        </classPath>
+        <javadocPath>
+          <root type="composite" />
+        </javadocPath>
+        <sourcePath>
+          <root type="composite">
+            <root url="jar://$USER_HOME$/Projects/Job/kurtz-fargo/IlluminatedCloud/kurtz_fargo_uat/OfflineSymbolTable.zip!/" type="simple" />
+          </root>
+        </sourcePath>
+      </roots>
+    </jdk>
+    <jdk version="2">
       <name value="IlluminatedCloud (kurtz-fargo/kurtz-fargo-prod)" />
       <type value="IlluminatedCloud" />
       <version value="201511031443" />
