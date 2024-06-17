@@ -1,0 +1,38 @@
+{
+    "bridge": {
+        "name": "Homebridge F656",
+        "username": "0E:A9:DE:7A:F6:56",
+        "port": 51061,
+        "pin": "949-50-801",
+        "advertiser": "bonjour-hap"
+    },
+    "accessories": [
+        {
+            "name": "Nick's Office Delay",
+            "delay": 5,
+            "delayUnit": "m",
+            "sensorType": "motion",
+            "flipSensorState": false,
+            "startOnReboot": false,
+            "debug": false,
+            "accessory": "DelaySwitch"
+        },
+        {
+            "name": "Garage Delay",
+            "delay": 1,
+            "delayUnit": "m",
+            "sensorType": "motion",
+            "flipSensorState": false,
+            "startOnReboot": false,
+            "debug": false,
+            "accessory": "DelaySwitch"
+        }
+    ],
+    "platforms": [
+        {
+            "name": "Config",
+            "port": 8581,
+            "platform": "config"
+        }
+    ]
+}
