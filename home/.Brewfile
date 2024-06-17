@@ -415,7 +415,6 @@ cask "timing"
 cask "via"
 # Video communication and virtual meeting platform
 cask "zoom"
-mas "Actions", id: 1586435171
 mas "Affinity Photo", id: 824183456
 mas "Amphetamine", id: 937984704
 mas "Controller", id: 1198176727
@@ -432,6 +431,5 @@ mas "Spotica Menu", id: 570549457
 mas "StopTheMadness Pro", id: 6471380298
 mas "Tonebridge Guitar Effects", id: 1263858588
 mas "Typist", id: 415166115
-mas "Vimkey", id: 1585682577
 mas "Xcode", id: 497799835
 mas "Xnip", id: 1221250572
