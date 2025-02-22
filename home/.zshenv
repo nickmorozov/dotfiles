@@ -143,7 +143,9 @@ ZGEN_RESET_ON_CHANGE=(
 ZGENOM_AUTO_ADD_BIN=1
 
 # Add custom bin to $PATH
-_extend_path "/usr/local/bin" # Added for Jetbrains Toolbox
+_extend_path "/usr/local/bin"
+_extend_path "/opt/local/bin"
+_extend_path "/opt/homebrew/bin"
 _extend_path "$HOME/.local/bin"
 _extend_path "$HOME/.npm-global/bin"
 _extend_path "$HOME/.rvm/bin"

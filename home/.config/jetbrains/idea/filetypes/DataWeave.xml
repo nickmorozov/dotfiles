@@ -14,7 +14,4 @@
     <keywords3 keywords="!;!=;#;$;%;&amp;;*;+;,;-;---;-&gt;;-};.;/;:;::;&lt;;&lt;&lt;;&lt;=;=;==;&gt;;&gt;=;&gt;&gt;;?;@;@.;^;_;{-;{-|;{|;|;|-};|};~;~=" />
     <keywords4 keywords="filter;map;reduce" />
   </highlighting>
-  <extensionMap>
-    <removed_mapping ext="dwl" />
-  </extensionMap>
 </filetype>

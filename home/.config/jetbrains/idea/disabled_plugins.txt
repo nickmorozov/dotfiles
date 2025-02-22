@@ -12,6 +12,7 @@ Subversion
 TestNG-J
 Tomcat
 XPathView
+com.godwin.json.parser
 com.intellij.aop
 com.intellij.beanValidation
 com.intellij.cdi
@@ -59,6 +60,7 @@ com.jetbrains.gateway
 com.jetbrains.gateway.terminal
 com.jetbrains.plugins.webDeployment
 com.jetbrains.restWebServices
+ee.carlrobert.chatgpt
 hg4idea
 idea.plugin.protoeditor
 intellij.ktor

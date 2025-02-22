@@ -4,11 +4,11 @@
 #############################################
 
 if _exists sf; then
-  alias sfl="sf org list --all --verbose"
+  sfl() {
+    sf org list --all --verbose
+  }
 
-  alias sfalias="sf alias set"
-
-  function sfd {
+  sfd() {
     for ORG in $@
       do sf org logout -o $ORG --no-prompt
     done
@@ -16,7 +16,7 @@ if _exists sf; then
     sfl
   }
 
-  function sfa {
+  sfa() {
     if [[ ! -z $1 ]]; then
       if [[ -z $2 ]]; then
         echo "Usage: sfa <instance-name> <alias>"
@@ -42,14 +42,36 @@ if _exists sf; then
     sfl
   }
 
+  alias sfpdr="sf project retireve start "
+  alias sfpds="sf project deploy start "
+  alias sfpush="sfpds -d src -l NoTestRun "
+  alias sfpushdir="sfpds -l NoTestRun -d "
+
+  alias sfprs="sf project retrieve start "
+  alias sfpull="sfprs -d src"
+
+  alias sfstr="sf project reset tracking"
+
+  sfst() {
+    echo ""
+    _green "Retrieve Status"
+    sf project retrieve preview
+    echo ""
+    _green "Deploy Status"
+    sf project deploy preview
+  }
+
+  sfsync() {
+    sfpush && sfpull
+  }
+
   alias sfct="sf config set target-org "
   alias sfctg="sf config set --global target-org "
 
-  alias sfo="sf org open "
+  alias sfo="sf org open -o "
   alias sfoo="sfo -o "
   alias sfop="sfo --private "
   alias sfP="sfoo $PROD"
   alias sfU="sfoo $UAT"
   alias sfD="sfoo $DEV"
 fi
-

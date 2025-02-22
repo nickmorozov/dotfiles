@@ -26,6 +26,8 @@ com.intellij.configurationScript|null
 
 com.intellij.copyright|Other Tools
 
+com.intellij.cron|Other Tools
+
 com.intellij.css|Style Sheets
 
 com.intellij.dev|null
@@ -34,13 +36,29 @@ com.intellij.diagram|Other Tools
 
 com.intellij.dsm|Other Tools
 
+com.intellij.flyway|Database
+
 com.intellij.java.ide|null
 
-com.intellij.java|null
+com.intellij.java|Languages
+
+com.intellij.ja|IDE Localization
+
+com.intellij.jpa.jpb.model|JVM Frameworks
+
+com.intellij.ko|IDE Localization
+
+com.intellij.liquibase|Database
 
 com.intellij.llmInstaller|Other Tools
 
+com.intellij.marketplace.ml|Local AI/ML Tools
+
 com.intellij.microservices.ui|Microservices
+
+com.intellij.ml.inline.completion|null
+
+com.intellij.modules.json|Languages
 
 com.intellij.platform.ide.provisioner|null
 
@@ -64,11 +82,11 @@ com.intellij.tracing.ide|null
 
 com.intellij.turboComplete|Local AI/ML Tools
 
+com.intellij.zh|IDE Localization
+
 com.intellij|null
 
 com.jetbrains.performancePlugin.async|Other Tools
-
-com.jetbrains.performancePlugin.dynamicPlugins|null
 
 com.jetbrains.performancePlugin|Other Tools
 
@@ -76,7 +94,7 @@ com.jetbrains.restClient|Microservices
 
 com.jetbrains.sh|Languages
 
-com.jetbrains.warmup.performanceTesting|null
+com.jetbrains.station|null
 
 intellij.caches.shared|null
 

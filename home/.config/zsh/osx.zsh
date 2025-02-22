@@ -152,3 +152,14 @@ function dock {
   killall Dock && echo "Success!"
 }
 
+# Set Launchpad size
+launchpad_size() {
+  if [[ -z $2 ]]; then
+    echo "Usage: launchpad_size <columns> <rows>"
+  fi
+
+  defaults write com.apple.dock springboard-columns -int $1
+  defaults write com.apple.dock springboard-rows -int $2
+  killall Dock
+}
+

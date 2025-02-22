@@ -6,7 +6,10 @@
 #   the two are not intended to be used together, although this could certainly be done if desired."
 
 # Added by Homebrew
-eval "$(/usr/local/bin/brew shellenv)"
+eval $(brew shellenv)
 
 # Added by The Fuck
 eval $(thefuck --alias)
+
+# Use Homebrew's zsh
+export SHELL=$(which zsh)

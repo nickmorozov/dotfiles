@@ -267,6 +267,9 @@
     <keyboard-shortcut first-keystroke="shift meta f7" />
     <keyboard-shortcut first-keystroke="alt a" />
   </action>
+  <action id="IlluminatedCloud.AddToMetadataSubscription">
+    <keyboard-shortcut first-keystroke="shift ctrl alt m" />
+  </action>
   <action id="IlluminatedCloud.AddToModuleContents">
     <keyboard-shortcut first-keystroke="shift meta alt m" />
     <keyboard-shortcut first-keystroke="meta alt i" second-keystroke="meta alt m" />
@@ -300,6 +303,7 @@
   <action id="IlluminatedCloud.DeployModifiedMetadata" />
   <action id="IlluminatedCloud.ForceSave">
     <keyboard-shortcut first-keystroke="meta alt i" second-keystroke="s" />
+    <keyboard-shortcut first-keystroke="shift meta s" />
   </action>
   <action id="IlluminatedCloud.ForceValidate">
     <keyboard-shortcut first-keystroke="meta alt i" second-keystroke="v" />
@@ -357,6 +361,9 @@
   <action id="InspectCode">
     <keyboard-shortcut first-keystroke="shift ctrl i" />
   </action>
+  <action id="IntentionActionAsAction_com.illuminatedcloud.intellij.apex.intention.ExecuteInAnonymousApexToolWindowIntention">
+    <keyboard-shortcut first-keystroke="meta enter" />
+  </action>
   <action id="IntentionActionAsAction_com.illuminatedcloud.intellij.intention.ExecuteInAnonymousApexToolWindowIntention">
     <keyboard-shortcut first-keystroke="meta enter" />
   </action>
@@ -405,6 +412,9 @@
   <action id="NextTab">
     <keyboard-shortcut first-keystroke="alt tab" />
   </action>
+  <action id="OpenInlineChatAction">
+    <keyboard-shortcut first-keystroke="shift ctrl g" />
+  </action>
   <action id="OverrideMethods">
     <keyboard-shortcut first-keystroke="ctrl o" />
   </action>
@@ -439,6 +449,10 @@
   <action id="ResizeToolWindowDown" />
   <action id="ResizeToolWindowUp" />
   <action id="Resume" />
+  <action id="SaveAll">
+    <keyboard-shortcut first-keystroke="meta alt s" />
+    <keyboard-shortcut first-keystroke="meta s" />
+  </action>
   <action id="SaveDocument" />
   <action id="ServiceView.GroupByContributor" />
   <action id="ShowContent" />
@@ -452,15 +466,16 @@
   <action id="SmartUnSelect">
     <keyboard-shortcut first-keystroke="shift ctrl meta left" />
   </action>
-  <action id="StringManipulation.ToolWindow.Replace.SaveAction">
-    <keyboard-shortcut first-keystroke="meta s" />
-  </action>
+  <action id="SplitVertically" />
   <action id="SwitchCoverage">
     <keyboard-shortcut first-keystroke="meta alt i" second-keystroke="c" />
   </action>
   <action id="Terminal.ClearPrompt" />
   <action id="Terminal.NextSplitter" />
   <action id="Terminal.PrevSplitter" />
+  <action id="Terminal.SplitVertically">
+    <keyboard-shortcut first-keystroke="shift ctrl 5" />
+  </action>
   <action id="ToggleBookmark0">
     <keyboard-shortcut first-keystroke="alt 0" />
   </action>
@@ -514,6 +529,7 @@
   </action>
   <action id="copilot.disposeInlays" />
   <action id="copilot.enableCopilot" />
+  <action id="org.intellij.plugins.markdown.ui.actions.styling.ToggleStrikethroughAction" />
   <action id="osmedile.intellij.stringmanip.PopupChoiceAction">
     <keyboard-shortcut first-keystroke="shift alt m" />
     <keyboard-shortcut first-keystroke="alt m" />

@@ -1,17 +1,17 @@
 <application>
   <component name="ProjectJdkTable">
     <jdk version="2">
-      <name value="IlluminatedCloud (quantum/qd-dev)" />
+      <name value="IlluminatedCloud (blue-sky/blu-sky-prod)" />
       <type value="IlluminatedCloud" />
       <version value="201511031443" />
-      <homePath value="$USER_HOME$/Projects/Job/quantum/IlluminatedCloud/qd_dev" />
+      <homePath value="$USER_HOME$/Projects/Job/blue-sky/IlluminatedCloud/blu_sky_prod" />
       <roots>
         <annotationsPath>
           <root type="composite" />
         </annotationsPath>
         <classPath>
           <root type="composite">
-            <root url="jar://$USER_HOME$/Projects/Job/quantum/IlluminatedCloud/qd_dev/OfflineSymbolTable.zip!/" type="simple" />
+            <root url="jar://$USER_HOME$/Projects/Job/blue-sky/IlluminatedCloud/blu_sky_prod/OfflineSymbolTable.zip!/" type="simple" />
           </root>
         </classPath>
         <javadocPath>
@@ -19,23 +19,23 @@
         </javadocPath>
         <sourcePath>
           <root type="composite">
-            <root url="jar://$USER_HOME$/Projects/Job/quantum/IlluminatedCloud/qd_dev/OfflineSymbolTable.zip!/" type="simple" />
+            <root url="jar://$USER_HOME$/Projects/Job/blue-sky/IlluminatedCloud/blu_sky_prod/OfflineSymbolTable.zip!/" type="simple" />
           </root>
         </sourcePath>
       </roots>
     </jdk>
     <jdk version="2">
-      <name value="IlluminatedCloud (quantum/qd-prod)" />
+      <name value="IlluminatedCloud (kurtz-fargo/kurtz-fargo-dev)" />
       <type value="IlluminatedCloud" />
       <version value="201511031443" />
-      <homePath value="$USER_HOME$/Projects/Job/quantum/IlluminatedCloud/qd_prod" />
+      <homePath value="$USER_HOME$/Projects/Job/kurtz-fargo/IlluminatedCloud/kurtz_fargo_dev" />
       <roots>
         <annotationsPath>
           <root type="composite" />
         </annotationsPath>
         <classPath>
           <root type="composite">
-            <root url="jar://$USER_HOME$/Projects/Job/quantum/IlluminatedCloud/qd_prod/OfflineSymbolTable.zip!/" type="simple" />
+            <root url="jar://$USER_HOME$/Projects/Job/kurtz-fargo/IlluminatedCloud/kurtz_fargo_dev/OfflineSymbolTable.zip!/" type="simple" />
           </root>
         </classPath>
         <javadocPath>
@@ -43,23 +43,23 @@
         </javadocPath>
         <sourcePath>
           <root type="composite">
-            <root url="jar://$USER_HOME$/Projects/Job/quantum/IlluminatedCloud/qd_prod/OfflineSymbolTable.zip!/" type="simple" />
+            <root url="jar://$USER_HOME$/Projects/Job/kurtz-fargo/IlluminatedCloud/kurtz_fargo_dev/OfflineSymbolTable.zip!/" type="simple" />
           </root>
         </sourcePath>
       </roots>
     </jdk>
     <jdk version="2">
-      <name value="IlluminatedCloud (quantum/qd-uat)" />
+      <name value="IlluminatedCloud (quantum-design/quantum-design-uat)" />
       <type value="IlluminatedCloud" />
       <version value="201511031443" />
-      <homePath value="$USER_HOME$/Projects/Job/quantum/IlluminatedCloud/qd_uat" />
+      <homePath value="$USER_HOME$/Projects/Job/quantum-design/IlluminatedCloud/quantum_design_uat" />
       <roots>
         <annotationsPath>
           <root type="composite" />
         </annotationsPath>
         <classPath>
           <root type="composite">
-            <root url="jar://$USER_HOME$/Projects/Job/quantum/IlluminatedCloud/qd_uat/OfflineSymbolTable.zip!/" type="simple" />
+            <root url="jar://$USER_HOME$/Projects/Job/quantum-design/IlluminatedCloud/quantum_design_uat/OfflineSymbolTable.zip!/" type="simple" />
           </root>
         </classPath>
         <javadocPath>
@@ -67,7 +67,175 @@
         </javadocPath>
         <sourcePath>
           <root type="composite">
-            <root url="jar://$USER_HOME$/Projects/Job/quantum/IlluminatedCloud/qd_uat/OfflineSymbolTable.zip!/" type="simple" />
+            <root url="jar://$USER_HOME$/Projects/Job/quantum-design/IlluminatedCloud/quantum_design_uat/OfflineSymbolTable.zip!/" type="simple" />
+          </root>
+        </sourcePath>
+      </roots>
+    </jdk>
+    <jdk version="2">
+      <name value="IlluminatedCloud (kurtz-fargo/kurtz-fargo-prod)" />
+      <type value="IlluminatedCloud" />
+      <version value="201511031443" />
+      <homePath value="$USER_HOME$/Projects/Job/kurtz-fargo/IlluminatedCloud/kurtz_fargo_prod" />
+      <roots>
+        <annotationsPath>
+          <root type="composite" />
+        </annotationsPath>
+        <classPath>
+          <root type="composite">
+            <root url="jar://$USER_HOME$/Projects/Job/kurtz-fargo/IlluminatedCloud/kurtz_fargo_prod/OfflineSymbolTable.zip!/" type="simple" />
+          </root>
+        </classPath>
+        <javadocPath>
+          <root type="composite" />
+        </javadocPath>
+        <sourcePath>
+          <root type="composite">
+            <root url="jar://$USER_HOME$/Projects/Job/kurtz-fargo/IlluminatedCloud/kurtz_fargo_prod/OfflineSymbolTable.zip!/" type="simple" />
+          </root>
+        </sourcePath>
+      </roots>
+    </jdk>
+    <jdk version="2">
+      <name value="IlluminatedCloud (isys/isys-prod)" />
+      <type value="IlluminatedCloud" />
+      <version value="201511031443" />
+      <homePath value="$USER_HOME$/Projects/Job/isys/IlluminatedCloud/isys_prod" />
+      <roots>
+        <annotationsPath>
+          <root type="composite" />
+        </annotationsPath>
+        <classPath>
+          <root type="composite">
+            <root url="jar://$USER_HOME$/Projects/Job/isys/IlluminatedCloud/isys_prod/OfflineSymbolTable.zip!/" type="simple" />
+          </root>
+        </classPath>
+        <javadocPath>
+          <root type="composite" />
+        </javadocPath>
+        <sourcePath>
+          <root type="composite">
+            <root url="jar://$USER_HOME$/Projects/Job/isys/IlluminatedCloud/isys_prod/OfflineSymbolTable.zip!/" type="simple" />
+          </root>
+        </sourcePath>
+      </roots>
+    </jdk>
+    <jdk version="2">
+      <name value="IlluminatedCloud (ajinomoto/ajinomoto-dev)" />
+      <type value="IlluminatedCloud" />
+      <version value="201511031443" />
+      <homePath value="$USER_HOME$/Projects/Job/ajinomoto/IlluminatedCloud/ajinomoto_dev" />
+      <roots>
+        <annotationsPath>
+          <root type="composite" />
+        </annotationsPath>
+        <classPath>
+          <root type="composite">
+            <root url="jar://$USER_HOME$/Projects/Job/ajinomoto/IlluminatedCloud/ajinomoto_dev/OfflineSymbolTable.zip!/" type="simple" />
+          </root>
+        </classPath>
+        <javadocPath>
+          <root type="composite" />
+        </javadocPath>
+        <sourcePath>
+          <root type="composite">
+            <root url="jar://$USER_HOME$/Projects/Job/ajinomoto/IlluminatedCloud/ajinomoto_dev/OfflineSymbolTable.zip!/" type="simple" />
+          </root>
+        </sourcePath>
+      </roots>
+    </jdk>
+    <jdk version="2">
+      <name value="IlluminatedCloud (isys/isys-dev)" />
+      <type value="IlluminatedCloud" />
+      <version value="201511031443" />
+      <homePath value="$USER_HOME$/Projects/Job/isys/IlluminatedCloud/isys_dev" />
+      <roots>
+        <annotationsPath>
+          <root type="composite" />
+        </annotationsPath>
+        <classPath>
+          <root type="composite">
+            <root url="jar://$USER_HOME$/Projects/Job/isys/IlluminatedCloud/isys_dev/OfflineSymbolTable.zip!/" type="simple" />
+          </root>
+        </classPath>
+        <javadocPath>
+          <root type="composite" />
+        </javadocPath>
+        <sourcePath>
+          <root type="composite">
+            <root url="jar://$USER_HOME$/Projects/Job/isys/IlluminatedCloud/isys_dev/OfflineSymbolTable.zip!/" type="simple" />
+          </root>
+        </sourcePath>
+      </roots>
+    </jdk>
+    <jdk version="2">
+      <name value="IlluminatedCloud (quantum-design/quantum-design-prod)" />
+      <type value="IlluminatedCloud" />
+      <version value="201511031443" />
+      <homePath value="$USER_HOME$/Projects/Job/quantum-design/IlluminatedCloud/quantum_design_prod" />
+      <roots>
+        <annotationsPath>
+          <root type="composite" />
+        </annotationsPath>
+        <classPath>
+          <root type="composite">
+            <root url="jar://$USER_HOME$/Projects/Job/quantum-design/IlluminatedCloud/quantum_design_prod/OfflineSymbolTable.zip!/" type="simple" />
+          </root>
+        </classPath>
+        <javadocPath>
+          <root type="composite" />
+        </javadocPath>
+        <sourcePath>
+          <root type="composite">
+            <root url="jar://$USER_HOME$/Projects/Job/quantum-design/IlluminatedCloud/quantum_design_prod/OfflineSymbolTable.zip!/" type="simple" />
+          </root>
+        </sourcePath>
+      </roots>
+    </jdk>
+    <jdk version="2">
+      <name value="IlluminatedCloud (quantum-design/isys-prod)" />
+      <type value="IlluminatedCloud" />
+      <version value="201511031443" />
+      <homePath value="$USER_HOME$/Projects/Job/quantum-design/IlluminatedCloud/isys_prod" />
+      <roots>
+        <annotationsPath>
+          <root type="composite" />
+        </annotationsPath>
+        <classPath>
+          <root type="composite">
+            <root url="jar://$USER_HOME$/Projects/Job/quantum-design/IlluminatedCloud/isys_prod/OfflineSymbolTable.zip!/" type="simple" />
+          </root>
+        </classPath>
+        <javadocPath>
+          <root type="composite" />
+        </javadocPath>
+        <sourcePath>
+          <root type="composite">
+            <root url="jar://$USER_HOME$/Projects/Job/quantum-design/IlluminatedCloud/isys_prod/OfflineSymbolTable.zip!/" type="simple" />
+          </root>
+        </sourcePath>
+      </roots>
+    </jdk>
+    <jdk version="2">
+      <name value="IlluminatedCloud (ysa/ysa-prod)" />
+      <type value="IlluminatedCloud" />
+      <version value="201511031443" />
+      <homePath value="$USER_HOME$/Projects/Job/ysa/IlluminatedCloud/ysa_prod" />
+      <roots>
+        <annotationsPath>
+          <root type="composite" />
+        </annotationsPath>
+        <classPath>
+          <root type="composite">
+            <root url="jar://$USER_HOME$/Projects/Job/ysa/IlluminatedCloud/ysa_prod/OfflineSymbolTable.zip!/" type="simple" />
+          </root>
+        </classPath>
+        <javadocPath>
+          <root type="composite" />
+        </javadocPath>
+        <sourcePath>
+          <root type="composite">
+            <root url="jar://$USER_HOME$/Projects/Job/ysa/IlluminatedCloud/ysa_prod/OfflineSymbolTable.zip!/" type="simple" />
           </root>
         </sourcePath>
       </roots>
@@ -75,7 +243,7 @@
     <jdk version="2">
       <name value="21" />
       <type value="JavaSDK" />
-      <version value="java version &quot;21.0.3&quot;" />
+      <version value="21.0.3 - aarch64" />
       <homePath value="/Library/Java/JavaVirtualMachines/microsoft-21.jdk/Contents/Home" />
       <roots>
         <annotationsPath>
@@ -235,17 +403,17 @@
       </roots>
     </jdk>
     <jdk version="2">
-      <name value="IlluminatedCloud (quantum/cgadmin@qdusa.com.prod.partial)" />
+      <name value="IlluminatedCloud (ysa/ysa-dev)" />
       <type value="IlluminatedCloud" />
       <version value="201511031443" />
-      <homePath value="$USER_HOME$/Projects/Job/quantum/IlluminatedCloud/cgadmin_qdusa_com_prod_partial" />
+      <homePath value="$USER_HOME$/Projects/Job/ysa/IlluminatedCloud/ysa_dev" />
       <roots>
         <annotationsPath>
           <root type="composite" />
         </annotationsPath>
         <classPath>
           <root type="composite">
-            <root url="jar://$USER_HOME$/Projects/Job/quantum/IlluminatedCloud/cgadmin_qdusa_com_prod_partial/OfflineSymbolTable.zip!/" type="simple" />
+            <root url="jar://$USER_HOME$/Projects/Job/ysa/IlluminatedCloud/ysa_dev/OfflineSymbolTable.zip!/" type="simple" />
           </root>
         </classPath>
         <javadocPath>
@@ -253,55 +421,7 @@
         </javadocPath>
         <sourcePath>
           <root type="composite">
-            <root url="jar://$USER_HOME$/Projects/Job/quantum/IlluminatedCloud/cgadmin_qdusa_com_prod_partial/OfflineSymbolTable.zip!/" type="simple" />
-          </root>
-        </sourcePath>
-      </roots>
-    </jdk>
-    <jdk version="2">
-      <name value="IlluminatedCloud (isys/isys-uat)" />
-      <type value="IlluminatedCloud" />
-      <version value="201511031443" />
-      <homePath value="$USER_HOME$/Projects/Job/isys/IlluminatedCloud/isys_uat" />
-      <roots>
-        <annotationsPath>
-          <root type="composite" />
-        </annotationsPath>
-        <classPath>
-          <root type="composite">
-            <root url="jar://$USER_HOME$/Projects/Job/isys/IlluminatedCloud/isys_uat/OfflineSymbolTable.zip!/" type="simple" />
-          </root>
-        </classPath>
-        <javadocPath>
-          <root type="composite" />
-        </javadocPath>
-        <sourcePath>
-          <root type="composite">
-            <root url="jar://$USER_HOME$/Projects/Job/isys/IlluminatedCloud/isys_uat/OfflineSymbolTable.zip!/" type="simple" />
-          </root>
-        </sourcePath>
-      </roots>
-    </jdk>
-    <jdk version="2">
-      <name value="IlluminatedCloud (isys/isys-prod)" />
-      <type value="IlluminatedCloud" />
-      <version value="201511031443" />
-      <homePath value="$USER_HOME$/Projects/Job/isys/IlluminatedCloud/isys_prod" />
-      <roots>
-        <annotationsPath>
-          <root type="composite" />
-        </annotationsPath>
-        <classPath>
-          <root type="composite">
-            <root url="jar://$USER_HOME$/Projects/Job/isys/IlluminatedCloud/isys_prod/OfflineSymbolTable.zip!/" type="simple" />
-          </root>
-        </classPath>
-        <javadocPath>
-          <root type="composite" />
-        </javadocPath>
-        <sourcePath>
-          <root type="composite">
-            <root url="jar://$USER_HOME$/Projects/Job/isys/IlluminatedCloud/isys_prod/OfflineSymbolTable.zip!/" type="simple" />
+            <root url="jar://$USER_HOME$/Projects/Job/ysa/IlluminatedCloud/ysa_dev/OfflineSymbolTable.zip!/" type="simple" />
           </root>
         </sourcePath>
       </roots>
@@ -331,17 +451,17 @@
       </roots>
     </jdk>
     <jdk version="2">
-      <name value="IlluminatedCloud (kurtz-fargo/kurtz-fargo-prod)" />
+      <name value="IlluminatedCloud (quantum-design/quantum-design-dev)" />
       <type value="IlluminatedCloud" />
       <version value="201511031443" />
-      <homePath value="$USER_HOME$/Projects/Job/kurtz-fargo/IlluminatedCloud/kurtz_fargo_prod" />
+      <homePath value="$USER_HOME$/Projects/Job/quantum-design/IlluminatedCloud/quantum_design_dev" />
       <roots>
         <annotationsPath>
           <root type="composite" />
         </annotationsPath>
         <classPath>
           <root type="composite">
-            <root url="jar://$USER_HOME$/Projects/Job/kurtz-fargo/IlluminatedCloud/kurtz_fargo_prod/OfflineSymbolTable.zip!/" type="simple" />
+            <root url="jar://$USER_HOME$/Projects/Job/quantum-design/IlluminatedCloud/quantum_design_dev/OfflineSymbolTable.zip!/" type="simple" />
           </root>
         </classPath>
         <javadocPath>
@@ -349,7 +469,151 @@
         </javadocPath>
         <sourcePath>
           <root type="composite">
-            <root url="jar://$USER_HOME$/Projects/Job/kurtz-fargo/IlluminatedCloud/kurtz_fargo_prod/OfflineSymbolTable.zip!/" type="simple" />
+            <root url="jar://$USER_HOME$/Projects/Job/quantum-design/IlluminatedCloud/quantum_design_dev/OfflineSymbolTable.zip!/" type="simple" />
+          </root>
+        </sourcePath>
+      </roots>
+    </jdk>
+    <jdk version="2">
+      <name value="IlluminatedCloud (darcars/darcars-prod)" />
+      <type value="IlluminatedCloud" />
+      <version value="201511031443" />
+      <homePath value="$USER_HOME$/Projects/Job/darcars/IlluminatedCloud/darcars_prod" />
+      <roots>
+        <annotationsPath>
+          <root type="composite" />
+        </annotationsPath>
+        <classPath>
+          <root type="composite">
+            <root url="jar://$USER_HOME$/Projects/Job/darcars/IlluminatedCloud/darcars_prod/OfflineSymbolTable.zip!/" type="simple" />
+          </root>
+        </classPath>
+        <javadocPath>
+          <root type="composite" />
+        </javadocPath>
+        <sourcePath>
+          <root type="composite">
+            <root url="jar://$USER_HOME$/Projects/Job/darcars/IlluminatedCloud/darcars_prod/OfflineSymbolTable.zip!/" type="simple" />
+          </root>
+        </sourcePath>
+      </roots>
+    </jdk>
+    <jdk version="2">
+      <name value="IlluminatedCloud (ajinomoto/ajinomoto-prod)" />
+      <type value="IlluminatedCloud" />
+      <version value="201511031443" />
+      <homePath value="$USER_HOME$/Projects/Job/ajinomoto/IlluminatedCloud/ajinomoto_prod" />
+      <roots>
+        <annotationsPath>
+          <root type="composite" />
+        </annotationsPath>
+        <classPath>
+          <root type="composite">
+            <root url="jar://$USER_HOME$/Projects/Job/ajinomoto/IlluminatedCloud/ajinomoto_prod/OfflineSymbolTable.zip!/" type="simple" />
+          </root>
+        </classPath>
+        <javadocPath>
+          <root type="composite" />
+        </javadocPath>
+        <sourcePath>
+          <root type="composite">
+            <root url="jar://$USER_HOME$/Projects/Job/ajinomoto/IlluminatedCloud/ajinomoto_prod/OfflineSymbolTable.zip!/" type="simple" />
+          </root>
+        </sourcePath>
+      </roots>
+    </jdk>
+    <jdk version="2">
+      <name value="IlluminatedCloud (darcars/darcars-uat)" />
+      <type value="IlluminatedCloud" />
+      <version value="201511031443" />
+      <homePath value="$USER_HOME$/Projects/Job/darcars/IlluminatedCloud/darcars_uat" />
+      <roots>
+        <annotationsPath>
+          <root type="composite" />
+        </annotationsPath>
+        <classPath>
+          <root type="composite">
+            <root url="jar://$USER_HOME$/Projects/Job/darcars/IlluminatedCloud/darcars_uat/OfflineSymbolTable.zip!/" type="simple" />
+          </root>
+        </classPath>
+        <javadocPath>
+          <root type="composite" />
+        </javadocPath>
+        <sourcePath>
+          <root type="composite">
+            <root url="jar://$USER_HOME$/Projects/Job/darcars/IlluminatedCloud/darcars_uat/OfflineSymbolTable.zip!/" type="simple" />
+          </root>
+        </sourcePath>
+      </roots>
+    </jdk>
+    <jdk version="2">
+      <name value="IlluminatedCloud (corrao-group/corrao-group-prod)" />
+      <type value="IlluminatedCloud" />
+      <version value="201511031443" />
+      <homePath value="$USER_HOME$/Projects/Job/corrao-group/IlluminatedCloud/corrao_group_prod" />
+      <roots>
+        <annotationsPath>
+          <root type="composite" />
+        </annotationsPath>
+        <classPath>
+          <root type="composite">
+            <root url="jar://$USER_HOME$/Projects/Job/corrao-group/IlluminatedCloud/corrao_group_prod/OfflineSymbolTable.zip!/" type="simple" />
+          </root>
+        </classPath>
+        <javadocPath>
+          <root type="composite" />
+        </javadocPath>
+        <sourcePath>
+          <root type="composite">
+            <root url="jar://$USER_HOME$/Projects/Job/corrao-group/IlluminatedCloud/corrao_group_prod/OfflineSymbolTable.zip!/" type="simple" />
+          </root>
+        </sourcePath>
+      </roots>
+    </jdk>
+    <jdk version="2">
+      <name value="IlluminatedCloud (kurtz-fargo/kurtz-fargo-stage)" />
+      <type value="IlluminatedCloud" />
+      <version value="201511031443" />
+      <homePath value="$USER_HOME$/Projects/Job/kurtz-fargo/IlluminatedCloud/kurtz_fargo_stage" />
+      <roots>
+        <annotationsPath>
+          <root type="composite" />
+        </annotationsPath>
+        <classPath>
+          <root type="composite">
+            <root url="jar://$USER_HOME$/Projects/Job/kurtz-fargo/IlluminatedCloud/kurtz_fargo_stage/OfflineSymbolTable.zip!/" type="simple" />
+          </root>
+        </classPath>
+        <javadocPath>
+          <root type="composite" />
+        </javadocPath>
+        <sourcePath>
+          <root type="composite">
+            <root url="jar://$USER_HOME$/Projects/Job/kurtz-fargo/IlluminatedCloud/kurtz_fargo_stage/OfflineSymbolTable.zip!/" type="simple" />
+          </root>
+        </sourcePath>
+      </roots>
+    </jdk>
+    <jdk version="2">
+      <name value="IlluminatedCloud (blue-sky/blusky-prod)" />
+      <type value="IlluminatedCloud" />
+      <version value="201511031443" />
+      <homePath value="$USER_HOME$/Projects/Job/blue-sky/IlluminatedCloud/blusky_prod" />
+      <roots>
+        <annotationsPath>
+          <root type="composite" />
+        </annotationsPath>
+        <classPath>
+          <root type="composite">
+            <root url="jar://$USER_HOME$/Projects/Job/blue-sky/IlluminatedCloud/blusky_prod/OfflineSymbolTable.zip!/" type="simple" />
+          </root>
+        </classPath>
+        <javadocPath>
+          <root type="composite" />
+        </javadocPath>
+        <sourcePath>
+          <root type="composite">
+            <root url="jar://$USER_HOME$/Projects/Job/blue-sky/IlluminatedCloud/blusky_prod/OfflineSymbolTable.zip!/" type="simple" />
           </root>
         </sourcePath>
       </roots>

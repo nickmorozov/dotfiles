@@ -16,12 +16,22 @@ function yy() {
 	rm -f -- "$tmp"
 }
 
+# Current dir without path
+alias cwd='basename $PWD'
+
 # Fast config edit
 alias ez="$EDITOR $ZDOTDIR/zshenv"
-alias ezr="$EDITOR $ZDOTDIR/.zshrc"
-alias ezz="$EDITOR $ZDOTDIR/{zshenv,.zshrc,.zprofile,zsh.$HOST}"
+alias ezz="$EDITOR $ZDOTDIR/"
 alias ea="$EDITOR $ZDOTDIR/aliases.zsh"
 alias eaa="$EDITOR $ZDOTDIR/*.zsh"
+
+rdf() {
+  if [[ -z $1 ]]; then
+    echo "$0 <DIR>"
+  fi
+
+  find "${1}" -type d -empty -exec rmdir {} \+
+}
 
 # Crontab
 alias crontab-save="crontab -l >> $HOME/.crontab"
