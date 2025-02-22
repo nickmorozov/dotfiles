@@ -84,7 +84,7 @@
         </entry>
         <entry key="$USER_HOME$/Projects/Job/quantum-design">
           <value>
-            <RecentProjectMetaInfo frameTitle="AuthorizeNetAdapter" opened="true" projectWorkspaceId="2gkMnTAHwHjKZuZ8O09hez2wg1R">
+            <RecentProjectMetaInfo frameTitle="AuthorizeNetAdapter" projectWorkspaceId="2gkMnTAHwHjKZuZ8O09hez2wg1R">
               <option name="activationTimestamp" value="1718046565711" />
               <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
               <option name="build" value="IU-241.17011.79" />
@@ -98,8 +98,81 @@
             </RecentProjectMetaInfo>
           </value>
         </entry>
+        <entry key="$USER_HOME$/Projects/Job/blue-sky">
+          <value>
+            <RecentProjectMetaInfo frameTitle="blue-sky [~/Projects/Job/blue-sky] – /Users/nick/Projects/Job/blue-sky/.idea/blue-sky.iml" projectWorkspaceId="2ihxbd5pNlLuiolcHxI4BZZONfM">
+              <option name="activationTimestamp" value="1719956902858" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="build" value="IU-241.18034.62" />
+              <option name="buildTimestamp" value="1718905980000" />
+              <option name="colorInfo">
+                <RecentProjectColorInfo associatedIndex="4" />
+              </option>
+              <frame x="4748" y="25" width="1897" height="2135" />
+              <option name="productionCode" value="IU" />
+              <option name="projectOpenTimestamp" value="1719956683675" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$APPLICATION_CONFIG_DIR$/light-edit">
+          <value>
+            <RecentProjectMetaInfo hidden="true" opened="true">
+              <option name="activationTimestamp" value="1732144854296" />
+              <option name="colorInfo">
+                <RecentProjectColorInfo associatedIndex="8" />
+              </option>
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Library/Mobile Documents/com~apple~CloudDocs/Downloads">
+          <value>
+            <RecentProjectMetaInfo frameTitle="Downloads [~/Library/Mobile Documents/com~apple~CloudDocs/Downloads] – /Users/nick/Library/Mobile Documents/com~apple~CloudDocs/Downloads/services.csv" projectWorkspaceId="2j1LCvQVfelAqUBf6YjK7THfyW7">
+              <option name="activationTimestamp" value="1720549511564" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="build" value="IU-241.18034.62" />
+              <option name="buildTimestamp" value="1718905980000" />
+              <option name="colorInfo">
+                <RecentProjectColorInfo associatedIndex="5" />
+              </option>
+              <frame x="3097" y="592" width="1400" height="1000" />
+              <option name="productionCode" value="IU" />
+              <option name="projectOpenTimestamp" value="1720549513030" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Projects/Repos/nick">
+          <value>
+            <RecentProjectMetaInfo projectWorkspaceId="2lIcuNrA8nWCu6K1Usmk3hfroI0">
+              <option name="activationTimestamp" value="1724871252716" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="build" value="IU-242.20224.419" />
+              <option name="buildTimestamp" value="1724084760000" />
+              <option name="colorInfo">
+                <RecentProjectColorInfo associatedIndex="6" />
+              </option>
+              <option name="productionCode" value="IU" />
+              <option name="projectOpenTimestamp" value="1724871253601" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Projects/Job/corrao-group-data-cloud">
+          <value>
+            <RecentProjectMetaInfo frameTitle="corrao-group-data-cloud [~/Projects/Job/corrao-group-data-cloud] – /Users/nick/Projects/Job/corrao-group-data-cloud/README.md" projectWorkspaceId="2lIfdJsPCigtNqXv4Z5pGTlxd47">
+              <option name="activationTimestamp" value="1724872596955" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="build" value="IU-242.20224.419" />
+              <option name="buildTimestamp" value="1724084760000" />
+              <option name="colorInfo">
+                <RecentProjectColorInfo associatedIndex="7" />
+              </option>
+              <frame x="3140" y="592" width="1400" height="1000" />
+              <option name="productionCode" value="IU" />
+              <option name="projectOpenTimestamp" value="1724872597747" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
       </map>
     </option>
-    <option name="lastOpenedProject" value="$USER_HOME$/Projects/Job/quantum-design" />
+    <option name="lastOpenedProject" value="$APPLICATION_CONFIG_DIR$/light-edit" />
   </component>
 </application>

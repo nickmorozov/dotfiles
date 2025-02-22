@@ -7,7 +7,9 @@
             <list>
               <option value="Pythonid" />
               <option value="com.github.blarc.ai-commits-intellij-plugin" />
+              <option value="com.intellij.ml.llm" />
               <option value="com.ppolivka.plugin.gitcleaner" />
+              <option value="dev.turingcomplete.intellijdevelopertoolsplugins" />
               <option value="nl.bryanderidder.regexrenamefiles" />
               <option value="some.awesome" />
             </list>

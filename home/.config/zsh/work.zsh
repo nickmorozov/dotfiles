@@ -7,6 +7,9 @@
 alias cops="gh copilot suggest"
 alias cope="gh copilot explain"
 
+# GitHub Create Repo From Current Dir
+alias gh-repo-from-dir="git init ; gaa ; gcmsg init ; gh repo create $(cwd) --private --source . --remote=upstream ; gp"
+
 # Default Browser
 db() {
   defaultbrowser $@

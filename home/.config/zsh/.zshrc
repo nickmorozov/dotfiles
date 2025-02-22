@@ -19,7 +19,11 @@ fi
 # Add SSH key
 ssh-add -l &>/dev/null
 if [ $? -eq 1 ]; then
-  ssh-add --apple-use-keychain ~/.ssh/id_rsa  # Add key to the keychain and agent
+  if [[ -f "$HOME/.ssh/id_rsa" ]]; then
+    ssh-add --apple-use-keychain "$HOME/.ssh/id_rsa"
+  elif [[ -f "$HOME/.ssh/id_ed25519" ]]; then
+    ssh-add --apple-use-keychain "$HOME/.ssh/id_ed25519"
+  fi
 fi
 
 HB_CNF_HANDLER="$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
@@ -162,3 +166,5 @@ if [ -f "$HOME/.fzf.zsh" ]; then
 fi
 
 
+
+. "$HOME/.local/share/../bin/env"

@@ -17,9 +17,6 @@
     - ~/.config
 
 - shell:
-    - description: Settings OSX defaults
-      command: ./scripts/osx
-    
     - description: Installing submodules
       command: git submodule update --init --recursive
 

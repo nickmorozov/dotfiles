@@ -10,18 +10,18 @@
     <entry key="debugger.new.tool.window.layout" value="true" />
     <entry key="ide.balloon.shadow.size" value="0" />
     <entry key="terminal.new.ui" value="true" />
+    <entry key="i18n.locale" value="" />
   </component>
   <component name="StatusBar">
     <option name="widgets">
       <map>
-        <entry key="AIAssistant" value="false" />
         <entry key="CodeStyleStatusBarWidget" value="false" />
-        <entry key="Encoding" value="false" />
         <entry key="FlowJSInfo" value="false" />
-        <entry key="LineSeparator" value="false" />
         <entry key="Memory" value="true" />
+        <entry key="PowerSaveMode" value="true" />
         <entry key="ReadOnlyAttribute" value="false" />
         <entry key="TypeScriptInfo" value="false" />
+        <entry key="git" value="true" />
         <entry key="top.walterInKitchen.gitdiff.component.StatusBarFactory" value="false" />
         <entry key="webDeployment.default.server.widget" value="false" />
       </map>

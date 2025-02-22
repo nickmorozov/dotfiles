@@ -1,6 +1,16 @@
 <application>
   <component name="DiffSettings">
     <option name="PLACES_MAP">
+      <entry key="Default">
+        <PlaceSettings>
+          <option name="DIFF_TOOLS_ORDER">
+            <list>
+              <option value="com.intellij.diff.tools.combined.CombinedSideBySideDiffTool" />
+              <option value="com.intellij.diff.tools.combined.CombinedUnifiedDiffTool" />
+            </list>
+          </option>
+        </PlaceSettings>
+      </entry>
       <entry key="DirDiff">
         <PlaceSettings>
           <option name="DIFF_TOOLS_ORDER">

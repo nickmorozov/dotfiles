@@ -13,7 +13,4 @@
       <keyword name=";" />
     </keywords3>
   </highlighting>
-  <extensionMap>
-    <removed_mapping ext="saql" />
-  </extensionMap>
 </filetype>
