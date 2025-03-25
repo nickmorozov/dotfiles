@@ -23,7 +23,7 @@ alias restart="sudo fdesetup authrestart -delayminutes 0"
 # https://github.com/sindresorhus/trash-cli
 # or use default rm -i
 if _exists trash; then
-  alias rm='trash'
+  # alias rm='trash'
 fi
 
 # Just bcoz clr shorter than clear

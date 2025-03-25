@@ -155,6 +155,8 @@ _extend_path "$DOTFILES/bin"
 _extend_path "$XDG_CONFIG_HOME/yarn/global/node_modules/.bin"
 _extend_path "/Applications/Xcode.app/Contents/Developer/usr/bin"
 
+export LIBRARY_PATH="$LIBRARY_PATH:/opt/homebrew/lib"
+
 # ------------------------------------------------------------------------------
 # Overrides
 # ------------------------------------------------------------------------------
@@ -172,3 +174,13 @@ if [ -f "zsh.$HOST" ]; then
   source "zsh.$HOST"
 fi
 
+# Rust
+
+_extend_path "$HOME/.cargo/bin"
+
+if [ -f "$HOME/.cargo/env" ]; then
+  source "$HOME/.cargo/env"
+fi
+
+# Vulkan for Apple Silicon
+quiet source "/Users/nick/VulkanSDK/1.4.304.1/setup-env.sh"

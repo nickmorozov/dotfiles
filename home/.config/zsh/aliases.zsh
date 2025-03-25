@@ -77,3 +77,6 @@ alias unrar="7z"
 alias unzip="7z x"
 alias xr="x -r"
 
+# Rsync
+alias rs="rsync -Puha"
+
