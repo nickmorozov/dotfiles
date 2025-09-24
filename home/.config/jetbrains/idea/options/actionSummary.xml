@@ -487,7 +487,7 @@
       <i c="348" l="1718046696949" />
     </e>
     <e n="SettingsEntryPoint">
-      <i c="6" l="1719956851676" />
+      <i c="7" l="1743455283411" />
     </e>
     <e n="ShowIntentionActions">
       <i c="14" l="1716589460906" />
@@ -778,7 +778,7 @@
       <i c="8" l="1719956899004" />
     </e>
     <e n="com.intellij.notification.NotificationAction$Simple">
-      <i c="16" l="1718046431433" />
+      <i c="18" l="1743455335094" />
     </e>
     <e n="com.intellij.openapi.actionSystem.AnActionWrapper">
       <i c="3859" l="1716331813108" />
@@ -832,7 +832,10 @@
       <i c="2" l="1716233437619" />
     </e>
     <e n="com.intellij.openapi.project.DumbAwareAction$SimpleDumbAwareAction">
-      <i c="54" l="1716934317687" />
+      <i c="55" l="1743455196145" />
+    </e>
+    <e n="com.intellij.openapi.updateSettings.impl.UpdateSettingsEntryPointActionProvider$2">
+      <i c="1" l="1743455284595" />
     </e>
     <e n="com.intellij.openapi.vcs.changes.ignore.actions.IgnoreFileAction">
       <i c="1" l="1716715043434" />

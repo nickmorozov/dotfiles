@@ -12,6 +12,7 @@ Subversion
 TestNG-J
 Tomcat
 XPathView
+com.android.tools.gradle.dcl
 com.godwin.json.parser
 com.intellij.aop
 com.intellij.beanValidation
@@ -27,13 +28,16 @@ com.intellij.javaee.app.servers.integration
 com.intellij.javaee.el
 com.intellij.javaee.extensions
 com.intellij.javaee.gradle
+com.intellij.javaee.jakarta.data
 com.intellij.javaee.jpa
+com.intellij.javaee.reverseEngineering
 com.intellij.javaee.web
 com.intellij.jsonpath
 com.intellij.jsp
 com.intellij.kubernetes
 com.intellij.micronaut
 com.intellij.microservices.jvm
+com.intellij.openRewrite
 com.intellij.persistence
 com.intellij.plugins.eclipsekeymap
 com.intellij.plugins.netbeanskeymap

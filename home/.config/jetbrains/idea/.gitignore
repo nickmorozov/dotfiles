@@ -17,3 +17,4 @@ workspace/
 migration/
 jdbc-drivers/
 
+.lock

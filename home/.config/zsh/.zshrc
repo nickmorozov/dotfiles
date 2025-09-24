@@ -87,7 +87,7 @@ if ! zgenom saved; then
     zgenom ohmyzsh plugins/ssh-agent
 
     # Custom plugins
-    zgenom load jeffreytse/zsh-vi-mode
+    # zgenom load jeffreytse/zsh-vi-mode
     zgenom load djui/alias-tips
     zgenom load agkozak/zsh-z
     zgenom load marzocchi/zsh-notify
@@ -168,3 +168,6 @@ fi
 
 
 . "$HOME/.local/share/../bin/env"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/nick/.lmstudio/bin"

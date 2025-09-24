@@ -116,7 +116,7 @@
         </entry>
         <entry key="$APPLICATION_CONFIG_DIR$/light-edit">
           <value>
-            <RecentProjectMetaInfo hidden="true" opened="true">
+            <RecentProjectMetaInfo hidden="true">
               <option name="activationTimestamp" value="1732144854296" />
               <option name="colorInfo">
                 <RecentProjectColorInfo associatedIndex="8" />
@@ -171,8 +171,24 @@
             </RecentProjectMetaInfo>
           </value>
         </entry>
+        <entry key="$USER_HOME$/Projects/Job/psi">
+          <value>
+            <RecentProjectMetaInfo frameTitle="psi – README.md" opened="true" projectWorkspaceId="2v6AVVuDZSkDAWpRant0gX4VTpG">
+              <option name="activationTimestamp" value="1743455334989" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="build" value="IU-243.25659.59" />
+              <option name="buildTimestamp" value="1741129980000" />
+              <option name="colorInfo">
+                <RecentProjectColorInfo associatedIndex="0" />
+              </option>
+              <frame x="0" y="25" width="2530" height="2135" />
+              <option name="productionCode" value="IU" />
+              <option name="projectOpenTimestamp" value="1743455174150" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
       </map>
     </option>
-    <option name="lastOpenedProject" value="$APPLICATION_CONFIG_DIR$/light-edit" />
+    <option name="lastOpenedProject" value="$USER_HOME$/Projects/Job/psi" />
   </component>
 </application>
