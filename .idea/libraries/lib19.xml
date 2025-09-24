@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="lib19">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/scopes-manager-intellij-plugin/lib/searchableOptions-1.10.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/scopes-manager-intellij-plugin/lib/kotlin-reflect-2.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/scopes-manager-intellij-plugin/lib/instrumented-scopes-manager-intellij-plugin-1.10.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/scopes-manager-intellij-plugin/lib/kotlin-stdlib-2.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/scopes-manager-intellij-plugin/lib/annotations-13.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

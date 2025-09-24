@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="lib12">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/StringManipulation/lib/commons-lang3-3.14.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/StringManipulation/lib/krasa-JSON-java-v20210107-fixedOrder.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/StringManipulation/lib/inamik-text-tables-0.8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/StringManipulation/lib/objenesis-3.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/StringManipulation/lib/gson-2.10.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/StringManipulation/lib/cloning-1.9.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/StringManipulation/lib/commons-text-1.12.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/StringManipulation/lib/instrumented-StringManipulation-9.15.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/StringManipulation/lib/shade.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/StringManipulation/lib/searchableOptions-9.15.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

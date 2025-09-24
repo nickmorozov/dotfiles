@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="dataloader">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/home/.local/share/dataloader/dataloader-62.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.local/share/dataloader/swtmac_aarch64-4.32.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.local/share/dataloader/dataloader-62.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.local/share/dataloader/swtmac_x86_64-4.32.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

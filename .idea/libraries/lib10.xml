@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="lib10">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/fileExpander/lib/instrumented-fileExpander-2.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/fileExpander/lib/aircompressor-0.25.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/fileExpander/lib/searchableOptions-2.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

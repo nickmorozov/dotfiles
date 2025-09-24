@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="lib16">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/AppleScript Support/lib/AppleScript-0.121.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/AppleScript Support/lib/searchableOptions-0.121.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

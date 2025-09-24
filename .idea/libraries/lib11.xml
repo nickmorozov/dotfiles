@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="lib11">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/intellij-rainbow-brackets/lib/intellij-rainbow-brackets-searchableOptions.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/intellij-rainbow-brackets/lib/intellij-rainbow-brackets.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

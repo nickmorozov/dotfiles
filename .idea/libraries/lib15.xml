@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="lib15">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/IDEA-Native-Terminal-Plugin/lib/instrumented-IDEA-Native-Terminal-Plugin-0.8.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/IDEA-Native-Terminal-Plugin/lib/searchableOptions-0.8.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

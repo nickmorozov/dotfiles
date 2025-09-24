@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="keymap-vscode">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/keymap-vscode/lib/keymap-vscode.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,43 @@
+<component name="libraryTable">
+  <library name="lib14">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/github-copilot-intellij/lib/plugin-ideavim.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/github-copilot-intellij/lib/annotations-26.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/github-copilot-intellij/lib/kotlin-reflect-1.6.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/github-copilot-intellij/lib/okhttp-4.12.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/github-copilot-intellij/lib/xodus-query-2.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/github-copilot-intellij/lib/kotlin-stdlib-jdk7-1.9.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/github-copilot-intellij/lib/okio-jvm-3.6.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/github-copilot-intellij/lib/annotations-3.0.1u2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/github-copilot-intellij/lib/joda-time-2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/github-copilot-intellij/lib/xodus-openAPI-2.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/github-copilot-intellij/lib/xodus-vfs-2.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/github-copilot-intellij/lib/kotlinx-html-jvm-0.8.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/github-copilot-intellij/lib/core.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/github-copilot-intellij/lib/kotlin-stdlib-jdk8-1.9.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/github-copilot-intellij/lib/slf4j-api-2.0.16.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/github-copilot-intellij/lib/dnq-transient-store-2.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/github-copilot-intellij/lib/dnq-2.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/github-copilot-intellij/lib/slf4j-simple-2.0.16.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/github-copilot-intellij/lib/xodus-compress-2.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/github-copilot-intellij/lib/jsr305-3.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/github-copilot-intellij/lib/javax.servlet-api-3.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/github-copilot-intellij/lib/github-copilot-intellij-1.5.40-243.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/github-copilot-intellij/lib/dnq-open-api-2.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/github-copilot-intellij/lib/kotlin-stdlib-common-1.9.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/github-copilot-intellij/lib/kotlin-stdlib-1.9.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/github-copilot-intellij/lib/kotlin-logging-1.7.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/github-copilot-intellij/lib/javassist-3.28.0-GA.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/github-copilot-intellij/lib/xodus-environment-2.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/github-copilot-intellij/lib/keap-0.3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/github-copilot-intellij/lib/xodus-entity-store-2.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/github-copilot-intellij/lib/reflections-0.10.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/github-copilot-intellij/lib/commons-compress-1.21.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/github-copilot-intellij/lib/xodus-utils-2.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/github-copilot-intellij/lib/jcip-annotations-1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/github-copilot-intellij/lib/jsoup-1.18.3.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

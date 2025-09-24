@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/dotbot" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/dotbot/lib/pyyaml" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/home/.config/iterm2/iTerm2-Color-Schemes" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/home/.config/nvim" vcs="Git" />
+  </component>
+</project>
