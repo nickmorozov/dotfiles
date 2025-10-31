@@ -1,6 +1,13 @@
 #############################################
 # SFDX / SF CLI
 #############################################
+_exists() {
+    command -v $1 > /dev/null 2>&1
+}
+
+_green() {
+    echo -e "\e[32m$@\e[0m"
+}
 
 if _exists sf; then
     sfl() {
@@ -85,10 +92,10 @@ if _exists sf; then
     sfst() {
         echo ""
         _green "Retrieve Status"
-        sf project retrieve preview
+        sfprd
         echo ""
         _green "Deploy Status"
-        sf project deploy preview
+        sfpdp
     }
 
     sfsync() {
@@ -104,13 +111,13 @@ if _exists sf; then
     alias sfctdh="sf config set target-dev-hub "
     # inspect current config (local + global)
     sfconf() {
-        echo "---- local config ----"
+        _green "Config"
         sf config list
         echo ""
-        echo "---- target-org ----"
+        _green "Target Org"
         sf config get target-org
         echo ""
-        echo "---- target-dev-hub ----"
+        _green "Target Dev Hub"
         sf config get target-dev-hub
     }
 
@@ -126,11 +133,7 @@ if _exists sf; then
 
     # who am i / what org am i aimed at?
     sfwho() {
-        echo "Target org:"
-        sf config get target-org
-        echo ""
-        echo "Target dev hub:"
-        sf config get target-dev-hub
+        sfconf
         echo ""
         sf org display --verbose 2> /dev/null
     }
@@ -139,17 +142,13 @@ if _exists sf; then
     # create a scratch org using a project-scratch-def, set it as default target, assign alias
     # usage: sfscratch config/project-scratch-def.json MyScratchAlias 7
     sfscratch() {
-        DEF_FILE=$1
-        ALIAS=$2
-        DAYS=$3
+        ALIAS=$1
+        DEF_FILE=${2:-"config/project-scratch-def.json"}
+        DAYS=${3:-30}
 
-        if [[ -z $DEF_FILE || -z $ALIAS ]]; then
-            echo "Usage: sfscratch <def-file> <alias> [days]"
+        if [[ -z $ALIAS ]]; then
+            echo "Usage: sfscratch <alias> [def-file] [days]"
             return 1
-        fi
-
-        if [[ -z $DAYS ]]; then
-            DAYS=7
         fi
 
         sf org create scratch \
