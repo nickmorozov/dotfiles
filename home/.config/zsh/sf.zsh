@@ -68,14 +68,25 @@ if _exists sf; then
     #   sf config set --global target-org=my-scratch-org target-dev-hub=my-dev-hub
     #   sf config set target-dev-hub=corrao-group-prod
     #   sf config unset target-org api-version --global
-
+    #
+    #   sf org assign permset --name Admin
+    #   sf org assign permset --name CGPM_Admin --on-behalf-of <non-admin-user>
+    #
     # packaging workflow refs
+    #
+    #   sf apex run test --wait 999
+    #   sf apex run test
+    #   sf apex get test -i 707Ov00002fsvff
+    #
     #   sf package create --name "CGPM" --path force-app --package-type Unlocked
-    #   sf package version create --package "CGPM" --installation-key-bypass --wait 999
+    #   sf package version create --package "CGPM" -c --installation-key-bypass --wait 999
+    #   sf package version promote --package "CGPM@0.1.0-4" -n
     #   sf package install --package "CGPM@0.1.0-1" --target-org corrao-group-uat --installation-key test1234 --wait 10 --publish-wait 10
     #   sf package install --package "CGPM@0.1.0-1" --target-org corrao-group-uat --wait 999 --publish-wait 999
     #
     #   sf package install --help
+    #   sf data query --target-org $(sf config get target-dev-hub) --query "SELECT OrgKey, OrgName, OrgType, InstanceName, MetadataPackageId, MetadataPackageVersionId FROM PackageSubscriber WHERE MetadataPackageId = '033Qk000000ICkHIAW'" --result-format json
+    #   sf package push-upgrade schedule --package 04tQk000000lsY1IAI --org-list 00DNq00000BxiWX
 
     # --- deploy / retrieve convenience aliases ---
     alias sfpds="sf project deploy start "
@@ -158,6 +169,9 @@ if _exists sf; then
             --set-default
         sf org list --all --verbose
     }
+
+    alias sft="sf apex run test --wait 999 --result-format human"
+    alias sftc="sft --code-coverage"
 
     # delete a scratch org by alias and clean up config target-org if it was pointing there
     # usage: sfscratchdel MyScratchAlias
