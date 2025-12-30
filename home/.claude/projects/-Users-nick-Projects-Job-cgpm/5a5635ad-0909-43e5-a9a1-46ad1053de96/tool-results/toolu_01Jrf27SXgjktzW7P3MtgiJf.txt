@@ -1,0 +1,20 @@
+The file /Users/nick/Projects/Job/cgpm/force-app/main/default/lwc/workItemGantt/__tests__/workItemGantt.test.js has been updated. Here's the result of running `cat -n` on a snippet of the edited file:
+   390→                recordId: 'proj-001',
+   391→                objectApiName: 'cgpm__Project__c'
+   392→            });
+   393→
+   394→            await flushPromises();
+   395→            getWorkItemsForProject.emit({
+   396→                workItems: [
+   397→                    { id: 'wi-001', startDate: '2025-01-15', dueDate: '2025-01-20', children: [] },
+   398→                    { id: 'wi-002', startDate: null, dueDate: null, children: [] }
+   399→                ]
+   400→            });
+   401→            await flushPromises();
+   402→
+   403→            // timedWorkItems should only include items with dates
+   404→            expect(element.timedWorkItems.length).toBe(1);
+   405→        });
+   406→    });
+   407→
+   408→    describe('button variants', () => {

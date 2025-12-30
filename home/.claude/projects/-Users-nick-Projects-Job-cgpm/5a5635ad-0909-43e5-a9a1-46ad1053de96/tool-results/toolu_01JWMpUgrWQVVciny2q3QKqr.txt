@@ -1,0 +1,260 @@
+     1→import { LightningElement, api, track } from 'lwc';
+     2→import getWorkItemHistory from '@salesforce/apex/WorkItemController.getWorkItemHistory';
+     3→import getNotesForWorkItem from '@salesforce/apex/WorkItemNoteController.getNotesForWorkItem';
+     4→import getTimeEntries from '@salesforce/apex/WorkItemController.getTimeEntriesForWorkItem';
+     5→
+     6→export default class WorkItemHistoryModal extends LightningElement {
+     7→    @track workItemId;
+     8→    @track showModal = false;
+     9→    @track historyItems = [];
+    10→    @track notes = [];
+    11→    @track timeEntries = [];
+    12→    @track combinedItems = [];
+    13→    @track isLoading = false;
+    14→    @track errorMessage = '';
+    15→    @track activeTab = 'all';
+    16→
+    17→    /**
+    18→     * Open the modal and load history
+    19→     * @param {String} workItemId - The ID of the Work Item to load history for
+    20→     */
+    21→    @api
+    22→    openModal(workItemId) {
+    23→        this.workItemId = workItemId;
+    24→        this.showModal = true;
+    25→        this.loadHistory();
+    26→    }
+    27→
+    28→    /**
+    29→     * Close the modal
+    30→     */
+    31→    handleClose() {
+    32→        this.showModal = false;
+    33→        this.activeTab = 'all'; // Reset to All tab when closing
+    34→    }
+    35→
+    36→    /**
+    37→     * Handle tab change
+    38→     */
+    39→    handleTabChange(event) {
+    40→        this.activeTab = event.target.value;
+    41→    }
+    42→
+    43→    /**
+    44→     * Load history and notes for the Work Item
+    45→     */
+    46→    loadHistory() {
+    47→        if (!this.workItemId) {
+    48→            this.errorMessage = 'Work Item ID is required';
+    49→            return;
+    50→        }
+    51→
+    52→        this.isLoading = true;
+    53→        this.errorMessage = '';
+    54→
+    55→        Promise.all([getWorkItemHistory({ workItemId: this.workItemId }), getNotesForWorkItem({ workItemId: this.workItemId }), getTimeEntries({ workItemId: this.workItemId })])
+    56→            .then(([historyData, notesData, timeEntriesData]) => {
+    57→                // Transform history data for display
+    58→                this.historyItems = historyData.map((item) => {
+    59→                    const fieldName = item.Field;
+    60→                    const isStatusUpdate = fieldName === 'cgpm__Status__c';
+    61→
+    62→                    return {
+    63→                        id: item.Id,
+    64→                        type: 'history',
+    65→                        isStatusUpdate: isStatusUpdate,
+    66→                        isFieldUpdate: !isStatusUpdate,
+    67→                        formattedDate: this.formatDateTime(item.CreatedDate),
+    68→                        sortDate: new Date(item.CreatedDate),
+    69→                        userName: item.CreatedBy.Name,
+    70→                        fieldName: fieldName,
+    71→                        fieldLabel: this.getFieldLabel(fieldName),
+    72→                        action: this.getActionDescription(item),
+    73→                        oldValue: this.formatValue(item.OldValue),
+    74→                        newValue: this.formatValue(item.NewValue)
+    75→                    };
+    76→                });
+    77→
+    78→                // Transform notes data for display
+    79→                this.notes = notesData.map((note) => {
+    80→                    return {
+    81→                        id: note.id,
+    82→                        type: 'note',
+    83→                        isNote: true,
+    84→                        formattedDate: this.formatDateTime(note.createdDate),
+    85→                        sortDate: new Date(note.createdDate),
+    86→                        userName: note.createdByName,
+    87→                        noteText: note.noteText
+    88→                    };
+    89→                });
+    90→
+    91→                // Transform time entries data for display
+    92→                this.timeEntries = timeEntriesData.map((entry) => {
+    93→                    return {
+    94→                        id: entry.id,
+    95→                        type: 'timeentry',
+    96→                        isTimeEntry: true,
+    97→                        timeEntryNumber: entry.timeEntryNumber,
+    98→                        formattedDate: this.formatDateTime(entry.createdDate),
+    99→                        sortDate: new Date(entry.createdDate),
+   100→                        entryDate: this.formatDate(entry.entryDate),
+   101→                        hours: entry.hours,
+   102→                        description: entry.description,
+   103→                        workItemName: entry.workItemName,
+   104→                        resourceName: entry.resourceName,
+   105→                        createdByName: entry.createdByName
+   106→                    };
+   107→                });
+   108→
+   109→                // Combine and sort by date (newest first)
+   110→                this.combinedItems = [...this.historyItems, ...this.notes, ...this.timeEntries].sort((a, b) => {
+   111→                    return b.sortDate - a.sortDate;
+   112→                });
+   113→
+   114→                this.isLoading = false;
+   115→            })
+   116→            .catch((error) => {
+   117→                this.historyItems = [];
+   118→                this.notes = [];
+   119→                this.timeEntries = [];
+   120→                this.combinedItems = [];
+   121→                this.isLoading = false;
+   122→                this.errorMessage = error.body ? error.body.message : 'An unknown error occurred';
+   123→            });
+   124→    }
+   125→
+   126→    /**
+   127→     * Format date-time for display
+   128→     */
+   129→    formatDateTime(dateTimeString) {
+   130→        if (!dateTimeString) {
+   131→            return '';
+   132→        }
+   133→        const date = new Date(dateTimeString);
+   134→        return date.toLocaleString();
+   135→    }
+   136→
+   137→    /**
+   138→     * Format date for display
+   139→     */
+   140→    formatDate(dateString) {
+   141→        if (!dateString) {
+   142→            return '';
+   143→        }
+   144→        const date = new Date(dateString);
+   145→        return date.toLocaleDateString();
+   146→    }
+   147→
+   148→    /**
+   149→     * Format field value for display
+   150→     */
+   151→    formatValue(value) {
+   152→        if (value === null || value === undefined) {
+   153→            return '';
+   154→        }
+   155→        return String(value);
+   156→    }
+   157→
+   158→    /**
+   159→     * Get user-friendly field label
+   160→     */
+   161→    getFieldLabel(fieldApiName) {
+   162→        const fieldLabels = {
+   163→            cgpm__Status__c: 'Status',
+   164→            cgpm__Start_Date__c: 'Start Date',
+   165→            cgpm__Due_Date__c: 'Due Date',
+   166→            cgpm__Estimated_Hours__c: 'Estimated Hours',
+   167→            cgpm__Actual_Hours__c: 'Actual Hours',
+   168→            cgpm__Work_Item_Name__c: 'Name',
+   169→            cgpm__Summary__c: 'Summary',
+   170→            cgpm__Parent_Work_Item__c: 'Parent Work Item',
+   171→            cgpm__Work_Item_Template__c: 'Template'
+   172→        };
+   173→
+   174→        return fieldLabels[fieldApiName] || fieldApiName;
+   175→    }
+   176→
+   177→    /**
+   178→     * Get action description based on field change
+   179→     */
+   180→    getActionDescription(historyItem) {
+   181→        const field = historyItem.Field;
+   182→
+   183→        // Special handling for created record
+   184→        if (field === 'created') {
+   185→            return 'Created work item';
+   186→        }
+   187→
+   188→        // For field changes, return field-specific descriptions
+   189→        const oldVal = historyItem.OldValue;
+   190→        const newVal = historyItem.NewValue;
+   191→
+   192→        if (!oldVal && newVal) {
+   193→            return `Set ${this.getFieldLabel(field)}`;
+   194→        } else if (oldVal && !newVal) {
+   195→            return `Cleared ${this.getFieldLabel(field)}`;
+   196→        } else {
+   197→            return `Changed ${this.getFieldLabel(field)}`;
+   198→        }
+   199→    }
+   200→
+   201→    // === Computed Properties ===
+   202→
+   203→    /**
+   204→     * Tab options for lightning-tabset
+   205→     */
+   206→    get tabOptions() {
+   207→        return [
+   208→            { label: 'All', value: 'all' },
+   209→            { label: 'Notes', value: 'notes' },
+   210→            { label: 'Status Updates', value: 'status' },
+   211→            { label: 'Field Updates', value: 'fields' }
+   212→        ];
+   213→    }
+   214→
+   215→    /**
+   216→     * Filtered items based on active tab
+   217→     */
+   218→    get filteredItems() {
+   219→        if (!this.combinedItems || this.combinedItems.length === 0) {
+   220→            return [];
+   221→        }
+   222→
+   223→        switch (this.activeTab) {
+   224→            case 'notes':
+   225→                return this.combinedItems.filter((item) => item.isNote);
+   226→            case 'timeentries':
+   227→                return this.combinedItems.filter((item) => item.isTimeEntry);
+   228→            case 'fields':
+   229→                return this.combinedItems.filter((item) => item.isFieldUpdate || item.isStatusUpdate);
+   230→            case 'all':
+   231→            default:
+   232→                return this.combinedItems;
+   233→        }
+   234→    }
+   235→
+   236→    /**
+   237→     * Whether history items exist
+   238→     */
+   239→    get hasHistory() {
+   240→        return !this.isLoading && !this.errorMessage && this.filteredItems && this.filteredItems.length > 0;
+   241→    }
+   242→
+   243→    /**
+   244→     * Whether no history items exist
+   245→     */
+   246→    get hasNoHistory() {
+   247→        return !this.isLoading && !this.errorMessage && (!this.filteredItems || this.filteredItems.length === 0);
+   248→    }
+   249→
+   250→    /**
+   251→     * Whether an error occurred loading history
+   252→     */
+   253→    get hasError() {
+   254→        return this.errorMessage && this.errorMessage.length > 0;
+   255→    }
+   256→}
+
+<system-reminder>
+Whenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.
+</system-reminder>

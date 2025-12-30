@@ -1,0 +1,149 @@
+Exit code 1
+
+> cgpm@1.0.0 test
+> npm run test:unit --testPathPattern=projectRoleManager
+
+npm warn Unknown cli config "--testPathPattern". This will stop working in the next major version of npm.
+
+> cgpm@1.0.0 test:unit
+> sfdx-lwc-jest
+
+PASS force-app/main/default/lwc/workItemActionBar/__tests__/workItemActionBar.test.js
+PASS force-app/main/default/lwc/workItemHistory/__tests__/workItemHistory.test.js
+PASS force-app/main/default/lwc/workItemGanttRow/__tests__/workItemGanttRow.test.js
+FAIL force-app/main/default/lwc/baseComponent/__tests__/baseComponent.test.js
+  ● Console
+
+    console.warn
+      [LWC warn]: The property "defaultWorkflow" is not publicly accessible. Add the @api annotation to the property declaration or getter/setter in the component to make it accessible.
+
+      80 |             const element = createComponent();
+      81 |
+    > 82 |             expect(element.defaultWorkflow).toBeDefined();
+         |                            ^
+      83 |             expect(element.defaultWorkflow.length).toBe(5);
+      84 |         });
+      85 |
+
+      at log (node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:1008:24)
+      at Object.defaultWorkflow (force-app/main/default/lwc/baseComponent/__tests__/baseComponent.test.js:82:28)
+
+    console.warn
+      [LWC warn]: The property "defaultWorkflow" is not publicly accessible. Add the @api annotation to the property declaration or getter/setter in the component to make it accessible.
+
+      87 |             const element = createComponent();
+      88 |
+    > 89 |             const notStarted = element.defaultWorkflow.find(
+         |                                        ^
+      90 |                 (s) => s.name === 'Not Started'
+      91 |             );
+      92 |             expect(notStarted).toBeDefined();
+
+      at log (node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:1008:24)
+      at Object.defaultWorkflow (force-app/main/default/lwc/baseComponent/__tests__/baseComponent.test.js:89:40)
+
+    console.warn
+      [LWC warn]: The property "defaultWorkflow" is not publicly accessible. Add the @api annotation to the property declaration or getter/setter in the component to make it accessible.
+
+       97 |             const element = createComponent();
+       98 |
+    >  99 |             const inProgress = element.defaultWorkflow.find(
+          |                                        ^
+      100 |                 (s) => s.name === 'In Progress'
+      101 |             );
+      102 |             expect(inProgress).toBeDefined();
+
+      at log (node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:1008:24)
+      at Object.defaultWorkflow (force-app/main/default/lwc/baseComponent/__tests__/baseComponent.test.js:99:40)
+
+    console.warn
+      [LWC warn]: The property "defaultWorkflow" is not publicly accessible. Add the @api annotation to the property declaration or getter/setter in the component to make it accessible.
+
+      107 |             const element = createComponent();
+      108 |
+    > 109 |             const complete = element.defaultWorkflow.find(
+          |                                      ^
+      110 |                 (s) => s.name === 'Complete'
+      111 |             );
+      112 |             expect(complete).toBeDefined();
+
+      at log (node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:1008:24)
+      at Object.defaultWorkflow (force-app/main/default/lwc/baseComponent/__tests__/baseComponent.test.js:109:38)
+
+    console.warn
+      [LWC warn]: The property "defaultWorkflow" is not publicly accessible. Add the @api annotation to the property declaration or getter/setter in the component to make it accessible.
+
+      117 |             const element = createComponent();
+      118 |
+    > 119 |             const onHold = element.defaultWorkflow.find(
+          |                                    ^
+      120 |                 (s) => s.name === 'On Hold'
+      121 |             );
+      122 |             expect(onHold).toBeDefined();
+
+      at log (node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:1008:24)
+      at Object.defaultWorkflow (force-app/main/default/lwc/baseComponent/__tests__/baseComponent.test.js:119:36)
+
+    console.warn
+      [LWC warn]: The property "defaultWorkflow" is not publicly accessible. Add the @api annotation to the property declaration or getter/setter in the component to make it accessible.
+
+      127 |             const element = createComponent();
+      128 |
+    > 129 |             const cancelled = element.defaultWorkflow.find(
+          |                                       ^
+      130 |                 (s) => s.name === 'Cancelled'
+      131 |             );
+      132 |             expect(cancelled).toBeDefined();
+
+      at log (node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:1008:24)
+      at
+
+... [91543 characters truncated] ...
+
+rties of undefined (reading 'filter')
+    at WorkItemGanttRow.filter [as timedChildren] (/Users/nick/Projects/Job/cgpm/force-app/main/default/lwc/workItemGanttRow/workItemGanttRow.js:28:39)
+    at WorkItemGanttRow.timedChildren [as hasChildren] (/Users/nick/Projects/Job/cgpm/force-app/main/default/lwc/workItemGanttRow/workItemGanttRow.js:36:21)
+    at tmpl (/Users/nick/Projects/Job/cgpm/force-app/main/default/lwc/workItemGanttRow/workItemGanttRow.html:81:1)
+    at /Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:7100:27
+    at ReactiveObserver.observe (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:1305:13)
+    at isUpdatingTemplate (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:7055:13)
+    at runWithBoundaryProtection (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:8041:9)
+    at evaluateTemplate (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:7048:5)
+    at invokeComponentRenderMethod (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:7224:41)
+    at renderComponent (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:7317:20)
+    at rehydrate (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:7789:26)
+    at appendVM (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:7536:5)
+    at mountCustomElement (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:5493:9)
+    at mount (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:5362:13)
+    at mountVNodes (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:5550:13)
+    at mountElement (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:5415:5)
+    at mount (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:5358:13)
+    ... collapsed 3 duplicate lines matching above lines ...
+    at updateStaticChildren (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:6052:17)
+    at patchChildren (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:5296:9)
+    at patchElement (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:5427:5)
+    at patch (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:5332:13)
+    at updateStaticChildren (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:6036:25)
+    ... collapsed 4 duplicate lines matching above lines ...
+    at patchChildren (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:5296:9)
+    at /Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:7808:17
+    at runWithBoundaryProtection (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:8041:9)
+    at patchShadowRoot (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:7803:13)
+    at rehydrate (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:7790:9)
+    at Array.flushRehydrationQueue (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:7851:17)
+    at flushCallbackQueue (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:1048:21)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+Node.js v24.8.0
+FAIL force-app/main/default/lwc/workItemGantt/__tests__/workItemGantt.test.js
+  ● Test suite failed to run
+
+    Jest worker encountered 4 child process exceptions, exceeding retry limit
+
+      at ChildProcessWorker.initialize (node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-worker/build/workers/ChildProcessWorker.js:181:21)
+
+Test Suites: 5 failed, 11 passed, 16 total
+Tests:       84 failed, 249 passed, 333 total
+Snapshots:   0 total
+Time:        6.93 s
+Ran all test suites.

@@ -1,0 +1,95 @@
+{
+  "version": 2,
+  "plugins": {
+    "feature-dev@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/nick/.claude/plugins/cache/claude-plugins-official/feature-dev/6d3752c000e2",
+        "version": "6d3752c000e2",
+        "installedAt": "2025-12-23T23:12:02.765Z",
+        "lastUpdated": "2025-12-25T22:08:33.150Z",
+        "isLocal": true
+      }
+    ],
+    "frontend-design@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/nick/.claude/plugins/cache/claude-plugins-official/frontend-design/6d3752c000e2",
+        "version": "6d3752c000e2",
+        "installedAt": "2025-12-30T22:14:51.407Z",
+        "lastUpdated": "2025-12-30T22:17:53.503Z",
+        "isLocal": true
+      }
+    ],
+    "github@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/nick/.claude/plugins/cache/claude-plugins-official/github/6d3752c000e2",
+        "version": "6d3752c000e2",
+        "installedAt": "2025-12-30T22:15:06.122Z",
+        "lastUpdated": "2025-12-30T22:17:53.509Z",
+        "isLocal": true
+      }
+    ],
+    "code-review@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/nick/.claude/plugins/cache/claude-plugins-official/code-review/6d3752c000e2",
+        "version": "6d3752c000e2",
+        "installedAt": "2025-12-30T22:15:38.393Z",
+        "lastUpdated": "2025-12-30T22:17:53.514Z",
+        "isLocal": true
+      }
+    ],
+    "commit-commands@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/nick/.claude/plugins/cache/claude-plugins-official/commit-commands/6d3752c000e2",
+        "version": "6d3752c000e2",
+        "installedAt": "2025-12-30T22:15:47.890Z",
+        "lastUpdated": "2025-12-30T22:17:53.519Z",
+        "isLocal": true
+      }
+    ],
+    "security-guidance@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/nick/.claude/plugins/cache/claude-plugins-official/security-guidance/6d3752c000e2",
+        "version": "6d3752c000e2",
+        "installedAt": "2025-12-30T22:15:53.823Z",
+        "lastUpdated": "2025-12-30T22:17:53.523Z",
+        "isLocal": true
+      }
+    ],
+    "pr-review-toolkit@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/nick/.claude/plugins/cache/claude-plugins-official/pr-review-toolkit/6d3752c000e2",
+        "version": "6d3752c000e2",
+        "installedAt": "2025-12-30T22:16:05.166Z",
+        "lastUpdated": "2025-12-30T22:17:53.528Z",
+        "isLocal": true
+      }
+    ],
+    "greptile@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/nick/.claude/plugins/cache/claude-plugins-official/greptile/6d3752c000e2",
+        "version": "6d3752c000e2",
+        "installedAt": "2025-12-30T22:16:29.432Z",
+        "lastUpdated": "2025-12-30T22:17:53.533Z",
+        "isLocal": true
+      }
+    ],
+    "slack@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/nick/.claude/plugins/cache/claude-plugins-official/slack/6d3752c000e2",
+        "version": "6d3752c000e2",
+        "installedAt": "2025-12-30T22:17:43.468Z",
+        "lastUpdated": "2025-12-30T22:17:53.538Z",
+        "isLocal": true
+      }
+    ]
+  }
+}

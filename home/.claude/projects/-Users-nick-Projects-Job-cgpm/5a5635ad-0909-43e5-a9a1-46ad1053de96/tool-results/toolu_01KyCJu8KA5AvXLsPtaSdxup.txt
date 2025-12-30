@@ -1,0 +1,317 @@
+The file /Users/nick/Projects/Job/cgpm/force-app/main/default/lwc/workItemCreateModal/__tests__/workItemCreateModal.test.js has been updated. Here's the result of running `cat -n` on a snippet of the edited file:
+     1→/**
+     2→ * @jest-environment jsdom
+     3→ *
+     4→ * Tests for workItemCreateModal component.
+     5→ *
+     6→ * This component:
+     7→ * - Extends BaseComponent for LMS/toast functionality
+     8→ * - Uses 3 Apex calls: getWorkItemTemplates, getProjectResources, createWorkItem
+     9→ * - Provides form for creating new work items
+    10→ * - Supports parent work item context for child creation
+    11→ */
+    12→import { createElement } from 'lwc';
+    13→import WorkItemCreateModal from 'c/workItemCreateModal';
+    14→import getWorkItemTemplates from '@salesforce/apex/WorkItemCreateController.getWorkItemTemplates';
+    15→import getProjectResources from '@salesforce/apex/WorkItemCreateController.getProjectResources';
+    16→import createWorkItem from '@salesforce/apex/WorkItemCreateController.createWorkItem';
+    17→
+    18→// Mock Apex methods
+    19→jest.mock(
+    20→    '@salesforce/apex/WorkItemCreateController.getWorkItemTemplates',
+    21→    () => ({ default: jest.fn() }),
+    22→    { virtual: true }
+    23→);
+    24→jest.mock(
+    25→    '@salesforce/apex/WorkItemCreateController.getProjectResources',
+    26→    () => ({ default: jest.fn() }),
+    27→    { virtual: true }
+    28→);
+    29→jest.mock(
+    30→    '@salesforce/apex/WorkItemCreateController.createWorkItem',
+    31→    () => ({ default: jest.fn() }),
+    32→    { virtual: true }
+    33→);
+    34→
+    35→// Mock LMS (required since component extends BaseComponent)
+    36→jest.mock(
+    37→    '@salesforce/messageChannel/WorkItemEventChannel__c',
+    38→    () => ({ default: {} }),
+    39→    { virtual: true }
+    40→);
+    41→
+    42→describe('c-work-item-create-modal', () => {
+    43→    // Clean up DOM and reset mocks after each test
+    44→    afterEach(() => {
+    45→        while (document.body.firstChild) {
+    46→            document.body.removeChild(document.body.firstChild);
+    47→        }
+    48→        jest.clearAllMocks();
+    49→    });
+    50→
+    51→    /**
+    52→     * Helper to create and append the component to DOM
+    53→     */
+    54→    function createComponent(props = {}) {
+    55→        const element = createElement('c-work-item-create-modal', {
+    56→            is: WorkItemCreateModal
+    57→        });
+    58→        Object.assign(element, props);
+    59→        document.body.appendChild(element);
+    60→        return element;
+    61→    }
+    62→
+    63→    /**
+    64→     * Helper for async timing
+    65→     */
+    66→    function flushPromises() {
+    67→        // eslint-disable-next-line @lwc/lwc/no-async-operation
+    68→        return new Promise((resolve) => setTimeout(resolve, 0));
+    69→    }
+    70→
+    71→    /**
+    72→     * Helper to wait for data load
+    73→     */
+    74→    async function waitForDataLoad() {
+    75→        await flushPromises();
+    76→        await flushPromises();
+    77→        await flushPromises();
+    78→    }
+    79→
+    80→    /**
+    81→     * Setup mocks with default successful responses
+    82→     */
+    83→    function setupDefaultMocks() {
+    84→        getWorkItemTemplates.mockResolvedValue([
+    85→            { label: 'Task', value: 'template-001' },
+    86→            { label: 'Bug', value: 'template-002' }
+    87→        ]);
+    88→        getProjectResources.mockResolvedValue([
+    89→            { label: 'John Doe', value: 'user-001' },
+    90→            { label: 'Jane Smith', value: 'user-002' }
+    91→        ]);
+    92→    }
+    93→
+    94→    describe('modal visibility', () => {
+    95→        it('is hidden by default', () => {
+    96→            const element = createComponent({ projectId: 'proj-001' });
+    97→
+    98→            const modal = element.shadowRoot.querySelector('.slds-modal');
+    99→
+   100→            expect(modal).toBeNull();
+   101→        });
+   102→
+   103→        it('opens when open() method is called', async () => {
+   104→            setupDefaultMocks();
+   105→            const element = createComponent({ projectId: 'proj-001' });
+   106→
+   107→            await element.open();
+   108→            await waitForDataLoad();
+   109→
+   110→            const modal = element.shadowRoot.querySelector('.slds-modal');
+   111→            expect(modal).not.toBeNull();
+   112→        });
+   113→
+   114→        it('closes when close button is clicked', async () => {
+   115→            setupDefaultMocks();
+   116→            const element = createComponent({ projectId: 'proj-001' });
+   117→
+   118→            await element.open();
+   119→            await waitForDataLoad();
+   120→
+   121→            const closeButton = element.shadowRoot.querySelector('.slds-modal__close');
+   122→            closeButton.click();
+   123→
+   124→            await flushPromises();
+   125→
+   126→            const modal = element.shadowRoot.querySelector('.slds-modal');
+   127→            expect(modal).toBeNull();
+   128→        });
+   129→
+   130→        it('closes when Cancel button is clicked', async () => {
+   131→            setupDefaultMocks();
+   132→            const element = createComponent({ projectId: 'proj-001' });
+   133→
+   134→            await element.open();
+   135→            await waitForDataLoad();
+   136→
+   137→            const cancelButton = element.shadowRoot.querySelector('.slds-button_neutral');
+   138→            cancelButton.click();
+   139→
+   140→            await flushPromises();
+   141→
+   142→            const modal = element.shadowRoot.querySelector('.slds-modal');
+   143→            expect(modal).toBeNull();
+   144→        });
+   145→    });
+   146→
+   147→    describe('modal title', () => {
+   148→        it('shows default title when creating top-level work item', async () => {
+   149→            setupDefaultMocks();
+   150→            const element = createComponent({ projectId: 'proj-001' });
+   151→
+   152→            await element.open();
+   153→            await waitForDataLoad();
+   154→
+   155→            const title = element.shadowRoot.querySelector('.slds-modal__title');
+   156→            expect(title.textContent).toBe('Create New Work Item');
+   157→        });
+   158→
+   159→        it('shows parent name in title when creating child work item', async () => {
+   160→            setupDefaultMocks();
+   161→            const element = createComponent({ projectId: 'proj-001' });
+   162→
+   163→            await element.open({
+   164→                parentWorkItemId: 'wi-parent-001',
+   165→                parentWorkItemName: 'Parent Task'
+   166→            });
+   167→            await waitForDataLoad();
+   168→
+   169→            const title = element.shadowRoot.querySelector('.slds-modal__title');
+   170→            expect(title.textContent).toBe('Add Child Work Item to Parent Task');
+   171→        });
+   172→    });
+   173→
+   174→    describe('data loading', () => {
+   175→        it('loads templates on open', async () => {
+   176→            setupDefaultMocks();
+   177→            const element = createComponent({ projectId: 'proj-001' });
+   178→
+   179→            await element.open();
+   180→            await waitForDataLoad();
+   181→
+   182→            expect(getWorkItemTemplates).toHaveBeenCalledWith({
+   183→                projectId: 'proj-001',
+   184→                parentWorkItemId: null
+   185→            });
+   186→        });
+   187→
+   188→        it('loads resources on open', async () => {
+   189→            setupDefaultMocks();
+   190→            const element = createComponent({ projectId: 'proj-001' });
+   191→
+   192→            await element.open();
+   193→            await waitForDataLoad();
+   194→
+   195→            expect(getProjectResources).toHaveBeenCalledWith({
+   196→                projectId: 'proj-001'
+   197→            });
+   198→        });
+   199→
+   200→        it('passes parentWorkItemId when creating child', async () => {
+   201→            setupDefaultMocks();
+   202→            const element = createComponent({ projectId: 'proj-001' });
+   203→
+   204→            await element.open({
+   205→                parentWorkItemId: 'wi-parent-001',
+   206→                parentWorkItemName: 'Parent'
+   207→            });
+   208→            await waitForDataLoad();
+   209→
+   210→            expect(getWorkItemTemplates).toHaveBeenCalledWith({
+   211→                projectId: 'proj-001',
+   212→                parentWorkItemId: 'wi-parent-001'
+   213→            });
+   214→        });
+   215→
+   216→        it('does not call Apex when projectId is missing', async () => {
+   217→            const element = createComponent({}); // No projectId
+   218→
+   219→            await element.open();
+   220→            await waitForDataLoad();
+   221→
+   222→            expect(getWorkItemTemplates).not.toHaveBeenCalled();
+   223→            expect(getProjectResources).not.toHaveBeenCalled();
+   224→        });
+   225→    });
+   226→
+   227→    describe('form validation', () => {
+   228→        it('does not call createWorkItem when name is empty', async () => {
+   229→            setupDefaultMocks();
+   230→            createWorkItem.mockResolvedValue('new-id');
+   231→            const element = createComponent({ projectId: 'proj-001' });
+   232→
+   233→            await element.open();
+   234→            await waitForDataLoad();
+   235→
+   236→            // Click save without entering a name
+   237→            const saveButton = element.shadowRoot.querySelector('.slds-button_brand');
+   238→            saveButton.click();
+   239→
+   240→            await flushPromises();
+   241→
+   242→            expect(createWorkItem).not.toHaveBeenCalled();
+   243→        });
+   244→    });
+   245→
+   246→    describe('button labels', () => {
+   247→        it('has Create button by default', async () => {
+   248→            setupDefaultMocks();
+   249→            const element = createComponent({ projectId: 'proj-001' });
+   250→
+   251→            await element.open();
+   252→            await waitForDataLoad();
+   253→
+   254→            const saveButton = element.shadowRoot.querySelector('.slds-button_brand');
+   255→            expect(saveButton.textContent).toContain('Create');
+   256→        });
+   257→
+   258→        it('has Cancel button', async () => {
+   259→            setupDefaultMocks();
+   260→            const element = createComponent({ projectId: 'proj-001' });
+   261→
+   262→            await element.open();
+   263→            await waitForDataLoad();
+   264→
+   265→            const cancelButton = element.shadowRoot.querySelector('.slds-button_neutral');
+   266→            expect(cancelButton.textContent).toContain('Cancel');
+   267→        });
+   268→    });
+   269→
+   270→    describe('modal structure', () => {
+   271→        it('has modal header', async () => {
+   272→            setupDefaultMocks();
+   273→            const element = createComponent({ projectId: 'proj-001' });
+   274→
+   275→            await element.open();
+   276→            await waitForDataLoad();
+   277→
+   278→            const header = element.shadowRoot.querySelector('.slds-modal__header');
+   279→            expect(header).not.toBeNull();
+   280→        });
+   281→
+   282→        it('has modal content', async () => {
+   283→            setupDefaultMocks();
+   284→            const element = createComponent({ projectId: 'proj-001' });
+   285→
+   286→            await element.open();
+   287→            await waitForDataLoad();
+   288→
+   289→            const content = element.shadowRoot.querySelector('.slds-modal__content');
+   290→            expect(content).not.toBeNull();
+   291→        });
+   292→
+   293→        it('has modal footer', async () => {
+   294→            setupDefaultMocks();
+   295→            const element = createComponent({ projectId: 'proj-001' });
+   296→
+   297→            await element.open();
+   298→            await waitForDataLoad();
+   299→
+   300→            const footer = element.shadowRoot.querySelector('.slds-modal__footer');
+   301→            expect(footer).not.toBeNull();
+   302→        });
+   303→
+   304→        it('has backdrop', async () => {
+   305→            setupDefaultMocks();
+   306→            const element = createComponent({ projectId: 'proj-001' });
+   307→
+   308→            await element.open();
+   309→            await waitForDataLoad();
+   310→
+   311→            const backdrop = element.shadowRoot.querySelector('.slds-backdrop');
+   312→            expect(backdrop).not.toBeNull();
+   313→        });
+   314→    });
+   315→});
+   316→

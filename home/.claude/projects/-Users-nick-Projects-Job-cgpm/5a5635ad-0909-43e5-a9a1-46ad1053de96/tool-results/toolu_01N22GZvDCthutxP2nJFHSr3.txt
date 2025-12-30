@@ -1,0 +1,201 @@
+     1→import { MessageContext, publish, subscribe, unsubscribe } from 'lightning/messageService';
+     2→import { LightningElement, wire } from 'lwc';
+     3→import WORK_ITEM_CHANNEL from '@salesforce/messageChannel/WorkItemEventChannel__c';
+     4→import { ShowToastEvent } from 'lightning/platformShowToastEvent';
+     5→
+     6→export default class BaseComponent extends LightningElement {
+     7→    /* Message Service */
+     8→
+     9→    subscription;
+    10→    messageContext;
+    11→
+    12→    defaultWorkflow = [
+    13→        { name: 'Not Started', variant: 'neutral' },
+    14→        { name: 'In Progress', variant: 'warning' },
+    15→        { name: 'On Hold', variant: 'inverse' },
+    16→        { name: 'Complete', variant: 'success' },
+    17→        { name: 'Cancelled', variant: 'error' }
+    18→    ];
+    19→
+    20→    defaultStatusOptions = [{ label: 'All Statuses', value: '' }, ...this.defaultWorkflow.map((status) => ({ label: status.name, value: status.name }))];
+    21→
+    22→    @wire(MessageContext)
+    23→    wiredMessageContext(result) {
+    24→        this.messageContext = result;
+    25→        if (this.messageContext && !this.subscription) {
+    26→            this.subscribeToMessageChannel;
+    27→        }
+    28→    }
+    29→
+    30→    connectedCallback() {
+    31→        this.subscribeToMessageChannel();
+    32→    }
+    33→
+    34→    disconnectedCallback() {
+    35→        this.unsubscribeFromMessageChannel();
+    36→    }
+    37→
+    38→    // Message Service subscription
+    39→    subscribeToMessageChannel() {
+    40→        if (!this.subscription) {
+    41→            this.subscription = subscribe(this.messageContext, WORK_ITEM_CHANNEL, (message) => this.handleMessage(message));
+    42→        }
+    43→    }
+    44→
+    45→    unsubscribeFromMessageChannel() {
+    46→        if (this.subscription) {
+    47→            unsubscribe(this.subscription);
+    48→            this.subscription = null;
+    49→        }
+    50→    }
+    51→
+    52→    /**
+    53→     * @param {{ action: string; details: object }} message - The message received from the channel
+    54→     */
+    55→    handleMessage(message) {
+    56→        switch (message.action) {
+    57→            case 'foo':
+    58→                break;
+    59→
+    60→            default:
+    61→            // Do nothing for other messages
+    62→        }
+    63→    }
+    64→
+    65→    /**
+    66→     * @param {string} action - The action type to notify about, will be mixed into the details
+    67→     * @param {object} details - Additional details to send with the message
+    68→     */
+    69→    notify(action, details = {}) {
+    70→        publish(this.messageContext, WORK_ITEM_CHANNEL, {
+    71→            action: action,
+    72→            ...{ action, ...details }
+    73→        });
+    74→    }
+    75→
+    76→    /* Local Storage Helpers */
+    77→
+    78→    /**
+    79→     * Save a specific setting for a specific context (e.g., ProjectId)
+    80→     * @param {string} contextId - The Project ID or unique record ID
+    81→     * @param {string} key - The specific setting name (e.g., 'activeTab')
+    82→     * @param {any} value - The value to store
+    83→     */
+    84→    setLocalState(contextId, key, value) {
+    85→        if (!contextId) {
+    86→            return;
+    87→        }
+    88→
+    89→        const storageKey = `cgpm_prefs_${contextId}`;
+    90→
+    91→        try {
+    92→            // 1. Get existing object or create new
+    93→            const existingData = JSON.parse(localStorage.getItem(storageKey)) || {};
+    94→
+    95→            // 2. Update specific key
+    96→            existingData[key] = value;
+    97→
+    98→            // 3. Save back
+    99→            localStorage.setItem(storageKey, JSON.stringify(existingData));
+   100→        } catch (e) {
+   101→            console.warn('Local storage failed (Quota or Private Mode):', e);
+   102→        }
+   103→    }
+   104→
+   105→    /**
+   106→     * Load a setting
+   107→     * @param {string} contextId - The Project ID
+   108→     * @param {string} key - The setting name
+   109→     * @param {any} defaultValue - Value to return if nothing is saved
+   110→     */
+   111→    getLocalState(contextId, key, defaultValue) {
+   112→        if (!contextId) {
+   113→            return defaultValue;
+   114→        }
+   115→
+   116→        const storageKey = `cgpm_prefs_${contextId}`;
+   117→
+   118→        try {
+   119→            const data = JSON.parse(localStorage.getItem(storageKey));
+   120→            // Return saved value if it exists, otherwise default
+   121→            return data && data[key] !== undefined ? data[key] : defaultValue;
+   122→        } catch (e) {
+   123→            return defaultValue;
+   124→        }
+   125→    }
+   126→
+   127→    /* Toast Helpers */
+   128→
+   129→    /**
+   130→     * @param {string|null} message
+   131→     * @param {string|"Success"} title
+   132→     */
+   133→    showSuccess(message, title = 'Success') {
+   134→        this.dispatchEvent(
+   135→            new ShowToastEvent({
+   136→                title,
+   137→                message,
+   138→                variant: 'success'
+   139→            })
+   140→        );
+   141→    }
+   142→
+   143→    /**
+   144→     * @param {string|null} message
+   145→     * @param {string|"Error"} title
+   146→     */
+   147→    showError(message, title = 'Error') {
+   148→        this.dispatchEvent(
+   149→            new ShowToastEvent({
+   150→                title,
+   151→                message,
+   152→                variant: 'error',
+   153→                mode: 'sticky'
+   154→            })
+   155→        );
+   156→    }
+   157→
+   158→    /**
+   159→     * @param {string|null} message
+   160→     * @param {string|"Warning"} title
+   161→     */
+   162→    showWarning(message, title = 'Warning') {
+   163→        this.dispatchEvent(
+   164→            new ShowToastEvent({
+   165→                title,
+   166→                message,
+   167→                variant: 'warning'
+   168→            })
+   169→        );
+   170→    }
+   171→
+   172→    /**
+   173→     * @param {string|null} message
+   174→     * @param {string|"Info"} title
+   175→     */
+   176→    showInfo(message, title = 'Info') {
+   177→        this.dispatchEvent(
+   178→            new ShowToastEvent({
+   179→                title,
+   180→                message,
+   181→                variant: 'info'
+   182→            })
+   183→        );
+   184→    }
+   185→
+   186→    /**
+   187→     * Extract user-friendly error message from error object
+   188→     */
+   189→    extractErrorMessage(error) {
+   190→        if (Array.isArray(error.body)) {
+   191→            return error.body.map((e) => e.message).join(', ');
+   192→        } else if (error.body && typeof error.body.message === 'string') {
+   193→            return error.body.message;
+   194→        }
+   195→        return 'An unknown error occurred.';
+   196→    }
+   197→}
+
+<system-reminder>
+Whenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.
+</system-reminder>

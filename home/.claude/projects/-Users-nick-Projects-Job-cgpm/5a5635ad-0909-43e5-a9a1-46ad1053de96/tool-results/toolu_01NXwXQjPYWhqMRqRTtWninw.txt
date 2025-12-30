@@ -1,0 +1,11 @@
+The file /Users/nick/Projects/Job/cgpm/force-app/main/default/lwc/resourceAssignmentModal/__tests__/resourceAssignmentModal.test.js has been updated. Here's the result of running `cat -n` on a snippet of the edited file:
+   333→                ownerId: 'user-002',
+   334→                ownerName: 'Bob',
+   335→                assignments: []
+   336→            });
+   337→            updateWorkItemOwner.mockResolvedValue({});
+   338→            const element = createComponent();
+   339→
+   340→            await element.open();
+   341→            await flushPromises();
+   342→            emitWireData(element);

@@ -1,0 +1,239 @@
+Exit code 1
+
+> cgpm@1.0.0 test
+> npm run test:unit
+
+
+> cgpm@1.0.0 test:unit
+> sfdx-lwc-jest
+
+PASS force-app/main/default/lwc/workItemActionBar/__tests__/workItemActionBar.test.js
+PASS force-app/main/default/lwc/workItemGanttTimeline/__tests__/workItemGanttTimeline.test.js
+PASS force-app/main/default/lwc/workItemHistory/__tests__/workItemHistory.test.js
+PASS force-app/main/default/lwc/workItemDetails/__tests__/workItemDetails.test.js
+  ● Console
+
+    console.log
+      Details Component Init: { id: 'proj-001', obj: 'cgpm__Project__c' }
+
+      at WorkItemDetails.log [as connectedCallback] (force-app/main/default/lwc/workItemDetails/workItemDetails.js:17:17)
+
+    console.log
+      Details Component Init: { id: 'proj-001', obj: 'cgpm__Project__c' }
+
+      at WorkItemDetails.log [as connectedCallback] (force-app/main/default/lwc/workItemDetails/workItemDetails.js:17:17)
+
+    console.log
+      Details Component Init: { id: 'proj-001', obj: 'cgpm__Project__c' }
+
+      at WorkItemDetails.log [as connectedCallback] (force-app/main/default/lwc/workItemDetails/workItemDetails.js:17:17)
+
+    console.log
+      Details Component Init: { id: 'proj-001', obj: 'cgpm__Project__c' }
+
+      at WorkItemDetails.log [as connectedCallback] (force-app/main/default/lwc/workItemDetails/workItemDetails.js:17:17)
+
+    console.log
+      Details Component Init: { id: 'proj-001', obj: 'cgpm__Project__c' }
+
+      at WorkItemDetails.log [as connectedCallback] (force-app/main/default/lwc/workItemDetails/workItemDetails.js:17:17)
+
+    console.log
+      Details Component Init: { id: 'proj-001', obj: 'cgpm__Project__c' }
+
+      at WorkItemDetails.log [as connectedCallback] (force-app/main/default/lwc/workItemDetails/workItemDetails.js:17:17)
+
+    console.log
+      Details Component Init: { id: 'proj-001', obj: 'cgpm__Project__c' }
+
+      at WorkItemDetails.log [as connectedCallback] (force-app/main/default/lwc/workItemDetails/workItemDetails.js:17:17)
+
+    console.log
+      Details Component Init: { id: 'proj-001', obj: 'cgpm__Project__c' }
+
+      at WorkItemDetails.log [as connectedCallback] (force-app/main/default/lwc/workItemDetails/workItemDetails.js:17:17)
+
+    console.log
+      Details Component Init: { id: 'proj-001', obj: 'cgpm__Project__c' }
+
+      at WorkItemDetails.log [as connectedCallback] (force-app/main/default/lwc/workItemDetails/workItemDetails.js:17:17)
+
+    console.log
+      Details Component Init: { id: 'proj-001', obj: 'cgpm__Project__c' }
+
+      at WorkItemDetails.log [as connectedCallback] (force-app/main/default/lwc/workItemDetails/workItemDetails.js:17:17)
+
+    console.log
+      Details Component Init: { id: 'proj-001', obj: 'cgpm__Project__c' }
+
+      at WorkItemDetails.log [as connectedCallback] (force-app/main/default/lwc/workItemDetails/workItemDetails.js:17:17)
+
+    console.log
+      Details Component Init: { id: 'wi-001', obj: 'cgpm__Work_Item__c' }
+
+      at WorkItemDetails.log [as connectedCallback] (force-app/main/default/lwc/workItemDetails/workItemDetails.js:17:17)
+
+PASS force-app/main/default/lwc/workItemNoteModal/__tests__/workItemNoteModal.test.js
+  ● Console
+
+    console.error
+      Error creating note: { body: { message: 'Server error' } }
+
+      74 |             this.handleClose();
+      75 |         } catch (error) {
+    > 76 |             console.error('Error creating note:', error);
+         |                     ^
+      77 |             this.showError(error.body?.message || 'Error creating note');
+      78 |         } finally {
+      79 |             this.isSaving = false;
+
+      at WorkItemNoteModal.error [as handleSave] (force-app/main/default/lwc/workItemNoteModal/workItemNoteModal.js:76:21)
+
+    console.error
+      Error creating note: { body: { message: 'Server error' } }
+
+      74 |             this.handleClose();
+      75 |         } catch (error) {
+    > 76 |             console.error('Error creating note:', error);
+         |                     ^
+      77 |             this.showError(error.body?.message || 'Error creating note');
+      78 |         } finally {
+      79 |             this.isSaving = false;
+
+      at WorkItemNoteModal.error [as handleSave] (force-app/main/default/lwc/workItemNoteModal/workItemNoteModal.js:76:21)
+
+PASS force-app/main/default/lwc/workItemGanttBar/__tests__/workItemGanttBar.test.js
+PASS force-app/main/default/lwc/workItemGanttRow/__tests__/workItemGanttRow.test.js
+PASS force-app/main/default/lwc/workItemCreateModal/__tests__/workItemCreateModal.test.js
+  ● Console
+
+    console.error
+      Cannot load picklist data: projectId is not set
+
+      51 |     async loadPicklistData() {
+      52 |         if (!this.projectId) {
+    > 53 |             console.error('Cannot load picklist data: projectId is not set');
+         |                     ^
+      54 |             return;
+      55 |         }
+      56 |
+
+      at WorkItemCreateModal.error [as loadPicklistData] (force-app/main/default/lwc/workItemCreateModal/workItemCreateModal.js:53:21)
+      at WorkItemCreateModal
+
+... [3387 characters truncated] ...
+
+odules/@lwc/engine-dom/dist/index.cjs.js:1008:24)
+
+    console.warn
+      [LWC warn]: Unknown public property "variant" of element <lightning-badge>. This is either a typo on the corresponding attribute "variant", or the attribute does not exist in this browser or DOM implementation.
+
+      at log (node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:1008:24)
+
+    console.warn
+      [LWC warn]: Unknown public property "variant" of element <lightning-badge>. This is either a typo on the corresponding attribute "variant", or the attribute does not exist in this browser or DOM implementation.
+
+      at log (node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:1008:24)
+
+    console.warn
+      [LWC warn]: Unknown public property "variant" of element <lightning-badge>. This is either a typo on the corresponding attribute "variant", or the attribute does not exist in this browser or DOM implementation.
+
+      at log (node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:1008:24)
+
+    console.warn
+      [LWC warn]: Unknown public property "variant" of element <lightning-badge>. This is either a typo on the corresponding attribute "variant", or the attribute does not exist in this browser or DOM implementation.
+
+      at log (node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:1008:24)
+
+    console.warn
+      [LWC warn]: Unknown public property "variant" of element <lightning-badge>. This is either a typo on the corresponding attribute "variant", or the attribute does not exist in this browser or DOM implementation.
+
+      at log (node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:1008:24)
+
+  ● c-resource-assignment-modal › owner section › shows Primary badge next to owner
+
+    expect(received).not.toBeNull()
+
+    Received: null
+
+      217 |
+      218 |             const badge = element.shadowRoot.querySelector('lightning-badge[label="Primary"]');
+    > 219 |             expect(badge).not.toBeNull();
+          |                               ^
+      220 |         });
+      221 |
+      222 |         it('shows edit button for owner', async () => {
+
+      at Object.toBeNull (force-app/main/default/lwc/resourceAssignmentModal/__tests__/resourceAssignmentModal.test.js:219:31)
+
+  ● c-resource-assignment-modal › owner section › shows edit button for owner
+
+    expect(received).not.toBeNull()
+
+    Received: null
+
+      232 |
+      233 |             const editButton = element.shadowRoot.querySelector('lightning-button-icon[icon-name="utility:edit"]');
+    > 234 |             expect(editButton).not.toBeNull();
+          |                                    ^
+      235 |         });
+      236 |     });
+      237 |
+
+      at Object.toBeNull (force-app/main/default/lwc/resourceAssignmentModal/__tests__/resourceAssignmentModal.test.js:234:36)
+
+  ● c-resource-assignment-modal › additional assignments section › shows delete button for each assignment
+
+    expect(received).not.toBeNull()
+
+    Received: null
+
+      294 |
+      295 |             const deleteButton = element.shadowRoot.querySelector('lightning-button-icon[icon-name="utility:delete"]');
+    > 296 |             expect(deleteButton).not.toBeNull();
+          |                                      ^
+      297 |         });
+      298 |     });
+      299 |
+
+      at Object.toBeNull (force-app/main/default/lwc/resourceAssignmentModal/__tests__/resourceAssignmentModal.test.js:296:38)
+
+  ● c-resource-assignment-modal › public API › exposes isOpen getter
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: false
+    Received: undefined
+
+      380 |             const element = createComponent();
+      381 |
+    > 382 |             expect(element.isOpen).toBe(false);
+          |                                    ^
+      383 |
+      384 |             await element.open();
+      385 |             await waitForDataLoad();
+
+      at Object.toBe (force-app/main/default/lwc/resourceAssignmentModal/__tests__/resourceAssignmentModal.test.js:382:36)
+
+FAIL force-app/main/default/lwc/workItemHistoryModal/__tests__/workItemHistoryModal.test.js
+  ● c-work-item-history-modal › modal visibility › closes when Close button is clicked
+
+    TypeError: Cannot read properties of null (reading 'click')
+
+      137 |
+      138 |             const closeButton = element.shadowRoot.querySelector('lightning-button[label="Close"]');
+    > 139 |             closeButton.click();
+          |                         ^
+      140 |
+      141 |             await flushPromises();
+      142 |
+
+      at Object.click (force-app/main/default/lwc/workItemHistoryModal/__tests__/workItemHistoryModal.test.js:139:25)
+
+PASS force-app/main/default/lwc/timeLogModal/__tests__/timeLogModal.test.js
+
+Test Suites: 2 failed, 9 passed, 11 total
+Tests:       5 failed, 210 passed, 215 total
+Snapshots:   0 total
+Time:        4.393 s
+Ran all test suites.

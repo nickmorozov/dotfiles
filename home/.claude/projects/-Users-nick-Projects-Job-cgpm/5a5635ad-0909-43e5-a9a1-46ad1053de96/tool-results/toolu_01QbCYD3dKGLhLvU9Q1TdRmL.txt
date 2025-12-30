@@ -1,0 +1,98 @@
+> cgpm@1.0.0 test
+> npm run test:unit --testNamePattern=c-work-item-create-modal
+
+npm warn Unknown cli config "--testNamePattern". This will stop working in the next major version of npm.
+
+> cgpm@1.0.0 test:unit
+> sfdx-lwc-jest
+
+PASS force-app/main/default/lwc/workItemActionBar/__tests__/workItemActionBar.test.js
+PASS force-app/main/default/lwc/workItemNoteModal/__tests__/workItemNoteModal.test.js
+  ● Console
+
+    console.error
+      Error creating note: { body: { message: 'Server error' } }
+
+      74 |             this.handleClose();
+      75 |         } catch (error) {
+    > 76 |             console.error('Error creating note:', error);
+         |                     ^
+      77 |             this.showError(error.body?.message || 'Error creating note');
+      78 |         } finally {
+      79 |             this.isSaving = false;
+
+      at WorkItemNoteModal.error [as handleSave] (force-app/main/default/lwc/workItemNoteModal/workItemNoteModal.js:76:21)
+
+    console.error
+      Error creating note: { body: { message: 'Server error' } }
+
+      74 |             this.handleClose();
+      75 |         } catch (error) {
+    > 76 |             console.error('Error creating note:', error);
+         |                     ^
+      77 |             this.showError(error.body?.message || 'Error creating note');
+      78 |         } finally {
+      79 |             this.isSaving = false;
+
+      at WorkItemNoteModal.error [as handleSave] (force-app/main/default/lwc/workItemNoteModal/workItemNoteModal.js:76:21)
+
+PASS force-app/main/default/lwc/workItemDetails/__tests__/workItemDetails.test.js
+  ● Console
+
+    console.log
+      Details Component Init: { id: 'proj-001', obj: 'cgpm__Project__c' }
+
+      at WorkItemDetails.log [as connectedCallback] (force-app/main/default/lwc/workItemDetails/workItemDetails.js:17:17)
+
+    console.log
+      Details Component Init: { id: 'proj-001', obj: 'cgpm__Project__c' }
+
+      at WorkItemDetails.log [as connectedCallback] (force-app/main/default/lwc/workItemDetails/workItemDetails.js:17:17)
+
+    console.log
+      Details Component Init: { id: 'proj-001', obj: 'cgpm__Project__c' }
+
+      at WorkItemDetails.log [as connectedCallback] (force-app/main/default/lwc/workItemDetails/workItemDetails.js:17:17)
+
+    console.log
+      Details Component Init: { id: 'proj-001', obj: 'cgpm__Project__c' }
+
+      at WorkItemDetails.log [as connectedCallback] (force-app/main/default/lwc/workItemDetails/workItemDetails.js:17:17)
+
+    console.log
+      Details Component Init: { id: 'proj-001', obj: 'cgpm__Project__c' }
+
+      at WorkItemDetails.log [as connectedCallback] (force-app/main/default/lwc/workItemDetails/workItemDetails.js:17:17)
+
+    console.log
+      Details Component Init: { id: 'proj-001', obj: 'cgpm__Project__c' }
+
+      at WorkItemDetails.log [as connectedCallback] (force-app/main/default/lwc/workItemDetails/workItemDetails.js:17:17)
+
+    console.log
+      Details Component Init: { id: 'proj-001', obj: 'cgpm__Project__c' }
+
+      at WorkItemDetails.log [as connectedCallback] (force-app/main/default/lwc/workItemDetails/workItemDetails.js:17:17)
+
+    console.log
+      Details Component Init: { id: 'proj-001', obj: 'cgpm__Project__c' }
+
+      at WorkItemDetails.log [as connectedCallback] (force-app/main/default/lwc/workItemDetails/workItemDetails.js:17:17)
+
+    console.log
+      Details Component Init: { id: 'proj-001', obj: 'cgpm__Project__c' }
+
+      at WorkItemDetails.log [as connectedCallback] (force-app/main/default/lwc/workItemDetails/workItemDetails.js:17:17)
+
+    console.log
+      Details Component Init: { id: 'proj-001', obj: 'cgpm__Project__c' }
+
+      at WorkItemDetails.log [as connectedCallback] (force-app/main/default/lwc/workItemDetails/workItemDetails.js:17:17)
+
+    console.log
+      Details Component Init: { id: 'proj-001', obj: 'cgpm__Project__c' }
+
+      at WorkItemDetails.log [as connectedCallback] (force-app/main/default/lwc/workItemDetails/workItemDetails.js:17:17)
+
+    console.log
+      Details Component Init: { id: 'wi-001', obj: 'cgpm__Work_Item__c' }

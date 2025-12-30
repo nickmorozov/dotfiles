@@ -1,0 +1,371 @@
+     1→import { api, track } from 'lwc';
+     2→import { refreshApex } from '@salesforce/apex';
+     3→import BaseComponent from 'c/baseComponent';
+     4→
+     5→export default class WorkItemCardContainer extends BaseComponent {
+     6→    @api recordId; // Project ID or Work Item ID from record page
+     7→    @api hierarchyDepth = 3; // Maximum hierarchy depth to load
+     8→    @api objectApiName; // Object type (cgpm__Project__c or cgpm__Work_Item__c)
+     9→
+    10→    @track workItems = [];
+    11→    @track filteredWorkItems = [];
+    12→    @track expandedStates = {}; // Track expanded/collapsed state by work item ID
+    13→    @track availableTemplates = []; // Available work item templates
+    14→
+    15→    viewMode = 'compact'; // View mode: 'compact', 'detailed', or 'timeline' (default to compact)
+    16→    statusFilter = '';
+    17→    _isLoading = false;
+    18→    errorMessage = '';
+    19→    wiredWorkItemsResult; // Store wired result for refreshing
+    20→    projectId; // Resolved Project ID (either from recordId or from Work Item's project lookup)
+    21→
+    22→    // Status picklist options
+    23→    statusOptions = this.defaultStatusOptions;
+    24→
+    25→    connectedCallback() {
+    26→        this.viewMode = this.getLocalState(this.recordId, 'WorkItemCardContainer.viewMode', this.viewMode);
+    27→    }
+    28→
+    29→    handleTemplatesLoad(event) {
+    30→        this.availableTemplates = event.detail.templates;
+    31→    }
+    32→
+    33→    /**
+    34→     * Handle wired data from either method
+    35→     */
+    36→    handleWorkItemsLoad(event) {
+    37→        const { workItems, statusOptions } = event.detail;
+    38→
+    39→        this.workItems = this.processWorkItems(workItems);
+    40→        this.statusOptions = statusOptions || this.statusOptions;
+    41→        this.applyFilter();
+    42→        this.isLoading = false;
+    43→        this.errorMessage = '';
+    44→    }
+    45→
+    46→    /**
+    47→     * Process work items from Apex to add UI state properties
+    48→     */
+    49→    processWorkItems(workItems) {
+    50→        return workItems.map((item) => {
+    51→            const processed = { ...item };
+    52→            // Initialize expanded state (default: expand up to 3rd level - depth 0, 1, 2)
+    53→            processed.isExpanded = this.expandedStates[item.id] !== undefined ? this.expandedStates[item.id] : item.depth < 3;
+    54→
+    55→            // Recursively process children
+    56→            if (item.children && item.children.length > 0) {
+    57→                processed.children = this.processWorkItems(item.children);
+    58→            }
+    59→
+    60→            return processed;
+    61→        });
+    62→    }
+    63→
+    64→    /**
+    65→     * Get all work items flattened (for blocker picklist)
+    66→     */
+    67→    get allWorkItemsFlat() {
+    68→        const flatten = (items) => {
+    69→            let result = [];
+    70→            for (const item of items) {
+    71→                result.push({ id: item.id, name: item.name });
+    72→                if (item.children && item.children.length > 0) {
+    73→                    result = result.concat(flatten(item.children));
+    74→                }
+    75→            }
+    76→            return result;
+    77→        };
+    78→
+    79→        return flatten(this.workItems);
+    80→    }
+    81→
+    82→    /**
+    83→     * Apply status filter to work items
+    84→     */
+    85→    applyFilter() {
+    86→        if (this.statusFilter) {
+    87→            this.filteredWorkItems = this.workItems.filter((item) => this.matchesFilter(item, this.statusFilter));
+    88→        } else {
+    89→            this.filteredWorkItems = [...this.workItems];
+    90→        }
+    91→    }
+    92→
+    93→    /**
+    94→     * Recursively check if work item or any of its children match the filter
+    95→     */
+    96→    matchesFilter(item, status) {
+    97→        // Check if this item matches
+    98→        if (item.status === status) {
+    99→            return true;
+   100→        }
+   101→
+   102→        // Check if any children match
+   103→        if (item.children && item.children.length > 0) {
+   104→            return item.children.some((child) => this.matchesFilter(child, status));
+   105→        }
+   106→
+   107→        return false;
+   108→    }
+   109→
+   110→    /**
+   111→     * Handle messages from Lightning Message Service
+   112→     */
+   113→    handleMessage(message) {
+   114→        super.handleMessage(message);
+   115→
+   116→        // Refresh for created/deleted items
+   117→        if (message.action === 'workItemCreated' || message.action === 'workItemDeleted') {
+   118→            if (!message.keepModalOpen) {
+   119→                this.refs.dataManager.refresh();
+   120→            }
+   121→            return;
+   122→        }
+   123→
+   124→        // Refresh action - always refresh
+   125→        if (message.action === 'refresh') {
+   126→            if (!message.keepModalOpen) {
+   127→                this.refs.dataManager.refresh();
+   128→            }
+   129→            return;
+   130→        }
+   131→
+   132→        // For updates, refresh if not from gantt
+   133→        if (message.action === 'workItemUpdated') {
+   134→            if (!message.keepModalOpen) {
+   135→                this.refs.dataManager.refresh();
+   136→            }
+   137→            return;
+   138→        }
+   139→
+   140→        // Open history modal
+   141→        if (message.action === 'openHistoryModal') {
+   142→            const modal = this.template.querySelector('c-work-item-history-modal');
+   143→            if (modal) {
+   144→                modal.openModal(message.workItemId); // todo: use standard modals
+   145→            }
+   146→        }
+   147→    }
+   148→
+   149→    // === Event Handlers ===
+   150→
+   151→    /**
+   152→     * Handle status filter change
+   153→     */
+   154→    handleStatusFilterChange(event) {
+   155→        this.statusFilter = event.detail.value;
+   156→        this.applyFilter();
+   157→    }
+   158→
+   159→    /**
+   160→     * Handle refresh button click
+   161→     */
+   162→    // todo: add isloading event
+   163→    async handleRefresh() {
+   164→        this.isLoading = true;
+   165→        try {
+   166→            await refreshApex(this.wiredWorkItemsResult);
+   167→            this.isLoading = false;
+   168→        } catch (error) {
+   169→            this.isLoading = false;
+   170→            this.errorMessage = this.extractErrorMessage(error);
+   171→            this.showError(this.errorMessage, 'Error Refreshing');
+   172→        }
+   173→    }
+   174→
+   175→    /**
+   176→     * Handle new work item button click
+   177→     */
+   178→    handleNewWorkItem() {
+   179→        // Open create modal for top-level work item
+   180→        const modal = this.template.querySelector('c-work-item-create-modal');
+   181→        if (modal) {
+   182→            modal.open(); // todo: use standard modals
+   183→        }
+   184→    }
+   185→
+   186→    /**
+   187→     * Handle work item created event
+   188→     */
+   189→    handleWorkItemCreated() {
+   190→        // Refresh work items list
+   191→        //this.loadWorkItems();
+   192→        this.refs.dataManager.refresh();
+   193→    }
+   194→
+   195→    /**
+   196→     * Handle expand all button click
+   197→     */
+   198→    handleExpandAll() {
+   199→        this.updateAllExpandedStates(this.workItems, true);
+   200→        this.filteredWorkItems = this.processWorkItems(this.workItems);
+   201→    }
+   202→
+   203→    /**
+   204→     * Handle collapse all button click
+   205→     */
+   206→    handleCollapseAll() {
+   207→        this.updateAllExpandedStates(this.workItems, false);
+   208→        this.filteredWorkItems = this.processWorkItems(this.workItems);
+   209→    }
+   210→
+   211→    /**
+   212→     * Recursively update expanded states for all work items
+   213→     */
+   214→    updateAllExpandedStates(items, isExpanded) {
+   215→        items.forEach((item) => {
+   216→            this.expandedStates[item.id] = isExpanded;
+   217→            if (item.children && item.children.length > 0) {
+   218→                this.updateAllExpandedStates(item.children, isExpanded);
+   219→            }
+   220→        });
+   221→    }
+   222→
+   223→    /**
+   224→     * Handle work item update event from child component
+   225→     */
+   226→    handleWorkItemUpdate(event) {
+   227→        const { workItemId, changes, keepModalOpen, suppressToast } = event.detail;
+   228→
+   229→        // Publish message to other components (including keepModalOpen flag)
+   230→        this.notify('workItemUpdated', { workItemId, changes, keepModalOpen, projectId: this.effectiveProjectId });
+   231→
+   232→        // Show success toast (skip if suppressToast or keepModalOpen is true to avoid duplicate toasts)
+   233→        if (!keepModalOpen && !suppressToast) {
+   234→            this.showSuccess('Work item updated successfully');
+   235→        }
+   236→
+   237→        // Only refresh data if modal doesn't need to stay open
+   238→        // When modal is open, skip refresh to prevent modal from closing
+   239→        if (!keepModalOpen) {
+   240→            this.refs.dataManager.refresh();
+   241→        }
+   242→    }
+   243→
+   244→    /**
+   245→     * Handle work item expand event from child component
+   246→     */
+   247→    handleWorkItemExpand(event) {
+   248→        const { workItemId } = event.detail;
+   249→        this.expandedStates[workItemId] = true;
+   250→        this.filteredWorkItems = this.processWorkItems(this.workItems);
+   251→
+   252→        // Publish message
+   253→        this.notify('workItemExpanded', { workItemId, projectId: this.effectiveProjectId });
+   254→    }
+   255→
+   256→    /**
+   257→     * Handle work item collapse event from child component
+   258→     */
+   259→    handleWorkItemCollapse(event) {
+   260→        const { workItemId } = event.detail;
+   261→        this.expandedStates[workItemId] = false;
+   262→        this.filteredWorkItems = this.processWorkItems(this.workItems);
+   263→
+   264→        // Publish message
+   265→        this.notify('workItemCollapsed', { workItemId, projectId: this.effectiveProjectId });
+   266→    }
+   267→
+   268→    /**
+   269→     * Handle action executed event from child component
+   270→     */
+   271→    handleActionExecuted(event) {
+   272→        const { actionName } = event.detail;
+   273→        this.showInfo(`Action "${actionName}" executed on work item`, 'Action Executed');
+   274→    }
+   275→
+   276→    /**
+   277→     * Handle view mode button click
+   278→     */
+   279→    handleViewMode(event) {
+   280→        this.viewMode = event.target.value;
+   281→        this.setLocalState(this.recordId, 'WorkItemCardContainer.viewMode', this.viewMode);
+   282→    }
+   283→
+   284→    async handleReorder(event) {
+   285→        const { draggedItemId, targetItemId, draggedParentId, targetParentId } = event.detail;
+   286→
+   287→        try {
+   288→            this.isLoading = true;
+   289→
+   290→            this.refs.dataManager.moveWorkItem(draggedItemId, targetItemId, draggedParentId, targetParentId);
+   291→        } catch (error) {
+   292→            this.showError(error.body?.message || error.message || 'Unknown error', 'Error reordering work items');
+   293→        } finally {
+   294→            this.isLoading = false;
+   295→        }
+   296→    }
+   297→
+   298→    // === Computed Properties ===
+   299→
+   300→    get isLoading() {
+   301→        return this._isLoading;
+   302→    }
+   303→
+   304→    set isLoading(value) {
+   305→        this._isLoading = value;
+   306→    }
+   307→
+   308→    get hasError() {
+   309→        return this.errorMessage && this.errorMessage.length > 0;
+   310→    }
+   311→
+   312→    get hasWorkItems() {
+   313→        return !this.isLoading && !this.hasError && this.filteredWorkItems && this.filteredWorkItems.length > 0;
+   314→    }
+   315→
+   316→    get hasNoWorkItems() {
+   317→        return !this.isLoading && !this.hasError && (!this.filteredWorkItems || this.filteredWorkItems.length === 0);
+   318→    }
+   319→
+   320→    get isProjectPage() {
+   321→        return this.objectApiName === 'cgpm__Project__c';
+   322→    }
+   323→
+   324→    get isWorkItemPage() {
+   325→        return this.objectApiName === 'cgpm__Work_Item__c';
+   326→    }
+   327→
+   328→    get effectiveProjectId() {
+   329→        // On Project page, use recordId directly
+   330→        // On Work Item page, use resolved projectId from lookup
+   331→        return this.isProjectPage ? this.recordId : this.projectId;
+   332→    }
+   333→
+   334→    get compactButtonVariant() {
+   335→        return this.viewMode === 'compact' ? 'brand' : 'neutral';
+   336→    }
+   337→
+   338→    get detailedButtonVariant() {
+   339→        return this.viewMode === 'detailed' ? 'brand' : 'neutral';
+   340→    }
+   341→
+   342→    get timelineButtonVariant() {
+   343→        return this.viewMode === 'timeline' ? 'brand' : 'neutral';
+   344→    }
+   345→
+   346→    get hasAvailableTemplates() {
+   347→        return this.availableTemplates && this.availableTemplates.length > 0;
+   348→    }
+   349→
+   350→    get showAddButton() {
+   351→        return this.hasAvailableTemplates;
+   352→    }
+   353→
+   354→    get parentWorkItemIdForTemplates() {
+   355→        // On Project page: null (top-level templates)
+   356→        // On Work Item page: current work item ID (child templates)
+   357→        return this.isWorkItemPage ? this.recordId : null;
+   358→    }
+   359→
+   360→    get showWorkItemsList() {
+   361→        return this.viewMode === 'compact' || this.viewMode === 'detailed';
+   362→    }
+   363→
+   364→    get showTimelineView() {
+   365→        return this.viewMode === 'timeline';
+   366→    }
+   367→}
+
+<system-reminder>
+Whenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.
+</system-reminder>

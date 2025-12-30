@@ -1,0 +1,20 @@
+The file /Users/nick/Projects/Job/cgpm/force-app/main/default/lwc/resourceAssignmentModal/__tests__/resourceAssignmentModal.test.js has been updated. Here's the result of running `cat -n` on a snippet of the edited file:
+   104→        // eslint-disable-next-line @lwc/lwc/no-async-operation
+   105→        return new Promise((resolve) => setTimeout(resolve, 10));
+   106→    }
+   107→
+   108→    /**
+   109→     * Helper to wait for data load (needs multiple flush cycles for promise chains)
+   110→     */
+   111→    async function waitForDataLoad() {
+   112→        await flushPromises();
+   113→        await flushPromises();
+   114→        await flushPromises();
+   115→        await flushPromises();
+   116→        await flushPromises();
+   117→        await flushPromises();
+   118→    }
+   119→
+   120→    /**
+   121→     * Emit data to wire adapters
+   122→     */

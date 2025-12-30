@@ -1,0 +1,108 @@
+     1→import { LightningElement, api, track } from 'lwc';
+     2→import { getRecord, getFieldValue } from 'lightning/uiRecordApi';
+     3→
+     4→export default class WorkItemHistory extends LightningElement {
+     5→    @api workItemId;
+     6→    @api initiallyExpanded = false;
+     7→
+     8→    @track isExpanded = false;
+     9→    @track historyItems = [];
+    10→    @track isLoading = false;
+    11→    @track errorMessage = '';
+    12→
+    13→    /**
+    14→     * Initialize expanded state on component load
+    15→     */
+    16→    connectedCallback() {
+    17→        this.isExpanded = this.initiallyExpanded;
+    18→    }
+    19→
+    20→    /**
+    21→     * Handle toggle history expand/collapse
+    22→     */
+    23→    handleToggleHistory() {
+    24→        this.isExpanded = !this.isExpanded;
+    25→
+    26→        // Load history on first expand
+    27→        if (this.isExpanded && this.historyItems.length === 0) {
+    28→            this.loadHistory();
+    29→        }
+    30→    }
+    31→
+    32→    /**
+    33→     * Load history for the Work Item
+    34→     * Note: Phase 1 uses placeholder data
+    35→     * Phase 2 will implement Apex controller to query Field History
+    36→     */
+    37→    loadHistory() {
+    38→        this.isLoading = true;
+    39→
+    40→        try {
+    41→            // Placeholder history data for Phase 1
+    42→            // Phase 2 will replace with actual Field History query via Apex
+    43→            this.historyItems = [
+    44→                {
+    45→                    id: '1',
+    46→                    formattedDate: new Date().toLocaleString(),
+    47→                    userName: 'System',
+    48→                    action: 'Work Item created'
+    49→                }
+    50→            ];
+    51→
+    52→            this.isLoading = false;
+    53→            this.errorMessage = '';
+    54→        } catch (error) {
+    55→            this.historyItems = [];
+    56→            this.isLoading = false;
+    57→            this.errorMessage = error.body ? error.body.message : 'An unknown error occurred';
+    58→        }
+    59→    }
+    60→
+    61→    // === Computed Properties ===
+    62→
+    63→    /**
+    64→     * Icon name for expand/collapse button
+    65→     */
+    66→    get expandIconName() {
+    67→        return this.isExpanded ? 'utility:chevrondown' : 'utility:chevronright';
+    68→    }
+    69→
+    70→    /**
+    71→     * Alt text for expand/collapse icon
+    72→     */
+    73→    get expandIconAltText() {
+    74→        return this.isExpanded ? 'Collapse History' : 'Expand History';
+    75→    }
+    76→
+    77→    /**
+    78→     * History count for display in header
+    79→     */
+    80→    get historyCount() {
+    81→        return this.historyItems ? this.historyItems.length : 0;
+    82→    }
+    83→
+    84→    /**
+    85→     * Whether history items exist
+    86→     */
+    87→    get hasHistory() {
+    88→        return !this.isLoading && !this.errorMessage && this.historyItems && this.historyItems.length > 0;
+    89→    }
+    90→
+    91→    /**
+    92→     * Whether no history items exist
+    93→     */
+    94→    get hasNoHistory() {
+    95→        return !this.isLoading && !this.errorMessage && (!this.historyItems || this.historyItems.length === 0);
+    96→    }
+    97→
+    98→    /**
+    99→     * Whether an error occurred loading history
+   100→     */
+   101→    get hasError() {
+   102→        return this.errorMessage && this.errorMessage.length > 0;
+   103→    }
+   104→}
+
+<system-reminder>
+Whenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.
+</system-reminder>

@@ -1,0 +1,37 @@
+[
+  {
+    "content": "Phase 1: Discovery - Understand feature requirements",
+    "status": "completed",
+    "activeForm": "Understanding feature requirements"
+  },
+  {
+    "content": "Phase 2: Codebase Exploration - Analyze dataManager and example pattern",
+    "status": "in_progress",
+    "activeForm": "Analyzing codebase patterns"
+  },
+  {
+    "content": "Phase 3: Clarifying Questions - Resolve ambiguities",
+    "status": "pending",
+    "activeForm": "Asking clarifying questions"
+  },
+  {
+    "content": "Phase 4: Architecture Design - Design implementation approaches",
+    "status": "pending",
+    "activeForm": "Designing architecture"
+  },
+  {
+    "content": "Phase 5: Implementation - Build the feature",
+    "status": "pending",
+    "activeForm": "Implementing feature"
+  },
+  {
+    "content": "Phase 6: Quality Review - Review code quality",
+    "status": "pending",
+    "activeForm": "Reviewing code quality"
+  },
+  {
+    "content": "Phase 7: Summary - Document what was built",
+    "status": "pending",
+    "activeForm": "Documenting summary"
+  }
+]

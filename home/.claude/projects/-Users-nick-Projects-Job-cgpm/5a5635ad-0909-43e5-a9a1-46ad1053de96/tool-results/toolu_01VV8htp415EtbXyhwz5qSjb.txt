@@ -1,0 +1,30 @@
+The file /Users/nick/Projects/Job/cgpm/force-app/main/default/lwc/resourceAssignmentModal/__tests__/resourceAssignmentModal.test.js has been updated. Here's the result of running `cat -n` on a snippet of the edited file:
+   276→            const assignmentBoxes = element.shadowRoot.querySelectorAll('.slds-theme_shade');
+   277→            expect(assignmentBoxes.length).toBeGreaterThan(0);
+   278→        });
+   279→
+   280→        it('shows buttons for assignment management', async () => {
+   281→            refreshWorkItem.mockResolvedValue({
+   282→                ownerId: 'user-001',
+   283→                ownerName: 'John Doe',
+   284→                assignments: [
+   285→                    { id: 'assign-001', resourceName: 'Alice', projectRoleName: 'Developer' }
+   286→                ]
+   287→            });
+   288→            const element = createComponent({
+   289→                currentAssignments: [
+   290→                    { id: 'assign-001', resourceName: 'Alice', projectRoleName: 'Developer' }
+   291→                ]
+   292→            });
+   293→
+   294→            await element.open();
+   295→            await waitForDataLoad();
+   296→
+   297→            // Check for lightning-button-icon components (edit/delete)
+   298→            const buttons = element.shadowRoot.querySelectorAll('lightning-button-icon');
+   299→            expect(buttons.length).toBeGreaterThan(0);
+   300→        });
+   301→    });
+   302→
+   303→    describe('event dispatching', () => {
+   304→        it('dispatches modalclosed event when modal closes', async () => {

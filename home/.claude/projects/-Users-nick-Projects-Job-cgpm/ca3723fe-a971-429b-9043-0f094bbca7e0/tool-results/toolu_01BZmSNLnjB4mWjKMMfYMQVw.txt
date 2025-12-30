@@ -1,0 +1,50 @@
+     1→/**
+     2→ * Created by nick on 2025-11-21.
+     3→ */
+     4→
+     5→import { api } from 'lwc';
+     6→import BaseComponent from 'c/baseComponent';
+     7→
+     8→export default class WorkItemDetails extends BaseComponent {
+     9→    @api recordId; // Project or Work Item ID
+    10→    @api objectApiName; // Object type (cgpm__Project__c or cgpm__Work_Item__c)
+    11→
+    12→    workItems = []; // Loaded Work Items
+    13→    record = {}; // Resolved Work Item
+    14→
+    15→    connectedCallback() {
+    16→        // DEBUG: Check if we actually have context
+    17→        console.log('Details Component Init:', {
+    18→            id: this.recordId,
+    19→            obj: this.objectApiName
+    20→        });
+    21→    }
+    22→
+    23→    /**
+    24→     * Handle messages from Lightning Message Service
+    25→     */
+    26→    handleMessage(message) {
+    27→        super.handleMessage(message);
+    28→
+    29→        switch (message.action) {
+    30→            case 'activateWorkItem':
+    31→                this.record = this.workItems.find((item) => item.id === message.workItemId) || {};
+    32→                break;
+    33→
+    34→            default:
+    35→            // Do nothing for other messages
+    36→        }
+    37→    }
+    38→
+    39→    /**
+    40→     * Handle wired data from either method
+    41→     */
+    42→    handleWorkItemsLoad(event) {
+    43→        const { workItems } = event.detail;
+    44→        this.workItems = workItems || [];
+    45→    }
+    46→}
+
+<system-reminder>
+Whenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.
+</system-reminder>

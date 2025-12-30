@@ -1,0 +1,27 @@
+     1→<template>
+     2→    <!-- Action Button Group -->
+     3→    <div class="slds-button-group" role="group">
+     4→        <!-- Edit Button (Standard Quick Action) -->
+     5→        <lightning-button label="Edit" icon-name="utility:edit" onclick={handleEdit} class="slds-m-right_xx-small"></lightning-button>
+     6→
+     7→        <!-- Add Child Button -->
+     8→        <lightning-button label="Add Child" icon-name="utility:add" onclick={handleAddChild} class="slds-m-right_xx-small"></lightning-button>
+     9→
+    10→        <!-- Add Note Button -->
+    11→        <lightning-button label="Add Note" icon-name="utility:note" onclick={handleAddNote} class="slds-m-right_xx-small"></lightning-button>
+    12→
+    13→        <!-- Delete Button -->
+    14→        <lightning-button-icon
+    15→            icon-name="utility:delete"
+    16→            alternative-text="Delete"
+    17→            title="Delete Work Item"
+    18→            variant="border-filled"
+    19→            onclick={handleDelete}
+    20→            class="slds-button_icon-error"
+    21→        ></lightning-button-icon>
+    22→    </div>
+    23→</template>
+
+<system-reminder>
+Whenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.
+</system-reminder>

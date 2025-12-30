@@ -1,0 +1,56 @@
+     1→<template>
+     2→    <!-- History Section Container -->
+     3→    <div class="history-section">
+     4→        <!-- Collapsible Header -->
+     5→        <div class="history-header" onclick={handleToggleHistory}>
+     6→            <lightning-button-icon
+     7→                icon-name={expandIconName}
+     8→                alternative-text={expandIconAltText}
+     9→                size="x-small"
+    10→                variant="bare"
+    11→                class="slds-m-right_xx-small"
+    12→            ></lightning-button-icon>
+    13→            <span class="slds-text-body_small">
+    14→                <strong>History & Notes</strong>
+    15→                <template if:true={historyCount}> ({historyCount}) </template>
+    16→            </span>
+    17→        </div>
+    18→
+    19→        <!-- History Content (Collapsible) -->
+    20→        <template if:true={isExpanded}>
+    21→            <div class="history-content">
+    22→                <template if:true={isLoading}>
+    23→                    <div class="slds-align_absolute-center slds-p-around_small">
+    24→                        <lightning-spinner alternative-text="Loading history" size="small"></lightning-spinner>
+    25→                    </div>
+    26→                </template>
+    27→
+    28→                <template if:true={hasHistory}>
+    29→                    <div class="history-list">
+    30→                        <template for:each={historyItems} for:item="item">
+    31→                            <div key={item.id} class="history-item">
+    32→                                <span class="history-date">{item.formattedDate}</span>
+    33→                                <div class="history-details">
+    34→                                    <span class="history-user">{item.userName}:</span>
+    35→                                    <span class="history-action">{item.action}</span>
+    36→                                </div>
+    37→                            </div>
+    38→                        </template>
+    39→                    </div>
+    40→                </template>
+    41→
+    42→                <template if:true={hasNoHistory}>
+    43→                    <div class="slds-text-body_small slds-text-color_weak slds-p-around_small">No history available for this work item.</div>
+    44→                </template>
+    45→
+    46→                <template if:true={hasError}>
+    47→                    <div class="slds-text-body_small slds-text-color_error slds-p-around_small">Error loading history: {errorMessage}</div>
+    48→                </template>
+    49→            </div>
+    50→        </template>
+    51→    </div>
+    52→</template>
+
+<system-reminder>
+Whenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.
+</system-reminder>

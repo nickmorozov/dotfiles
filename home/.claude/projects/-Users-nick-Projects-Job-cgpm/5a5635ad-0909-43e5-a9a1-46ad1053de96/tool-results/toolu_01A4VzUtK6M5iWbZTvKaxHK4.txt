@@ -1,0 +1,23 @@
+     1→<template>
+     2→    <div class="timeline-header">
+     3→        <!-- Month Headers Row -->
+     4→        <div class="month-headers-row">
+     5→            <div class="label-column"></div>
+     6→            <template for:each={monthHeaders} for:item="month">
+     7→                <div key={month.label} class="month-header" style={month.style}>{month.label}</div>
+     8→            </template>
+     9→        </div>
+    10→
+    11→        <!-- Scale Labels Row -->
+    12→        <div class="day-headers-row">
+    13→            <div class="label-column"></div>
+    14→            <template for:each={timelineColumns} for:item="column">
+    15→                <div key={column.date} class={column.class} style={column.style} title={column.date}>{column.label}</div>
+    16→            </template>
+    17→        </div>
+    18→    </div>
+    19→</template>
+
+<system-reminder>
+Whenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.
+</system-reminder>

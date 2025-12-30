@@ -1,0 +1,30 @@
+      at log (node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:1008:24)
+
+    console.warn
+      [LWC warn]: Unknown public property "variant" of element <lightning-badge>. This is either a typo on the corresponding attribute "variant", or the attribute does not exist in this browser or DOM implementation.
+
+      at log (node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:1008:24)
+
+    console.warn
+      [LWC warn]: Unknown public property "variant" of element <lightning-badge>. This is either a typo on the corresponding attribute "variant", or the attribute does not exist in this browser or DOM implementation.
+
+      at log (node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:1008:24)
+
+    console.warn
+      [LWC warn]: Unknown public property "variant" of element <lightning-badge>. This is either a typo on the corresponding attribute "variant", or the attribute does not exist in this browser or DOM implementation.
+
+      at log (node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:1008:24)
+
+    console.warn
+      [LWC warn]: Unknown public property "variant" of element <lightning-badge>. This is either a typo on the corresponding attribute "variant", or the attribute does not exist in this browser or DOM implementation.
+
+      at log (node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:1008:24)
+
+PASS force-app/main/default/lwc/workItemHistoryModal/__tests__/workItemHistoryModal.test.js
+PASS force-app/main/default/lwc/timeLogModal/__tests__/timeLogModal.test.js
+
+Test Suites: 11 passed, 11 total
+Tests:       215 passed, 215 total
+Snapshots:   0 total
+Time:        3.661 s
+Ran all test suites.

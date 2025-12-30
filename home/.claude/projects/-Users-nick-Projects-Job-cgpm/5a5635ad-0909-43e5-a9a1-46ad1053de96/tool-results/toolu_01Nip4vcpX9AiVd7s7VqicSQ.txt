@@ -1,0 +1,32 @@
+The file /Users/nick/Projects/Job/cgpm/force-app/main/default/lwc/resourceAssignmentModal/__tests__/resourceAssignmentModal.test.js has been updated. Here's the result of running `cat -n` on a snippet of the edited file:
+   372→            expect(footer).not.toBeNull();
+   373→        });
+   374→    });
+   375→
+   376→    describe('public API', () => {
+   377→        it('exposes open and close methods', async () => {
+   378→            refreshWorkItem.mockResolvedValue({
+   379→                ownerId: 'user-001',
+   380→                ownerName: 'John Doe',
+   381→                assignments: []
+   382→            });
+   383→            const element = createComponent();
+   384→
+   385→            // Modal should be closed initially
+   386→            expect(element.shadowRoot.querySelector('.slds-modal')).toBeNull();
+   387→
+   388→            // Open method should exist and work
+   389→            await element.open();
+   390→            await waitForDataLoad();
+   391→
+   392→            expect(element.shadowRoot.querySelector('.slds-modal')).not.toBeNull();
+   393→
+   394→            // Close method should exist and work
+   395→            element.close();
+   396→            await waitForDataLoad();
+   397→
+   398→            expect(element.shadowRoot.querySelector('.slds-modal')).toBeNull();
+   399→        });
+   400→    });
+   401→});
+   402→

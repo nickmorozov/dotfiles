@@ -1,0 +1,3 @@
+Found 2 files
+force-app/main/default/lwc/workItemCardContainer/workItemCardContainer.html
+force-app/main/default/lwc/workItemDetails/workItemDetails.html

@@ -1,0 +1,22 @@
+[
+  {
+    "content": "Run all local tests on cgpm-dev org",
+    "status": "completed",
+    "activeForm": "Running all local tests on cgpm-dev org"
+  },
+  {
+    "content": "Analyze test failures and identify issues",
+    "status": "completed",
+    "activeForm": "Analyzing test failures and identifying issues"
+  },
+  {
+    "content": "Fix identified test errors",
+    "status": "completed",
+    "activeForm": "Fixing identified test errors"
+  },
+  {
+    "content": "Rerun tests to verify fixes",
+    "status": "in_progress",
+    "activeForm": "Rerunning tests to verify fixes"
+  }
+]

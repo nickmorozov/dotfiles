@@ -1,0 +1,233 @@
+     1→import { api, track } from 'lwc';
+     2→import getWorkItemTemplates from '@salesforce/apex/WorkItemCreateController.getWorkItemTemplates';
+     3→import getProjectResources from '@salesforce/apex/WorkItemCreateController.getProjectResources';
+     4→import createWorkItem from '@salesforce/apex/WorkItemCreateController.createWorkItem';
+     5→import BaseComponent from 'c/baseComponent';
+     6→
+     7→export default class WorkItemCreateModal extends BaseComponent {
+     8→    @api projectId;
+     9→    @track isOpen = false;
+    10→    @track isSaving = false;
+    11→    @track parentWorkItemId = null;
+    12→    @track parentWorkItemName = '';
+    13→
+    14→    // Form fields
+    15→    @track templateId = '';
+    16→    @track workItemName = '';
+    17→    @track summary = '';
+    18→    @track nextSteps = '';
+    19→    @track startDate = null;
+    20→    @track dueDate = null;
+    21→    @track estimatedHours = null;
+    22→    @track ownerId = '';
+    23→
+    24→    // Picklist options
+    25→    @track templateOptions = [];
+    26→    @track resourceOptions = [];
+    27→    @track isLoadingData = false;
+    28→    @track isTemplateDisabled = false;
+    29→    @track isOwnerDisabled = false;
+    30→
+    31→    /**
+    32→     * Open modal for creating a new work item
+    33→     * @param {Object} options - { parentWorkItemId, parentWorkItemName }
+    34→     */
+    35→    @api
+    36→    async open(options = {}) {
+    37→        this.isOpen = true;
+    38→        this.parentWorkItemId = options.parentWorkItemId || null;
+    39→        this.parentWorkItemName = options.parentWorkItemName || '';
+    40→
+    41→        // Reset form
+    42→        this.resetForm();
+    43→
+    44→        // Load picklist data
+    45→        await this.loadPicklistData();
+    46→    }
+    47→
+    48→    /**
+    49→     * Load templates and resources
+    50→     */
+    51→    async loadPicklistData() {
+    52→        if (!this.projectId) {
+    53→            console.error('Cannot load picklist data: projectId is not set');
+    54→            return;
+    55→        }
+    56→
+    57→        this.isLoadingData = true;
+    58→
+    59→        try {
+    60→            // Load templates and resources in parallel
+    61→            const [templates, resources] = await Promise.all([
+    62→                getWorkItemTemplates({
+    63→                    projectId: this.projectId,
+    64→                    parentWorkItemId: this.parentWorkItemId
+    65→                }),
+    66→                getProjectResources({ projectId: this.projectId })
+    67→            ]);
+    68→
+    69→            // Map templates to picklist options
+    70→            this.templateOptions = templates.map((option) => ({
+    71→                label: option.label,
+    72→                value: option.value
+    73→            }));
+    74→
+    75→            // Auto-select and disable if only one template
+    76→            if (this.templateOptions.length === 1) {
+    77→                this.templateId = this.templateOptions[0].value;
+    78→                this.isTemplateDisabled = true;
+    79→            } else {
+    80→                this.isTemplateDisabled = false;
+    81→            }
+    82→
+    83→            // Map resources to picklist options
+    84→            this.resourceOptions = resources.map((option) => ({
+    85→                label: option.label,
+    86→                value: option.value
+    87→            }));
+    88→
+    89→            // Auto-select and disable if only one resource
+    90→            if (this.resourceOptions.length === 1) {
+    91→                this.ownerId = this.resourceOptions[0].value;
+    92→                this.isOwnerDisabled = true;
+    93→            } else {
+    94→                this.isOwnerDisabled = false;
+    95→            }
+    96→        } catch (error) {
+    97→            console.error('Error loading picklist data:', error);
+    98→            this.showError('Error loading form data: ' + (error.body?.message || error.message));
+    99→        } finally {
+   100→            this.isLoadingData = false;
+   101→        }
+   102→    }
+   103→
+   104→    /**
+   105→     * Close modal
+   106→     */
+   107→    handleClose() {
+   108→        //console.log('Closing work item create modal');
+   109→        this.isOpen = false;
+   110→        this.resetForm();
+   111→    }
+   112→
+   113→    /**
+   114→     * Reset form fields
+   115→     */
+   116→    resetForm() {
+   117→        //console.log('Resetting work item create form');
+   118→        this.templateId = '';
+   119→        this.workItemName = '';
+   120→        this.summary = '';
+   121→        this.nextSteps = '';
+   122→        this.startDate = null;
+   123→        this.dueDate = null;
+   124→        this.estimatedHours = null;
+   125→        this.ownerId = '';
+   126→    }
+   127→
+   128→    /**
+   129→     * Handle field changes
+   130→     */
+   131→    handleTemplateChange(event) {
+   132→        this.templateId = event.detail.value;
+   133→    }
+   134→
+   135→    handleNameChange(event) {
+   136→        this.workItemName = event.detail.value;
+   137→    }
+   138→
+   139→    handleSummaryChange(event) {
+   140→        this.summary = event.detail.value;
+   141→    }
+   142→
+   143→    handleNextStepsChange(event) {
+   144→        this.nextSteps = event.detail.value;
+   145→    }
+   146→
+   147→    handleStartDateChange(event) {
+   148→        this.startDate = event.detail.value;
+   149→    }
+   150→
+   151→    handleDueDateChange(event) {
+   152→        this.dueDate = event.detail.value;
+   153→    }
+   154→
+   155→    handleEstimatedHoursChange(event) {
+   156→        this.estimatedHours = event.detail.value;
+   157→    }
+   158→
+   159→    handleOwnerChange(event) {
+   160→        this.ownerId = event.detail.value;
+   161→    }
+   162→
+   163→    /**
+   164→     * Handle save
+   165→     */
+   166→    async handleSave() {
+   167→        // Validate required fields
+   168→        if (!this.workItemName || this.workItemName.trim().length === 0) {
+   169→            this.showError('Work Item Name is required');
+   170→            return;
+   171→        }
+   172→
+   173→        this.isSaving = true;
+   174→
+   175→        try {
+   176→            const request = {
+   177→                projectId: this.projectId,
+   178→                parentWorkItemId: this.parentWorkItemId,
+   179→                templateId: this.templateId,
+   180→                name: this.workItemName.trim(),
+   181→                summary: this.summary,
+   182→                nextSteps: this.nextSteps,
+   183→                startDate: this.startDate,
+   184→                dueDate: this.dueDate,
+   185→                estimatedHours: this.estimatedHours,
+   186→                ownerId: this.ownerId
+   187→            };
+   188→
+   189→            console.log('Creating work item with request:', JSON.stringify(request));
+   190→            const workItemId = await createWorkItem({ request });
+   191→
+   192→            // Close modal first to avoid event issues
+   193→            this.handleClose();
+   194→            //console.log('Work item create modal closed after creation');
+   195→            // Show success message
+   196→            this.showSuccess('Work Item created successfully');
+   197→
+   198→            // Dispatch event to parent (after modal is closed)
+   199→            this.dispatchEvent(
+   200→                new CustomEvent('workitemcreated', {
+   201→                    detail: {
+   202→                        workItemId,
+   203→                        parentWorkItemId: this.parentWorkItemId
+   204→                    },
+   205→                    bubbles: true,
+   206→                    composed: true
+   207→                })
+   208→            );
+   209→        } catch (error) {
+   210→            console.error('Error creating work item:', error);
+   211→            const errorMessage = error.body?.message || error.message || 'Unknown error creating work item';
+   212→            console.error('Full error details:', JSON.stringify(error));
+   213→            this.showError(errorMessage, 'Error Creating Work Item');
+   214→        } finally {
+   215→            this.isSaving = false;
+   216→            //console.log('Work item creation process completed');
+   217→        }
+   218→    }
+   219→
+   220→    // Computed properties
+   221→
+   222→    get modalTitle() {
+   223→        return this.parentWorkItemId ? `Add Child Work Item to ${this.parentWorkItemName}` : 'Create New Work Item';
+   224→    }
+   225→
+   226→    get saveButtonLabel() {
+   227→        return this.isSaving ? 'Creating...' : 'Create';
+   228→    }
+   229→}
+
+<system-reminder>
+Whenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.
+</system-reminder>

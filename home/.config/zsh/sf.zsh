@@ -23,31 +23,22 @@ if _exists sf; then
     }
 
     sfa() {
-        if [[ ! -z $1 ]]; then
-            if [[ -z $2 ]]; then
-                echo "Usage: sfa <instance-name> <alias>"
-                return 1
-            fi
+        domain=$(echo "${(L)1}" | sed -E 's|https://([^.]+).*|\1|')
+        url="https://"
+        alias="${domain//--/-}"
 
-            URL="https://"
-
-            if [[ $1 =~ '--' ]]; then
-                URL+="$1.sandbox"
-                # sf org login web --instance-url https://$1.sandbox.my.salesforce.com --alias $2
-            elif [[ $1 =~ 'dev-ed' ]]; then
-                URL+="$1.develop"
-                # sf org login web --instance-url https://$1.develop.my.salesforce.com --alias $2
-            else
-                URL+="$1"
-                # sf org login web --instance-url https://$1.my.salesforce.com --alias $2
-            fi
-
-            sf org login web --instance-url $URL.my.salesforce.com --alias $2
+        if [[ $domain =~ '--' ]]; then
+          # sf org login web --instance-url https://foo--bar.sandbox.my.salesforce.com --alias foo-bar --set-default
+          url+="$domain.sandbox"
+        elif [[ $domain =~ 'dev-ed' ]]; then
+          # sf org login web --instance-url https://foo-dev-ed.develop.my.salesforce.com --alias foo-dev-ed --set-default
         else
-            sf org login web
+          # sf org login web --instance-url https://foo.my.salesforce.com --alias foo-prod --set-default
+          url+="$domain"
+          alias="${domain}-prod"
         fi
 
-        sfl
+        sf org login web --instance-url $url.my.salesforce.com --alias $alias --set-default
     }
 
     # --- project retrieve / deploy quick refs ---
@@ -69,6 +60,8 @@ if _exists sf; then
     #   sf config set target-dev-hub=corrao-group-prod
     #   sf config unset target-org api-version --global
     #
+    #   sf org create user --set-alias test-user --definition-file config/user-def.json --set-unique-username
+    #   sf org create user --set-alias test-admin --definition-file config/admin-def.json --set-unique-username
     #   sf org assign permset --name Admin
     #   sf org assign permset --name CGPM_Admin --on-behalf-of <non-admin-user>
     #
@@ -151,7 +144,7 @@ if _exists sf; then
 
     # --- scratch org lifecycle ---
     # create a scratch org using a project-scratch-def, set it as default target, assign alias
-    # usage: sfscratch config/project-scratch-def.json MyScratchAlias 7
+    # usage: sfscratch MyScratchAlias config/project-scratch-def.json 7
     sfscratch() {
         ALIAS=$1
         DEF_FILE=${2:-"config/project-scratch-def.json"}
@@ -167,6 +160,12 @@ if _exists sf; then
             --alias "$ALIAS" \
             --duration-days "$DAYS" \
             --set-default
+
+        sfpds
+
+        sf org assign permset --name Admin
+        sf org assign permset --name User
+
         sf org list --all --verbose
     }
 

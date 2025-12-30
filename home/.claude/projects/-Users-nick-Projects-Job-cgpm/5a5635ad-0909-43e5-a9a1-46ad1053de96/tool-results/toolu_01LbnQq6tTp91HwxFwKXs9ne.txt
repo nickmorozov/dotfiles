@@ -1,0 +1,148 @@
+> cgpm@1.0.0 test
+> npm run test:unit
+
+
+> cgpm@1.0.0 test:unit
+> sfdx-lwc-jest
+
+PASS force-app/main/default/lwc/workItemActionBar/__tests__/workItemActionBar.test.js
+PASS force-app/main/default/lwc/workItemNoteModal/__tests__/workItemNoteModal.test.js
+  ● Console
+
+    console.error
+      Error creating note: { body: { message: 'Server error' } }
+
+      74 |             this.handleClose();
+      75 |         } catch (error) {
+    > 76 |             console.error('Error creating note:', error);
+         |                     ^
+      77 |             this.showError(error.body?.message || 'Error creating note');
+      78 |         } finally {
+      79 |             this.isSaving = false;
+
+      at WorkItemNoteModal.error [as handleSave] (force-app/main/default/lwc/workItemNoteModal/workItemNoteModal.js:76:21)
+
+    console.error
+      Error creating note: { body: { message: 'Server error' } }
+
+      74 |             this.handleClose();
+      75 |         } catch (error) {
+    > 76 |             console.error('Error creating note:', error);
+         |                     ^
+      77 |             this.showError(error.body?.message || 'Error creating note');
+      78 |         } finally {
+      79 |             this.isSaving = false;
+
+      at WorkItemNoteModal.error [as handleSave] (force-app/main/default/lwc/workItemNoteModal/workItemNoteModal.js:76:21)
+
+PASS force-app/main/default/lwc/workItemGanttTimeline/__tests__/workItemGanttTimeline.test.js
+PASS force-app/main/default/lwc/workItemHistory/__tests__/workItemHistory.test.js
+PASS force-app/main/default/lwc/workItemGanttBar/__tests__/workItemGanttBar.test.js
+PASS force-app/main/default/lwc/workItemGanttRow/__tests__/workItemGanttRow.test.js
+PASS force-app/main/default/lwc/workItemDetails/__tests__/workItemDetails.test.js
+  ● Console
+
+    console.log
+      Details Component Init: { id: 'proj-001', obj: 'cgpm__Project__c' }
+
+      at WorkItemDetails.log [as connectedCallback] (force-app/main/default/lwc/workItemDetails/workItemDetails.js:17:17)
+
+    console.log
+      Details Component Init: { id: 'proj-001', obj: 'cgpm__Project__c' }
+
+      at WorkItemDetails.log [as connectedCallback] (force-app/main/default/lwc/workItemDetails/workItemDetails.js:17:17)
+
+    console.log
+      Details Component Init: { id: 'proj-001', obj: 'cgpm__Project__c' }
+
+      at WorkItemDetails.log [as connectedCallback] (force-app/main/default/lwc/workItemDetails/workItemDetails.js:17:17)
+
+    console.log
+      Details Component Init: { id: 'proj-001', obj: 'cgpm__Project__c' }
+
+      at WorkItemDetails.log [as connectedCallback] (force-app/main/default/lwc/workItemDetails/workItemDetails.js:17:17)
+
+    console.log
+      Details Component Init: { id: 'proj-001', obj: 'cgpm__Project__c' }
+
+      at WorkItemDetails.log [as connectedCallback] (force-app/main/default/lwc/workItemDetails/workItemDetails.js:17:17)
+
+    console.log
+      Details Component Init: { id: 'proj-001', obj: 'cgpm__Project__c' }
+
+      at WorkItemDetails.log [as connectedCallback] (force-app/main/default/lwc/workItemDetails/workItemDetails.js:17:17)
+
+    console.log
+      Details Component Init: { id: 'proj-001', obj: 'cgpm__Project__c' }
+
+      at WorkItemDetails.log [as connectedCallback] (force-app/main/default/lwc/workItemDetails/workItemDetails.js:17:17)
+
+    console.log
+      Details Component Init: { id: 'proj-001', obj: 'cgpm__Project__c' }
+
+      at WorkItemDetails.log [as connectedCallback] (force-app/main/default/lwc/workItemDetails/workItemDetails.js:17:17)
+
+    console.log
+      Details Component Init: { id: 'proj-001', obj: 'cgpm__Project__c' }
+
+      at WorkItemDetails.log [as connectedCallback] (force-app/main/default/lwc/workItemDetails/workItemDetails.js:17:17)
+
+    console.log
+      Details Component Init: { id: 'proj-001', obj: 'cgpm__Project__c' }
+
+      at WorkItemDetails.log [as connectedCallback] (force-app/main/default/lwc/workItemDetails/workItemDetails.js:17:17)
+
+    console.log
+      Details Component Init: { id: 'proj-001', obj: 'cgpm__Project__c' }
+
+      at WorkItemDetails.log [as connectedCallback] (force-app/main/default/lwc/workItemDetails/workItemDetails.js:17:17)
+
+    console.log
+      Details Component Init: { id: 'wi-001', obj: 'cgpm__Work_Item__c' }
+
+      at WorkItemDetails.log [as connectedCallback] (force-app/main/default/lwc/workItemDetails/workItemDetails.js:17:17)
+
+FAIL force-app/main/default/lwc/workItemHistoryModal/__tests__/workItemHistoryModal.test.js
+  ● c-work-item-history-modal › modal visibility › closes when close button is clicked
+
+    TypeError: Cannot read properties of null (reading 'click')
+
+      143 |
+      144 |             const closeButton = element.shadowRoot.querySelector('lightning-button-icon[icon-name="utility:close"]');
+    > 145 |             closeButton.click();
+          |                         ^
+      146 |
+      147 |             await flushPromises();
+      148 |
+
+      at Object.click (force-app/main/default/lwc/workItemHistoryModal/__tests__/workItemHistoryModal.test.js:145:25)
+
+  ● c-work-item-history-modal › modal visibility › closes when footer Close button is clicked
+
+    TypeError: Cannot read properties of null (reading 'click')
+
+      159 |
+      160 |             const closeButton = element.shadowRoot.querySelector('lightning-button[label="Close"]');
+    > 161 |             closeButton.click();
+          |                         ^
+      162 |
+      163 |             await flushPromises();
+      164 |
+
+      at Object.click (force-app/main/default/lwc/workItemHistoryModal/__tests__/workItemHistoryModal.test.js:161:25)
+
+  ● c-work-item-history-modal › tabs › resets to All tab when modal closes
+
+    TypeError: Cannot read properties of null (reading 'click')
+
+      250 |             // Close modal
+      251 |             const closeButton = element.shadowRoot.querySelector('lightning-button[label="Close"]');
+    > 252 |             closeButton.click();
+          |                         ^
+      253 |             await flushPromises();
+      254 |
+      255 |             // Reopen
+
+      at Object.click (force-app/main/default/lwc/workItemHistoryModal/__tests__/workItemHistoryModal.test.js:252:25)
+
+  ● c-work-item-history-modal › history items display › displays history items with formatted date

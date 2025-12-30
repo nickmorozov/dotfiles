@@ -1,0 +1,43 @@
+The file /Users/nick/Projects/Job/cgpm/force-app/main/default/lwc/workItemCreateModal/__tests__/workItemCreateModal.test.js has been updated. Here's the result of running `cat -n` on a snippet of the edited file:
+   193→            expect(title.textContent).toBe('Add Child Work Item to Parent Task');
+   194→        });
+   195→    });
+   196→
+   197→    describe('form fields', () => {
+   198→        it('renders comboboxes', async () => {
+   199→            setupDefaultMocks();
+   200→            const element = createComponent({ projectId: 'proj-001' });
+   201→
+   202→            await openModalAndWait(element);
+   203→
+   204→            // Modal content should have comboboxes for template and owner
+   205→            const comboboxes = element.shadowRoot.querySelectorAll('lightning-combobox');
+   206→            expect(comboboxes.length).toBeGreaterThan(0);
+   207→        });
+   208→
+   209→        it('renders input fields', async () => {
+   210→            setupDefaultMocks();
+   211→            const element = createComponent({ projectId: 'proj-001' });
+   212→
+   213→            await openModalAndWait(element);
+   214→
+   215→            // Modal content should have input fields
+   216→            const inputs = element.shadowRoot.querySelectorAll('lightning-input');
+   217→            expect(inputs.length).toBeGreaterThan(0);
+   218→        });
+   219→
+   220→        it('renders textareas', async () => {
+   221→            setupDefaultMocks();
+   222→            const element = createComponent({ projectId: 'proj-001' });
+   223→
+   224→            await openModalAndWait(element);
+   225→
+   226→            // Modal content should have textareas
+   227→            const textareas = element.shadowRoot.querySelectorAll('lightning-textarea');
+   228→            expect(textareas.length).toBeGreaterThan(0);
+   229→        });
+   230→    });
+   231→
+   232→    describe('data loading', () => {
+   233→        it('loads templates on open', async () => {
+   234→            setupDefaultMocks();

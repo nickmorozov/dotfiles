@@ -1,0 +1,33 @@
+> cgpm@1.0.0 test
+> npm run test:unit
+
+
+> cgpm@1.0.0 test:unit
+> sfdx-lwc-jest
+
+PASS force-app/main/default/lwc/workItemActionBar/__tests__/workItemActionBar.test.js
+  c-work-item-action-bar
+    rendering
+      ✓ renders four action buttons (11 ms)
+      ✓ displays Edit button with edit icon (1 ms)
+      ✓ displays Add Child button with add icon (1 ms)
+      ✓ displays Add Note button with note icon (2 ms)
+      ✓ displays Delete icon button with delete icon (1 ms)
+    Edit button
+      ✓ dispatches actionexecuted event with Edit action (2 ms)
+      ✓ event bubbles and is composed
+    Add Child button
+      ✓ dispatches actionexecuted event with Add Child action (1 ms)
+    Add Note button
+      ✓ dispatches actionexecuted event with Add Note action
+    Delete button
+      ✓ dispatches actionexecuted event with Delete action
+    workItemId property
+      ✓ includes correct workItemId in all dispatched events (1 ms)
+      ✓ handles undefined workItemId gracefully (1 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       12 passed, 12 total
+Snapshots:   0 total
+Time:        0.362 s, estimated 1 s
+Ran all test suites.

@@ -1,0 +1,50 @@
+      274 |             const historyItems = element.shadowRoot.querySelectorAll('.history-item');
+    > 275 |             expect(historyItems.length).toBe(2);
+          |                                         ^
+      276 |         });
+      277 |
+      278 |         it('displays user name for history items', async () => {
+
+      at Object.toBe (force-app/main/default/lwc/workItemHistoryModal/__tests__/workItemHistoryModal.test.js:275:41)
+
+  ● c-work-item-history-modal › notes display › displays note items with note text
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 1
+    Received: 2
+
+      310 |
+      311 |             const noteItems = element.shadowRoot.querySelectorAll('.note-item');
+    > 312 |             expect(noteItems.length).toBe(1);
+          |                                      ^
+      313 |         });
+      314 |
+      315 |         it('shows note text content', async () => {
+
+      at Object.toBe (force-app/main/default/lwc/workItemHistoryModal/__tests__/workItemHistoryModal.test.js:312:38)
+
+  ● c-work-item-history-modal › time entries display › displays time entry items
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 1
+    Received: 2
+
+      334 |
+      335 |             const timeEntryItems = element.shadowRoot.querySelectorAll('.time-entry-item');
+    > 336 |             expect(timeEntryItems.length).toBe(1);
+          |                                           ^
+      337 |         });
+      338 |
+      339 |         it('shows time entry details', async () => {
+
+      at Object.toBe (force-app/main/default/lwc/workItemHistoryModal/__tests__/workItemHistoryModal.test.js:336:43)
+
+PASS force-app/main/default/lwc/timeLogModal/__tests__/timeLogModal.test.js
+
+Test Suites: 3 failed, 8 passed, 11 total
+Tests:       38 failed, 210 passed, 248 total
+Snapshots:   0 total
+Time:        4.315 s
+Ran all test suites.

@@ -1,0 +1,57 @@
+2025-12-23T16:52:29,206: [cli] Failed to open /Users/nick/Library/LaunchAgents/com.github.facebook.watchman.plist for write: Operation not permitted
+Fatal error detected at:
+
+0   libfolly.0.58.0-dev.dylib           0x00000001049f1094 _ZN5folly10symbolizer17getStackTraceSafeEPmm + 12
+1   libfolly.0.58.0-dev.dylib           0x00000001049f2258 _ZN5folly10symbolizer21SafeStackTracePrinter15printStackTraceEb + 80
+2   watchman                            0x00000001025cb204 _ZL15log_stack_tracev + 60
+3   watchman                            0x00000001025cb148 _ZN8watchman3Log13doLogToStdErrEv + 532
+4   watchman                            0x00000001025c964c _ZN8watchman9Publisher7enqueueEO8json_ref + 664
+5   watchman                            0x000000010254aecc _ZN8watchman3Log3logIJRA16_KcRA4096_cRA13_S2_NSt3__112basic_stringIcNS9_11char_traitsIcEENS9_9allocatorIcEEEERA2_S2_EEEvNS_8LogLevelEDpOT_ + 388
+6   watchman                            0x0000000102545308 main + 2448
+7   dyld                                0x000000018cb71d54 start + 7184
+(safe mode, symbolizer not available)
+
+Watchman:  watchman --no-pretty get-sockname returned with exit code=1, signal=null, stderr= 2025-12-23T16:52:29,206: [cli] Failed to open /Users/nick/Library/LaunchAgents/com.github.facebook.watchman.plist for write: Operation not permitted
+Fatal error detected at:
+0   libfolly.0.58.0-dev.dylib           0x00000001049f1094 _ZN5folly10symbolizer17getStackTraceSafeEPmm + 12
+1   libfolly.0.58.0-dev.dylib           0x00000001049f2258 _ZN5folly10symbolizer21SafeStackTracePrinter15printStackTraceEb + 80
+2   watchman                            0x00000001025cb204 _ZL15log_stack_tracev + 60
+3   watchman                            0x00000001025cb148 _ZN8watchman3Log13doLogToStdErrEv + 532
+4   watchman                            0x00000001025c964c _ZN8watchman9Publisher7enqueueEO8json_ref + 664
+5   watchman                            0x000000010254aecc _ZN8watchman3Log3logIJRA16_KcRA4096_cRA13_S2_NSt3__112basic_stringIcNS9_11char_traitsIcEENS9_9allocatorIcEEEERA2_S2_EEEvNS_8LogLevelEDpOT_ + 388
+6   watchman                            0x0000000102545308 main + 2448
+7   dyld                                0x000000018cb71d54 start + 7184
+(safe mode, symbolizer not available)
+
+node:events:486
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: watchman --no-pretty get-sockname returned with exit code=1, signal=null, stderr= 2025-12-23T16:52:29,206: [cli] Failed to open /Users/nick/Library/LaunchAgents/com.github.facebook.watchman.plist for write: Operation not permitted
+Fatal error detected at:
+0   libfolly.0.58.0-dev.dylib           0x00000001049f1094 _ZN5folly10symbolizer17getStackTraceSafeEPmm + 12
+1   libfolly.0.58.0-dev.dylib           0x00000001049f2258 _ZN5folly10symbolizer21SafeStackTracePrinter15printStackTraceEb + 80
+2   watchman                            0x00000001025cb204 _ZL15log_stack_tracev + 60
+3   watchman                            0x00000001025cb148 _ZN8watchman3Log13doLogToStdErrEv + 532
+4   watchman                            0x00000001025c964c _ZN8watchman9Publisher7enqueueEO8json_ref + 664
+5   watchman                            0x000000010254aecc _ZN8watchman3Log3logIJRA16_KcRA4096_cRA13_S2_NSt3__112basic_stringIcNS9_11char_traitsIcEENS9_9allocatorIcEEEERA2_S2_EEEvNS_8LogLevelEDpOT_ + 388
+6   watchman                            0x0000000102545308 main + 2448
+7   dyld                                0x000000018cb71d54 start + 7184
+(safe mode, symbolizer not available)
+
+    at ChildProcess.<anonymous> (/Users/nick/Projects/Job/cgpm/node_modules/fb-watchman/index.js:203:18)
+    at ChildProcess.emit (node:events:508:28)
+    at maybeClose (node:internal/child_process:1101:16)
+    at Socket.<anonymous> (node:internal/child_process:457:11)
+    at Socket.emit (node:events:508:28)
+    at Pipe.<anonymous> (node:net:346:12)
+Emitted 'error' event on Client instance at:
+    at spawnError (/Users/nick/Projects/Job/cgpm/node_modules/fb-watchman/index.js:174:10)
+    at ChildProcess.<anonymous> (/Users/nick/Projects/Job/cgpm/node_modules/fb-watchman/index.js:203:7)
+    at ChildProcess.emit (node:events:508:28)
+    at maybeClose (node:internal/child_process:1101:16)
+    at Socket.<anonymous> (node:internal/child_process:457:11)
+    at Socket.emit (node:events:508:28)
+    at Pipe.<anonymous> (node:net:346:12)
+
+Node.js v24.8.0

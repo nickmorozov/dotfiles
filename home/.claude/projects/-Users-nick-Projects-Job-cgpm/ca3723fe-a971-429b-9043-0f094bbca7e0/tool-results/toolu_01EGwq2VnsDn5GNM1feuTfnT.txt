@@ -1,0 +1,4 @@
+/Users/nick/Projects/Job/cgpm/force-app/main/default/lwc/dataManager/dataManager.js-meta.xml
+/Users/nick/Projects/Job/cgpm/force-app/main/default/lwc/dataManager/dataManager.html
+/Users/nick/Projects/Job/cgpm/force-app/main/default/lwc/dataManager/dataManager.js
+/Users/nick/Projects/Job/cgpm/force-app/main/default/lwc/dataManager/__tests__/dataManager.test.js

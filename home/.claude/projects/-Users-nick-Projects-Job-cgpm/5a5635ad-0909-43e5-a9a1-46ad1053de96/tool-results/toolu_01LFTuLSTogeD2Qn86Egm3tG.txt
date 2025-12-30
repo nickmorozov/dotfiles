@@ -1,0 +1,827 @@
+  ● Console
+
+    console.warn
+      [LWC warn]: The property "showSuccess" is not publicly accessible. Add the @api annotation to the property declaration or getter/setter in the component to make it accessible.
+
+      87 |             element.addEventListener('lightning__showtoast', handler);
+      88 |
+    > 89 |             element.showSuccess('Test message');
+         |                     ^
+      90 |
+      91 |             expect(handler).toHaveBeenCalledTimes(1);
+--
+  ● c-base-component › component initialization › unsubscribes from message channel on disconnected
+
+    expect(jest.fn()).toHaveBeenCalled()
+
+    Expected number of calls: >= 1
+    Received number of calls:    0
+
+      77 |             await flushPromises();
+      78 |
+    > 79 |             expect(unsubscribe).toHaveBeenCalled();
+         |                                 ^
+--
+  ● c-base-component › toast helpers › showSuccess dispatches success toast event
+
+    TypeError: element.showSuccess is not a function
+
+      87 |             element.addEventListener('lightning__showtoast', handler);
+      88 |
+    > 89 |             element.showSuccess('Test message');
+         |                     ^
+      90 |
+      91 |             expect(handler).toHaveBeenCalledTimes(1);
+      92 |             const event = handler.mock.calls[0][0];
+--
+  ● c-base-component › toast helpers › showSuccess uses default title
+
+    TypeError: element.showSuccess is not a function
+
+      100 |             element.addEventListener('lightning__showtoast', handler);
+      101 |
+    > 102 |             element.showSuccess('Test message');
+          |                     ^
+      103 |
+      104 |             const event = handler.mock.calls[0][0];
+      105 |             expect(event.detail.title).toBe('Success');
+--
+  ● c-base-component › toast helpers › showSuccess accepts custom title
+
+    TypeError: element.showSuccess is not a function
+
+      111 |             element.addEventListener('lightning__showtoast', handler);
+      112 |
+    > 113 |             element.showSuccess('Test message', 'Custom Title');
+          |                     ^
+      114 |
+      115 |             const event = handler.mock.calls[0][0];
+      116 |             expect(event.detail.title).toBe('Custom Title');
+--
+  ● c-base-component › toast helpers › showError dispatches error toast event
+
+    TypeError: element.showError is not a function
+
+      122 |             element.addEventListener('lightning__showtoast', handler);
+      123 |
+    > 124 |             element.showError('Error message');
+          |                     ^
+      125 |
+      126 |             expect(handler).toHaveBeenCalledTimes(1);
+      127 |             const event = handler.mock.calls[0][0];
+--
+  ● c-base-component › toast helpers › showWarning dispatches warning toast event
+
+    TypeError: element.showWarning is not a function
+
+      136 |             element.addEventListener('lightning__showtoast', handler);
+      137 |
+    > 138 |             element.showWarning('Warning message');
+          |                     ^
+      139 |
+      140 |             const event = handler.mock.calls[0][0];
+      141 |             expect(event.detail.variant).toBe('warning');
+--
+  ● c-base-component › toast helpers › showInfo dispatches info toast event
+
+    TypeError: element.showInfo is not a function
+
+      147 |             element.addEventListener('lightning__showtoast', handler);
+      148 |
+    > 149 |             element.showInfo('Info message');
+          |                     ^
+      150 |
+      151 |             const event = handler.mock.calls[0][0];
+      152 |             expect(event.detail.variant).toBe('info');
+--
+  ● c-base-component › local storage helpers › setLocalState stores value in localStorage
+
+    TypeError: element.setLocalState is not a function
+
+      158 |             const element = createComponent();
+      159 |
+    > 160 |             element.setLocalState('proj-001', 'testKey', 'testValue');
+          |                     ^
+      161 |
+      162 |             const stored = JSON.parse(localStorage.getItem('cgpm_prefs_proj-001'));
+      163 |             expect(stored.testKey).toBe('testValue');
+--
+  ● c-base-component › local storage helpers › getLocalState retrieves value from localStorage
+
+    TypeError: element.setLocalState is not a function
+
+      167 |             const element = createComponent();
+      168 |
+    > 169 |             element.setLocalState('proj-001', 'myKey', 'myValue');
+          |                     ^
+      170 |             const result = element.getLocalState('proj-001', 'myKey', 'default');
+      171 |
+      172 |             expect(result).toBe('myValue');
+--
+  ● c-base-component › local storage helpers › getLocalState returns default when key not found
+
+    TypeError: element.getLocalState is not a function
+
+      176 |             const element = createComponent();
+      177 |
+    > 178 |             const result = element.getLocalState('proj-001', 'nonexistent', 'defaultVal');
+          |                                    ^
+      179 |
+      180 |             expect(result).toBe('defaultVal');
+      181 |         });
+--
+  ● c-base-component › local storage helpers › getLocalState returns default when contextId is null
+
+    TypeError: element.getLocalState is not a function
+
+      184 |             const element = createComponent();
+      185 |
+    > 186 |             const result = element.getLocalState(null, 'key', 'default');
+          |                                    ^
+      187 |
+      188 |             expect(result).toBe('default');
+      189 |         });
+--
+  ● c-base-component › local storage helpers › setLocalState does nothing when contextId is null
+
+    TypeError: element.setLocalState is not a function
+
+      192 |             const element = createComponent();
+      193 |
+    > 194 |             element.setLocalState(null, 'key', 'value');
+          |                     ^
+      195 |
+      196 |             expect(localStorage.length).toBe(0);
+      197 |         });
+--
+  ● c-base-component › local storage helpers › can store and retrieve objects
+
+    TypeError: element.setLocalState is not a function
+
+      201 |             const obj = { nested: { value: 123 } };
+      202 |
+    > 203 |             element.setLocalState('proj-001', 'objKey', obj);
+          |                     ^
+      204 |             const result = element.getLocalState('proj-001', 'objKey', null);
+      205 |
+      206 |             expect(result).toEqual(obj);
+--
+  ● c-base-component › local storage helpers › preserves existing keys when adding new ones
+
+    TypeError: element.setLocalState is not a function
+
+      210 |             const element = createComponent();
+      211 |
+    > 212 |             element.setLocalState('proj-001', 'key1', 'value1');
+          |                     ^
+      213 |             element.setLocalState('proj-001', 'key2', 'value2');
+      214 |
+      215 |             const result1 = element.getLocalState('proj-001', 'key1', null);
+--
+  ● c-base-component › notify method › publishes message to channel
+
+    TypeError: element.notify is not a function
+
+      225 |             const element = createComponent();
+      226 |
+    > 227 |             element.notify('testAction', { foo: 'bar' });
+          |                     ^
+      228 |
+      229 |             expect(publish).toHaveBeenCalled();
+      230 |             const publishCall = publish.mock.calls[0];
+--
+  ● c-base-component › notify method › includes action in details
+
+    TypeError: element.notify is not a function
+
+      236 |             const element = createComponent();
+      237 |
+    > 238 |             element.notify('myAction', {});
+          |                     ^
+      239 |
+      240 |             const publishCall = publish.mock.calls[0];
+      241 |             expect(publishCall[2].action).toBe('myAction');
+--
+  ● c-base-component › extractErrorMessage › extracts message from error.body.message
+
+    TypeError: element.extractErrorMessage is not a function
+
+      250 |             };
+      251 |
+    > 252 |             const result = element.extractErrorMessage(error);
+          |                                    ^
+      253 |
+      254 |             expect(result).toBe('Server error occurred');
+      255 |         });
+--
+  ● c-base-component › extractErrorMessage › joins messages from array error body
+
+    TypeError: element.extractErrorMessage is not a function
+
+      264 |             };
+      265 |
+    > 266 |             const result = element.extractErrorMessage(error);
+          |                                    ^
+      267 |
+      268 |             expect(result).toBe('Error 1, Error 2');
+      269 |         });
+--
+  ● c-base-component › extractErrorMessage › returns unknown error for unrecognized format
+
+    TypeError: element.extractErrorMessage is not a function
+
+      273 |             const error = { body: {} };
+      274 |
+    > 275 |             const result = element.extractErrorMessage(error);
+          |                                    ^
+      276 |
+      277 |             expect(result).toBe('An unknown error occurred.');
+      278 |         });
+--
+  ● c-base-component › handleMessage › exists as a method
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "function"
+    Received: "undefined"
+
+      283 |             const element = createComponent();
+      284 |
+    > 285 |             expect(typeof element.handleMessage).toBe('function');
+          |                                                  ^
+--
+  ● c-base-component › handleMessage › can be called without errors
+
+    expect(received).not.toThrow()
+
+    Error name:    "TypeError"
+    Error message: "element.handleMessage is not a function"
+
+          290 |
+          291 |             expect(() => {
+        > 292 |                 element.handleMessage({ action: 'test' });
+              |                         ^
+--
+  ● Console
+
+    console.error
+      Error creating note: { body: { message: 'Server error' } }
+
+      74 |             this.handleClose();
+      75 |         } catch (error) {
+    > 76 |             console.error('Error creating note:', error);
+         |                     ^
+      77 |             this.showError(error.body?.message || 'Error creating note');
+      78 |         } finally {
+--
+  ● Console
+
+    console.log
+      Details Component Init: { id: 'proj-001', obj: 'cgpm__Project__c' }
+
+      at WorkItemDetails.log [as connectedCallback] (force-app/main/default/lwc/workItemDetails/workItemDetails.js:17:17)
+
+    console.log
+      Details Component Init: { id: 'proj-001', obj: 'cgpm__Project__c' }
+
+      at WorkItemDetails.log [as connectedCallback] (force-app/main/default/lwc/workItemDetails/workItemDetails.js:17:17)
+--
+  ● Console
+
+    console.error
+      Cannot load picklist data: projectId is not set
+
+      51 |     async loadPicklistData() {
+      52 |         if (!this.projectId) {
+    > 53 |             console.error('Cannot load picklist data: projectId is not set');
+         |                     ^
+      54 |             return;
+      55 |         }
+--
+  ● c-project-role-manager › component initialization › starts collapsed by default
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: false
+    Received: undefined
+
+      142 |             await flushPromises();
+      143 |
+    > 144 |             expect(element.isExpanded).toBe(false);
+          |                                        ^
+--
+  ● c-project-role-manager › header rendering › renders add button
+
+    expect(received).not.toBeNull()
+
+    Received: null
+
+      168 |
+      169 |             const addButton = element.shadowRoot.querySelector('lightning-button-icon[alternative-text="Add Role"]');
+    > 170 |             expect(addButton).not.toBeNull();
+          |                                   ^
+      171 |         });
+--
+  ● c-project-role-manager › expand/collapse › toggles expanded state when toggle clicked
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: false
+    Received: undefined
+
+      177 |             await flushPromises();
+      178 |
+    > 179 |             expect(element.isExpanded).toBe(false);
+          |                                        ^
+--
+  ● c-project-role-manager › expand/collapse › shows role list when expanded
+
+    expect(received).not.toBeNull()
+
+    Received: null
+
+      198 |
+      199 |             const roleList = element.shadowRoot.querySelector('table');
+    > 200 |             expect(roleList).not.toBeNull();
+          |                                  ^
+      201 |         });
+--
+  ● c-project-role-manager › role list display › displays roles when data is loaded
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 2
+    Received: 0
+
+      225 |
+      226 |             const rows = element.shadowRoot.querySelectorAll('tbody tr');
+    > 227 |             expect(rows.length).toBe(2);
+          |                                 ^
+--
+  ● c-project-role-manager › role list display › shows empty state when no roles
+
+    expect(received).not.toBeNull()
+
+    Received: null
+
+      240 |
+      241 |             const emptyMessage = element.shadowRoot.querySelector('.slds-text-color_weak');
+    > 242 |             expect(emptyMessage).not.toBeNull();
+          |                                      ^
+      243 |             expect(emptyMessage.textContent).toContain('No project roles');
+--
+  ● c-project-role-manager › role list display › displays formatted billing rate
+
+    TypeError: Cannot read properties of undefined (reading '0')
+
+      251 |
+      252 |             // Check that projectRoles has formatted billing rate
+    > 253 |             expect(element.projectRoles[0].formattedBillingRate).toContain('$');
+          |                                        ^
+      254 |         });
+      255 |     });
+      256 |
+--
+  ● c-project-role-manager › add role form › shows add form when add button clicked
+
+    TypeError: Cannot read properties of null (reading 'click')
+
+      263 |
+      264 |             const addButton = element.shadowRoot.querySelector('lightning-button-icon[alternative-text="Add Role"]');
+    > 265 |             addButton.click();
+          |                       ^
+      266 |             await flushPromises();
+      267 |
+      268 |             const formTitle = element.shadowRoot.querySelector('.slds-text-heading_small');
+--
+  ● c-project-role-manager › add role form › renders resource type template combobox
+
+    TypeError: element.handleAddNew is not a function
+
+      277 |
+      278 |             // Open add form
+    > 279 |             element.handleAddNew();
+          |                     ^
+      280 |             await flushPromises();
+      281 |
+      282 |             const combobox = element.shadowRoot.querySelector('lightning-combobox');
+--
+  ● c-project-role-manager › add role form › renders role name input
+
+    TypeError: element.handleAddNew is not a function
+
+      290 |             await flushPromises();
+      291 |
+    > 292 |             element.handleAddNew();
+          |                     ^
+      293 |             await flushPromises();
+      294 |
+      295 |             const input = element.shadowRoot.querySelector('lightning-input[label="Role Name"]');
+--
+  ● c-project-role-manager › add role form › renders billing rate input
+
+    TypeError: element.handleAddNew is not a function
+
+      303 |             await flushPromises();
+      304 |
+    > 305 |             element.handleAddNew();
+          |                     ^
+      306 |             await flushPromises();
+      307 |
+      308 |             const input = element.shadowRoot.querySelector('lightning-input[label="Billing Rate"]');
+--
+  ● c-project-role-manager › add role form › shows Add button label in add mode
+
+    TypeError: element.handleAddNew is not a function
+
+      314 |             await flushPromises();
+      315 |
+    > 316 |             element.handleAddNew();
+          |                     ^
+      317 |             await flushPromises();
+      318 |
+      319 |             expect(element.saveButtonLabel).toBe('Add');
+--
+  ● c-project-role-manager › add role form › closes form when cancel clicked
+
+    TypeError: element.handleAddNew is not a function
+
+      326 |             await flushPromises();
+      327 |
+    > 328 |             element.handleAddNew();
+          |                     ^
+      329 |             await flushPromises();
+      330 |
+      331 |             const cancelButton = element.shadowRoot.querySelector('lightning-button[label="Cancel"]');
+--
+  ● c-project-role-manager › computed properties › hasRoles returns false for empty array
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: false
+    Received: undefined
+
+      344 |             await flushPromises();
+      345 |
+    > 346 |             expect(element.hasRoles).toBe(false);
+          |                                      ^
+--
+  ● c-project-role-manager › computed properties › hasRoles returns true when roles exist
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: undefined
+
+      353 |             await flushPromises();
+      354 |
+    > 355 |             expect(element.hasRoles).toBe(true);
+          |                                      ^
+--
+  ● c-project-role-manager › computed properties › isFormOpen returns true when in add mode
+
+    TypeError: element.handleAddNew is not a function
+
+      360 |             await flushPromises();
+      361 |
+    > 362 |             element.handleAddNew();
+          |                     ^
+      363 |
+      364 |             expect(element.isFormOpen).toBe(true);
+      365 |         });
+--
+  ● c-project-role-manager › computed properties › formTitle returns correct title for add mode
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Add Project Role"
+    Received: undefined
+
+      369 |             element.isAddMode = true;
+      370 |
+    > 371 |             expect(element.formTitle).toBe('Add Project Role');
+          |                                       ^
+--
+  ● c-project-role-manager › computed properties › formTitle returns correct title for edit mode
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Edit Project Role"
+    Received: undefined
+
+      381 |             element.editingRole = { Id: 'role-001' };
+      382 |
+    > 383 |             expect(element.formTitle).toBe('Edit Project Role');
+          |                                       ^
+--
+  ● c-project-role-manager › computed properties › toggleIconName returns chevronright when collapsed
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "utility:chevronright"
+    Received: undefined
+
+      388 |             element.isExpanded = false;
+      389 |
+    > 390 |             expect(element.toggleIconName).toBe('utility:chevronright');
+          |                                            ^
+--
+  ● c-project-role-manager › computed properties › toggleIconName returns chevrondown when expanded
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "utility:chevrondown"
+    Received: undefined
+
+      395 |             element.isExpanded = true;
+      396 |
+    > 397 |             expect(element.toggleIconName).toBe('utility:chevrondown');
+          |                                            ^
+--
+  ● c-project-role-manager › local storage integration › persists expanded state to local storage
+
+    TypeError: element.handleToggle is not a function
+
+      404 |             await flushPromises();
+      405 |
+    > 406 |             element.handleToggle();
+          |                     ^
+      407 |             await flushPromises();
+      408 |
+      409 |             const stored = JSON.parse(localStorage.getItem('cgpm_prefs_proj-001'));
+--
+  ● c-project-resource-manager › component initialization › starts collapsed by default
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: false
+    Received: undefined
+
+      153 |             await flushPromises();
+      154 |
+    > 155 |             expect(element.isExpanded).toBe(false);
+          |                                        ^
+--
+  ● c-project-resource-manager › header rendering › renders add button
+
+    expect(received).not.toBeNull()
+
+    Received: null
+
+      179 |
+      180 |             const addButton = element.shadowRoot.querySelector('lightning-button-icon[alternative-text="Add Resource"]');
+    > 181 |             expect(addButton).not.toBeNull();
+          |                                   ^
+      182 |         });
+--
+  ● c-project-resource-manager › expand/collapse › toggles expanded state when toggle clicked
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: false
+    Received: undefined
+
+      219 |             await flushPromises();
+      220 |
+    > 221 |             expect(element.isExpanded).toBe(false);
+          |                                        ^
+--
+  ● c-project-resource-manager › expand/collapse › shows resource tiles when expanded
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 2
+    Received: 0
+
+      239 |
+      240 |             const tiles = element.shadowRoot.querySelectorAll('.resource-tile');
+    > 241 |             expect(tiles.length).toBe(2);
+          |                                  ^
+--
+  ● c-project-resource-manager › resource list display › displays resource name in tiles
+
+    TypeError: Cannot read properties of null (reading 'textContent')
+
+      255 |
+      256 |             const tile = element.shadowRoot.querySelector('.resource-tile .slds-text-heading_small');
+    > 257 |             expect(tile.textContent).toBe('John Doe');
+          |                         ^
+      258 |         });
+      259 |
+      260 |         it('shows empty state when no assignments', async () => {
+--
+  ● c-project-resource-manager › resource list display › shows empty state when no assignments
+
+    expect(received).not.toBeNull()
+
+    Received: null
+
+      270 |
+      271 |             const emptyMessage = element.shadowRoot.querySelector('.slds-text-color_weak');
+    > 272 |             expect(emptyMessage).not.toBeNull();
+          |                                      ^
+      273 |             expect(emptyMessage.textContent).toContain('No resource assignments');
+--
+  ● c-project-resource-manager › add resource form › shows add form when add button clicked
+
+    TypeError: Cannot read properties of null (reading 'click')
+
+      283 |
+      284 |             const addButton = element.shadowRoot.querySelector('lightning-button-icon[alternative-text="Add Resource"]');
+    > 285 |             addButton.click();
+          |                       ^
+      286 |             await flushPromises();
+      287 |
+      288 |             const formTitle = element.shadowRoot.querySelector('.slds-text-heading_small');
+--
+  ● c-project-resource-manager › add resource form › renders default role combobox
+
+    TypeError: element.handleAddNew is not a function
+
+      296 |             await flushPromises();
+      297 |
+    > 298 |             element.handleAddNew();
+          |                     ^
+      299 |             await flushPromises();
+      300 |
+      301 |             const combobox = element.shadowRoot.querySelector('lightning-combobox[label="Default Role"]');
+--
+  ● c-project-resource-manager › add resource form › renders resource classification combobox
+
+    TypeError: element.handleAddNew is not a function
+
+      309 |             await flushPromises();
+      310 |
+    > 311 |             element.handleAddNew();
+          |                     ^
+      312 |             await flushPromises();
+      313 |
+      314 |             const combobox = element.shadowRoot.querySelector('lightning-combobox[label="Resource Classification"]');
+--
+  ● c-project-resource-manager › add resource form › renders access level combobox
+
+    TypeError: element.handleAddNew is not a function
+
+      322 |             await flushPromises();
+      323 |
+    > 324 |             element.handleAddNew();
+          |                     ^
+      325 |             await flushPromises();
+      326 |
+      327 |             const combobox = element.shadowRoot.querySelector('lightning-combobox[label="Access Level"]');
+--
+  ● c-project-resource-manager › add resource form › closes form when cancel clicked
+
+    TypeError: element.handleAddNew is not a function
+
+      335 |             await flushPromises();
+      336 |
+    > 337 |             element.handleAddNew();
+          |                     ^
+      338 |             await flushPromises();
+      339 |
+      340 |             const cancelButton = element.shadowRoot.querySelector('lightning-button[label="Cancel"]');
+--
+  ● c-project-resource-manager › computed properties › hasAssignments returns false for empty array
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: false
+    Received: undefined
+
+      353 |             await flushPromises();
+      354 |
+    > 355 |             expect(element.hasAssignments).toBe(false);
+          |                                            ^
+--
+  ● c-project-resource-manager › computed properties › hasAssignments returns true when assignments exist
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: undefined
+
+      362 |             await flushPromises();
+      363 |
+    > 364 |             expect(element.hasAssignments).toBe(true);
+          |                                            ^
+--
+  ● c-project-resource-manager › computed properties › isFormOpen returns true when in add mode
+
+    TypeError: element.handleAddNew is not a function
+
+      369 |             await flushPromises();
+      370 |
+    > 371 |             element.handleAddNew();
+          |                     ^
+      372 |
+      373 |             expect(element.isFormOpen).toBe(true);
+      374 |         });
+--
+  ● c-project-resource-manager › computed properties › formTitle returns correct title for add mode
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Add Resource Assignment"
+    Received: undefined
+
+      378 |             element.isAddMode = true;
+      379 |
+    > 380 |             expect(element.formTitle).toBe('Add Resource Assignment');
+          |                                       ^
+--
+  ● c-project-resource-manager › computed properties › saveButtonLabel returns Add in add mode
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Add"
+    Received: undefined
+
+      385 |             element.isAddMode = true;
+      386 |
+    > 387 |             expect(element.saveButtonLabel).toBe('Add');
+          |                                             ^
+--
+  ● c-project-resource-manager › computed properties › saveButtonLabel returns Save in edit mode
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Save"
+    Received: undefined
+
+      392 |             element.isAddMode = false;
+      393 |
+    > 394 |             expect(element.saveButtonLabel).toBe('Save');
+          |                                             ^
+--
+  ● c-project-resource-manager › computed properties › showUserLookup returns true for Internal User
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: undefined
+
+      399 |             element.formData = { resourceClassification: 'Internal User' };
+      400 |
+    > 401 |             expect(element.showUserLookup).toBe(true);
+          |                                            ^
+--
+  ● c-project-resource-manager › computed properties › showContactLookup returns true for non-user types
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: undefined
+
+      406 |             element.formData = { resourceClassification: 'Contractor' };
+      407 |
+    > 408 |             expect(element.showContactLookup).toBe(true);
+          |                                               ^
+--
+  ● c-project-resource-manager › initials calculation › calculates initials from full name
+
+    TypeError: Cannot read properties of undefined (reading '0')
+
+      418 |
+      419 |             // Check first assignment has correct initials
+    > 420 |             expect(element.resourceAssignments[0].initials).toBe('JD');
+          |                                               ^
+      421 |         });
+      422 |
+      423 |         it('handles single name', async () => {
+--
+  ● c-project-resource-manager › initials calculation › handles single name
+
+    TypeError: Cannot read properties of undefined (reading '0')
+
+      434 |             await flushPromises();
+      435 |
+    > 436 |             expect(element.resourceAssignments[0].initials).toBe('AD');
+          |                                               ^
+      437 |         });
+      438 |     });
+      439 |
+--
+  ● c-project-resource-manager › local storage integration › persists expanded state to local storage
+
+    TypeError: element.handleToggle is not a function
+
+      443 |             await flushPromises();
+      444 |
+    > 445 |             element.handleToggle();
+          |                     ^
+      446 |             await flushPromises();
+      447 |
+      448 |             const stored = JSON.parse(localStorage.getItem('cgpm_prefs_proj-001'));
+--
+  ● Console
+
+    console.warn
+      [LWC warn]: Unknown public property "variant" of element <lightning-badge>. This is either a typo on the corresponding attribute "variant", or the attribute does not exist in this browser or DOM implementation.
+
+      at log (node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:1008:24)
+
+    console.warn
+      [LWC warn]: Unknown public property "variant" of element <lightning-badge>. This is either a typo on the corresponding attribute "variant", or
+
+... [147 lines truncated] ...

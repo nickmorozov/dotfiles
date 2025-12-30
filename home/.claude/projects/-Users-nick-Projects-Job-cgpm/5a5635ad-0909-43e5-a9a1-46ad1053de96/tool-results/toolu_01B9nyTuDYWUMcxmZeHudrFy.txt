@@ -1,0 +1,2 @@
+62:// refreshApex is automatically mocked by sfdx-lwc-jest via the wire adapters
+338:            refreshApex.mockResolvedValue();

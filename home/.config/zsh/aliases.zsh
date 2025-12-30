@@ -3,6 +3,8 @@
 # Aliases
 #############################################
 
+alias pm="postman"
+
 alias zshplugins="la $ZGEN_SOURCE/sources/ohmyzsh/ohmyzsh/___/plugins"
 alias pslist="ps -U nick | grep Applications | sed -E 's/.*Applications\/(.*)\.app\/.*/\1/g' | sed -E 's/.*Web App.*bundlepath.*Applications\/(.*)\.app --sand.*/\1/g' | grep -v 'tty' | grep -v 'Frameworks' | g | sort -u"
 

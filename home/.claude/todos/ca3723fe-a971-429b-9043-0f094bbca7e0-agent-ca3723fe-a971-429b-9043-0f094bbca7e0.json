@@ -1,0 +1,92 @@
+[
+  {
+    "content": "Phase 1: Discovery - Understand feature requirements",
+    "status": "completed",
+    "activeForm": "Understanding feature requirements"
+  },
+  {
+    "content": "Phase 2: Codebase Exploration - Analyze relevant code patterns",
+    "status": "completed",
+    "activeForm": "Analyzing codebase patterns"
+  },
+  {
+    "content": "Phase 3: Clarifying Questions - Resolve ambiguities",
+    "status": "completed",
+    "activeForm": "Asking clarifying questions"
+  },
+  {
+    "content": "Phase 4: Architecture Design - Design implementation approaches",
+    "status": "completed",
+    "activeForm": "Designing architecture"
+  },
+  {
+    "content": "Phase 5: Implementation - Build the feature",
+    "status": "in_progress",
+    "activeForm": "Implementing feature"
+  },
+  {
+    "content": "Create feature branch",
+    "status": "completed",
+    "activeForm": "Creating feature branch"
+  },
+  {
+    "content": "Update Apex: ProjectDataWrapper with full project data and templates",
+    "status": "completed",
+    "activeForm": "Updating ProjectDataWrapper"
+  },
+  {
+    "content": "Update Apex: WorkItemWrapper with allowedChildTemplates",
+    "status": "completed",
+    "activeForm": "Updating WorkItemWrapper"
+  },
+  {
+    "content": "Refactor dataManager.js with new event-based API",
+    "status": "completed",
+    "activeForm": "Refactoring dataManager"
+  },
+  {
+    "content": "Update workItemCardContainer to use new dataManager API",
+    "status": "completed",
+    "activeForm": "Updating workItemCardContainer"
+  },
+  {
+    "content": "Update workItemDetails to use new dataManager API",
+    "status": "completed",
+    "activeForm": "Updating workItemDetails"
+  },
+  {
+    "content": "Update tests for dataManager",
+    "status": "completed",
+    "activeForm": "Updating dataManager tests"
+  },
+  {
+    "content": "Add documentation to CLAUDE.md",
+    "status": "completed",
+    "activeForm": "Adding documentation"
+  },
+  {
+    "content": "Deploy and run Apex tests",
+    "status": "in_progress",
+    "activeForm": "Deploying and testing Apex"
+  },
+  {
+    "content": "Run LWC tests",
+    "status": "pending",
+    "activeForm": "Running LWC tests"
+  },
+  {
+    "content": "Create PR",
+    "status": "pending",
+    "activeForm": "Creating pull request"
+  },
+  {
+    "content": "Phase 6: Quality Review - Ensure code quality",
+    "status": "pending",
+    "activeForm": "Reviewing code quality"
+  },
+  {
+    "content": "Phase 7: Summary - Document what was accomplished",
+    "status": "pending",
+    "activeForm": "Documenting accomplishments"
+  }
+]

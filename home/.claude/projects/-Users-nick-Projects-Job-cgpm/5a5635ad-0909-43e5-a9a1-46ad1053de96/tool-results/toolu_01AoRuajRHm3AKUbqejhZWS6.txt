@@ -1,0 +1,104 @@
+     1→/**
+     2→ * @jest-environment jsdom
+     3→ *
+     4→ * Tests for workItemHistoryModal component.
+     5→ *
+     6→ * This component:
+     7→ * - Uses Promise.all for 3 Apex calls (history, notes, time entries)
+     8→ * - Has tab-based filtering (All, Notes, Field Updates, Time Entries)
+     9→ * - Transforms and combines data for display
+    10→ * - Does NOT extend BaseComponent (uses LightningElement directly)
+    11→ */
+    12→import { createElement } from 'lwc';
+    13→import WorkItemHistoryModal from 'c/workItemHistoryModal';
+    14→import getWorkItemHistory from '@salesforce/apex/WorkItemController.getWorkItemHistory';
+    15→import getNotesForWorkItem from '@salesforce/apex/WorkItemNoteController.getNotesForWorkItem';
+    16→import getTimeEntries from '@salesforce/apex/WorkItemController.getTimeEntriesForWorkItem';
+    17→
+    18→// Mock Apex methods
+    19→jest.mock(
+    20→    '@salesforce/apex/WorkItemController.getWorkItemHistory',
+    21→    () => ({ default: jest.fn() }),
+    22→    { virtual: true }
+    23→);
+    24→jest.mock(
+    25→    '@salesforce/apex/WorkItemNoteController.getNotesForWorkItem',
+    26→    () => ({ default: jest.fn() }),
+    27→    { virtual: true }
+    28→);
+    29→jest.mock(
+    30→    '@salesforce/apex/WorkItemController.getTimeEntriesForWorkItem',
+    31→    () => ({ default: jest.fn() }),
+    32→    { virtual: true }
+    33→);
+    34→
+    35→describe('c-work-item-history-modal', () => {
+    36→    // Clean up DOM and reset mocks after each test
+    37→    afterEach(() => {
+    38→        while (document.body.firstChild) {
+    39→            document.body.removeChild(document.body.firstChild);
+    40→        }
+    41→        jest.clearAllMocks();
+    42→    });
+    43→
+    44→    /**
+    45→     * Helper to create and append the component to DOM
+    46→     */
+    47→    function createComponent(props = {}) {
+    48→        const element = createElement('c-work-item-history-modal', {
+    49→            is: WorkItemHistoryModal
+    50→        });
+    51→        Object.assign(element, props);
+    52→        document.body.appendChild(element);
+    53→        return element;
+    54→    }
+    55→
+    56→    /**
+    57→     * Helper for async timing
+    58→     */
+    59→    function flushPromises() {
+    60→        // eslint-disable-next-line @lwc/lwc/no-async-operation
+    61→        return new Promise((resolve) => setTimeout(resolve, 10));
+    62→    }
+    63→
+    64→    /**
+    65→     * Helper to wait for data load
+    66→     */
+    67→    async function waitForDataLoad() {
+    68→        await flushPromises();
+    69→        await flushPromises();
+    70→        await flushPromises();
+    71→    }
+    72→
+    73→    /**
+    74→     * Setup mocks with default successful responses
+    75→     */
+    76→    function setupDefaultMocks() {
+    77→        getWorkItemHistory.mockResolvedValue([
+    78→            {
+    79→                Id: 'history-001',
+    80→                Field: 'cgpm__Status__c',
+    81→                OldValue: 'Not Started',
+    82→                NewValue: 'In Progress',
+    83→                CreatedDate: '2025-01-15T10:00:00.000Z',
+    84→                CreatedBy: { Name: 'John Doe' }
+    85→            },
+    86→            {
+    87→                Id: 'history-002',
+    88→                Field: 'cgpm__Due_Date__c',
+    89→                OldValue: '2025-01-20',
+    90→                NewValue: '2025-01-25',
+    91→                CreatedDate: '2025-01-14T09:00:00.000Z',
+    92→                CreatedBy: { Name: 'Jane Smith' }
+    93→            }
+    94→        ]);
+    95→        getNotesForWorkItem.mockResolvedValue([
+    96→            {
+    97→                id: 'note-001',
+    98→                noteText: 'This is a test note',
+    99→                createdDate: '2025-01-15T11:00:00.000Z',
+   100→                createdByName: 'John Doe'
+
+<system-reminder>
+Whenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.
+</system-reminder>

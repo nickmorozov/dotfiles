@@ -1,0 +1,1173 @@
+     1→import { api, wire } from 'lwc';
+     2→import DraggableComponent from 'c/draggableComponent';
+     3→import { NavigationMixin } from 'lightning/navigation';
+     4→import { updateRecord, deleteRecord } from 'lightning/uiRecordApi';
+     5→import getWorkItemOptionsForProject from '@salesforce/apex/WorkItemController.getWorkItemOptionsForProject';
+     6→import getAllowedChildTypeCount from '@salesforce/apex/WorkItemController.getAllowedChildTypeCount';
+     7→import ID_FIELD from '@salesforce/schema/Work_Item__c.Id';
+     8→import STATUS_FIELD from '@salesforce/schema/Work_Item__c.Status__c';
+     9→import NAME_FIELD from '@salesforce/schema/Work_Item__c.Work_Item_Name__c';
+    10→import SUMMARY_FIELD from '@salesforce/schema/Work_Item__c.Summary__c';
+    11→import NEXT_STEPS_FIELD from '@salesforce/schema/Work_Item__c.Next_Steps__c';
+    12→import START_DATE_FIELD from '@salesforce/schema/Work_Item__c.Start_Date__c';
+    13→import DUE_DATE_FIELD from '@salesforce/schema/Work_Item__c.Due_Date__c';
+    14→import ESTIMATED_HOURS_FIELD from '@salesforce/schema/Work_Item__c.Estimated_Hours__c';
+    15→import AT_RISK_FIELD from '@salesforce/schema/Work_Item__c.At_Risk__c';
+    16→import AT_RISK_DETAILS_FIELD from '@salesforce/schema/Work_Item__c.At_Risk_Details__c';
+    17→import BLOCKED_FIELD from '@salesforce/schema/Work_Item__c.Blocked__c';
+    18→import BLOCKED_DETAILS_FIELD from '@salesforce/schema/Work_Item__c.Blocked_Details__c';
+    19→import BLOCKER_WORK_ITEM_FIELD from '@salesforce/schema/Work_Item__c.Blocker_Work_Item__c';
+    20→
+    21→export default class WorkItemCard extends NavigationMixin(DraggableComponent) {
+    22→    @api workItem; // Work Item wrapper object from Apex
+    23→    @api allWorkItems = []; // All work items in the project for blocker picklist (deprecated - using wire instead)
+    24→    @api level = 0; // Hierarchy level (0 = root, 1 = child, etc.)
+    25→    @api isExpanded = false; // Expanded/collapsed state
+    26→    @api viewMode = 'detailed'; // View mode: 'compact' or 'detailed'
+    27→
+    28→    /**
+    29→     * Handle messages from Lightning Message Service
+    30→     */
+    31→    handleMessage(message) {
+    32→        super.handleMessage(message);
+    33→
+    34→        switch (message.action) {
+    35→            case 'workItemStatusOpened':
+    36→                if (message.workItemId !== this.workItem.id) {
+    37→                    this.showStatusDropdown = false;
+    38→                }
+    39→                break;
+    40→
+    41→            default:
+    42→            // Do nothing for other messages
+    43→        }
+    44→    }
+    45→
+    46→    // Wire to get all work item options for the project
+    47→    workItemOptions = [];
+    48→    @wire(getWorkItemOptionsForProject, { projectId: '$workItem.projectId' })
+    49→    wiredWorkItemOptions({ data, error }) {
+    50→        if (data) {
+    51→            this.workItemOptions = data;
+    52→        } else if (error) {
+    53→            console.error('Error loading work item options:', error);
+    54→            this.workItemOptions = [];
+    55→        }
+    56→    }
+    57→
+    58→    // Wire to get count of allowed child types for this work item's template
+    59→    allowedChildTypeCount = 0;
+    60→    @wire(getAllowedChildTypeCount, { workItemTemplateId: '$workItem.templateId' })
+    61→    wiredAllowedChildTypeCount({ data, error }) {
+    62→        if (data !== undefined && data !== null) {
+    63→            this.allowedChildTypeCount = data;
+    64→        } else if (error) {
+    65→            console.error('Error loading allowed child type count:', error);
+    66→            this.allowedChildTypeCount = 0;
+    67→        }
+    68→    }
+    69→
+    70→    // Status dropdown state
+    71→    showStatusDropdown = false;
+    72→
+    73→    // Edit mode state
+    74→    isEditMode = false;
+    75→
+    76→    // Edit form values
+    77→    editName = '';
+    78→    editSummary = '';
+    79→    editNextSteps = '';
+    80→    editStartDate = '';
+    81→    editDueDate = '';
+    82→    editEstimatedHours = null;
+    83→
+    84→    // At Risk modal state
+    85→    showAtRiskModal = false;
+    86→    atRiskChecked = false;
+    87→    atRiskDetailsValue = '';
+    88→
+    89→    // Blocked modal state
+    90→    showBlockedModal = false;
+    91→    blockedChecked = false;
+    92→    blockedDetailsValue = '';
+    93→    blockerWorkItemId = null;
+    94→
+    95→    // Delete modal state
+    96→    showDeleteModal = false;
+    97→    isDeleting = false;
+    98→
+    99→    /**
+   100→     * Component lifecycle - add click outside listener
+   101→     */
+   102→    connectedCallback() {
+   103→        document.addEventListener('click', this.handleClickOutside.bind(this));
+   104→    }
+   105→
+   106→    /**
+   107→     * Component lifecycle - remove click outside listener
+   108→     */
+   109→    disconnectedCallback() {
+   110→        document.removeEventListener('click', this.handleClickOutside);
+   111→    }
+   112→
+   113→    handleCardClick(event) {
+   114→        this.notify('activateWorkItem', {
+   115→            workItemId: event.target.dataset.workItemId
+   116→        });
+   117→    }
+   118→
+   119→    /**
+   120→     * Handle clicks outside the dropdown to close it
+   121→     */
+   122→    handleClickOutside(event) {
+   123→        const dropdown = this.template.querySelector('.status-dropdown-container');
+   124→        if (dropdown && !dropdown.contains(event.target)) {
+   125→            this.showStatusDropdown = false;
+   126→        }
+   127→    }
+   128→
+   129→    /**
+   130→     * Handle toggle expand/collapse
+   131→     */
+   132→    handleToggleExpand() {
+   133→        const eventName = this.isExpanded ? 'workitemcollapse' : 'workitemexpand';
+   134→        const event = new CustomEvent(eventName, {
+   135→            detail: {
+   136→                workItemId: this.workItem.id
+   137→            },
+   138→            bubbles: true,
+   139→            composed: true
+   140→        });
+   141→        this.dispatchEvent(event);
+   142→    }
+   143→
+   144→    /**
+   145→     * Stop event propagation (prevent clicks on input fields from toggling expand/collapse)
+   146→     */
+   147→    handleStopPropagation(event) {
+   148→        event.stopPropagation();
+   149→    }
+   150→
+   151→    /**
+   152→     * Handle navigation to Work Item record page
+   153→     */
+   154→    handleNavigateToRecord(event) {
+   155→        // Prevent event from bubbling up to toggle expand/collapse
+   156→        event.preventDefault();
+   157→        event.stopPropagation();
+   158→
+   159→        this[NavigationMixin.Navigate]({
+   160→            type: 'standard__recordPage',
+   161→            attributes: {
+   162→                recordId: this.workItem.id,
+   163→                objectApiName: 'cgpm__Work_Item__c',
+   164→                actionName: 'view'
+   165→            }
+   166→        });
+   167→    }
+   168→
+   169→    /**
+   170→     * Handle opening time log modal
+   171→     */
+   172→    handleOpenTimeEntries(event) {
+   173→        event.preventDefault();
+   174→        event.stopPropagation();
+   175→
+   176→        const modal = this.template.querySelector('c-time-log-modal');
+   177→        if (modal) {
+   178→            modal.openModal();
+   179→        }
+   180→    }
+   181→
+   182→    /**
+   183→     * Handle time logged event - refresh work item data
+   184→     */
+   185→    handleTimeLogged(event) {
+   186→        // Publish refresh event so parent component can reload work items
+   187→        this.notify('refresh', { workItemId: this.workItem.id });
+   188→    }
+   189→
+   190→    /**
+   191→     * Handle opening resource assignment modal
+   192→     */
+   193→    handleOpenResourceModal(event) {
+   194→        event.preventDefault();
+   195→        event.stopPropagation();
+   196→
+   197→        const modal = this.template.querySelector('c-resource-assignment-modal');
+   198→        if (modal) {
+   199→            modal.open();
+   200→        }
+   201→    }
+   202→
+   203→    /**
+   204→     * Handle work item data refreshed from modal
+   205→     */
+   206→    handleWorkItemDataRefreshed(event) {
+   207→        // Update the local work item data with refreshed data from server
+   208→        const updatedWorkItem = event.detail.workItem;
+   209→
+   210→        // Update specific fields that may have changed
+   211→        if (updatedWorkItem) {
+   212→            this.workItem = {
+   213→                ...this.workItem,
+   214→                ownerName: updatedWorkItem.ownerName,
+   215→                ownerId: updatedWorkItem.ownerId,
+   216→                assignments: updatedWorkItem.assignments
+   217→            };
+   218→        }
+   219→    }
+   220→
+   221→    /**
+   222→     * Handle modal closed - trigger full refresh of work items
+   223→     */
+   224→    handleModalClosed(event) {
+   225→        // Dispatch event to parent to refresh all work item data
+   226→        const refreshEvent = new CustomEvent('workitemupdate', {
+   227→            detail: {
+   228→                workItemId: event.detail.workItemId,
+   229→                keepModalOpen: false
+   230→            },
+   231→            bubbles: true,
+   232→            composed: true
+   233→        });
+   234→        this.dispatchEvent(refreshEvent);
+   235→    }
+   236→
+   237→    /**
+   238→     * Handle action executed from action bar
+   239→     */
+   240→    handleActionExecuted(event) {
+   241→        // Check if this is an Edit action
+   242→        if (event.detail.actionName === 'Edit') {
+   243→            // Enter edit mode
+   244→            this.handleEdit(event);
+   245→        } else if (event.detail.actionName === 'Add Note') {
+   246→            // Open note modal
+   247→            this.handleOpenNoteModal(event);
+   248→        } else if (event.detail.actionName === 'Add Child') {
+   249→            // Open create modal for child work item
+   250→            this.handleOpenCreateModal(event);
+   251→        } else if (event.detail.actionName === 'Delete') {
+   252→            // Open delete confirmation modal
+   253→            this.handleOpenDeleteModal(event);
+   254→        } else {
+   255→            // Bubble event up to parent for other actions
+   256→            const bubbledEvent = new CustomEvent('actionexecuted', {
+   257→                detail: event.detail,
+   258→                bubbles: true,
+   259→                composed: true
+   260→            });
+   261→            this.dispatchEvent(bubbledEvent);
+   262→        }
+   263→    }
+   264→
+   265→    /**
+   266→     * Handle opening note modal
+   267→     */
+   268→    handleOpenNoteModal(event) {
+   269→        event.preventDefault();
+   270→        event.stopPropagation();
+   271→
+   272→        const modal = this.template.querySelector('c-work-item-note-modal');
+   273→        if (modal) {
+   274→            modal.open();
+   275→        }
+   276→    }
+   277→
+   278→    /**
+   279→     * Handle note created event
+   280→     */
+   281→    handleNoteCreated(event) {
+   282→        // Dispatch update event to parent to refresh data
+   283→        const updateEvent = new CustomEvent('workitemupdate', {
+   284→            detail: {
+   285→                workItemId: event.detail.workItemId
+   286→            },
+   287→            bubbles: true,
+   288→            composed: true
+   289→        });
+   290→        this.dispatchEvent(updateEvent);
+   291→    }
+   292→
+   293→    /**
+   294→     * Handle opening create modal for child work item
+   295→     */
+   296→    handleOpenCreateModal(event) {
+   297→        event.preventDefault();
+   298→        event.stopPropagation();
+   299→
+   300→        const modal = this.template.querySelector('c-work-item-create-modal');
+   301→        if (modal) {
+   302→            modal.open({
+   303→                parentWorkItemId: this.workItem.id,
+   304→                parentWorkItemName: this.workItem.name
+   305→            });
+   306→        }
+   307→    }
+   308→
+   309→    /**
+   310→     * Handle work item created event
+   311→     */
+   312→    handleWorkItemCreated(event) {
+   313→        // Dispatch update event to parent to refresh data
+   314→        const updateEvent = new CustomEvent('workitemupdate', {
+   315→            detail: {
+   316→                workItemId: event.detail.parentWorkItemId || this.workItem.id
+   317→            },
+   318→            bubbles: true,
+   319→            composed: true
+   320→        });
+   321→        this.dispatchEvent(updateEvent);
+   322→    }
+   323→
+   324→    /**
+   325→     * Handle child update event (from nested work item cards)
+   326→     */
+   327→    handleChildUpdate(event) {
+   328→        // Bubble event up to parent
+   329→        const bubbledEvent = new CustomEvent('workitemupdate', {
+   330→            detail: event.detail,
+   331→            bubbles: true,
+   332→            composed: true
+   333→        });
+   334→        this.dispatchEvent(bubbledEvent);
+   335→    }
+   336→
+   337→    /**
+   338→     * Handle child expand event
+   339→     */
+   340→    handleChildExpand(event) {
+   341→        // Bubble event up to parent
+   342→        const bubbledEvent = new CustomEvent('workitemexpand', {
+   343→            detail: event.detail,
+   344→            bubbles: true,
+   345→            composed: true
+   346→        });
+   347→        this.dispatchEvent(bubbledEvent);
+   348→    }
+   349→
+   350→    /**
+   351→     * Handle child collapse event
+   352→     */
+   353→    handleChildCollapse(event) {
+   354→        // Bubble event up to parent
+   355→        const bubbledEvent = new CustomEvent('workitemcollapse', {
+   356→            detail: event.detail,
+   357→            bubbles: true,
+   358→            composed: true
+   359→        });
+   360→        this.dispatchEvent(bubbledEvent);
+   361→    }
+   362→
+   363→    /**
+   364→     * Handle child action executed event
+   365→     */
+   366→    handleChildActionExecuted(event) {
+   367→        // Bubble event up to parent
+   368→        const bubbledEvent = new CustomEvent('actionexecuted', {
+   369→            detail: event.detail,
+   370→            bubbles: true,
+   371→            composed: true
+   372→        });
+   373→        this.dispatchEvent(bubbledEvent);
+   374→    }
+   375→
+   376→    /**
+   377→     * Handle opening history modal via Lightning Message Service
+   378→     */
+   379→    handleOpenHistory() {
+   380→        this.notify('openHistoryModal', { workItemId: this.workItem.id, workItemName: this.workItem.name });
+   381→    }
+   382→
+   383→    /**
+   384→     * Handle Edit button click - enter edit mode
+   385→     */
+   386→    handleEdit(event) {
+   387→        event.preventDefault();
+   388→        event.stopPropagation();
+   389→
+   390→        // Initialize edit values from current work item
+   391→        this.editName = this.workItem.name;
+   392→        this.editSummary = this.workItem.description || '';
+   393→        this.editNextSteps = this.workItem.nextSteps || '';
+   394→        this.editStartDate = this.workItem.startDate || '';
+   395→        this.editDueDate = this.workItem.dueDate || '';
+   396→        this.editEstimatedHours = this.workItem.estimatedHours || null;
+   397→
+   398→        this.isEditMode = true;
+   399→    }
+   400→
+   401→    /**
+   402→     * Handle Cancel button click - exit edit mode
+   403→     */
+   404→    handleCancelEdit(event) {
+   405→        event.preventDefault();
+   406→        event.stopPropagation();
+   407→
+   408→        this.isEditMode = false;
+   409→    }
+   410→
+   411→    /**
+   412→     * Handle Save button click - save changes
+   413→     */
+   414→    async handleSaveEdit(event) {
+   415→        event.preventDefault();
+   416→        event.stopPropagation();
+   417→
+   418→        try {
+   419→            const fields = {};
+   420→            fields[ID_FIELD.fieldApiName] = this.workItem.id;
+   421→            fields[NAME_FIELD.fieldApiName] = this.editName;
+   422→            fields[SUMMARY_FIELD.fieldApiName] = this.editSummary;
+   423→            fields[NEXT_STEPS_FIELD.fieldApiName] = this.editNextSteps;
+   424→            fields[START_DATE_FIELD.fieldApiName] = this.editStartDate || null;
+   425→            fields[DUE_DATE_FIELD.fieldApiName] = this.editDueDate || null;
+   426→            fields[ESTIMATED_HOURS_FIELD.fieldApiName] = this.editEstimatedHours || null;
+   427→
+   428→            const recordInput = { fields };
+   429→            await updateRecord(recordInput);
+   430→
+   431→            // Exit edit mode
+   432→            this.isEditMode = false;
+   433→
+   434→            // Show success toast
+   435→            this.showSuccess('Work item updated successfully');
+   436→
+   437→            // Dispatch update event to parent to refresh data
+   438→            const updateEvent = new CustomEvent('workitemupdate', {
+   439→                detail: {
+   440→                    workItemId: this.workItem.id
+   441→                },
+   442→                bubbles: true,
+   443→                composed: true
+   444→            });
+   445→            this.dispatchEvent(updateEvent);
+   446→        } catch (error) {
+   447→            console.error('Error updating work item:', error);
+   448→            this.showError(error.body?.message || 'Error updating work item');
+   449→        }
+   450→    }
+   451→
+   452→    /**
+   453→     * Handle input changes for edit fields
+   454→     */
+   455→    handleFieldChange(event) {
+   456→        const fieldName = event.target.dataset.field;
+   457→        const value = event.target.value;
+   458→
+   459→        switch (fieldName) {
+   460→            case 'name':
+   461→                this.editName = value;
+   462→                break;
+   463→            case 'summary':
+   464→                this.editSummary = value;
+   465→                break;
+   466→            case 'nextSteps':
+   467→                this.editNextSteps = value;
+   468→                break;
+   469→            case 'startDate':
+   470→                this.editStartDate = value;
+   471→                break;
+   472→            case 'dueDate':
+   473→                this.editDueDate = value;
+   474→                break;
+   475→            case 'estimatedHours':
+   476→                this.editEstimatedHours = value;
+   477→                break;
+   478→        }
+   479→    }
+   480→
+   481→    /**
+   482→     * Handle status badge click
+   483→     */
+   484→    handleStatusClick(event) {
+   485→        event.preventDefault();
+   486→        event.stopPropagation();
+   487→
+   488→        this.notify('workItemStatusOpened', { workItemId: this.workItem.id });
+   489→
+   490→        if (this.statusDisabled) {
+   491→            return;
+   492→        }
+   493→
+   494→        this.showStatusDropdown = !this.showStatusDropdown;
+   495→    }
+   496→
+   497→    /**
+   498→     * Handle status change
+   499→     */
+   500→    async handleStatusChange(event) {
+   501→        event.preventDefault();
+   502→        event.stopPropagation();
+   503→
+   504→        const newStatus = event.currentTarget.dataset.status;
+   505→
+   506→        // Don't update if same status
+   507→        if (newStatus === this.workItem.status) {
+   508→            this.showStatusDropdown = false;
+   509→            return;
+   510→        }
+   511→
+   512→        try {
+   513→            const fields = {};
+   514→            fields[ID_FIELD.fieldApiName] = this.workItem.id;
+   515→            fields[STATUS_FIELD.fieldApiName] = newStatus;
+   516→
+   517→            const recordInput = { fields };
+   518→            await updateRecord(recordInput);
+   519→
+   520→            // Hide dropdown
+   521→            this.showStatusDropdown = false;
+   522→
+   523→            // Show success toast
+   524→            this.showSuccess('Status updated successfully');
+   525→
+   526→            // Dispatch update event to parent (with suppressToast to avoid duplicate)
+   527→            const updateEvent = new CustomEvent('workitemupdate', {
+   528→                detail: {
+   529→                    workItemId: this.workItem.id,
+   530→                    changes: { status: newStatus },
+   531→                    suppressToast: true
+   532→                },
+   533→                bubbles: true,
+   534→                composed: true
+   535→            });
+   536→            this.dispatchEvent(updateEvent);
+   537→        } catch (error) {
+   538→            console.error('Error updating status:', error);
+   539→            this.showError(error.body?.message || 'Error updating status');
+   540→        }
+   541→    }
+   542→
+   543→    // === Computed Properties ===
+   544→
+   545→    /**
+   546→     * CSS class for card container (includes indentation based on level and dynamic highlights)
+   547→     */
+   548→    get cardContainerClass() {
+   549→        const baseClass = `${this.rowClass} slds-card work-item-card`;
+   550→        const levelClass = `level-${this.level}`;
+   551→
+   552→        // Build highlight classes dynamically from highlights array
+   553→        const highlightClasses = this.workItem.highlights ? this.workItem.highlights.map((h) => `highlight-${h}`).join(' ') : '';
+   554→
+   555→        return `${baseClass} ${levelClass} ${highlightClasses}`.trim();
+   556→    }
+   557→
+   558→    /**
+   559→     * Card container style with border matching template header color
+   560→     */
+   561→    get cardContainerStyle() {
+   562→        if (this.workItem.headerColor) {
+   563→            return `border: 5px solid ${this.workItem.headerColor};`;
+   564→        }
+   565→        return '';
+   566→    }
+   567→
+   568→    /**
+   569→     * Primary highlight type (for determining border color priority)
+   570→     * Priority: blocked (red) > at-risk (yellow) > timeline-conflict (orange)
+   571→     */
+   572→    get primaryHighlight() {
+   573→        if (!this.workItem.highlights || this.workItem.highlights.length === 0) {
+   574→            return null;
+   575→        }
+   576→
+   577→        // Return highest priority highlight
+   578→        if (this.workItem.highlights.includes('blocked')) {
+   579→            return 'blocked';
+   580→        }
+   581→        if (this.workItem.highlights.includes('at-risk')) {
+   582→            return 'at-risk';
+   583→        }
+   584→        if (this.workItem.highlights.includes('timeline-conflict')) {
+   585→            return 'timeline-conflict';
+   586→        }
+   587→
+   588→        // Default to first highlight if no priority match
+   589→        return this.workItem.highlights[0];
+   590→    }
+   591→
+   592→    /**
+   593→     * CSS class for status badge
+   594→     */
+   595→    get statusBadgeClass() {
+   596→        const baseClass = 'slds-badge';
+   597→        const variantClass = 'status-' + this.workItem.workflow?.find((status) => status.name === this.workItem.status)?.variant || '';
+   598→
+   599→        return `${baseClass} ${variantClass}`.trim();
+   600→    }
+   601→
+   602→    /**
+   603→     * CSS class for due date (highlight if overdue)
+   604→     */
+   605→    get dueDateClass() {
+   606→        const baseClass = 'slds-text-body_regular';
+   607→        const today = new Date();
+   608→        today.setHours(0, 0, 0, 0);
+   609→
+   610→        // Parse date string as local date to avoid timezone shifts
+   611→        const [year, month, day] = this.workItem.dueDate.split('-');
+   612→        const dueDate = new Date(year, month - 1, day);
+   613→
+   614→        if (dueDate < today && this.workItem.status !== 'Complete') {
+   615→            return `${baseClass} slds-text-color_error`;
+   616→        }
+   617→
+   618→        return baseClass;
+   619→    }
+   620→
+   621→    /**
+   622→     * Formatted start date
+   623→     */
+   624→    get formattedStartDate() {
+   625→        if (!this.workItem.startDate) {
+   626→            return '-';
+   627→        }
+   628→        // Parse date string as local date to avoid timezone shifts
+   629→        const [year, month, day] = this.workItem.startDate.split('-');
+   630→        const date = new Date(year, month - 1, day);
+   631→        return date.toLocaleDateString();
+   632→    }
+   633→
+   634→    /**
+   635→     * Formatted due date
+   636→     */
+   637→    get formattedDueDate() {
+   638→        if (!this.workItem.dueDate) {
+   639→            return '-';
+   640→        }
+   641→        // Parse date string as local date to avoid timezone shifts
+   642→        const [year, month, day] = this.workItem.dueDate.split('-');
+   643→        const date = new Date(year, month - 1, day);
+   644→        return date.toLocaleDateString();
+   645→    }
+   646→
+   647→    /**
+   648→     * Work Item record page URL
+   649→     */
+   650→    get workItemUrl() {
+   651→        return `/${this.workItem.id}`;
+   652→    }
+   653→
+   654→    /**
+   655→     * Whether this work item has children
+   656→     */
+   657→    get hasChildren() {
+   658→        return this.workItem.children && this.workItem.children.length > 0;
+   659→    }
+   660→
+   661→    /**
+   662→     * Child count
+   663→     */
+   664→    get childCount() {
+   665→        return this.hasChildren ? this.workItem.children.length : 0;
+   666→    }
+   667→
+   668→    /**
+   669→     * Child level for recursive rendering
+   670→     */
+   671→    get childLevel() {
+   672→        return this.level + 1;
+   673→    }
+   674→
+   675→    /**
+   676→     * Icon name for expand/collapse button
+   677→     */
+   678→    get expandIconName() {
+   679→        return this.isExpanded ? 'utility:chevrondown' : 'utility:chevronright';
+   680→    }
+   681→
+   682→    /**
+   683→     * Alt text for expand/collapse icon
+   684→     */
+   685→    get expandIconAltText() {
+   686→        return this.isExpanded ? 'Collapse' : 'Expand';
+   687→    }
+   688→
+   689→    /**
+   690→     * Whether to show card body (collapsed/expanded based on isExpanded state)
+   691→     */
+   692→    get showCardBody() {
+   693→        return this.isExpanded;
+   694→    }
+   695→
+   696→    /**
+   697→     * Whether this work item has available child work item types
+   698→     */
+   699→    get hasAvailableChildTypes() {
+   700→        return this.allowedChildTypeCount > 0;
+   701→    }
+   702→
+   703→    /**
+   704→     * Variant for Add Work Item button (neutral in compact view to match other buttons)
+   705→     */
+   706→    get addButtonVariant() {
+   707→        return this.isCompactView ? 'border-filled' : 'brand';
+   708→    }
+   709→
+   710→    /**
+   711→     * Formatted hours progress percentage (limited to 1 decimal place)
+   712→     */
+   713→    get formattedHoursProgress() {
+   714→        if (!this.workItem.progress) {
+   715→            return '0.0';
+   716→        }
+   717→        return parseFloat(this.workItem.progress).toFixed(1);
+   718→    }
+   719→
+   720→    /**
+   721→     * Progress bar style (width based on progress percentage)
+   722→     */
+   723→    get progressBarStyle() {
+   724→        return `width: ${this.workItem.progress}%`;
+   725→    }
+   726→
+   727→    /**
+   728→     * Calculate timeline progress based on start and due dates
+   729→     */
+   730→    get timelineProgress() {
+   731→        if (!this.workItem.startDate || !this.workItem.dueDate) {
+   732→            return 0;
+   733→        }
+   734→
+   735→        const today = new Date();
+   736→        today.setHours(0, 0, 0, 0); // Reset to midnight for comparison
+   737→
+   738→        // Parse dates as local dates to avoid timezone shifts
+   739→        const [startYear, startMonth, startDay] = this.workItem.startDate.split('-');
+   740→        const start = new Date(startYear, startMonth - 1, startDay);
+   741→
+   742→        const [dueYear, dueMonth, dueDay] = this.workItem.dueDate.split('-');
+   743→        const due = new Date(dueYear, dueMonth - 1, dueDay);
+   744→
+   745→        // If hasn't started yet, 0%
+   746→        if (today < start) {
+   747→            return 0;
+   748→        }
+   749→
+   750→        // If past due date, 100%
+   751→        if (today > due) {
+   752→            return 100;
+   753→        }
+   754→
+   755→        // Calculate percentage of time elapsed
+   756→        const totalDuration = due.getTime() - start.getTime();
+   757→        const elapsed = today.getTime() - start.getTime();
+   758→        const progress = Math.round((elapsed / totalDuration) * 100);
+   759→
+   760→        return Math.min(Math.max(progress, 0), 100); // Clamp between 0-100
+   761→    }
+   762→
+   763→    /**
+   764→     * Timeline progress bar style
+   765→     */
+   766→    get timelineProgressStyle() {
+   767→        return `width: ${this.timelineProgress}%`;
+   768→    }
+   769→
+   770→    /**
+   771→     * Whether to show hours progress bar (always show hours)
+   772→     */
+   773→    get showHoursProgress() {
+   774→        return true;
+   775→    }
+   776→
+   777→    /**
+   778→     * Display actual hours (0 if null or undefined)
+   779→     */
+   780→    get displayActualHours() {
+   781→        return this.workItem.actualHours || 0;
+   782→    }
+   783→
+   784→    /**
+   785→     * Display estimated hours (0 if null or undefined)
+   786→     */
+   787→    get displayEstimatedHours() {
+   788→        return this.workItem.estimatedHours || 0;
+   789→    }
+   790→
+   791→    /**
+   792→     * Owner display name (or "Unassigned" if no owner)
+   793→     */
+   794→    get ownerDisplayName() {
+   795→        return this.workItem.ownerName || 'Unassigned';
+   796→    }
+   797→
+   798→    /**
+   799→     * Resource tooltip showing list of assignments with names and roles
+   800→     */
+   801→    get resourceTooltip() {
+   802→        if (!this.workItem.assignments || this.workItem.assignments.length === 0) {
+   803→            return 'No resources assigned';
+   804→        }
+   805→
+   806→        const lines = this.workItem.assignments.map((assignment) => {
+   807→            const name = assignment.resourceName || 'Unknown';
+   808→            const role = assignment.role || 'No Role';
+   809→            const primary = assignment.isPrimary ? ' (Primary)' : '';
+   810→            return `${name} - ${role}${primary}`;
+   811→        });
+   812→
+   813→        return lines.join('\n');
+   814→    }
+   815→
+   816→    /**
+   817→     * Resource count for display
+   818→     */
+   819→    get resourceCount() {
+   820→        return this.workItem.assignments ? this.workItem.assignments.length : 0;
+   821→    }
+   822→
+   823→    /**
+   824→     * Status options for dropdown
+   825→     */
+   826→    get statusOptions() {
+   827→        let workflow = this.workItem.workflow;
+   828→
+   829→        if (!workflow || !workflow.some((status) => status.name === this.workItem.status)) {
+   830→            workflow = this.defaultWorkflow;
+   831→        }
+   832→
+   833→        // If no transitions defined, return all statuses
+   834→        if (!this.workItem.hasTransitions) {
+   835→            return workflow.map((status) => ({ label: status.name, value: status.name }));
+   836→        }
+   837→
+   838→        // Find current status and return its transitions
+   839→        const currentStatus = workflow.find((status) => status.name === this.workItem.status);
+   840→
+   841→        return currentStatus?.transitions?.map((status) => ({ label: status, value: status })) || [];
+   842→    }
+   843→
+   844→    /**
+   845→     * Whether status change is disabled (no available options)
+   846→     */
+   847→    get statusDisabled() {
+   848→        return this.statusOptions.length === 0;
+   849→    }
+   850→
+   851→    /**
+   852→     * Formatted resource and owner display parts for HTML rendering
+   853→     */
+   854→    get ownerAndResourcesParts() {
+   855→        const parts = [{ label: 'Owner', name: this.ownerDisplayName }];
+   856→
+   857→        if (this.workItem.assignments && this.workItem.assignments.length > 0) {
+   858→            this.workItem.assignments.forEach((assignment) => {
+   859→                const name = assignment.resourceName || 'Unknown';
+   860→                const role = assignment.projectRoleName || 'No Role';
+   861→                parts.push({ label: role, name: name });
+   862→            });
+   863→        }
+   864→
+   865→        return parts;
+   866→    }
+   867→
+   868→    /**
+   869→     * At-risk message to display
+   870→     */
+   871→    get atRiskMessage() {
+   872→        return this.workItem.atRiskDetails || 'This work item requires attention';
+   873→    }
+   874→
+   875→    /**
+   876→     * Blocked message to display
+   877→     */
+   878→    get blockedMessage() {
+   879→        return this.workItem.blockedDetails || 'This work item is blocked';
+   880→    }
+   881→
+   882→    /**
+   883→     * At Risk button class (includes active state styling)
+   884→     */
+   885→    get atRiskButtonClass() {
+   886→        return this.workItem.isAtRisk ? 'at-risk-button active' : 'at-risk-button';
+   887→    }
+   888→
+   889→    /**
+   890→     * Blocked button class (includes active state styling)
+   891→     */
+   892→    get blockedButtonClass() {
+   893→        return this.workItem.isBlocked ? 'blocked-button active' : 'blocked-button';
+   894→    }
+   895→
+   896→    /**
+   897→     * At Risk button variant (always border-filled for consistent look)
+   898→     */
+   899→    get atRiskButtonVariant() {
+   900→        return 'border-filled';
+   901→    }
+   902→
+   903→    /**
+   904→     * Blocked button variant (always border-filled for consistent look)
+   905→     */
+   906→    get blockedButtonVariant() {
+   907→        return 'border-filled';
+   908→    }
+   909→
+   910→    /**
+   911→     * Delete button label
+   912→     */
+   913→    get deleteButtonLabel() {
+   914→        return this.isDeleting ? 'Deleting...' : 'Delete';
+   915→    }
+   916→
+   917→    /**
+   918→     * Header style with custom color from template
+   919→     */
+   920→    get headerStyle() {
+   921→        if (this.workItem.headerColor) {
+   922→            return `background: ${this.workItem.headerColor} !important;`;
+   923→        }
+   924→        return '';
+   925→    }
+   926→
+   927→    /**
+   928→     * Timeline conflict message
+   929→     */
+   930→    get timelineConflictMessage() {
+   931→        return this.workItem.timelineConflictMessage || "This work item's timeline is outside the parent work item's date range";
+   932→    }
+   933→
+   934→    /**
+   935→     * Open At Risk modal
+   936→     */
+   937→    handleOpenAtRiskModal(event) {
+   938→        event.preventDefault();
+   939→        event.stopPropagation();
+   940→
+   941→        this.atRiskChecked = this.workItem.isAtRisk || false;
+   942→        this.atRiskDetailsValue = this.workItem.atRiskDetails || '';
+   943→        this.showAtRiskModal = true;
+   944→    }
+   945→
+   946→    /**
+   947→     * Close At Risk modal
+   948→     */
+   949→    handleCloseAtRiskModal() {
+   950→        this.showAtRiskModal = false;
+   951→    }
+   952→
+   953→    /**
+   954→     * Handle At Risk checkbox change
+   955→     */
+   956→    handleAtRiskCheckboxChange(event) {
+   957→        this.atRiskChecked = event.target.checked;
+   958→    }
+   959→
+   960→    /**
+   961→     * Handle At Risk details change
+   962→     */
+   963→    handleAtRiskDetailsChange(event) {
+   964→        this.atRiskDetailsValue = event.target.value;
+   965→    }
+   966→
+   967→    /**
+   968→     * Save At Risk status
+   969→     */
+   970→    async handleSaveAtRisk() {
+   971→        const fields = {};
+   972→        fields[ID_FIELD.fieldApiName] = this.workItem.id;
+   973→        fields[AT_RISK_FIELD.fieldApiName] = this.atRiskChecked;
+   974→        fields[AT_RISK_DETAILS_FIELD.fieldApiName] = this.atRiskDetailsValue;
+   975→
+   976→        const recordInput = { fields };
+   977→
+   978→        try {
+   979→            await updateRecord(recordInput);
+   980→            this.showSuccess('At Risk status updated');
+   981→
+   982→            this.showAtRiskModal = false;
+   983→
+   984→            // Publish refresh event
+   985→            this.notify('workItemUpdated', { workItemId: this.workItem.id });
+   986→        } catch (error) {
+   987→            this.showError(error.body?.message || 'Error updating status');
+   988→        }
+   989→    }
+   990→
+   991→    /**
+   992→     * Open Blocked modal
+   993→     */
+   994→    handleOpenBlockedModal(event) {
+   995→        event.preventDefault();
+   996→        event.stopPropagation();
+   997→
+   998→        this.blockedChecked = this.workItem.isBlocked || false;
+   999→        this.blockedDetailsValue = this.workItem.blockedDetails || '';
+  1000→        this.blockerWorkItemId = this.workItem.blockerWorkItemId || null;
+  1001→        this.showBlockedModal = true;
+  1002→    }
+  1003→
+  1004→    /**
+  1005→     * Close Blocked modal
+  1006→     */
+  1007→    handleCloseBlockedModal() {
+  1008→        this.showBlockedModal = false;
+  1009→    }
+  1010→
+  1011→    /**
+  1012→     * Handle Blocked checkbox change
+  1013→     */
+  1014→    handleBlockedCheckboxChange(event) {
+  1015→        this.blockedChecked = event.target.checked;
+  1016→    }
+  1017→
+  1018→    /**
+  1019→     * Handle Blocked details change
+  1020→     */
+  1021→    handleBlockedDetailsChange(event) {
+  1022→        this.blockedDetailsValue = event.target.value;
+  1023→    }
+  1024→
+  1025→    /**
+  1026→     * Handle blocker work item selection change
+  1027→     */
+  1028→    handleBlockerWorkItemChange(event) {
+  1029→        this.blockerWorkItemId = event.detail.value;
+  1030→    }
+  1031→
+  1032→    /**
+  1033→     * Save Blocked status
+  1034→     */
+  1035→    async handleSaveBlocked() {
+  1036→        const fields = {};
+  1037→        fields[ID_FIELD.fieldApiName] = this.workItem.id;
+  1038→        fields[BLOCKED_FIELD.fieldApiName] = this.blockedChecked;
+  1039→        fields[BLOCKED_DETAILS_FIELD.fieldApiName] = this.blockedDetailsValue;
+  1040→        fields[BLOCKER_WORK_ITEM_FIELD.fieldApiName] = this.blockerWorkItemId;
+  1041→
+  1042→        const recordInput = { fields };
+  1043→
+  1044→        try {
+  1045→            await updateRecord(recordInput);
+  1046→            this.showSuccess('Blocked status updated');
+  1047→            this.showBlockedModal = false;
+  1048→
+  1049→            // Publish refresh event
+  1050→            this.notify('workItemUpdated', { workItemId: this.workItem.id });
+  1051→        } catch (error) {
+  1052→            this.showError(error.body?.message || 'Error updating status');
+  1053→        }
+  1054→    }
+  1055→
+  1056→    /**
+  1057→     * Handle opening delete confirmation modal
+  1058→     */
+  1059→    handleOpenDeleteModal(event) {
+  1060→        event.preventDefault();
+  1061→        event.stopPropagation();
+  1062→        this.showDeleteModal = true;
+  1063→    }
+  1064→
+  1065→    /**
+  1066→     * Close delete modal
+  1067→     */
+  1068→    handleCloseDeleteModal() {
+  1069→        this.showDeleteModal = false;
+  1070→    }
+  1071→
+  1072→    /**
+  1073→     * Confirm and delete work item
+  1074→     */
+  1075→    async handleConfirmDelete() {
+  1076→        this.isDeleting = true;
+  1077→
+  1078→        try {
+  1079→            await deleteRecord(this.workItem.id);
+  1080→
+  1081→            this.showSuccess('Work Item deleted successfully');
+  1082→
+  1083→            this.showDeleteModal = false;
+  1084→
+  1085→            // Publish refresh event to refresh the entire project view
+  1086→            this.notify('workItemDeleted', { workItemId: this.workItem.id });
+  1087→
+  1088→            // Dispatch delete event to parent
+  1089→            const deleteEvent = new CustomEvent('workitemdeleted', {
+  1090→                detail: {
+  1091→                    workItemId: this.workItem.id
+  1092→                },
+  1093→                bubbles: true,
+  1094→                composed: true
+  1095→            });
+  1096→            this.dispatchEvent(deleteEvent);
+  1097→        } catch (error) {
+  1098→            console.error('Error deleting work item:', error);
+  1099→            this.showError(error.body?.message || error.message || 'Unknown error');
+  1100→        } finally {
+  1101→            this.isDeleting = false;
+  1102→        }
+  1103→    }
+  1104→
+  1105→    /**
+  1106→     * Get available work items for blocker picklist
+  1107→     */
+  1108→    get blockerWorkItemOptions() {
+  1109→        if (!this.workItemOptions || this.workItemOptions.length === 0) {
+  1110→            return [];
+  1111→        }
+  1112→
+  1113→        // Filter out current work item
+  1114→        return this.workItemOptions.filter((option) => option.value !== this.workItem.id);
+  1115→    }
+  1116→
+  1117→    /**
+  1118→     * Whether component is in compact view mode
+  1119→     */
+  1120→    get isCompactView() {
+  1121→        return this.viewMode === 'compact';
+  1122→    }
+  1123→
+  1124→    /**
+  1125→     * Whether to show description and next steps section (hidden in compact view unless editing)
+  1126→     */
+  1127→    get showDescriptionSection() {
+  1128→        return !this.isCompactView || this.isEditMode;
+  1129→    }
+  1130→
+  1131→    /* Drag and Drop Functionality */
+  1132→
+  1133→    get dragData() {
+  1134→        return {
+  1135→            workItemId: this.workItem?.id,
+  1136→            parentWorkItemId: this.workItem?.parentWorkItemId || null,
+  1137→            depth: this.workItem?.depth || 0
+  1138→        };
+  1139→    }
+  1140→
+  1141→    // 2. Define Rules: When can I accept a drop?
+  1142→    canDrop(sourceData) {
+  1143→        // todo: drop only if Parent allowr subitems of this type
+  1144→        // Cannot drop on itself
+  1145→        return this.workItem?.id !== sourceData.workItemId;
+  1146→    }
+  1147→
+  1148→    // 3. Define Action: What happens on success?
+  1149→    onDropSuccess(sourceData) {
+  1150→        this.dispatchEvent(
+  1151→            new CustomEvent('reorder', {
+  1152→                detail: {
+  1153→                    draggedItemId: sourceData.workItemId,
+  1154→                    targetItemId: this.workItem.id
+  1155→                },
+  1156→                bubbles: true,
+  1157→                composed: true
+  1158→            })
+  1159→        );
+  1160→    }
+  1161→
+  1162→    get rowClass() {
+  1163→        const classes = [this.dragClasses];
+  1164→        if (this.workItem && this.workItem.depth > 0) {
+  1165→            classes.push('child-row');
+  1166→        }
+  1167→        return classes.join(' ');
+  1168→    }
+  1169→}
+
+<system-reminder>
+Whenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.
+</system-reminder>

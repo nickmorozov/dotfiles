@@ -1,0 +1,10 @@
+.DS_Store
+chrome/
+debug/
+file-history/
+ide/
+shell-snapshots/
+stats-cache.json
+statsig
+session-env
+history.jsonl

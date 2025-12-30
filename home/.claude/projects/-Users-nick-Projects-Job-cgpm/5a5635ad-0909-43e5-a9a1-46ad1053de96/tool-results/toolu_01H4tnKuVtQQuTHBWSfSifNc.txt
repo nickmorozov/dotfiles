@@ -1,0 +1,377 @@
+     1→import { api, wire, track } from 'lwc';
+     2→import { refreshApex } from '@salesforce/apex';
+     3→import getWorkItemsForProject from '@salesforce/apex/WorkItemController.getWorkItemsForProject';
+     4→import getWorkItemWithChildren from '@salesforce/apex/WorkItemController.getWorkItemWithChildren';
+     5→import moveWorkItem from '@salesforce/apex/WorkItemController.moveWorkItem';
+     6→import BaseComponent from 'c/baseComponent';
+     7→
+     8→export default class WorkItemGantt extends BaseComponent {
+     9→    @api recordId;
+    10→    @api objectApiName;
+    11→    @api hierarchyDepth = 3;
+    12→
+    13→    @track workItems = [];
+    14→    @track expandedStates = {};
+    15→    @track statusFilter = 'All';
+    16→    @track timelineBounds = null;
+    17→    @track timelineScale = null; // Will be set based on context: 'day' for Work Item, 'week' for Project
+    18→    @track parentStartDate = null;
+    19→    @track parentDueDate = null;
+    20→    @track isExpanded = true; // Controls timeline collapse/expand state - default expanded
+    21→
+    22→    isLoading = false;
+    23→    error = null;
+    24→    wiredWorkItemsResult;
+    25→    scaleInitialized = false;
+    26→    parentWorkItemData = null;
+    27→
+    28→    statusOptions = this.defaultStatusOptions;
+    29→
+    30→    // Context detection
+    31→    get isProjectPage() {
+    32→        return this.objectApiName === 'cgpm__Project__c';
+    33→    }
+    34→
+    35→    get isWorkItemPage() {
+    36→        return this.objectApiName === 'cgpm__Work_Item__c';
+    37→    }
+    38→
+    39→    get effectiveProjectId() {
+    40→        return this.isProjectPage ? this.recordId : this.projectId;
+    41→    }
+    42→
+    43→    get timedWorkItems() {
+    44→        if (!this.workItems) {
+    45→            return [];
+    46→        }
+    47→
+    48→        return this.workItems.filter((item) => item.startDate || item.dueDate);
+    49→    }
+    50→
+    51→    // Wire methods for different contexts
+    52→    @wire(getWorkItemsForProject, { projectId: '$effectiveProjectId', maxDepth: '$hierarchyDepth' })
+    53→    wiredWorkItemsForProject(result) {
+    54→        if (this.isProjectPage) {
+    55→            this.wiredWorkItemsResult = result;
+    56→            this.handleWiredData(result);
+    57→        }
+    58→    }
+    59→
+    60→    @wire(getWorkItemWithChildren, { workItemId: '$recordId', maxDepth: '$hierarchyDepth' })
+    61→    wiredWorkItemWithChildren(result) {
+    62→        if (this.isWorkItemPage) {
+    63→            this.wiredWorkItemsResult = result;
+    64→            this.handleWiredData(result, true);
+    65→        }
+    66→    }
+    67→
+    68→    handleWiredData(result, isWorkItemContext = false) {
+    69→        this.isLoading = true;
+    70→        const { data, error } = result;
+    71→
+    72→        if (data) {
+    73→            try {
+    74→                // Initialize scale based on context (only once)
+    75→                if (!this.scaleInitialized) {
+    76→                    this.timelineScale = isWorkItemContext ? 'day' : 'week';
+    77→                    this.scaleInitialized = true;
+    78→                }
+    79→
+    80→                let items = [];
+    81→                if (isWorkItemContext) {
+    82→                    // For work item page, data is single item with children
+    83→                    items = data.children || [];
+    84→                    this.projectId = data.projectId;
+    85→                    this.parentWorkItemData = data;
+    86→                    // Set parent dates from the work item (convert to YYYY-MM-DD string if Date object)
+    87→                    this.parentStartDate = this.formatDateString(data.startDate);
+    88→                    this.parentDueDate = this.formatDateString(data.dueDate);
+    89→                } else {
+    90→                    // For project page, data is ProjectDataWrapper
+    91→                    items = data.workItems || [];
+    92→                    this.statusOptions = data.statusOptions || this.statusOptions;
+    93→                    this.parentWorkItemData = null;
+    94→                    // Set parent dates from the project (convert to YYYY-MM-DD string if Date object)
+    95→                    this.parentStartDate = this.formatDateString(data.projectStartDate);
+    96→                    this.parentDueDate = this.formatDateString(data.projectDueDate);
+    97→                }
+    98→
+    99→                // Process hierarchy and calculate timeline bounds
+   100→                this.workItems = this.processHierarchy(items);
+   101→                this.timelineBounds = this.calculateTimelineBounds(this.workItems);
+   102→                this.error = null;
+   103→            } catch (e) {
+   104→                this.error = e.message;
+   105→                this.showError(e.message, 'Error processing work items');
+   106→            } finally {
+   107→                this.isLoading = false;
+   108→            }
+   109→        } else if (error) {
+   110→            this.error = error;
+   111→            this.isLoading = false;
+   112→            this.showError(error.body?.message || 'Unknown error', 'Error loading work items');
+   113→        }
+   114→    }
+   115→
+   116→    processHierarchy(items, depth = 0) {
+   117→        if (!items || !Array.isArray(items)) {
+   118→            return [];
+   119→        }
+   120→
+   121→        return items.map((item) => {
+   122→            const processed = {
+   123→                ...item,
+   124→                depth,
+   125→                isExpanded: this.expandedStates[item.id] !== undefined ? this.expandedStates[item.id] : true, // Default to expanded for all levels
+   126→                hasChildren: item.children && Array.isArray(item.children) && item.children.length > 0
+   127→            };
+   128→
+   129→            if (processed.hasChildren) {
+   130→                processed.children = this.processHierarchy(item.children, depth + 1);
+   131→            }
+   132→
+   133→            return processed;
+   134→        });
+   135→    }
+   136→
+   137→    calculateTimelineBounds(items) {
+   138→        if (!items || !Array.isArray(items) || items.length === 0) {
+   139→            return null;
+   140→        }
+   141→
+   142→        let minDate = null;
+   143→        let maxDate = null;
+   144→
+   145→        const processItem = (item) => {
+   146→            if (!item) {
+   147→                return;
+   148→            }
+   149→            if (item.startDate) {
+   150→                const start = new Date(item.startDate);
+   151→                if (!minDate || start < minDate) {
+   152→                    minDate = start;
+   153→                }
+   154→            }
+   155→
+   156→            if (item.dueDate) {
+   157→                const due = new Date(item.dueDate);
+   158→                if (!maxDate || due > maxDate) {
+   159→                    maxDate = due;
+   160→                }
+   161→            }
+   162→
+   163→            if (item.children && item.children.length > 0) {
+   164→                item.children.forEach(processItem);
+   165→            }
+   166→        };
+   167→
+   168→        items.forEach(processItem);
+   169→
+   170→        // Add buffer days
+   171→        if (minDate && maxDate) {
+   172→            minDate.setDate(minDate.getDate() - 7);
+   173→            maxDate.setDate(maxDate.getDate() + 7);
+   174→        }
+   175→
+   176→        return {
+   177→            minDate: minDate ? minDate.toISOString().split('T')[0] : null,
+   178→            maxDate: maxDate ? maxDate.toISOString().split('T')[0] : null,
+   179→            today: new Date().toISOString().split('T')[0],
+   180→            scale: this.timelineScale
+   181→        };
+   182→    }
+   183→
+   184→    formatDateString(dateValue) {
+   185→        if (!dateValue) {
+   186→            return null;
+   187→        }
+   188→
+   189→        // If it's already a string in YYYY-MM-DD format, return as-is
+   190→        if (typeof dateValue === 'string') {
+   191→            return dateValue;
+   192→        }
+   193→
+   194→        // If it's a Date object, convert to YYYY-MM-DD
+   195→        if (dateValue instanceof Date) {
+   196→            return dateValue.toISOString().split('T')[0];
+   197→        }
+   198→
+   199→        return null;
+   200→    }
+   201→
+   202→    handleMessage(message) {
+   203→        super.handleMessage(message);
+   204→
+   205→        // Refresh for created/deleted items
+   206→        if (message.action === 'workItemCreated' || message.action === 'workItemDeleted') {
+   207→            this.handleRefresh();
+   208→            return;
+   209→        }
+   210→
+   211→        // Refresh action - always refresh
+   212→        if (message.action === 'refresh') {
+   213→            this.handleRefresh();
+   214→            return;
+   215→        }
+   216→
+   217→        // For updates, only refresh if the change came from outside the GANTT
+   218→        // (e.g., from Work Item List or record page edits)
+   219→        // If source='gantt', skip refresh - temp properties handle visual feedback
+   220→        if (message.action === 'workItemUpdated' && message.source !== 'gantt') {
+   221→            this.handleRefresh();
+   222→        }
+   223→    }
+   224→
+   225→    // Stop event propagation for controls in header
+   226→    handleStopPropagation(event) {
+   227→        event.stopPropagation();
+   228→    }
+   229→
+   230→    // Collapse/Expand Timeline
+   231→    async handleToggleCollapse() {
+   232→        this.isExpanded = !this.isExpanded;
+   233→
+   234→        if (this.isExpanded) {
+   235→            // Re-subscribing to message channel when expanding
+   236→            this.subscribeToMessageChannel();
+   237→            // Auto-refresh data on expand
+   238→            await this.handleRefresh();
+   239→        } else {
+   240→            // Unsubscribe when collapsing to stop listening to events
+   241→            this.unsubscribeFromMessageChannel();
+   242→        }
+   243→    }
+   244→
+   245→    // Toolbar actions
+   246→    handleExpandAll() {
+   247→        this.updateAllExpandedStates(this.workItems, true);
+   248→        this.reprocessHierarchy();
+   249→    }
+   250→
+   251→    handleCollapseAll() {
+   252→        this.updateAllExpandedStates(this.workItems, false);
+   253→        this.reprocessHierarchy();
+   254→    }
+   255→
+   256→    updateAllExpandedStates(items, isExpanded) {
+   257→        if (!items || !Array.isArray(items)) {
+   258→            return;
+   259→        }
+   260→
+   261→        items.forEach((item) => {
+   262→            if (item && item.id) {
+   263→                this.expandedStates[item.id] = isExpanded;
+   264→                if (item.children && Array.isArray(item.children) && item.children.length > 0) {
+   265→                    this.updateAllExpandedStates(item.children, isExpanded);
+   266→                }
+   267→            }
+   268→        });
+   269→    }
+   270→
+   271→    reprocessHierarchy() {
+   272→        // Re-process hierarchy to update isExpanded states on all items
+   273→        if (this.wiredWorkItemsResult && this.wiredWorkItemsResult.data) {
+   274→            let rawData;
+   275→            if (this.isWorkItemPage) {
+   276→                // For work item page, data is single item with children
+   277→                rawData = this.wiredWorkItemsResult.data.children || [];
+   278→            } else {
+   279→                // For project page, data is ProjectDataWrapper with workItems array
+   280→                rawData = this.wiredWorkItemsResult.data.workItems || [];
+   281→            }
+   282→            this.workItems = this.processHierarchy(rawData);
+   283→        }
+   284→    }
+   285→
+   286→    handleStatusFilterChange(event) {
+   287→        this.statusFilter = event.detail.value;
+   288→    }
+   289→
+   290→    handleScaleChange(event) {
+   291→        const scale = event.target.dataset.scale;
+   292→        if (scale && scale !== this.timelineScale) {
+   293→            this.timelineScale = scale;
+   294→            // Force timeline to rebuild with new scale
+   295→            this.timelineBounds = { ...this.timelineBounds, scale: this.timelineScale };
+   296→        }
+   297→    }
+   298→
+   299→    async handleRefresh() {
+   300→        this.isLoading = true;
+   301→        try {
+   302→            await refreshApex(this.wiredWorkItemsResult);
+   303→        } catch (error) {
+   304→            this.showError(error.body?.message || 'Unknown error', 'Error refreshing data');
+   305→        } finally {
+   306→            this.isLoading = false;
+   307→        }
+   308→    }
+   309→
+   310→    // Row event handlers
+   311→    handleToggleExpand(event) {
+   312→        const workItemId = event.detail.workItemId;
+   313→        this.expandedStates[workItemId] = !this.expandedStates[workItemId];
+   314→
+   315→        // Re-process hierarchy to update isExpanded states
+   316→        if (this.wiredWorkItemsResult && this.wiredWorkItemsResult.data) {
+   317→            let rawData;
+   318→            if (this.isWorkItemPage) {
+   319→                // For work item page, data is single item with children
+   320→                rawData = this.wiredWorkItemsResult.data.children || [];
+   321→            } else {
+   322→                // For project page, data is ProjectDataWrapper with workItems array
+   323→                rawData = this.wiredWorkItemsResult.data.workItems || [];
+   324→            }
+   325→            this.workItems = this.processHierarchy(rawData);
+   326→        }
+   327→    }
+   328→
+   329→    async handleReorder(event) {
+   330→        const { draggedItemId, targetItemId, parentWorkItemId } = event.detail;
+   331→
+   332→        try {
+   333→            this.isLoading = true;
+   334→
+   335→            // Call Apex to reorder
+   336→            await moveWorkItem({
+   337→                draggedItemId,
+   338→                targetItemId,
+   339→                parentWorkItemId
+   340→            });
+   341→
+   342→            // Refresh the data
+   343→            await refreshApex(this.wiredWorkItemsResult);
+   344→
+   345→            this.showSuccess('Work items reordered successfully');
+   346→        } catch (error) {
+   347→            this.showError(error.body?.message || error.message || 'Unknown error', 'Error reordering work items');
+   348→        } finally {
+   349→            this.isLoading = false;
+   350→        }
+   351→    }
+   352→
+   353→    // Computed properties
+   354→    get hasData() {
+   355→        return this.workItems && this.workItems.length > 0;
+   356→    }
+   357→
+   358→    get showTimeline() {
+   359→        return this.hasData && this.timelineBounds && this.timelineBounds.minDate && this.timelineBounds.maxDate;
+   360→    }
+   361→
+   362→    get dayButtonVariant() {
+   363→        return (this.timelineScale || 'week') === 'day' ? 'brand' : 'neutral';
+   364→    }
+   365→
+   366→    get weekButtonVariant() {
+   367→        return (this.timelineScale || 'week') === 'week' ? 'brand' : 'neutral';
+   368→    }
+   369→
+   370→    get monthButtonVariant() {
+   371→        return (this.timelineScale || 'week') === 'month' ? 'brand' : 'neutral';
+   372→    }
+   373→}
+
+<system-reminder>
+Whenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.
+</system-reminder>

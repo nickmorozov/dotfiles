@@ -1,0 +1,8 @@
+The file /Users/nick/Projects/Job/cgpm/force-app/main/default/lwc/workItemCreateModal/__tests__/workItemCreateModal.test.js has been updated. All occurrences of '            await element.open({
+                parentWorkItemId: 'wi-parent-001',
+                parentWorkItemName: 'Parent'
+            });
+            await waitForDataLoad();' were successfully replaced with '            await openModalAndWait(element, {
+                parentWorkItemId: 'wi-parent-001',
+                parentWorkItemName: 'Parent'
+            });'.

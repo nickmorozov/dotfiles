@@ -1,0 +1,12 @@
+[
+  {
+    "content": "Add missing insert statement in AzureEvent.emitEvents()",
+    "status": "completed",
+    "activeForm": "Adding missing insert statement in AzureEvent.emitEvents()"
+  },
+  {
+    "content": "Run AccountTriggerHandlerTest to verify fix",
+    "status": "in_progress",
+    "activeForm": "Running AccountTriggerHandlerTest to verify fix"
+  }
+]

@@ -1,0 +1,61 @@
+     1→import { LightningElement, api } from 'lwc';
+     2→import { NavigationMixin } from 'lightning/navigation';
+     3→
+     4→export default class WorkItemActionBar extends NavigationMixin(LightningElement) {
+     5→    @api workItemId;
+     6→
+     7→    /**
+     8→     * Handle Edit action
+     9→     * Dispatches event to parent to enter inline edit mode
+    10→     */
+    11→    handleEdit() {
+    12→        // Dispatch event to parent to enter edit mode
+    13→        this.dispatchActionEvent('Edit');
+    14→    }
+    15→
+    16→    /**
+    17→     * Handle Add Child action
+    18→     * Dispatches event to parent to open create modal
+    19→     */
+    20→    handleAddChild() {
+    21→        // Dispatch event to parent to open create modal
+    22→        this.dispatchActionEvent('Add Child');
+    23→    }
+    24→
+    25→    /**
+    26→     * Handle Add Note action
+    27→     * Dispatches event to parent to open note modal
+    28→     */
+    29→    handleAddNote() {
+    30→        // Dispatch event to parent to open note modal
+    31→        this.dispatchActionEvent('Add Note');
+    32→    }
+    33→
+    34→    /**
+    35→     * Handle Delete action
+    36→     * Dispatches event to parent to open delete confirmation modal
+    37→     */
+    38→    handleDelete() {
+    39→        // Dispatch event to parent to open delete confirmation modal
+    40→        this.dispatchActionEvent('Delete');
+    41→    }
+    42→
+    43→    /**
+    44→     * Dispatch action executed event to parent component
+    45→     */
+    46→    dispatchActionEvent(actionName) {
+    47→        const event = new CustomEvent('actionexecuted', {
+    48→            detail: {
+    49→                actionName,
+    50→                workItemId: this.workItemId
+    51→            },
+    52→            bubbles: true,
+    53→            composed: true
+    54→        });
+    55→        this.dispatchEvent(event);
+    56→    }
+    57→}
+
+<system-reminder>
+Whenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.
+</system-reminder>

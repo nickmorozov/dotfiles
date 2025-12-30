@@ -1,0 +1,19 @@
+The file /Users/nick/Projects/Job/cgpm/force-app/main/default/lwc/workItemHistoryModal/__tests__/workItemHistoryModal.test.js has been updated. Here's the result of running `cat -n` on a snippet of the edited file:
+    60→        // eslint-disable-next-line @lwc/lwc/no-async-operation
+    61→        return new Promise((resolve) => setTimeout(resolve, 10));
+    62→    }
+    63→
+    64→    /**
+    65→     * Helper to wait for data load (Promise.all needs multiple flush cycles)
+    66→     */
+    67→    async function waitForDataLoad() {
+    68→        await flushPromises();
+    69→        await flushPromises();
+    70→        await flushPromises();
+    71→        await flushPromises();
+    72→        await flushPromises();
+    73→    }
+    74→
+    75→    /**
+    76→     * Setup mocks with default successful responses
+    77→     */

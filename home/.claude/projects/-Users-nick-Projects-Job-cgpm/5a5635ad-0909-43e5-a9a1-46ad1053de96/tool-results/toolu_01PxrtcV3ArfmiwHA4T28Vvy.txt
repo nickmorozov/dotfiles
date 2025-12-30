@@ -1,0 +1,110 @@
+     1→<template>
+     2→    <div class="slds-card">
+     3→        <!-- Header -->
+     4→        <div class="slds-card__header slds-page-header">
+     5→            <div class="slds-grid slds-grid_vertical-align-center">
+     6→                <div class="slds-col">
+     7→                    <div class="slds-media slds-media_center">
+     8→                        <div class="slds-media__figure">
+     9→                            <span class="slds-icon_container slds-icon-standard-custom-85">
+    10→                                <lightning-icon icon-name="custom:custom85" size="small"></lightning-icon>
+    11→                            </span>
+    12→                        </div>
+    13→                        <div class="slds-media__body">
+    14→                            <h2 class="slds-card__header-title">
+    15→                                <span>Timeline</span>
+    16→                            </h2>
+    17→                        </div>
+    18→                    </div>
+    19→                </div>
+    20→
+    21→                <!-- Toolbar controls -->
+    22→                <div class="slds-col" style="min-width: 200px">
+    23→                    <div class="slds-grid slds-grid_vertical-align-center">
+    24→                        <span class="slds-text-body_small slds-m-right_small" style="white-space: nowrap">Show:</span>
+    25→                        <lightning-combobox
+    26→                            name="statusFilter"
+    27→                            label="Show"
+    28→                            value={statusFilter}
+    29→                            options={statusOptions}
+    30→                            onchange={handleStatusFilterChange}
+    31→                            variant="label-hidden"
+    32→                            onclick={handleStopPropagation}
+    33→                        ></lightning-combobox>
+    34→                    </div>
+    35→                </div>
+    36→                <div class="slds-col slds-m-left_small">
+    37→                    <div class="slds-grid slds-grid_vertical-align-center">
+    38→                        <span class="slds-text-body_small slds-m-right_small" style="white-space: nowrap">Scale:</span>
+    39→                        <lightning-button-group onclick={handleStopPropagation}>
+    40→                            <lightning-button label="Day" data-scale="day" variant={dayButtonVariant} onclick={handleScaleChange}></lightning-button>
+    41→                            <lightning-button label="Week" data-scale="week" variant={weekButtonVariant} onclick={handleScaleChange}></lightning-button>
+    42→                            <lightning-button label="Month" data-scale="month" variant={monthButtonVariant} onclick={handleScaleChange}></lightning-button>
+    43→                        </lightning-button-group>
+    44→                    </div>
+    45→                </div>
+    46→                <div class="slds-col slds-no-flex">
+    47→                    <lightning-button-group onclick={handleStopPropagation}>
+    48→                        <lightning-button label="Expand All" onclick={handleExpandAll} disabled={isLoading}></lightning-button>
+    49→                        <lightning-button label="Collapse All" onclick={handleCollapseAll} disabled={isLoading}></lightning-button>
+    50→                        <lightning-button icon-name="utility:refresh" onclick={handleRefresh} disabled={isLoading}></lightning-button>
+    51→                    </lightning-button-group>
+    52→                </div>
+    53→            </div>
+    54→        </div>
+    55→
+    56→        <!-- Card Body -->
+    57→        <div class="slds-card__body">
+    58→            <!-- Loading Spinner -->
+    59→            <template if:true={isLoading}>
+    60→                <lightning-spinner alternative-text="Loading work items..." size="medium"></lightning-spinner>
+    61→            </template>
+    62→
+    63→            <!-- Timeline Content -->
+    64→            <!-- Error Message -->
+    65→            <template if:true={error}>
+    66→                <div class="slds-p-around_medium">
+    67→                    <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert">
+    68→                        <span class="slds-assistive-text">error</span>
+    69→                        <h2>Error loading GANTT chart: {error}</h2>
+    70→                    </div>
+    71→                </div>
+    72→            </template>
+    73→
+    74→            <!-- GANTT Chart -->
+    75→            <template if:true={showTimeline}>
+    76→                <div class="gantt-container">
+    77→                    <!-- Timeline Header -->
+    78→                    <c-work-item-gantt-timeline timeline-bounds={timelineBounds} parent-start-date={parentStartDate} parent-due-date={parentDueDate}></c-work-item-gantt-timeline>
+    79→
+    80→                    <!-- Work Item Rows -->
+    81→                    <div class="gantt-rows">
+    82→                        <template for:each={timedWorkItems} for:item="workItem">
+    83→                            <c-work-item-gantt-row
+    84→                                key={workItem.id}
+    85→                                work-item={workItem}
+    86→                                timeline-bounds={timelineBounds}
+    87→                                status-filter={statusFilter}
+    88→                                ontoggleexpand={handleToggleExpand}
+    89→                                onreorder={handleReorder}
+    90→                            ></c-work-item-gantt-row>
+    91→                        </template>
+    92→                    </div>
+    93→                </div>
+    94→            </template>
+    95→
+    96→            <!-- Empty State -->
+    97→            <template if:false={hasData}>
+    98→                <template if:false={isLoading}>
+    99→                    <div class="slds-p-around_medium slds-text-align_center">
+   100→                        <p class="slds-text-color_weak">No work items to display</p>
+   101→                    </div>
+   102→                </template>
+   103→            </template>
+   104→        </div>
+   105→    </div>
+   106→</template>
+
+<system-reminder>
+Whenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.
+</system-reminder>

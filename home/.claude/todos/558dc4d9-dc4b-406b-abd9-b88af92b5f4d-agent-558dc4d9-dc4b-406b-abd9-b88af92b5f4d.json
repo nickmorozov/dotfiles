@@ -1,0 +1,20 @@
+[
+  {
+    "content": "Fix inProgress logic to use section-specific processing state",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Update batch job processing state based on section statuses",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Ensure finish() is called when jobs are completed",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  }
+]

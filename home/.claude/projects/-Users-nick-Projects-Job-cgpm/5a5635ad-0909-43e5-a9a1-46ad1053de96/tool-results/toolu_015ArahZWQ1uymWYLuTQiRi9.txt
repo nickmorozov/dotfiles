@@ -1,0 +1,199 @@
+> cgpm@1.0.0 test
+> npm run test:unit
+
+
+> cgpm@1.0.0 test:unit
+> sfdx-lwc-jest
+
+PASS force-app/main/default/lwc/workItemActionBar/__tests__/workItemActionBar.test.js
+PASS force-app/main/default/lwc/workItemGanttBar/__tests__/workItemGanttBar.test.js
+PASS force-app/main/default/lwc/workItemGanttTimeline/__tests__/workItemGanttTimeline.test.js
+FAIL force-app/main/default/lwc/resourceAssignmentModal/__tests__/resourceAssignmentModal.test.js
+  ● Test suite failed to run
+
+    Cannot find module '@salesforce/apex' from 'force-app/main/default/lwc/resourceAssignmentModal/__tests__/resourceAssignmentModal.test.js'
+
+      62 |
+      63 | // Mock refreshApex
+    > 64 | jest.mock('@salesforce/apex', () => ({
+         |      ^
+      65 |     refreshApex: jest.fn()
+      66 | }));
+      67 |
+
+      at Resolver._throwModNotFoundError (node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-resolve/build/resolver.js:427:11)
+      at Object.mock (force-app/main/default/lwc/resourceAssignmentModal/__tests__/resourceAssignmentModal.test.js:64:6)
+
+PASS force-app/main/default/lwc/workItemNoteModal/__tests__/workItemNoteModal.test.js
+  ● Console
+
+    console.error
+      Error creating note: { body: { message: 'Server error' } }
+
+      74 |             this.handleClose();
+      75 |         } catch (error) {
+    > 76 |             console.error('Error creating note:', error);
+         |                     ^
+      77 |             this.showError(error.body?.message || 'Error creating note');
+      78 |         } finally {
+      79 |             this.isSaving = false;
+
+      at WorkItemNoteModal.error [as handleSave] (force-app/main/default/lwc/workItemNoteModal/workItemNoteModal.js:76:21)
+
+    console.error
+      Error creating note: { body: { message: 'Server error' } }
+
+      74 |             this.handleClose();
+      75 |         } catch (error) {
+    > 76 |             console.error('Error creating note:', error);
+         |                     ^
+      77 |             this.showError(error.body?.message || 'Error creating note');
+      78 |         } finally {
+      79 |             this.isSaving = false;
+
+      at WorkItemNoteModal.error [as handleSave] (force-app/main/default/lwc/workItemNoteModal/workItemNoteModal.js:76:21)
+
+PASS force-app/main/default/lwc/workItemHistory/__tests__/workItemHistory.test.js
+PASS force-app/main/default/lwc/workItemGanttRow/__tests__/workItemGanttRow.test.js
+FAIL force-app/main/default/lwc/workItemDetails/__tests__/workItemDetails.test.js
+  ● Console
+
+    console.log
+      Details Component Init: { id: 'proj-001', obj: 'cgpm__Project__c' }
+
+      at WorkItemDetails.log [as connectedCallback] (force-app/main/default/lwc/workItemDetails/workItemDetails.js:17:17)
+
+    console.error
+      Error: Uncaught [Error: Assert Violation: c() 2nd argument Ctor must be a function.]
+          at reportException (/Users/nick/Projects/Job/cgpm/node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js:66:24)
+          at invokeCEReactions (/Users/nick/Projects/Job/cgpm/node_modules/jsdom/lib/jsdom/living/helpers/custom-elements.js:193:7)
+          at ceReactionsPostSteps (/Users/nick/Projects/Job/cgpm/node_modules/jsdom/lib/jsdom/living/helpers/custom-elements.js:54:3)
+          at HTMLBodyElement.appendChild (/Users/nick/Projects/Job/cgpm/node_modules/jsdom/lib/jsdom/living/generated/Node.js:413:9)
+          at HTMLBodyElement.appendChild (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:10233:46)
+          at appendChild (/Users/nick/Projects/Job/cgpm/force-app/main/default/lwc/workItemDetails/__tests__/workItemDetails.test.js:46:23)
+          at Object.createComponent (/Users/nick/Projects/Job/cgpm/force-app/main/default/lwc/workItemDetails/__tests__/workItemDetails.test.js:59:29)
+          at Promise.then.completed (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-circus/build/utils.js:298:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-circus/build/utils.js:231:10)
+          at _callCircusTest (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-circus/build/run.js:316:40)
+          at processTicksAndRejections (node:internal/process/task_queues:105:5)
+          at _runTest (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-circus/build/run.js:252:3)
+          at _runTestsForDescribeBlock (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-circus/build/run.js:126:9)
+          at _runTestsForDescribeBlock (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-circus/build/run.js:121:9)
+          at _runTestsForDescribeBlock (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-circus/build/run.js:121:9)
+          at run (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-circus/build/run.js:71:3)
+          at runAndTransformResultsToJestFormat (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+          at jestAdapter (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+          at runTestInternal (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-runner/build/runTest.js:367:16)
+          at runTest (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-runner/build/runTest.js:444:34)
+          at Object.worker (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-runner/build/testWorker.js:106:12) {
+        detail: Error: Assert Violation: c() 2nd argument Ctor must be a function.
+            at Object.isTrue$1 [as isTrue] (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:34:15)
+            at c (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:6283:16)
+            at tmpl (/Users/nick/Projects/Job/cgpm/force-app/main/default/lwc/workItemDetails/workItemDetails.html:22:1)
+            at /Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:7100:27
+            at ReactiveObserver.observe (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:1305:13)
+            at isUpdatingTemplate (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:7055:13)
+            at runWithBoundaryProtection (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:8041:9)
+            at evaluateTemplate (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:7048:5)
+            at invokeComponentRenderMethod (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:7224:41)
+            at renderComponent (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:7317:20)
+            at rehydrate (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:7789:26)
+            at connectRootElement (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:7528:5)
+            at HTMLBridgeElement.connectedCallback (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:9563:17)
+            at HTMLBridgeElement.invokeTheCallbackFunction (/Users/nick/Projects/Job/cgpm/node_modules/jsdom/lib/jsdom/living/generated/Function.js:19:26)
+            at invokeCEReactions (/Users/nick/Projects/Job/cgpm/node_modules/jsdom/lib/jsdom/living/helpers/custom-elements.js:188:31)
+            at ceReactionsPostSteps (/Users/nick/Projects/Job/cgpm/node_modules/jsdom/lib/jsdom/living/helpers/custom-elements.js:54:3)
+            at HTMLBodyElement.appendChild (/Users/nick/Projects/Job/cgpm/node_modules/jsdom/lib/jsdom/living/generated/Node.js:413:9)
+            at HTMLBodyElement.appendChild (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:10233:46)
+            at appendChild (/Users/nick/Projects/Job/cgpm/force-app/main/default/lwc/workItemDetails/__tests__/workItemDetails.test.js:46:23)
+            at Object.createComponent (/Users/nick/Projects/Job/cgpm/force-app/main/default/lwc/workItemDetails/__tests__/workItemDetails.test.js:59:29)
+            at Promise.then.completed (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-circus/build/utils.js:298:28)
+            at new Promise (<anonymous>)
+            at callAsyncCircusFn (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-circus/build/utils.js:231:10)
+            at _callCircusTest (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-circus/build/run.js:316:40)
+            at processTicksAndRejections (node:internal/process/task_queues:105:5)
+            at _runTest (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-circus/build/run.js:252:3)
+            at _runTestsForDescribeBlock (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-circus/build/run.js:126:9)
+            at _runTestsForDescribeBlock (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-circus/build/run.js:121:9)
+            at _runTestsForDescribeBlock (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-circus/build/run.js:121:9)
+            at run (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-circus/build/run.js:71:3)
+            at runAndTransformResultsToJestFormat (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+            at jestAdapter (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+            at runTestInternal (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-runner/build/runTest.js:367:16)
+            at runTest (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-runner/build/runTest.js:444:34)
+            at Object.worker (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-runner/build/testWorker.js:106:12),
+        type: 'unhandled exception'
+      }
+
+      44 |         });
+      45 |         Object.assign(element, props);
+    > 46 |         document.body.appendChild(element);
+         |                       ^
+      47 |         return element;
+      48 |     }
+      49 |
+
+      at VirtualConsole.<anonymous> (node_modules/jest-environment-jsdom/build/index.js:63:23)
+      at reportException (node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js:70:28)
+      at invokeCEReactions (node_modules/jsdom/lib/jsdom/living/helpers/custom-elements.js:193:7)
+      at ceReactionsPostSteps (node_modules/jsdom/lib/jsdom/living/helpers/custom-elements.js:54:3)
+      at HTMLBodyElement.appendChild (node_modules/jsdom/lib/jsdom/living/generated/Node.js:413:9)
+      at appendChild (force-app/main/default/lwc/workItemDetails/__tests__/workItemDetails.test.js:46:23)
+      at Object.createComponent (force-app/main/default/lwc/workItemDetails/__tests__/workItemDetails.test.js:59:29)
+
+    console.log
+      Details Component Init: { id: 'proj-001', obj: 'cgpm__Project__c' }
+
+      at WorkItemDetails.log [as connectedCallback] (force-app/main/default/lwc/workItemDetails/workItemDetails.js:17:17)
+
+    console.error
+      Error: Uncaught [Error: Assert Violation: c() 2nd argument Ctor must be a function.]
+          at reportException (/Users/nick/Projects/Job/cgpm/node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js:66:24)
+          at invokeCEReactions (/Users/nick/Projects/Job/cgpm/node_modules/jsdom/lib/jsdom/living/helpers/custom-elements.js:193:7)
+          at ceReactionsPostSteps (/Users/nick/Projects/Job/cgpm/node_modules/jsdom/lib/jsdom/living/helpers/custom-elements.js:54:3)
+          at HTMLBodyElement.appendChild (/Users/nick/Projects/Job/cgpm/node_modules/jsdom/lib/jsdom/living/generated/Node.js:413:9)
+          at HTMLBodyElement.appendChild (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:10233:46)
+          at appendChild (/Users/nick/Projects/Job/cgpm/force-app/main/default/lwc/workItemDetails/__tests__/workItemDetails.test.js:46:23)
+          at Object.createComponent (/Users/nick/Projects/Job/cgpm/force-app/main/default/lwc/workItemDetails/__tests__/workItemDetails.test.js:70:29)
+          at Promise.then.completed (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-circus/build/utils.js:298:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-circus/build/utils.js:231:10)
+          at _callCircusTest (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-circus/build/run.js:316:40)
+          at processTicksAndRejections (node:internal/process/task_queues:105:5)
+          at _runTest (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-circus/build/run.js:252:3)
+          at _runTestsForDescribeBlock (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-circus/build/run.js:126:9)
+          at _runTestsForDescribeBlock (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-circus/build/run.js:121:9)
+          at _runTestsForDescribeBlock (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-circus/build/run.js:121:9)
+          at run (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-circus/build/run.js:71:3)
+          at runAndTransformResultsToJestFormat (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+          at jestAdapter (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+          at runTestInternal (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-runner/build/runTest.js:367:16)
+          at runTest (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-runner/build/runTest.js:444:34)
+          at Object.worker (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-runner/build/testWorker.js:106:12) {
+        detail: Error: Assert Violation: c() 2nd argument Ctor must be a function.
+            at Object.isTrue$1 [as isTrue] (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:34:15)
+            at c (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:6283:16)
+            at tmpl (/Users/nick/Projects/Job/cgpm/force-app/main/default/lwc/workItemDetails/workItemDetails.html:22:1)
+            at /Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:7100:27
+            at ReactiveObserver.observe (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:1305:13)
+            at isUpdatingTemplate (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:7055:13)
+            at runWithBoundaryProtection (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:8041:9)
+            at evaluateTemplate (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:7048:5)
+            at invokeComponentRenderMethod (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:7224:41)
+            at renderComponent (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:7317:20)
+            at rehydrate (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:7789:26)
+            at connectRootElement (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:7528:5)
+            at HTMLBridgeElement.connectedCallback (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:9563:17)
+            at HTMLBridgeElement.invokeTheCallbackFunction (/Users/nick/Projects/Job/cgpm/node_modules/jsdom/lib/jsdom/living/generated/Function.js:19:26)
+            at invokeCEReactions (/Users/nick/Projects/Job/cgpm/node_modules/jsdom/lib/jsdom/living/helpers/custom-elements.js:188:31)
+            at ceReactionsPostSteps (/Users/nick/Projects/Job/cgpm/node_modules/jsdom/lib/jsdom/living/helpers/custom-elements.js:54:3)
+            at HTMLBodyElement.appendChild (/Users/nick/Projects/Job/cgpm/node_modules/jsdom/lib/jsdom/living/generated/Node.js:413:9)
+            at HTMLBodyElement.appendChild (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/@lwc/engine-dom/dist/index.cjs.js:10233:46)
+            at appendChild (/Users/nick/Projects/Job/cgpm/force-app/main/default/lwc/workItemDetails/__tests__/workItemDetails.test.js:46:23)
+            at Object.createComponent (/Users/nick/Projects/Job/cgpm/force-app/main/default/lwc/workItemDetails/__tests__/workItemDetails.test.js:70:29)
+            at Promise.then.completed (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-circus/build/utils.js:298:28)
+            at new Promise (<anonymous>)
+            at callAsyncCircusFn (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-circus/build/utils.js:231:10)
+            at _callCircusTest (/Users/nick/Projects/Job/cgpm/node_modules/@salesforce/sfdx-lwc-jest/node_modules/jest-circus/build/run.js:316:40)
+            at processTicksAndRejections (node:internal/process/task_queues:105:5)

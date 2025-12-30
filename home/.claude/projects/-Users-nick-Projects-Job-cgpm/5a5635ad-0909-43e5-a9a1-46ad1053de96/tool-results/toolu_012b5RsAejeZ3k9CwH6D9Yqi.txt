@@ -1,0 +1,19 @@
+   335→                assignments: []
+   336→            });
+   337→            updateWorkItemOwner.mockResolvedValue({});
+   338→            refreshApex.mockResolvedValue();
+   339→            const element = createComponent();
+   340→
+   341→            await element.open();
+   342→            await flushPromises();
+   343→            emitWireData(element);
+   344→            await flushPromises();
+   345→
+   346→            // Click edit owner
+   347→            const editButton = element.shadowRoot.querySelector('lightning-button-icon[icon-name="utility:edit"]');
+   348→            editButton.click();
+   349→            await flushPromises();
+
+<system-reminder>
+Whenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.
+</system-reminder>

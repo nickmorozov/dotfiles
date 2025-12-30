@@ -15,6 +15,7 @@
     <inspection_tool class="AccessToStaticFieldLockedOnInstance" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="AddExplicitTargetToParameterAnnotation" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
     <inspection_tool class="AddOperatorModifier" enabled="false" level="INFORMATION" enabled_by_default="false" />
+    <inspection_tool class="AiExcludeWrong" enabled="false" level="ERROR" enabled_by_default="false" />
     <inspection_tool class="AlphaUnsortedPropertiesFile" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
     <inspection_tool class="AmbiguousFieldAccess" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="AmbiguousMethodCall" enabled="false" level="WARNING" enabled_by_default="false" />
@@ -561,6 +562,20 @@
     <inspection_tool class="FuseStreamOperations" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="GitGraph" enabled="false" level="ERROR" enabled_by_default="false" />
     <inspection_tool class="GithubFunctionSignatureValidation" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="GraphQLDeprecatedSymbols" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="GraphQLDuplicateArgument" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="GraphQLDuplicateDirective" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="GraphQLEmptyType" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="GraphQLIllegalDirectiveArgument" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="GraphQLIllegalName" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="GraphQLInterfaceImplementation" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="GraphQLInvalidDirectiveLocation" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="GraphQLMemberRedefinition" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="GraphQLMissingType" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="GraphQLSchemaValidation" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="GraphQLTypeRedefinition" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="GraphQLUnexpectedType" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="GraphQLUnresolvedReference" enabled="false" level="ERROR" enabled_by_default="false" />
     <inspection_tool class="GrazieInspection" enabled="false" level="GRAMMAR_ERROR" enabled_by_default="false" />
     <inspection_tool class="Guava" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="HardcodedFileSeparators" enabled="false" level="WARNING" enabled_by_default="false" />
@@ -852,7 +867,11 @@
     <inspection_tool class="Junit4Converter" enabled="true" level="INFORMATION" enabled_by_default="true" />
     <inspection_tool class="Junit5MalformedParameterized" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="JvmCoverageInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="JvmDfaAnalysis.Global" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="JvmDfaAnalysis.Local" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="JvmLinesOfCodeInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="JvmNullDereferenceAnalysis.Local" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="JvmTaintAnalysis" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="JvmUnresolvedTmsLinkInspection" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="KDocUnresolvedReference" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="KeySetIterationMayUseEntrySet" enabled="false" level="WARNING" enabled_by_default="false" />
@@ -1708,6 +1727,7 @@
     <inspection_tool class="SystemSetSecurityManager" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="TailRecursion" enabled="true" level="INFORMATION" enabled_by_default="true" />
     <inspection_tool class="TailRecursionJS" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="TaintConfigAnnotator" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="TestCaseWithConstructor" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="TestCaseWithNoTestMethods" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="TestFailedLine" enabled="true" level="WARNING" enabled_by_default="true" />

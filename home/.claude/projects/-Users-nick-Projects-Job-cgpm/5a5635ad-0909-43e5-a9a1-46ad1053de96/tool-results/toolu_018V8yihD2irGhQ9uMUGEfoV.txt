@@ -1,0 +1,60 @@
+      447 |             await flushPromises();
+      448 |
+    > 449 |             element.handleScaleChange({ target: { dataset: { scale: 'day' } } });
+          |                     ^
+      450 |
+      451 |             expect(element.timelineScale).toBe('day');
+      452 |         });
+
+      at Object.handleScaleChange (force-app/main/default/lwc/workItemGantt/__tests__/workItemGantt.test.js:449:21)
+
+  ● c-work-item-gantt › timeline bounds calculation › calculates timeline bounds from work items
+
+    TypeError: Cannot read properties of undefined (reading 'minDate')
+
+      465 |
+      466 |             expect(element.timelineBounds).not.toBeNull();
+    > 467 |             expect(element.timelineBounds.minDate).toBeDefined();
+          |                                           ^
+      468 |             expect(element.timelineBounds.maxDate).toBeDefined();
+      469 |         });
+      470 |
+
+      at Object.minDate (force-app/main/default/lwc/workItemGantt/__tests__/workItemGantt.test.js:467:43)
+
+  ● c-work-item-gantt › timeline bounds calculation › includes today in timeline bounds
+
+    TypeError: Cannot read properties of undefined (reading 'today')
+
+      479 |             await flushPromises();
+      480 |
+    > 481 |             expect(element.timelineBounds.today).toBeDefined();
+          |                                           ^
+      482 |         });
+      483 |
+      484 |         it('includes scale in timeline bounds', async () => {
+
+      at Object.today (force-app/main/default/lwc/workItemGantt/__tests__/workItemGantt.test.js:481:43)
+
+  ● c-work-item-gantt › timeline bounds calculation › includes scale in timeline bounds
+
+    TypeError: Cannot read properties of undefined (reading 'scale')
+
+      492 |             await flushPromises();
+      493 |
+    > 494 |             expect(element.timelineBounds.scale).toBe('week');
+          |                                           ^
+      495 |         });
+      496 |     });
+      497 |
+
+      at Object.scale (force-app/main/default/lwc/workItemGantt/__tests__/workItemGantt.test.js:494:43)
+
+PASS force-app/main/default/lwc/workItemHistoryModal/__tests__/workItemHistoryModal.test.js
+PASS force-app/main/default/lwc/timeLogModal/__tests__/timeLogModal.test.js
+
+Test Suites: 5 failed, 11 passed, 16 total
+Tests:       92 failed, 261 passed, 353 total
+Snapshots:   0 total
+Time:        4.381 s
+Ran all test suites.

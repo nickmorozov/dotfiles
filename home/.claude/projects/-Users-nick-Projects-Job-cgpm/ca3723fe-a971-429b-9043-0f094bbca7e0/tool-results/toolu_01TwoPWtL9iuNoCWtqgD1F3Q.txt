@@ -1,0 +1,45 @@
+# Event-Based Component Communication Pattern
+
+Based on the provided web page content, here's what can be identified about the event communication pattern:
+
+## Event Dispatch Method
+
+The page implements a custom event dispatch system:
+
+```javascript
+document.addEventListener('www_track', (e) => {
+  try {
+    if(window.dataLayer) {
+      window.dataLayer.push(e.detail);
+    }
+  } catch {
+    console.log('Could not push event detail to GTM');
+  }
+});
+```
+
+## Pattern Components
+
+**1) Event Definition & Dispatching:**
+Events are triggered as custom DOM events with a "www_track" identifier. Data passes through the event's `detail` property.
+
+**2) Subscription Mechanism:**
+Components subscribe using standard `addEventListener()` on the document object, listening specifically for the "www_track" event type.
+
+**3) Data Interface:**
+Event payload travels via `e.detail`, which is then forwarded to Google Tag Manager's `dataLayer` array.
+
+**4) Event Naming Convention:**
+Uses underscore-separated lowercase naming ("www_track"), following common analytics event patterns.
+
+**5) OneTrust Integration Example:**
+The code also demonstrates:
+
+```javascript
+function OptanonWrapper() {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ event: 'OneTrustGroupsUpdated' });
+}
+```
+
+This pattern allows decoupled component communication by centralizing tracking events through a shared dataLayer mechanism.

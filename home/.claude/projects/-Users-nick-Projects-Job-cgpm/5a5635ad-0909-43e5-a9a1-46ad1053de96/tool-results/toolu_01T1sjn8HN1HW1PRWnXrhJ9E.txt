@@ -1,0 +1,10 @@
+The file /Users/nick/Projects/Job/cgpm/force-app/main/default/lwc/resourceAssignmentModal/__tests__/resourceAssignmentModal.test.js has been updated. Here's the result of running `cat -n` on a snippet of the edited file:
+    59→    () => ({ default: jest.fn() }),
+    60→    { virtual: true }
+    61→);
+    62→
+    63→// refreshApex is automatically mocked by sfdx-lwc-jest via the wire adapters
+    64→
+    65→// Mock LMS (required since component extends BaseComponent)
+    66→jest.mock(
+    67→    '@salesforce/messageChannel/WorkItemEventChannel__c',

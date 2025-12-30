@@ -1,0 +1,238 @@
+     1→/**
+     2→ * Created by nick on 2025-11-21.
+     3→ */
+     4→
+     5→import { api, wire } from 'lwc';
+     6→import BaseComponent from 'c/baseComponent';
+     7→
+     8→import getWorkItemsForProject from '@salesforce/apex/WorkItemController.getWorkItemsForProject';
+     9→import getWorkItemWithChildren from '@salesforce/apex/WorkItemController.getWorkItemWithChildren';
+    10→import getWorkItemTemplates from '@salesforce/apex/WorkItemCreateController.getWorkItemTemplates';
+    11→import moveWorkItem from '@salesforce/apex/WorkItemController.moveWorkItem';
+    12→import { getFieldValue, getRecord } from 'lightning/uiRecordApi';
+    13→
+    14→import WORK_ITEM_PROJECT_FIELD from '@salesforce/schema/Work_Item__c.Project__c';
+    15→import { refreshApex } from '@salesforce/apex';
+    16→
+    17→/* * ======================================================================================
+    18→ * SHARED STATE MANAGEMENT (Module Level)
+    19→ * This allows all instances of DataManager to share the same data source of truth.
+    20→ * ======================================================================================
+    21→ */
+    22→const PROJECT_DATA_CACHE = {}; // Key: projectId, Value: { workItems: [], statusOptions: [] }
+    23→const INSTANCES = new Set(); // Track all active DataManager instances
+    24→
+    25→/**
+    26→ * Broadcast data to all DataManager instances for a specific project
+    27→ */
+    28→const broadcastDataChange = (projectId, data) => {
+    29→    // 1. Update Cache
+    30→    PROJECT_DATA_CACHE[projectId] = data;
+    31→
+    32→    // 2. Notify all subscribers for this project
+    33→    for (const instance of INSTANCES) {
+    34→        if (instance.effectiveProjectId === projectId) {
+    35→            instance.notifyDataLoaded(data);
+    36→        }
+    37→    }
+    38→};
+    39→
+    40→export default class DataManager extends BaseComponent {
+    41→    @api recordId; // Project ID or Work Item ID from record page
+    42→    @api objectApiName; // Object type (cgpm__Project__c or cgpm__Work_Item__c)
+    43→    @api hierarchyDepth = 3; // Maximum hierarchy depth to load
+    44→
+    45→    projectId; // Resolved Project ID (either from recordId or from Work Item's project lookup)
+    46→
+    47→    connectedCallback() {
+    48→        // Register this instance to receive broadcasts
+    49→        INSTANCES.add(this);
+    50→
+    51→        // Immediate Check: Do we already have data in memory?
+    52→        // If yes, load it immediately to prevent "pop-in" or double loading
+    53→        if (this.effectiveProjectId && PROJECT_DATA_CACHE[this.effectiveProjectId]) {
+    54→            this.notifyDataLoaded(PROJECT_DATA_CACHE[this.effectiveProjectId]);
+    55→        }
+    56→
+    57→        // todo: run wires imperatively, add loading/saving state
+    58→    }
+    59→
+    60→    disconnectedCallback() {
+    61→        INSTANCES.delete(this);
+    62→    }
+    63→
+    64→    get isProjectPage() {
+    65→        return this.objectApiName === 'cgpm__Project__c';
+    66→    }
+    67→
+    68→    get isWorkItemPage() {
+    69→        return this.objectApiName === 'cgpm__Work_Item__c';
+    70→    }
+    71→
+    72→    get effectiveProjectId() {
+    73→        // On Project page, use recordId directly
+    74→        // On Work Item page, use resolved projectId from lookup
+    75→        return this.isProjectPage ? this.recordId : (this.projectId ?? undefined);
+    76→    }
+    77→
+    78→    get parentWorkItemIdForTemplates() {
+    79→        // On Project page: null (top-level templates)
+    80→        // On Work Item page: current work item ID (child templates)
+    81→        return this.isWorkItemPage ? this.recordId : undefined;
+    82→    }
+    83→
+    84→    // Wire to get Work Item record (only when on Work Item page)
+    85→    @wire(getRecord, {
+    86→        recordId: '$recordId',
+    87→        fields: [WORK_ITEM_PROJECT_FIELD]
+    88→    })
+    89→    wiredWorkItemRecord({ data, error }) {
+    90→        if (this.isWorkItemPage) {
+    91→            if (data) {
+    92→                this.projectId = getFieldValue(data, WORK_ITEM_PROJECT_FIELD);
+    93→            } else if (error) {
+    94→                this.errorMessage = this.extractErrorMessage(error);
+    95→                this.showError(this.errorMessage, 'Error Loading Work Item');
+    96→            }
+    97→        }
+    98→    }
+    99→
+   100→    // Wire to get available work item templates
+   101→    @wire(getWorkItemTemplates, {
+   102→        projectId: '$effectiveProjectId',
+   103→        parentWorkItemId: '$parentWorkItemIdForTemplates'
+   104→    })
+   105→    wiredTemplates({ data, error }) {
+   106→        let templates = [];
+   107→
+   108→        if (data) {
+   109→            templates = data;
+   110→        } else if (error) {
+   111→            console.error('Error loading work item templates:', error);
+   112→        }
+   113→
+   114→        this.dispatchEvent(new CustomEvent('templatesload', { detail: { templates } }));
+   115→    }
+   116→
+   117→    wiredWorkItemsResult = {};
+   118→
+   119→    // Wire method to load Work Items for the Project (when on Project page)
+   120→    @wire(getWorkItemsForProject, {
+   121→        projectId: '$effectiveProjectId',
+   122→        maxDepth: '$hierarchyDepth'
+   123→    })
+   124→    wiredWorkItemsForProject(result) {
+   125→        if (this.isProjectPage) {
+   126→            this.wiredWorkItemsResult = result;
+   127→            const { data, error } = result;
+   128→
+   129→            if (error) {
+   130→                this.errorMessage = this.extractErrorMessage(error);
+   131→                this.showError(this.errorMessage, 'Error Loading Work Items');
+   132→                return;
+   133→            } else if (!data) {
+   134→                this.showError('No Work Items found for this Project', 'Error Loading Work Items');
+   135→                return;
+   136→            }
+   137→
+   138→            const workItems = data.workItems || [];
+   139→            const statusOptions = data.statusOptions || this.defaultStatusOptions;
+   140→            const newData = { workItems, statusOptions };
+   141→
+   142→            // DEDUPLICATION LOGIC
+   143→            const projectId = this.effectiveProjectId;
+   144→            const cached = PROJECT_DATA_CACHE[projectId];
+   145→
+   146→            // Simple string comparison to avoid broadcast loops
+   147→            // If data is identical to what we already have, DO NOT broadcast.
+   148→            if (cached && JSON.stringify(cached) === JSON.stringify(newData)) {
+   149→                return;
+   150→            }
+   151→
+   152→            // Update Source of Truth and Notify All
+   153→            broadcastDataChange(projectId, newData);
+   154→        }
+   155→    }
+   156→
+   157→    // Wire method to load Work Item with Children (when on Work Item page)
+   158→    @wire(getWorkItemWithChildren, {
+   159→        workItemId: '$recordId',
+   160→        maxDepth: '$hierarchyDepth'
+   161→    })
+   162→    wiredWorkItemWithChildren(result) {
+   163→        if (this.isWorkItemPage) {
+   164→            this.wiredWorkItemsResult = result;
+   165→            const { data, error } = result;
+   166→
+   167→            if (error) {
+   168→                this.errorMessage = this.extractErrorMessage(error);
+   169→                this.showError(this.errorMessage, 'Error Loading Work Item');
+   170→                return;
+   171→            } else if (!data) {
+   172→                this.showError('Work Item not found', 'Error Loading Work Item');
+   173→                return;
+   174→            }
+   175→
+   176→            const workItems = [data];
+   177→            const statusOptions = this.defaultStatusOptions;
+   178→
+   179→            const newData = { workItems, statusOptions };
+   180→
+   181→            // DEDUPLICATION LOGIC
+   182→            const contextId = this.recordId;
+   183→            const cached = PROJECT_DATA_CACHE[contextId];
+   184→
+   185→            // Simple string comparison to avoid broadcast loops
+   186→            // If data is identical to what we already have, DO NOT broadcast.
+   187→            if (cached && JSON.stringify(cached) === JSON.stringify(newData)) {
+   188→                return;
+   189→            }
+   190→
+   191→            // Update Source of Truth and Notify All
+   192→            broadcastDataChange(contextId, newData);
+   193→        }
+   194→    }
+   195→
+   196→    /**
+   197→     * Internal method to dispatch the event to the parent
+   198→     * Called by the broadcast system or local wire
+   199→     */
+   200→    @api
+   201→    notifyDataLoaded(data) {
+   202→        // Defensive copy to prevent mutation bugs
+   203→        const detail = JSON.parse(JSON.stringify(data));
+   204→        this.dispatchEvent(new CustomEvent('workitemsload', { detail }));
+   205→    }
+   206→
+   207→    @api async refresh() {
+   208→        try {
+   209→            await refreshApex(this.wiredWorkItemsResult);
+   210→        } catch (error) {
+   211→            this.errorMessage = this.extractErrorMessage(error);
+   212→            this.showError(this.errorMessage, 'Error Refreshing');
+   213→        }
+   214→    }
+   215→
+   216→    @api async moveWorkItem(draggedItemId, targetItemId, draggedParentId, targetParentId) {
+   217→        try {
+   218→            // Call Apex to reorder
+   219→            await moveWorkItem({
+   220→                draggedItemId,
+   221→                targetItemId,
+   222→                draggedParentId,
+   223→                targetParentId
+   224→            });
+   225→
+   226→            this.showSuccess('Work Items reordered successfully');
+   227→        } catch (error) {
+   228→            this.errorMessage = this.extractErrorMessage(error);
+   229→            this.showError(this.errorMessage, 'Error Reordering Work Items');
+   230→        }
+   231→
+   232→        await this.refresh();
+   233→    }
+   234→}
+
+<system-reminder>
+Whenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.
+</system-reminder>

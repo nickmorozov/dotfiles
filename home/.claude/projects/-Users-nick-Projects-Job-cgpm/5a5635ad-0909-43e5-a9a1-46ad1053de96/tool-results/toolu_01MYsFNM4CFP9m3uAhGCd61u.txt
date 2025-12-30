@@ -1,0 +1,532 @@
+     1→/**
+     2→ * @jest-environment jsdom
+     3→ *
+     4→ * Tests for workItemGantt component.
+     5→ *
+     6→ * This component:
+     7→ * - Extends BaseComponent for LMS functionality
+     8→ * - Uses wire adapters for different contexts (Project vs Work Item page)
+     9→ * - Handles status filtering and scale changes
+    10→ * - Processes hierarchy and calculates timeline bounds
+    11→ * - Integrates child components: workItemGanttTimeline, workItemGanttRow
+    12→ */
+    13→import { createElement } from 'lwc';
+    14→import WorkItemGantt from 'c/workItemGantt';
+    15→import getWorkItemsForProject from '@salesforce/apex/WorkItemController.getWorkItemsForProject';
+    16→import getWorkItemWithChildren from '@salesforce/apex/WorkItemController.getWorkItemWithChildren';
+    17→
+    18→// Mock wire adapters
+    19→jest.mock(
+    20→    '@salesforce/apex/WorkItemController.getWorkItemsForProject',
+    21→    () => {
+    22→        const { createApexTestWireAdapter } = require('@salesforce/sfdx-lwc-jest');
+    23→        return { default: createApexTestWireAdapter(jest.fn()) };
+    24→    },
+    25→    { virtual: true }
+    26→);
+    27→
+    28→jest.mock(
+    29→    '@salesforce/apex/WorkItemController.getWorkItemWithChildren',
+    30→    () => {
+    31→        const { createApexTestWireAdapter } = require('@salesforce/sfdx-lwc-jest');
+    32→        return { default: createApexTestWireAdapter(jest.fn()) };
+    33→    },
+    34→    { virtual: true }
+    35→);
+    36→
+    37→// Mock imperative Apex
+    38→jest.mock(
+    39→    '@salesforce/apex/WorkItemController.moveWorkItem',
+    40→    () => ({ default: jest.fn() }),
+    41→    { virtual: true }
+    42→);
+    43→
+    44→// Mock LMS
+    45→jest.mock(
+    46→    '@salesforce/messageChannel/WorkItemEventChannel__c',
+    47→    () => ({ default: {} }),
+    48→    { virtual: true }
+    49→);
+    50→
+    51→describe('c-work-item-gantt', () => {
+    52→    // Clean up DOM and reset mocks after each test
+    53→    afterEach(() => {
+    54→        while (document.body.firstChild) {
+    55→            document.body.removeChild(document.body.firstChild);
+    56→        }
+    57→        jest.clearAllMocks();
+    58→    });
+    59→
+    60→    /**
+    61→     * Helper to create and append the component to DOM
+    62→     */
+    63→    function createComponent(props = {}) {
+    64→        const element = createElement('c-work-item-gantt', {
+    65→            is: WorkItemGantt
+    66→        });
+    67→        Object.assign(element, props);
+    68→        document.body.appendChild(element);
+    69→        return element;
+    70→    }
+    71→
+    72→    /**
+    73→     * Helper for async timing
+    74→     */
+    75→    async function flushPromises() {
+    76→        return Promise.resolve();
+    77→    }
+    78→
+    79→    /**
+    80→     * Sample work items data
+    81→     */
+    82→    function getSampleWorkItems() {
+    83→        return {
+    84→            workItems: [
+    85→                {
+    86→                    id: 'wi-001',
+    87→                    name: 'Task 1',
+    88→                    startDate: '2025-01-15',
+    89→                    dueDate: '2025-01-20',
+    90→                    status: 'In Progress',
+    91→                    children: []
+    92→                },
+    93→                {
+    94→                    id: 'wi-002',
+    95→                    name: 'Task 2',
+    96→                    startDate: '2025-01-20',
+    97→                    dueDate: '2025-01-25',
+    98→                    status: 'Not Started',
+    99→                    children: [
+   100→                        {
+   101→                            id: 'wi-003',
+   102→                            name: 'Subtask 1',
+   103→                            startDate: '2025-01-21',
+   104→                            dueDate: '2025-01-23',
+   105→                            status: 'Not Started',
+   106→                            children: []
+   107→                        }
+   108→                    ]
+   109→                }
+   110→            ],
+   111→            statusOptions: [
+   112→                { label: 'All', value: '' },
+   113→                { label: 'In Progress', value: 'In Progress' }
+   114→            ],
+   115→            projectStartDate: '2025-01-01',
+   116→            projectDueDate: '2025-02-28'
+   117→        };
+   118→    }
+   119→
+   120→    describe('component initialization', () => {
+   121→        it('renders without errors', async () => {
+   122→            const element = createComponent({
+   123→                recordId: 'proj-001',
+   124→                objectApiName: 'cgpm__Project__c'
+   125→            });
+   126→
+   127→            await flushPromises();
+   128→
+   129→            expect(element).toBeDefined();
+   130→        });
+   131→
+   132→        it('accepts recordId property', () => {
+   133→            const element = createComponent({
+   134→                recordId: 'proj-001',
+   135→                objectApiName: 'cgpm__Project__c'
+   136→            });
+   137→
+   138→            expect(element.recordId).toBe('proj-001');
+   139→        });
+   140→
+   141→        it('accepts objectApiName property', () => {
+   142→            const element = createComponent({
+   143→                recordId: 'proj-001',
+   144→                objectApiName: 'cgpm__Project__c'
+   145→            });
+   146→
+   147→            expect(element.objectApiName).toBe('cgpm__Project__c');
+   148→        });
+   149→
+   150→        it('accepts hierarchyDepth property with default of 3', () => {
+   151→            const element = createComponent({
+   152→                recordId: 'proj-001',
+   153→                objectApiName: 'cgpm__Project__c'
+   154→            });
+   155→
+   156→            expect(element.hierarchyDepth).toBe(3);
+   157→        });
+   158→    });
+   159→
+   160→    describe('context detection', () => {
+   161→        it('detects project page context', async () => {
+   162→            const element = createComponent({
+   163→                recordId: 'proj-001',
+   164→                objectApiName: 'cgpm__Project__c'
+   165→            });
+   166→
+   167→            await flushPromises();
+   168→
+   169→            expect(element.isProjectPage).toBe(true);
+   170→            expect(element.isWorkItemPage).toBe(false);
+   171→        });
+   172→
+   173→        it('detects work item page context', async () => {
+   174→            const element = createComponent({
+   175→                recordId: 'wi-001',
+   176→                objectApiName: 'cgpm__Work_Item__c'
+   177→            });
+   178→
+   179→            await flushPromises();
+   180→
+   181→            expect(element.isProjectPage).toBe(false);
+   182→            expect(element.isWorkItemPage).toBe(true);
+   183→        });
+   184→    });
+   185→
+   186→    describe('header rendering', () => {
+   187→        it('displays Timeline title', async () => {
+   188→            const element = createComponent({
+   189→                recordId: 'proj-001',
+   190→                objectApiName: 'cgpm__Project__c'
+   191→            });
+   192→
+   193→            await flushPromises();
+   194→
+   195→            const title = element.shadowRoot.querySelector('.slds-card__header-title span');
+   196→            expect(title.textContent).toBe('Timeline');
+   197→        });
+   198→
+   199→        it('renders status filter combobox', async () => {
+   200→            const element = createComponent({
+   201→                recordId: 'proj-001',
+   202→                objectApiName: 'cgpm__Project__c'
+   203→            });
+   204→
+   205→            await flushPromises();
+   206→
+   207→            const combobox = element.shadowRoot.querySelector('lightning-combobox');
+   208→            expect(combobox).not.toBeNull();
+   209→        });
+   210→
+   211→        it('renders scale buttons (Day, Week, Month)', async () => {
+   212→            const element = createComponent({
+   213→                recordId: 'proj-001',
+   214→                objectApiName: 'cgpm__Project__c'
+   215→            });
+   216→
+   217→            await flushPromises();
+   218→
+   219→            const buttons = element.shadowRoot.querySelectorAll('lightning-button');
+   220→            const labels = Array.from(buttons).map((b) => b.label);
+   221→            expect(labels).toContain('Day');
+   222→            expect(labels).toContain('Week');
+   223→            expect(labels).toContain('Month');
+   224→        });
+   225→
+   226→        it('renders Expand All and Collapse All buttons', async () => {
+   227→            const element = createComponent({
+   228→                recordId: 'proj-001',
+   229→                objectApiName: 'cgpm__Project__c'
+   230→            });
+   231→
+   232→            await flushPromises();
+   233→
+   234→            const buttons = element.shadowRoot.querySelectorAll('lightning-button');
+   235→            const labels = Array.from(buttons).map((b) => b.label);
+   236→            expect(labels).toContain('Expand All');
+   237→            expect(labels).toContain('Collapse All');
+   238→        });
+   239→
+   240→        it('renders refresh button', async () => {
+   241→            const element = createComponent({
+   242→                recordId: 'proj-001',
+   243→                objectApiName: 'cgpm__Project__c'
+   244→            });
+   245→
+   246→            await flushPromises();
+   247→
+   248→            const refreshButton = element.shadowRoot.querySelector('lightning-button[icon-name="utility:refresh"]');
+   249→            expect(refreshButton).not.toBeNull();
+   250→        });
+   251→    });
+   252→
+   253→    describe('wire adapter - Project context', () => {
+   254→        it('wires getWorkItemsForProject on project page', async () => {
+   255→            const element = createComponent({
+   256→                recordId: 'proj-001',
+   257→                objectApiName: 'cgpm__Project__c'
+   258→            });
+   259→
+   260→            await flushPromises();
+   261→
+   262→            // Emit data to wire adapter
+   263→            getWorkItemsForProject.emit(getSampleWorkItems());
+   264→
+   265→            await flushPromises();
+   266→
+   267→            // Should have processed the work items
+   268→            expect(element.workItems).toBeDefined();
+   269→        });
+   270→
+   271→        it('sets week scale by default on project page', async () => {
+   272→            const element = createComponent({
+   273→                recordId: 'proj-001',
+   274→                objectApiName: 'cgpm__Project__c'
+   275→            });
+   276→
+   277→            await flushPromises();
+   278→            getWorkItemsForProject.emit(getSampleWorkItems());
+   279→            await flushPromises();
+   280→
+   281→            expect(element.timelineScale).toBe('week');
+   282→        });
+   283→    });
+   284→
+   285→    describe('wire adapter - Work Item context', () => {
+   286→        it('wires getWorkItemWithChildren on work item page', async () => {
+   287→            const element = createComponent({
+   288→                recordId: 'wi-001',
+   289→                objectApiName: 'cgpm__Work_Item__c'
+   290→            });
+   291→
+   292→            await flushPromises();
+   293→
+   294→            // Emit data to wire adapter
+   295→            getWorkItemWithChildren.emit({
+   296→                id: 'wi-001',
+   297→                projectId: 'proj-001',
+   298→                startDate: '2025-01-15',
+   299→                dueDate: '2025-01-20',
+   300→                children: [
+   301→                    { id: 'wi-002', name: 'Child', startDate: '2025-01-16', dueDate: '2025-01-18' }
+   302→                ]
+   303→            });
+   304→
+   305→            await flushPromises();
+   306→
+   307→            expect(element.workItems).toBeDefined();
+   308→        });
+   309→
+   310→        it('sets day scale by default on work item page', async () => {
+   311→            const element = createComponent({
+   312→                recordId: 'wi-001',
+   313→                objectApiName: 'cgpm__Work_Item__c'
+   314→            });
+   315→
+   316→            await flushPromises();
+   317→            getWorkItemWithChildren.emit({
+   318→                id: 'wi-001',
+   319→                projectId: 'proj-001',
+   320→                children: []
+   321→            });
+   322→            await flushPromises();
+   323→
+   324→            expect(element.timelineScale).toBe('day');
+   325→        });
+   326→    });
+   327→
+   328→    describe('empty state', () => {
+   329→        it('shows empty message when no work items', async () => {
+   330→            const element = createComponent({
+   331→                recordId: 'proj-001',
+   332→                objectApiName: 'cgpm__Project__c'
+   333→            });
+   334→
+   335→            await flushPromises();
+   336→            getWorkItemsForProject.emit({ workItems: [] });
+   337→            await flushPromises();
+   338→
+   339→            const emptyMessage = element.shadowRoot.querySelector('.slds-text-color_weak');
+   340→            expect(emptyMessage).not.toBeNull();
+   341→            expect(emptyMessage.textContent).toContain('No work items');
+   342→        });
+   343→    });
+   344→
+   345→    describe('loading state', () => {
+   346→        it('shows spinner when loading', async () => {
+   347→            const element = createComponent({
+   348→                recordId: 'proj-001',
+   349→                objectApiName: 'cgpm__Project__c'
+   350→            });
+   351→
+   352→            // Before data loads, isLoading should be false initially
+   353→            await flushPromises();
+   354→
+   355→            // The spinner appears during loading operations
+   356→            // Just verify the component renders properly
+   357→            expect(element).toBeDefined();
+   358→        });
+   359→    });
+   360→
+   361→    describe('computed properties', () => {
+   362→        it('hasData returns false when no work items', async () => {
+   363→            const element = createComponent({
+   364→                recordId: 'proj-001',
+   365→                objectApiName: 'cgpm__Project__c'
+   366→            });
+   367→
+   368→            await flushPromises();
+   369→            getWorkItemsForProject.emit({ workItems: [] });
+   370→            await flushPromises();
+   371→
+   372→            expect(element.hasData).toBe(false);
+   373→        });
+   374→
+   375→        it('hasData returns true when work items exist', async () => {
+   376→            const element = createComponent({
+   377→                recordId: 'proj-001',
+   378→                objectApiName: 'cgpm__Project__c'
+   379→            });
+   380→
+   381→            await flushPromises();
+   382→            getWorkItemsForProject.emit(getSampleWorkItems());
+   383→            await flushPromises();
+   384→
+   385→            expect(element.hasData).toBe(true);
+   386→        });
+   387→
+   388→        it('timedWorkItems filters items with dates', async () => {
+   389→            const element = createComponent({
+   390→                recordId: 'proj-001',
+   391→                objectApiName: 'cgpm__Project__c'
+   392→            });
+   393→
+   394→            await flushPromises();
+   395→            getWorkItemsForProject.emit({
+   396→                workItems: [
+   397→                    { id: 'wi-001', startDate: '2025-01-15', dueDate: '2025-01-20' },
+   398→                    { id: 'wi-002', startDate: null, dueDate: null }
+   399→                ]
+   400→            });
+   401→            await flushPromises();
+   402→
+   403→            // timedWorkItems should only include items with dates
+   404→            expect(element.timedWorkItems.length).toBe(1);
+   405→        });
+   406→    });
+   407→
+   408→    describe('button variants', () => {
+   409→        it('week button is brand variant when week scale selected', async () => {
+   410→            const element = createComponent({
+   411→                recordId: 'proj-001',
+   412→                objectApiName: 'cgpm__Project__c'
+   413→            });
+   414→
+   415→            await flushPromises();
+   416→            getWorkItemsForProject.emit(getSampleWorkItems());
+   417→            await flushPromises();
+   418→
+   419→            expect(element.weekButtonVariant).toBe('brand');
+   420→            expect(element.dayButtonVariant).toBe('neutral');
+   421→            expect(element.monthButtonVariant).toBe('neutral');
+   422→        });
+   423→    });
+   424→
+   425→    describe('event handlers', () => {
+   426→        it('handleStatusFilterChange updates statusFilter', async () => {
+   427→            const element = createComponent({
+   428→                recordId: 'proj-001',
+   429→                objectApiName: 'cgpm__Project__c'
+   430→            });
+   431→
+   432→            await flushPromises();
+   433→
+   434→            element.handleStatusFilterChange({ detail: { value: 'In Progress' } });
+   435→
+   436→            expect(element.statusFilter).toBe('In Progress');
+   437→        });
+   438→
+   439→        it('handleScaleChange updates timelineScale', async () => {
+   440→            const element = createComponent({
+   441→                recordId: 'proj-001',
+   442→                objectApiName: 'cgpm__Project__c'
+   443→            });
+   444→
+   445→            await flushPromises();
+   446→            getWorkItemsForProject.emit(getSampleWorkItems());
+   447→            await flushPromises();
+   448→
+   449→            element.handleScaleChange({ target: { dataset: { scale: 'day' } } });
+   450→
+   451→            expect(element.timelineScale).toBe('day');
+   452→        });
+   453→    });
+   454→
+   455→    describe('timeline bounds calculation', () => {
+   456→        it('calculates timeline bounds from work items', async () => {
+   457→            const element = createComponent({
+   458→                recordId: 'proj-001',
+   459→                objectApiName: 'cgpm__Project__c'
+   460→            });
+   461→
+   462→            await flushPromises();
+   463→            getWorkItemsForProject.emit(getSampleWorkItems());
+   464→            await flushPromises();
+   465→
+   466→            expect(element.timelineBounds).not.toBeNull();
+   467→            expect(element.timelineBounds.minDate).toBeDefined();
+   468→            expect(element.timelineBounds.maxDate).toBeDefined();
+   469→        });
+   470→
+   471→        it('includes today in timeline bounds', async () => {
+   472→            const element = createComponent({
+   473→                recordId: 'proj-001',
+   474→                objectApiName: 'cgpm__Project__c'
+   475→            });
+   476→
+   477→            await flushPromises();
+   478→            getWorkItemsForProject.emit(getSampleWorkItems());
+   479→            await flushPromises();
+   480→
+   481→            expect(element.timelineBounds.today).toBeDefined();
+   482→        });
+   483→
+   484→        it('includes scale in timeline bounds', async () => {
+   485→            const element = createComponent({
+   486→                recordId: 'proj-001',
+   487→                objectApiName: 'cgpm__Project__c'
+   488→            });
+   489→
+   490→            await flushPromises();
+   491→            getWorkItemsForProject.emit(getSampleWorkItems());
+   492→            await flushPromises();
+   493→
+   494→            expect(element.timelineBounds.scale).toBe('week');
+   495→        });
+   496→    });
+   497→
+   498→    describe('child components', () => {
+   499→        it('renders workItemGanttTimeline when showTimeline is true', async () => {
+   500→            const element = createComponent({
+   501→                recordId: 'proj-001',
+   502→                objectApiName: 'cgpm__Project__c'
+   503→            });
+   504→
+   505→            await flushPromises();
+   506→            getWorkItemsForProject.emit(getSampleWorkItems());
+   507→            await flushPromises();
+   508→
+   509→            const timeline = element.shadowRoot.querySelector('c-work-item-gantt-timeline');
+   510→            expect(timeline).not.toBeNull();
+   511→        });
+   512→
+   513→        it('renders workItemGanttRow for each timed work item', async () => {
+   514→            const element = createComponent({
+   515→                recordId: 'proj-001',
+   516→                objectApiName: 'cgpm__Project__c'
+   517→            });
+   518→
+   519→            await flushPromises();
+   520→            getWorkItemsForProject.emit(getSampleWorkItems());
+   521→            await flushPromises();
+   522→
+   523→            const rows = element.shadowRoot.querySelectorAll('c-work-item-gantt-row');
+   524→            expect(rows.length).toBeGreaterThan(0);
+   525→        });
+   526→    });
+   527→});
+   528→
+
+<system-reminder>
+Whenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.
+</system-reminder>

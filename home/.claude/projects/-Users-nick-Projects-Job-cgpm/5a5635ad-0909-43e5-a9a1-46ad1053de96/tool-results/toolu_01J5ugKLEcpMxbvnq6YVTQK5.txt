@@ -1,0 +1,42 @@
+The file /Users/nick/Projects/Job/cgpm/force-app/main/default/lwc/resourceAssignmentModal/__tests__/resourceAssignmentModal.test.js has been updated. Here's the result of running `cat -n` on a snippet of the edited file:
+   201→            const ownerSection = element.shadowRoot.querySelector('.slds-box_x-small strong');
+   202→            expect(ownerSection.textContent).toBe('John Doe');
+   203→        });
+   204→
+   205→        it('shows Primary badge next to owner', async () => {
+   206→            refreshWorkItem.mockResolvedValue({
+   207→                ownerId: 'user-001',
+   208→                ownerName: 'John Doe',
+   209→                assignments: []
+   210→            });
+   211→            const element = createComponent({
+   212→                ownerName: 'John Doe'
+   213→            });
+   214→
+   215→            await element.open();
+   216→            await waitForDataLoad();
+   217→
+   218→            // Check for lightning-badge component
+   219→            const badge = element.shadowRoot.querySelector('lightning-badge');
+   220→            expect(badge).not.toBeNull();
+   221→        });
+   222→
+   223→        it('shows edit button for owner', async () => {
+   224→            refreshWorkItem.mockResolvedValue({
+   225→                ownerId: 'user-001',
+   226→                ownerName: 'John Doe',
+   227→                assignments: []
+   228→            });
+   229→            const element = createComponent();
+   230→
+   231→            await element.open();
+   232→            await waitForDataLoad();
+   233→
+   234→            // Check for lightning-button-icon component
+   235→            const editButtons = element.shadowRoot.querySelectorAll('lightning-button-icon');
+   236→            expect(editButtons.length).toBeGreaterThan(0);
+   237→        });
+   238→    });
+   239→
+   240→    describe('additional assignments section', () => {
+   241→        it('shows no assignments message when empty', async () => {

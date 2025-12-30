@@ -1,0 +1,270 @@
+     1→<template>
+     2→    <!-- Modal Container -->
+     3→    <template if:true={showModal}>
+     4→        <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01" class="slds-modal slds-fade-in-open">
+     5→            <div class="slds-modal__container">
+     6→                <!-- Modal Header -->
+     7→                <header class="slds-modal__header">
+     8→                    <lightning-button-icon
+     9→                        icon-name="utility:close"
+    10→                        alternative-text="Close"
+    11→                        variant="bare-inverse"
+    12→                        class="slds-modal__close"
+    13→                        onclick={handleClose}
+    14→                    ></lightning-button-icon>
+    15→                    <h2 id="modal-heading-01" class="slds-text-heading_medium">History & Notes</h2>
+    16→                </header>
+    17→
+    18→                <!-- Modal Body -->
+    19→                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+    20→                    <!-- Loading Spinner -->
+    21→                    <template if:true={isLoading}>
+    22→                        <div class="slds-align_absolute-center slds-p-around_large">
+    23→                            <lightning-spinner alternative-text="Loading history" size="medium"></lightning-spinner>
+    24→                        </div>
+    25→                    </template>
+    26→
+    27→                    <!-- Tabs -->
+    28→                    <template if:false={isLoading}>
+    29→                        <lightning-tabset variant="scoped" active-tab-value={activeTab} onselect={handleTabChange}>
+    30→                            <lightning-tab label="All" value="all">
+    31→                                <!-- History and Notes List -->
+    32→                                <template if:true={hasHistory}>
+    33→                                    <div class="history-list slds-m-top_medium">
+    34→                                        <template for:each={filteredItems} for:item="item">
+    35→                                            <div key={item.id}>
+    36→                                                <!-- History Item -->
+    37→                                                <template if:true={item.fieldName}>
+    38→                                                    <div class="history-item">
+    39→                                                        <div class="history-item-header">
+    40→                                                            <span class="history-date">{item.formattedDate}</span>
+    41→                                                            <span class="history-user">{item.userName}</span>
+    42→                                                        </div>
+    43→                                                        <div class="history-item-body">
+    44→                                                            <span class="history-field">{item.fieldLabel}:</span>
+    45→                                                            <span class="history-action">{item.action}</span>
+    46→                                                            <template if:true={item.oldValue}>
+    47→                                                                <div class="history-values">
+    48→                                                                    <span class="old-value">From: {item.oldValue}</span>
+    49→                                                                    <span class="new-value">To: {item.newValue}</span>
+    50→                                                                </div>
+    51→                                                            </template>
+    52→                                                        </div>
+    53→                                                    </div>
+    54→                                                </template>
+    55→
+    56→                                                <!-- Note Item -->
+    57→                                                <template if:true={item.noteText}>
+    58→                                                    <div class="note-item">
+    59→                                                        <div class="note-item-header">
+    60→                                                            <lightning-icon icon-name="utility:note" size="x-small" class="slds-m-right_xx-small"></lightning-icon>
+    61→                                                            <span class="note-label">Note</span>
+    62→                                                            <span class="note-date">{item.formattedDate}</span>
+    63→                                                            <span class="note-user">{item.userName}</span>
+    64→                                                        </div>
+    65→                                                        <div class="note-item-body">
+    66→                                                            <div class="note-text">{item.noteText}</div>
+    67→                                                        </div>
+    68→                                                    </div>
+    69→                                                </template>
+    70→
+    71→                                                <!-- Time Entry Item -->
+    72→                                                <template if:true={item.isTimeEntry}>
+    73→                                                    <div class="time-entry-item">
+    74→                                                        <div class="time-entry-header">
+    75→                                                            <lightning-icon icon-name="utility:clock" size="x-small" class="slds-m-right_xx-small"></lightning-icon>
+    76→                                                            <span class="time-entry-label">Time Entry</span>
+    77→                                                            <span class="time-entry-date">{item.formattedDate}</span>
+    78→                                                            <span class="time-entry-user">{item.createdByName}</span>
+    79→                                                        </div>
+    80→                                                        <div class="time-entry-body">
+    81→                                                            <div class="time-entry-details">
+    82→                                                                <div class="slds-grid slds-wrap slds-gutters_x-small">
+    83→                                                                    <div class="slds-col slds-size_1-of-1">
+    84→                                                                        <span class="slds-text-body_small slds-text-color_weak">Work Item: </span>
+    85→                                                                        <span class="slds-text-body_small slds-text-title">{item.workItemName}</span>
+    86→                                                                    </div>
+    87→                                                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+    88→                                                                        <span class="slds-text-body_small slds-text-color_weak">Date: </span>
+    89→                                                                        <span class="slds-text-body_small">{item.entryDate}</span>
+    90→                                                                    </div>
+    91→                                                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+    92→                                                                        <span class="slds-text-body_small slds-text-color_weak">Hours: </span>
+    93→                                                                        <span class="slds-text-body_small">{item.hours}</span>
+    94→                                                                    </div>
+    95→                                                                    <div class="slds-col slds-size_1-of-1">
+    96→                                                                        <span class="slds-text-body_small slds-text-color_weak">Resource: </span>
+    97→                                                                        <span class="slds-text-body_small">{item.resourceName}</span>
+    98→                                                                    </div>
+    99→                                                                    <div class="slds-col slds-size_1-of-1 slds-m-top_x-small">
+   100→                                                                        <span class="slds-text-body_small slds-text-color_weak">Description: </span>
+   101→                                                                        <div class="slds-text-body_small">{item.description}</div>
+   102→                                                                    </div>
+   103→                                                                </div>
+   104→                                                            </div>
+   105→                                                        </div>
+   106→                                                    </div>
+   107→                                                </template>
+   108→                                            </div>
+   109→                                        </template>
+   110→                                    </div>
+   111→                                </template>
+   112→
+   113→                                <!-- No History Message -->
+   114→                                <template if:true={hasNoHistory}>
+   115→                                    <div class="slds-align_absolute-center slds-p-around_large">
+   116→                                        <div class="slds-text-body_regular slds-text-color_weak">No history available for this work item.</div>
+   117→                                    </div>
+   118→                                </template>
+   119→
+   120→                                <!-- Error Message -->
+   121→                                <template if:true={hasError}>
+   122→                                    <div class="slds-align_absolute-center slds-p-around_large">
+   123→                                        <div class="slds-text-body_regular slds-text-color_error">Error loading history: {errorMessage}</div>
+   124→                                    </div>
+   125→                                </template>
+   126→                            </lightning-tab>
+   127→
+   128→                            <lightning-tab label="Notes" value="notes">
+   129→                                <!-- Notes List -->
+   130→                                <template if:true={hasHistory}>
+   131→                                    <div class="history-list slds-m-top_medium">
+   132→                                        <template for:each={filteredItems} for:item="item">
+   133→                                            <div key={item.id}>
+   134→                                                <!-- Note Item -->
+   135→                                                <template if:true={item.noteText}>
+   136→                                                    <div class="note-item">
+   137→                                                        <div class="note-item-header">
+   138→                                                            <lightning-icon icon-name="utility:note" size="x-small" class="slds-m-right_xx-small"></lightning-icon>
+   139→                                                            <span class="note-label">Note</span>
+   140→                                                            <span class="note-date">{item.formattedDate}</span>
+   141→                                                            <span class="note-user">{item.userName}</span>
+   142→                                                        </div>
+   143→                                                        <div class="note-item-body">
+   144→                                                            <div class="note-text">{item.noteText}</div>
+   145→                                                        </div>
+   146→                                                    </div>
+   147→                                                </template>
+   148→                                            </div>
+   149→                                        </template>
+   150→                                    </div>
+   151→                                </template>
+   152→
+   153→                                <!-- No Notes Message -->
+   154→                                <template if:true={hasNoHistory}>
+   155→                                    <div class="slds-align_absolute-center slds-p-around_large">
+   156→                                        <div class="slds-text-body_regular slds-text-color_weak">No notes available for this work item.</div>
+   157→                                    </div>
+   158→                                </template>
+   159→                            </lightning-tab>
+   160→
+   161→                            <lightning-tab label="Field Updates" value="fields">
+   162→                                <!-- Field Updates List -->
+   163→                                <template if:true={hasHistory}>
+   164→                                    <div class="history-list slds-m-top_medium">
+   165→                                        <template for:each={filteredItems} for:item="item">
+   166→                                            <div key={item.id}>
+   167→                                                <!-- History Item (Non-status fields) -->
+   168→                                                <template if:true={item.fieldName}>
+   169→                                                    <div class="history-item">
+   170→                                                        <div class="history-item-header">
+   171→                                                            <span class="history-date">{item.formattedDate}</span>
+   172→                                                            <span class="history-user">{item.userName}</span>
+   173→                                                        </div>
+   174→                                                        <div class="history-item-body">
+   175→                                                            <span class="history-field">{item.fieldLabel}:</span>
+   176→                                                            <span class="history-action">{item.action}</span>
+   177→                                                            <template if:true={item.oldValue}>
+   178→                                                                <div class="history-values">
+   179→                                                                    <span class="old-value">From: {item.oldValue}</span>
+   180→                                                                    <span class="new-value">To: {item.newValue}</span>
+   181→                                                                </div>
+   182→                                                            </template>
+   183→                                                        </div>
+   184→                                                    </div>
+   185→                                                </template>
+   186→                                            </div>
+   187→                                        </template>
+   188→                                    </div>
+   189→                                </template>
+   190→
+   191→                                <!-- No Field Updates Message -->
+   192→                                <template if:true={hasNoHistory}>
+   193→                                    <div class="slds-align_absolute-center slds-p-around_large">
+   194→                                        <div class="slds-text-body_regular slds-text-color_weak">No field updates available for this work item.</div>
+   195→                                    </div>
+   196→                                </template>
+   197→                            </lightning-tab>
+   198→
+   199→                            <lightning-tab label="Time Entries" value="timeentries">
+   200→                                <!-- Time Entries List -->
+   201→                                <template if:true={hasHistory}>
+   202→                                    <div class="history-list slds-m-top_medium">
+   203→                                        <template for:each={filteredItems} for:item="item">
+   204→                                            <div key={item.id}>
+   205→                                                <!-- Time Entry Item -->
+   206→                                                <template if:true={item.isTimeEntry}>
+   207→                                                    <div class="time-entry-item">
+   208→                                                        <div class="time-entry-header">
+   209→                                                            <lightning-icon icon-name="utility:clock" size="x-small" class="slds-m-right_xx-small"></lightning-icon>
+   210→                                                            <span class="time-entry-label">Time Entry</span>
+   211→                                                            <span class="time-entry-date">{item.formattedDate}</span>
+   212→                                                            <span class="time-entry-user">{item.createdByName}</span>
+   213→                                                        </div>
+   214→                                                        <div class="time-entry-body">
+   215→                                                            <div class="time-entry-details">
+   216→                                                                <div class="slds-grid slds-wrap slds-gutters_x-small">
+   217→                                                                    <div class="slds-col slds-size_1-of-1">
+   218→                                                                        <span class="slds-text-body_small slds-text-color_weak">Work Item: </span>
+   219→                                                                        <span class="slds-text-body_small slds-text-title">{item.workItemName}</span>
+   220→                                                                    </div>
+   221→                                                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+   222→                                                                        <span class="slds-text-body_small slds-text-color_weak">Date: </span>
+   223→                                                                        <span class="slds-text-body_small">{item.entryDate}</span>
+   224→                                                                    </div>
+   225→                                                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+   226→                                                                        <span class="slds-text-body_small slds-text-color_weak">Hours: </span>
+   227→                                                                        <span class="slds-text-body_small">{item.hours}</span>
+   228→                                                                    </div>
+   229→                                                                    <div class="slds-col slds-size_1-of-1">
+   230→                                                                        <span class="slds-text-body_small slds-text-color_weak">Resource: </span>
+   231→                                                                        <span class="slds-text-body_small">{item.resourceName}</span>
+   232→                                                                    </div>
+   233→                                                                    <div class="slds-col slds-size_1-of-1 slds-m-top_x-small">
+   234→                                                                        <span class="slds-text-body_small slds-text-color_weak">Description: </span>
+   235→                                                                        <div class="slds-text-body_small">{item.description}</div>
+   236→                                                                    </div>
+   237→                                                                </div>
+   238→                                                            </div>
+   239→                                                        </div>
+   240→                                                    </div>
+   241→                                                </template>
+   242→                                            </div>
+   243→                                        </template>
+   244→                                    </div>
+   245→                                </template>
+   246→
+   247→                                <!-- No Time Entries Message -->
+   248→                                <template if:true={hasNoHistory}>
+   249→                                    <div class="slds-align_absolute-center slds-p-around_large">
+   250→                                        <div class="slds-text-body_regular slds-text-color_weak">No time entries available for this work item.</div>
+   251→                                    </div>
+   252→                                </template>
+   253→                            </lightning-tab>
+   254→                        </lightning-tabset>
+   255→                    </template>
+   256→                </div>
+   257→
+   258→                <!-- Modal Footer -->
+   259→                <footer class="slds-modal__footer">
+   260→                    <lightning-button variant="neutral" label="Close" onclick={handleClose}></lightning-button>
+   261→                </footer>
+   262→            </div>
+   263→        </section>
+   264→        <div class="slds-backdrop slds-backdrop_open"></div>
+   265→    </template>
+   266→</template>
+
+<system-reminder>
+Whenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.
+</system-reminder>
