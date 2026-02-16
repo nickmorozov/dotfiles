@@ -1,0 +1,5 @@
+<application>
+  <component name="ClaudeCodePluginSettings">
+    <option name="useAuthWithAllInterfaces" value="true" />
+  </component>
+</application>

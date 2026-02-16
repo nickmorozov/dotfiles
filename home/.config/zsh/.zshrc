@@ -177,3 +177,4 @@ if [ -f "$HOMEBREW_COMMAND_NOT_FOUND_HANDLER" ]; then
   source "$HOMEBREW_COMMAND_NOT_FOUND_HANDLER";
 fi
 
+export CLAUDE_CODE_SHELL="$(which bash)"

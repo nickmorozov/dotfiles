@@ -1,0 +1,21 @@
+<application>
+  <component name="BlockTerminalUsage">
+    <option name="blockTerminalUsedLastTimeMillis" value="1740353457709" />
+    <option name="blockTerminalUsedLastVersion" value="243.24978.46" />
+    <option name="feedbackNotificationShown" value="true" />
+    <shellToExecutedCommandsNumber>
+      <entry key="zsh" value="151" />
+    </shellToExecutedCommandsNumber>
+  </component>
+  <component name="ReworkedTerminalUsage"><![CDATA[{
+  "feedbackNotificationShown": true,
+  "enterKeyPressedTimes": 403,
+  "completionPopupShownTimes": 4,
+  "completionItemChosenTimes": 2
+}]]></component>
+  <component name="TerminalOptionsProvider">
+    <option name="commandCompletionShowingMode" value="ALWAYS" />
+    <option name="myTabName" value="Terminal" />
+    <option name="useOptionAsMetaKey" value="true" />
+  </component>
+</application>

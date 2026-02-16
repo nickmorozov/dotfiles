@@ -32,6 +32,7 @@ if _exists sf; then
           url+="$domain.sandbox"
         elif [[ $domain =~ 'dev-ed' ]]; then
           # sf org login web --instance-url https://foo-dev-ed.develop.my.salesforce.com --alias foo-dev-ed --set-default
+          url+="$domain.develop"
         else
           # sf org login web --instance-url https://foo.my.salesforce.com --alias foo-prod --set-default
           url+="$domain"

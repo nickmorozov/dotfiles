@@ -1,0 +1,615 @@
+<templateSet group="LWC HTML Snippets">
+  <template name="lwc-carousel-image" value="&lt;lightning-carousel-image&#10;    src=&quot;$SRC$&quot;&#10;    header=&quot;$HEADER$&quot;&#10;    description=&quot;$DESCRIPTION$&quot;&#10;    alternative-text=&quot;$ALTERNATIVE_TEXT$&quot;&#10;    href=&quot;$HREF$&quot;&gt;&#10;&lt;/lightning-carousel-image&gt;" description="Carousel Image - Specifies an image used in lighting-carousel, including description and title." toReformat="true" toShortenFQNames="true">
+    <variable name="SRC" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="HEADER" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="DESCRIPTION" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="ALTERNATIVE_TEXT" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="HREF" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-checkbox-group" value="&lt;lightning-checkbox-group name=&quot;$NAME$&quot;&#10;  label=&quot;$LABEL$&quot;&#10;  options={$OPTIONS$}&#10;  value={$VALUE$}&#10;  message-when-value-missing=&quot;$MESSAGE_WHEN_VALUE_MISSING$&quot;&#10;  onchange={$ONCHANGE$}&#10;  variant=$VARIANT$&#10;  disabled=$DISABLED$&#10;  required=$REQUIRED$&gt;&#10;&lt;/lightning-checkbox-group&gt;" description="Checkbox Group - A checkbox group that enables a selection of single or multiple options." toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="OPTIONS" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="VALUE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="MESSAGE_WHEN_VALUE_MISSING" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="ONCHANGE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="VARIANT" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="DISABLED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="REQUIRED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-click-to-dial" value="&lt;lightning-click-to-dial &#10;  value=&quot;$VALUE$&quot; &#10;  record-id=&quot;$RECORD_ID$&quot; &#10;  params=&quot;$PARAMS$&quot;&gt;&#10;&lt;/lightning-click-to-dial&gt;" description="Click To Dial - Renders a formatted phone number as click-to-dial enabled or disabled for Open CTI and Voice." toReformat="true" toShortenFQNames="true">
+    <variable name="VALUE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="RECORD_ID" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="PARAMS" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-combobox" value="&lt;lightning-combobox&#10;  name=&quot;$NAME$&quot;&#10;  label=&quot;$LABEL$&quot;&#10;  value={$VALUE$}&#10;  placeholder=&quot;$PLACEHOLDER$&quot;&#10;  options={$OPTIONS$}&#10;  onchange={$ONCHANGE$} &#10;  disabled=$DISABLED$&#10;  required=$REQUIRED$&gt;&#10;&lt;/lightning-combobox&gt;" description="Combobox - A widget that provides an input field that is readonly, accompanied by a dropdown list of selectable options." toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="VALUE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="PLACEHOLDER" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="OPTIONS" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="ONCHANGE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="DISABLED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="REQUIRED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-combobox-advanced" value="&lt;lightning-combobox&#10;  field-level-help=&quot;$FIELD_LEVEL_HELP$&quot;&#10;  label=&quot;$LABEL$&quot;&#10;  message-when-value-missing=&quot;$MESSAGE_WHEN_VALUE_MISSING$&quot;&#10;  name=&quot;$NAME$&quot;&#10;  options={$OPTIONS$}&#10;  onchange={$ONCHANGE$} &#10;  placeholder=&quot;$PLACEHOLDER$&quot;&#10;  value={$VALUE$}&#10;  variant=$VARIANT$&#10;  disabled=$DISABLED$&#10;  read-only=$READ_ONLY$&#10;  required=$REQUIRED$&gt;&#10;&lt;/lightning-combobox&gt;" description="Combobox Advanced - All attributes. A widget that provides an input field that is readonly, accompanied by a dropdown list of selectable options." toReformat="true" toShortenFQNames="true">
+    <variable name="FIELD_LEVEL_HELP" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="MESSAGE_WHEN_VALUE_MISSING" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="OPTIONS" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="ONCHANGE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="PLACEHOLDER" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="VALUE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="VARIANT" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="DISABLED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="READ_ONLY" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="REQUIRED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-datatable" value="&lt;lightning-datatable&#10;  key-field=&quot;$KEY_FIELD$&quot;&#10;  data={$DATA$}&#10;  columns={$COLUMNS$}&gt;&#10;&lt;/lightning-datatable&gt;" description="Datatable - A table that displays rows and columns of data" toReformat="true" toShortenFQNames="true">
+    <variable name="KEY_FIELD" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="DATA" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="COLUMNS" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-formatted-email" value="&lt;lightning-formatted-email &#10;  value=&quot;$VALUE$&quot;&#10;  hide-icon=$HIDE_ICON$&#10;  label=&quot;$LABEL$&quot;&gt;&#10;&lt;/lightning-formatted-email&gt;" description="Formatted Email - Displays an email as a hyperlink with the mailto: URL scheme." toReformat="true" toShortenFQNames="true">
+    <variable name="VALUE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="HIDE_ICON" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-formatted-email-onclick" value="&lt;lightning-formatted-email &#10;  value=&quot;$VALUE$&quot;&#10;  onclick={$ONCLICK$}&#10;  hide-icon=$HIDE_ICON$&#10;  label=&quot;$LABEL$&quot;&gt;&#10;&lt;/lightning-formatted-email&gt;" description="Formatted Email OnClick- Displays an email as a hyperlink with a custom click hander." toReformat="true" toShortenFQNames="true">
+    <variable name="VALUE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="ONCLICK" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="HIDE_ICON" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-formatted-location" value="&lt;lightning-formatted-location &#10;  latitude=&quot;$LATITUDE$&quot; &#10;  longitude=&quot;$LONGITUDE$&quot;&gt;&#10;&lt;/lightning-formatted-location&gt;" description="Formatted Location - Displays a geolocation in decimal degrees using the format [latitude, longitude]." toReformat="true" toShortenFQNames="true">
+    <variable name="LATITUDE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="LONGITUDE" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-formatted-name" value="&lt;lightning-formatted-name&#10;  format=$FORMAT$&#10;  first-name=&quot;$FIRST_NAME$&quot;&#10;  last-name=&quot;$LAST_NAME$&quot;&#10;  middle-name=&quot;$MIDDLE_NAME$&quot;&#10;  informal-name=&quot;$INFORMAL_NAME$&quot;&#10;  suffix=&quot;$SUFFIX$&quot;&#10;  salutation=&quot;$SALUTATION$&quot;&gt;&#10;&lt;/lightning-formatted-name&gt;" description="Formatted Name - Displays a formatted name that can include a salutation and suffix." toReformat="true" toShortenFQNames="true">
+    <variable name="FORMAT" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="FIRST_NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="LAST_NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="MIDDLE_NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="INFORMAL_NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="SUFFIX" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="SALUTATION" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-formatted-number-currency" value="&lt;lightning-formatted-number &#10;  value=&quot;$VALUE$&quot;&#10;  format-style=&quot;currency&quot;&#10;  currency-code=&quot;$CURRENCY_CODE$&quot;&#10;  currency-display-as=$CURRENCY_DISPLAY_AS$&gt;&#10;&lt;/lightning-formatted-number&gt;" description="Formatted Number Currency - Displays formatted numbers as currency values" toReformat="true" toShortenFQNames="true">
+    <variable name="VALUE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="CURRENCY_CODE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="CURRENCY_DISPLAY_AS" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-formatted-number-decimal" value="&lt;lightning-formatted-number &#10;  value=&quot;$VALUE$&quot; &#10;  format-style=&quot;decimal&quot; &#10;  maximum-fraction-digits=&quot;$MAXIMUM_FRACTION_DIGITS$&quot;&#10;  maximum-significant-digits=&quot;$MAXIMUM_SIGNIFICANT_DIGITS$&quot;&#10;  minimum-fraction-digits=&quot;$MINIMUM_FRACTION_DIGITS$&quot;&#10;  minimum-integer-digits=&quot;$MINIMUM_INTEGER_DIGITS$&quot;&#10;  minimum-significant-digits=&quot;$MINIMUM_SIGNIFICANT_DIGITS$&quot;&gt;&#10;&lt;/lightning-formatted-number&gt;" description="Formatted Number Decimal - Displays formatted numbers in decimals format." toReformat="true" toShortenFQNames="true">
+    <variable name="VALUE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="MAXIMUM_FRACTION_DIGITS" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="MAXIMUM_SIGNIFICANT_DIGITS" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="MINIMUM_FRACTION_DIGITS" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="MINIMUM_INTEGER_DIGITS" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="MINIMUM_SIGNIFICANT_DIGITS" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-formatted-number-percentage" value="&lt;lightning-formatted-number &#10;  value=&quot;$VALUE$&quot; &#10;  format-style=&quot;percent&quot; &#10;  maximum-fraction-digits=&quot;$MAXIMUM_FRACTION_DIGITS$&quot;&#10;  minimum-fraction-digits=&quot;$MINIMUM_FRACTION_DIGITS$&quot;&gt;&#10;&lt;/lightning-formatted-number&gt;" description="Formatted Number Percentage - Displays a number in percentage format." toReformat="true" toShortenFQNames="true">
+    <variable name="VALUE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="MAXIMUM_FRACTION_DIGITS" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="MINIMUM_FRACTION_DIGITS" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-formatted-phone" value="&lt;lightning-formatted-phone &#10;  value=&quot;$VALUE$&quot;&#10;  disabled=$DISABLED$ &gt;&#10;&lt;/lightning-formatted-phone&gt;" description="Formatted Phone - Displays a phone number as a hyperlink with the tel: URL scheme." toReformat="true" toShortenFQNames="true">
+    <variable name="VALUE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="DISABLED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-formatted-rich-text" value="&lt;lightning-formatted-rich-text&#10;  value={$VALUE$}&#10;  disable-linkify=$DISABLE_LINKIFY$&gt;&#10;&lt;/lightning-formatted-rich-text&gt;" description="Formatted Rich Text - Displays rich text that's formatted with allowed tags and attributes. Other tags and attributes are removed and only their text content is displayed." toReformat="true" toShortenFQNames="true">
+    <variable name="VALUE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="DISABLE_LINKIFY" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-formatted-text" value="&lt;lightning-formatted-text &#10;  value=&quot;$VALUE$&quot;&#10;  linkify=$LINKIFY$&gt;&#10;&lt;/lightning-formatted-text&gt;" description="Formatted Text - Displays text, replaces newlines with line breaks, and linkifies if requested." toReformat="true" toShortenFQNames="true">
+    <variable name="VALUE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="LINKIFY" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-formatted-time" value="&lt;lightning-formatted-time &#10;  value=&quot;$VALUE$&quot;&gt;&#10;&lt;/lightning-formatted-time&gt;" description="Formatted Time - Displays a formatted time in user's locale format." toReformat="true" toShortenFQNames="true">
+    <variable name="VALUE" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-formatted-url" value="&lt;lightning-formatted-url &#10;  value=&quot;$VALUE$&quot;&#10;  tooltip=&quot;$TOOLTIP$&quot;&#10;  label=&quot;$LABEL$&quot;&#10;  target=$TARGET$&gt;&#10;&lt;/lightning-formatted-url&gt;" description="Formatted URL - Displays a URL as a hyperlink." toReformat="true" toShortenFQNames="true">
+    <variable name="VALUE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="TOOLTIP" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="TARGET" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-helptext" value="&lt;lightning-helptext &#10;  content=&quot;$CONTENT$&quot;&gt;&#10;&lt;/lightning-helptext&gt;" description="Helptext - An icon with a text popover used for tooltips." toReformat="true" toShortenFQNames="true">
+    <variable name="CONTENT" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-icon" value="&lt;lightning-icon &#10;  icon-name=&quot;$ICON_NAME$&quot; &#10;  alternative-text=&quot;$ALTERNATIVE_TEXT$&quot; &#10;  size=$SIZE$ &#10;  title=&quot;$TITLE$&quot;&#10;  variant=$VARIANT$&gt;&#10;&lt;/lightning-icon&gt;" description="Icon - Represents a visual element that provides context and enhances usability." toReformat="true" toShortenFQNames="true">
+    <variable name="ICON_NAME" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="ALTERNATIVE_TEXT" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="SIZE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="TITLE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="VARIANT" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-input" value="&lt;lightning-input &#10;  type=$TYPE$&#10;  label=&quot;$LABEL$&quot;&gt;&#10;&lt;/lightning-input&gt;" description="Input - Represents interactive controls that accept user input depending on the type attribute." toReformat="true" toShortenFQNames="true">
+    <variable name="TYPE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-input-address" value="&lt;lightning-input-address&#10;  address-label=&quot;$ADDRESS_LABEL$&quot;&#10;  street-label=&quot;$STREET_LABEL$&quot;&#10;  city-label=&quot;$CITY_LABEL$&quot;&#10;  country-label=&quot;$COUNTRY_LABEL$&quot;&#10;  province-label=&quot;$PROVINCE_LABEL$&quot;&#10;  postal-code-label=&quot;$POSTAL_CODE_LABEL$&quot;&#10;  street=&quot;$STREET$&quot;&#10;  city=&quot;$CITY$&quot;&#10;  country=&quot;$COUNTRY$&quot;&#10;  province=&quot;$PROVINCE$&quot;&#10;  postal-code=&quot;$POSTAL_CODE$&quot;&#10;  required=$REQUIRED$&#10;  field-level-help=&quot;$FIELD_LEVEL_HELP$&quot; &gt;&#10;&lt;/lightning-input-address&gt;" description="Input Address - Address fields can be pre-populated and marked as required." toReformat="true" toShortenFQNames="true">
+    <variable name="ADDRESS_LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="STREET_LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="CITY_LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="COUNTRY_LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="PROVINCE_LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="POSTAL_CODE_LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="STREET" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="CITY" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="COUNTRY" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="PROVINCE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="POSTAL_CODE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="REQUIRED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="FIELD_LEVEL_HELP" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-input-address-state-country-picklists" value="&lt;lightning-input-address&#10;  address-label=&quot;$ADDRESS_LABEL$&quot;&#10;  street-label=&quot;$STREET_LABEL$&quot;&#10;  city-label=&quot;$CITY_LABEL$&quot;&#10;  country-label=&quot;$COUNTRY_LABEL$&quot;&#10;  province-label=&quot;$PROVINCE_LABEL$&quot;&#10;  postal-code-label=&quot;$POSTAL_CODE_LABEL$&quot;&#10;  street=&quot;$STREET$&quot;&#10;  city=&quot;$CITY$&quot;&#10;  country=&quot;$COUNTRY$&quot;&#10;  province=&quot;$PROVINCE$&quot;&#10;  postal-code=&quot;$POSTAL_CODE$&quot;&#10;  field-level-help=&quot;$FIELD_LEVEL_HELP$&quot; &#10;  country-options={$COUNTRY_OPTIONS$}&#10;  province-options={$PROVINCE_OPTIONS$}&#10;  onchange={$ONCHANGE$} &gt;&#10;&lt;/lightning-input-address&gt;" description="Input Address - Address fields support predefined lists of states and countries." toReformat="true" toShortenFQNames="true">
+    <variable name="ADDRESS_LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="STREET_LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="CITY_LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="COUNTRY_LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="PROVINCE_LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="POSTAL_CODE_LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="STREET" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="CITY" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="COUNTRY" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="PROVINCE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="POSTAL_CODE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="FIELD_LEVEL_HELP" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="COUNTRY_OPTIONS" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="PROVINCE_OPTIONS" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="ONCHANGE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-input-advanced" value="&lt;lightning-input &#10;  type=$TYPE$ &#10;  label=&quot;$LABEL$&quot; &#10;  onfocus={$ONFOCUS$} &#10;  onblur={$ONBLUR$}&gt;&#10;&lt;/lightning-input&gt;" description="Input (advanced) - Input element that includes onfocus and onblur attributes to enable custom behavior on the element." toReformat="true" toShortenFQNames="true">
+    <variable name="TYPE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="ONFOCUS" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="ONBLUR" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-input-checkbox" value="&lt;lightning-input &#10;  type=&quot;checkbox&quot;&#10;  label=&quot;$LABEL$&quot;&#10;  name=&quot;$NAME$&quot;&#10;  checked=$CHECKED$&#10;  disabled=$DISABLED$&#10;  required=$REQUIRED$&gt;&#10;&lt;/lightning-input&gt;" description="Input Checkbox - Checkbox options can be required or disabled" toReformat="true" toShortenFQNames="true">
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="CHECKED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="DISABLED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="REQUIRED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-input-checkbox-button" value="&lt;lightning-input &#10;  type=&quot;checkbox-button&quot; &#10;  label=&quot;$LABEL$&quot;&#10;  name=&quot;$NAME$&quot;&#10;  checked=$CHECKED$&#10;  disabled=$DISABLED$&#10;  required=$REQUIRED$&gt;&#10;&lt;/lightning-input&gt;" description="Input Checkbox Button - Checkbox buttons can be required or disabled" toReformat="true" toShortenFQNames="true">
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="CHECKED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="DISABLED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="REQUIRED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-input-color" value="&lt;lightning-input &#10;  type=&quot;color&quot; &#10;  name=&quot;$NAME$&quot; &#10;  label=&quot;$LABEL$&quot;&#10;  value=&quot;$VALUE$&quot;&gt;&#10;&lt;/lightning-input&gt;" description="Input Color - Color input fields provide a color swatch for entering a HEX or RGB value." toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="VALUE" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-input-date" value="&lt;lightning-input &#10;  type=&quot;date&quot; &#10;  name=&quot;$NAME$&quot; &#10;  label=&quot;$LABEL$&quot; &gt;&#10;&lt;/lightning-input&gt;" description="Input Date - Date input fields provide a date picker for entering a date." toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-input-date-predefined" value="&lt;lightning-input &#10;  type=&quot;date&quot; &#10;  name=&quot;$NAME$&quot; &#10;  label=&quot;$LABEL$&quot; &#10;  value=&quot;$VALUE$&quot;&gt;&#10;&lt;/lightning-input&gt;" description="Input Date w/ Predefined Value" toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="VALUE" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-input-date-time" value="&lt;lightning-input &#10;  type=&quot;datetime&quot; &#10;  name=&quot;$NAME$&quot; &#10;  label=&quot;$LABEL$&quot; &gt;&#10;&lt;/lightning-input&gt;" description="Input Date Time - Date/Time input fields provide a date and time picker for entering a date and time." toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-input-email" value="&lt;lightning-input &#10;  type=&quot;email&quot; &#10;  label=&quot;$LABEL$&quot;&gt;&#10;&lt;/lightning-input&gt;" description="Input Email - Email input fields are for entering email addresses." toReformat="true" toShortenFQNames="true">
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-input-email-advanced" value="&lt;lightning-input &#10;  type=&quot;email&quot; &#10;  label=&quot;$LABEL$&quot;&#10;  value=&quot;$VALUE$&quot;&#10;  multiple=$MULTIPLE$&#10;  disabled=$DISABLED$&#10;  read-only=$READ_ONLY$&gt;&#10;&lt;/lightning-input&gt;" description="Input Email Advanced - Includes attributes to accept multiple addresses, pre-define values, disabled, and read-only" toReformat="true" toShortenFQNames="true">
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="VALUE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="MULTIPLE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="DISABLED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="READ_ONLY" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-input-field" value="&lt;lightning-input-field &#10;  field-name=&quot;$FIELD_NAME$&quot;&#10;  disabled=$DISABLED$&#10;  read-only=$READ_ONLY$&#10;  required=$REQUIRED$&#10;  variant=$VARIANT$&gt;&#10;&lt;/lightning-input-field&gt;" description="Input Field - To be used within lightning-record-edit-form components. Represents an editable input for a field on a Salesforce object." toReformat="true" toShortenFQNames="true">
+    <variable name="FIELD_NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="DISABLED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="READ_ONLY" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="REQUIRED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="VARIANT" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-input-file" value="&lt;lightning-input &#10;  type=&quot;file&quot;&#10;  label=&quot;$LABEL$&quot; &#10;  accept=&quot;$ACCEPT$&quot;&gt;&#10;&lt;/lightning-input&gt;" description="Input File - File input fields support upload of single or multiple files and can restrict the accepted types" toReformat="true" toShortenFQNames="true">
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="ACCEPT" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-input-location" value="&lt;lightning-input-location &#10;  label=&quot;$LABEL$&quot;&#10;  field-level-help=&quot;$FIELD_LEVEL_HELP$&quot;&#10;  disabled=$DISABLED$&#10;  read-only=$READ_ONLY$&#10;  required=$REQUIRED$&gt;&#10;&lt;/lightning-input-location&gt;" description="Input Location - Geolocation fields include a latitude and longitude field" toReformat="true" toShortenFQNames="true">
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="FIELD_LEVEL_HELP" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="DISABLED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="READ_ONLY" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="REQUIRED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-input-name" value="&lt;lightning-input-name&#10;  label=&quot;$LABEL$&quot;&#10;  first-name=&quot;$FIRST_NAME$&quot;&#10;  middle-name=&quot;$MIDDLE_NAME$&quot;&#10;  last-name=&quot;$LAST_NAME$&quot;&#10;  informal-name=&quot;$INFORMAL_NAME$&quot;&#10;  suffix=&quot;$SUFFIX$&quot;&#10;  salutation=&quot;$SALUTATION$&quot;&#10;  options={$OPTIONS$} &gt;&#10;&lt;/lightning-input-name&gt;" description="Input Field - A name compound field displaying Salutation, First Name, and Last Name fields by default." toReformat="true" toShortenFQNames="true">
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="FIRST_NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="MIDDLE_NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="LAST_NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="INFORMAL_NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="SUFFIX" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="SALUTATION" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="OPTIONS" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-input-name-advanced" value="&lt;lightning-input-name&#10;  label=&quot;$LABEL$&quot;&#10;  first-name=&quot;$FIRST_NAME$&quot;&#10;  middle-name=&quot;$MIDDLE_NAME$&quot;&#10;  last-name=&quot;$LAST_NAME$&quot;&#10;  informal-name=&quot;$INFORMAL_NAME$&quot;&#10;  suffix=&quot;$SUFFIX$&quot;&#10;  salutation=&quot;$SALUTATION$&quot;&#10;  options={$OPTIONS$} &#10;  variant=$VARIANT$&#10;  field-level-help=&quot;$FIELD_LEVEL_HELP$&quot;&#10;  disabled=$DISABLED$&#10;  read-only=$READ_ONLY$&#10;  required=$REQUIRED$&gt;&#10;&lt;/lightning-input-name&gt;" description="Input Field - A name compound field displaying Salutation, First Name, and Last Name fields by default." toReformat="true" toShortenFQNames="true">
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="FIRST_NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="MIDDLE_NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="LAST_NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="INFORMAL_NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="SUFFIX" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="SALUTATION" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="OPTIONS" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="VARIANT" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="FIELD_LEVEL_HELP" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="DISABLED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="READ_ONLY" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="REQUIRED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-input-number" value="&lt;lightning-input &#10;  type=&quot;number&quot; &#10;  name=&quot;$NAME$&quot; &#10;  label=&quot;$LABEL$&quot; &#10;  formatter=$FORMATTER$&#10;  disabled=$DISABLED$&#10;  read-only=$READ_ONLY$&#10;  required=$REQUIRED$&gt;&#10;&lt;/lightning-input&gt;" description="Input Number - Number input fields support decimal, percentage, and currency values." toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="FORMATTER" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="DISABLED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="READ_ONLY" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="REQUIRED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-input-password" value="&lt;lightning-input &#10;  type=&quot;password&quot; &#10;  label=&quot;$LABEL$&quot; &#10;  name=&quot;$NAME$&quot;  &gt;&#10;&lt;/lightning-input&gt;" description="Input Password - Password input fields obscure your text input." toReformat="true" toShortenFQNames="true">
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-input-rich-text" value="&lt;lightning-input-rich-text&#10;  value={$VALUE$}&#10;  onchange={$ONCHANGE$}&gt;&#10;&lt;/lightning-input-rich-text&gt;" description="Input Rich Text - A WYSIWYG editor with a customizable toolbar for entering rich text." toReformat="true" toShortenFQNames="true">
+    <variable name="VALUE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="ONCHANGE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-input-rich-text-advanced" value="&lt;lightning-input-rich-text&#10;  value={$VALUE$}&#10;  onchange={$ONCHANGE$}&#10;  formats={$FORMATS$}&#10;  disabled-categories=&quot;$DISABLED_CATEGORIES$&quot;&#10;  label-visible=$LABEL_VISIBLE$&#10;  required=$REQUIRED$&#10;  message-when-bad-input={$MESSAGE_WHEN_BAD_INPUT$}&#10;  valid={$VALID$}&gt;&#10;&lt;/lightning-input-rich-text&gt;" description="Input Rich Text - A WYSIWYG editor with a customizable toolbar for entering rich text." toReformat="true" toShortenFQNames="true">
+    <variable name="VALUE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="ONCHANGE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="FORMATS" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="DISABLED_CATEGORIES" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="LABEL_VISIBLE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="REQUIRED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="MESSAGE_WHEN_BAD_INPUT" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="VALID" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-input-search" value="&lt;div onkeyup={$ONKEYUP$}&gt;&#10;  &lt;lightning-input&#10;    type=&quot;search&quot;&#10;    name=&quot;$NAME$&quot;&#10;    label=&quot;$LABEL$&quot;&gt;&#10;  &lt;/lightning-input&gt;&#10;&lt;/div&gt;" description="Input Search - Search input fields enable search queries." toReformat="true" toShortenFQNames="true">
+    <variable name="ONKEYUP" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-input-telephone" value="&lt;lightning-input &#10;  type=&quot;tel&quot; &#10;  label=&quot;$LABEL$&quot; &#10;  name=&quot;$NAME$&quot; &#10;  value=&quot;$VALUE$&quot; &#10;  pattern=&quot;[0-9]{3}-[0-9]{3}-[0-9]{4}}&quot;&gt;&#10;&lt;/lightning-input&gt;" description="Input Telephone - Input fields that support number pattern matching" toReformat="true" toShortenFQNames="true">
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="VALUE" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-input-time-basic" value="&lt;lightning-input &#10;  type=&quot;time&quot; &#10;  name=&quot;$NAME$&quot; &#10;  label=&quot;$LABEL$&quot;&gt;&#10;&lt;/lightning-input&gt;" description="Input Time - Time input fields provide a dropdown list of time values in 15-minute increments." toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-input-time-advanced" value="&lt;lightning-input &#10;  type=&quot;time&quot; &#10;  name=&quot;$NAME$&quot; &#10;  label=&quot;$LABEL$&quot; &#10;  value=&quot;$VALUE$&quot;&#10;  min=&quot;$MIN$&quot; &#10;  max=&quot;$MAX$&quot;&gt;&#10;&lt;/lightning-input&gt;" description="Input Time - Time input fields support earliest and latest time input." toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="VALUE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="MIN" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="MAX" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-input-toggle" value="&lt;lightning-input &#10;  type=&quot;toggle&quot; &#10;  label=&quot;$LABEL$&quot; &#10;  name=&quot;$NAME$&quot;&#10; checked=$CHECKED$&#10;  disabled=$DISABLED$&#10;  required=$REQUIRED$&gt;&#10;&lt;/lightning-input&gt;" description="Input Toggle - Toggle buttons can be required or disabled" toReformat="true" toShortenFQNames="true">
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="CHECKED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="DISABLED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="REQUIRED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-input-url" value="&lt;lightning-input &#10;  type=&quot;url&quot; &#10;  label=&quot;$LABEL$&quot; &#10;  name=&quot;$NAME$&quot; &#10;  disabled=$DISABLED$&#10;  required=$REQUIRED$&gt;&#10;&lt;/lightning-input&gt;" description="Input URL - URL input fields support URL pattern matching." toReformat="true" toShortenFQNames="true">
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="DISABLED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="REQUIRED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-layout" value="&lt;lightning-layout &#10;  horizontal-align=$HORIZONTAL_ALIGN$&#10;  multiple-rows=$MULTIPLE_ROWS$&#10;  pull-to-boundary=$PULL_TO_BOUNDARY$&#10;  vertical-align=$VERTICAL_ALIGN$&gt;&#10;  $END$&#10;&lt;/lightning-layout&gt;" description="Layout - A layout can include layout items as columns" toReformat="true" toShortenFQNames="true">
+    <variable name="HORIZONTAL_ALIGN" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="MULTIPLE_ROWS" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="PULL_TO_BOUNDARY" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="VERTICAL_ALIGN" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-layout-item" value="&lt;lightning-layout-item&gt;&#10;  $END$&#10;&lt;/lightning-layout-item&gt;" description="Layout Item - Layout items take the size of their content by default" toReformat="true" toShortenFQNames="true" />
+  <template name="lwc-layout-item-advanced" value="&lt;lightning-layout-item &#10;  alignment-bump=$ALIGNMENT_BUMP$&#10;  flexibility=$FLEXIBILITY$&#10;  large-device-size=&quot;$LARGE_DEVICE_SIZE$&quot;&#10;  medium-device-size=&quot;$MEDIUM_DEVICE_SIZE$&quot;&#10;  padding=$PADDING$&#10;  size=&quot;$SIZE$&quot;&#10;  small-device-size=&quot;$SMALL_DEVICE_SIZE$&quot;&gt;&#10;  $END$&#10;&lt;/lightning-layout-item&gt;" description="Layout Item - Layout items take the size of their content by default" toReformat="true" toShortenFQNames="true">
+    <variable name="ALIGNMENT_BUMP" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="FLEXIBILITY" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="LARGE_DEVICE_SIZE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="MEDIUM_DEVICE_SIZE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="PADDING" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="SIZE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="SMALL_DEVICE_SIZE" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-map" value="&lt;lightning-map &#10;  center={$CENTER$}&#10;  list-view=$LIST_VIEW$&#10;  map-markers={$MAP_MARKERS$}&#10;  markers-title={$MARKERS_TITLE$}&#10;  onmarkerselect={$ONMARKERSELECT$}&#10;  options={$OPTIONS$}&#10;  selected-marker-value={$SELECTED_MARKER_VALUE$}&#10;  show-footer=$SHOW_FOOTER$&#10;  zoom-level=&quot;$ZOOM_LEVEL$&quot;&gt;&#10;&lt;/lightning-map&gt;" description="Map - Displays a map of one or more locations." toReformat="true" toShortenFQNames="true">
+    <variable name="CENTER" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="LIST_VIEW" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="MAP_MARKERS" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="MARKERS_TITLE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="ONMARKERSELECT" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="OPTIONS" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="SELECTED_MARKER_VALUE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="SHOW_FOOTER" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="ZOOM_LEVEL" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-menu-divider" value="&lt;lightning-menu-divider&gt;&lt;/lightning-menu-divider&gt;" description="Menu Divider - Creates a divider in the list of items for lightning-button-menu." toReformat="true" toShortenFQNames="true" />
+  <template name="lwc-menu-item" value="&lt;lightning-menu-item &#10;  value=&quot;$VALUE$&quot; &#10;  label=&quot;$LABEL$&quot;&#10;  disabled=$DISABLED$&gt;&#10;&lt;/lightning-menu-item&gt;" description="Menu Item - Represents a list in a menu." toReformat="true" toShortenFQNames="true">
+    <variable name="VALUE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="DISABLED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-menu-item-for-each" value="&lt;template for:each={$EACH$} for:item=&quot;$LABEL$&quot;&gt;&#10;  &lt;lightning-menu-item&#10;    key={$LABEL$.$LABEL_KEY$}&#10;    value={$LABEL$.$LABEL_VALUE$}&#10;    label={$LABEL$.$LABEL_LABEL$}&gt;&#10;  &lt;/lightning-menu-item&gt;&#10;&lt;/template&gt;" description="Menu Item - Used a for:each loop to generate menu items." toReformat="true" toShortenFQNames="true">
+    <variable name="EACH" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="LABEL_KEY" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="LABEL_VALUE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="LABEL_LABEL" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-menu-subheader" value="&lt;lightning-menu-subheader &#10;  label=&quot;$LABEL$&quot;&gt;&#10;&lt;/lightning-menu-subheader&gt;" description="Menu Subheader - Creates a subheader in the list of items in lightning-button-menu." toReformat="true" toShortenFQNames="true">
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-modal" value="&lt;!-- this should be encapsulated in its own component, see https://developer.salesforce.com/docs/component-library/bundle/lightning-modal/documentation --&gt;&#10;&lt;template&gt;&#10;  &lt;lightning-modal-header label={$LABEL$}&gt;&lt;/lightning-modal-header&gt;&#10;  &lt;lightning-modal-body&gt;{$LIGHTNING_MODAL_BODY$}&lt;/lightning-modal-body&gt;&#10;  &lt;lightning-modal-footer&gt;{$LIGHTNING_MODAL_FOOTER$}&lt;/lightning-modal-footer&gt;&#10;&lt;/template&gt;" description="Modal - Extend this component to create a message modal overlayed on the current app window." toReformat="true" toShortenFQNames="true">
+    <variable name="LABEL" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="LIGHTNING_MODAL_BODY" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="LIGHTNING_MODAL_FOOTER" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-modal-body" value="&lt;lightning-modal-body&gt;&#10;  {$LIGHTNING_MODAL_BODY$}&#10;&lt;/lightning-modal-body&gt;" description="Modal Body - Displays main content area in a lightning modal" toReformat="true" toShortenFQNames="true">
+    <variable name="LIGHTNING_MODAL_BODY" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-modal-footer" value="&lt;lightning-modal-footer&gt;&#10;  {$LIGHTNING_MODAL_FOOTER$}&#10;&lt;/lightning-modal-footer&gt;" description="Modal Footer - Displays footer content in a lightning modal" toReformat="true" toShortenFQNames="true">
+    <variable name="LIGHTNING_MODAL_FOOTER" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-modal-header" value="&lt;lightning-modal-header label=&quot;$LABEL$&quot;&gt;&#10;  {$LIGHTNING_MODAL_HEADER$}&#10;&lt;/lightning-modal-header&gt;" description="Modal Header - Displays heading and tagline at the top of a modal" toReformat="true" toShortenFQNames="true">
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="LIGHTNING_MODAL_HEADER" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-output-field" value="&lt;lightning-output-field &#10;  field-name=&quot;$FIELD_NAME$&quot;&#10;  variant=$VARIANT$&gt;&#10;&lt;/lightning-output-field&gt;" description="Output Field - Represents a read-only display of a label, help text, and value for a field on a Salesforce object." toReformat="true" toShortenFQNames="true">
+    <variable name="FIELD_NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="VARIANT" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-pill-avatar" value="&lt;lightning-pill label=&quot;$LABEL$&quot;&gt;&#10;  &lt;lightning-avatar &#10;    src={$SRC$}&#10;    fallback-icon-name=&quot;$FALLBACK_ICON_NAME$&quot; &#10;    variant=$VARIANT$  &#10;    alternative-text=&quot;$ALTERNATIVE_TEXT$&quot;&gt;&#10;  &lt;/lightning-avatar&gt;&#10;&lt;/lightning-pill&gt;" description="Pill w/ Avatar - A pill element containing an avatar" toReformat="true" toShortenFQNames="true">
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="SRC" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="FALLBACK_ICON_NAME" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="VARIANT" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="ALTERNATIVE_TEXT" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-pill-container" value="&lt;lightning-pill-container &#10;  items={$ITEMS$}&gt;&#10;&lt;/lightning-pill-container&gt;" description="Pill Container - A list of pills grouped in a container. This component requires API version 42.0 and later." toReformat="true" toShortenFQNames="true">
+    <variable name="ITEMS" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-pill-error" value="&lt;lightning-pill &#10;  label=&quot;$LABEL$&quot;&#10;  has-error&gt;&#10;&lt;/lightning-pill&gt;" description="Pill Error - A pill indicates an error condition by specifying the has-error attribute." toReformat="true" toShortenFQNames="true">
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-pill-icon" value="&lt;lightning-pill label=&quot;$LABEL$&quot;&gt;&#10;  &lt;lightning-icon &#10;    icon-name=&quot;$ICON_NAME$&quot;&#10;    alternative-text=&quot;$ALTERNATIVE_TEXT$&quot;&gt;&#10;  &lt;/lightning-icon&gt;&#10;&lt;/lightning-pill&gt;" description="Pill w/ Icon - A pill element containing an icon" toReformat="true" toShortenFQNames="true">
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="ICON_NAME" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="ALTERNATIVE_TEXT" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-pill-link" value="&lt;lightning-pill &#10;  label=&quot;$LABEL$&quot;&#10;  href=&quot;$HREF$&quot;&gt;&#10;&lt;/lightning-pill&gt;" description="Pill Link - A pill displays a label that can contain links and be removed from view." toReformat="true" toShortenFQNames="true">
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="HREF" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-pill-remove-handler" value="&lt;lightning-pill &#10;  label=&quot;$LABEL$&quot;&#10;  onremove={$ONREMOVE$}&gt;&#10;&lt;/lightning-pill&gt;" description="Pill w/ Remove Handler - A pill displays a label that can contain links and be removed from view." toReformat="true" toShortenFQNames="true">
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="ONREMOVE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-progress-bar" value="&lt;lightning-progress-bar &#10;  value=&quot;$VALUE$&quot; &#10;  aria-label=&quot;$ARIA_LABEL$ progress bar showing $VALUE$ percent progress&quot;&#10;  size=$SIZE$&#10;  variant=$VARIANT$&gt;&#10;&lt;/lightning-progress-bar&gt;" description="Progress Bar - Displays a horizontal progress bar from left to right to indicate the progress of an operation." toReformat="true" toShortenFQNames="true">
+    <variable name="VALUE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="ARIA_LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="SIZE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="VARIANT" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-progress-indicator" value="&lt;lightning-progress-indicator &#10;  current-step=&quot;$CURRENT_STEP$&quot;&#10;   type=$TYPE$&#10;   has-error=$HAS_ERROR$&#10;   variant=$VARIANT$&gt;&#10;  &lt;lightning-progress-step label=&quot;$LABEL$&quot; value=&quot;$VALUE$&quot;&gt;&lt;/lightning-progress-step&gt;&#10;  &lt;lightning-progress-step label=&quot;$LABEL2$&quot; value=&quot;$VALUE2$&quot;&gt;&lt;/lightning-progress-step&gt;&#10;  &lt;lightning-progress-step label=&quot;$LABEL3$&quot; value=&quot;$VALUE3$&quot;&gt;&lt;/lightning-progress-step&gt;&#10;&lt;/lightning-progress-indicator&gt;" description="Progress Indicator - Provides a visual indication on the progress of a particular process." toReformat="true" toShortenFQNames="true">
+    <variable name="CURRENT_STEP" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="TYPE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="HAS_ERROR" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="VARIANT" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="VALUE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="LABEL2" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="VALUE2" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="LABEL3" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="VALUE3" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-progress-indicator-iteration" value="&lt;lightning-progress-indicator &#10;  current-step=&quot;$CURRENT_STEP$&quot;&#10;  type=$TYPE$&#10;  variant=$VARIANT$&gt;&#10;  &lt;template for:each={$EACH$} for:item=&quot;$KEY$&quot;&gt;&#10;    &lt;lightning-progress-step &#10;       label={$KEY$.$KEY_LABEL$} &#10;       value={$KEY$.$KEY_VALUE$} &#10;       key={$KEY$.$KEY_KEY$}&gt;&#10;    &lt;/lightning-progress-step&gt;&#10;  &lt;/template&gt;&#10;&lt;/lightning-progress-indicator&gt;" description="Progress Indicator w/ Iteration - Provides a visual indication on the progress of a particular process." toReformat="true" toShortenFQNames="true">
+    <variable name="CURRENT_STEP" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="TYPE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="VARIANT" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="EACH" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="KEY" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="KEY_LABEL" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="KEY_VALUE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="KEY_KEY" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-progress-ring" value="&lt;lightning-progress-ring &#10;  direction=$DIRECTION$&#10;  size=$SIZE$&#10;  value=&quot;$VALUE$&quot;&#10;  variant=$VARIANT$&gt;&#10;&lt;/lightning-progress-ring&gt;" description="Progress Ring - Displays a circular progress indicator to provide feedback about an action or process. This component requires API version 48.0 and later." toReformat="true" toShortenFQNames="true">
+    <variable name="DIRECTION" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="SIZE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="VALUE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="VARIANT" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-progress-step" value="&lt;lightning-progress-step &#10;  label=&quot;$LABEL$&quot; &#10;  value=&quot;$VALUE$&quot;&gt;&#10;&lt;/lightning-progress-step&gt;" description="Progress Step - Defines a step in the lightning-progress-indicator." toReformat="true" toShortenFQNames="true">
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="VALUE" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-quick-action-panel" value="&lt;lightning-quick-action-panel header=&quot;$HEADER$&quot;&gt;&#10;  &lt;div slot=&quot;footer&quot;&gt;&#10;      &lt;!-- define custom footer actions here --&gt;&#10;  &lt;/div&gt;&#10;&lt;/lightning-quick-action-panel&gt;" description="Quick Action Panel - Build your own action modals that use the Salesforce Lightning Design System (SLDS) modal styling." toReformat="true" toShortenFQNames="true">
+    <variable name="HEADER" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-radio-group" value="&lt;lightning-radio-group &#10;  name=&quot;$NAME$&quot;&#10;  label=&quot;$LABEL$&quot;&#10;  options={$OPTIONS$}&#10;  type=$TYPE$&#10;  value={$VALUE$}&#10;  variant=$VARIANT$&gt;&#10;&lt;/lightning-radio-group&gt;" description="Radio Group - A radio button group that can have a single option selected." toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="OPTIONS" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="TYPE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="VALUE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="VARIANT" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-radio-group-advanced" value="&lt;lightning-radio-group &#10;  disabled=$DISABLED$&#10;  name=&quot;$NAME$&quot;&#10;  label=&quot;$LABEL$&quot;&#10;  options={$OPTIONS$}&#10;  required=$REQUIRED$&#10;  type=$TYPE$&#10;  value={$VALUE$}&#10;  variant=$VARIANT$&gt;&#10;&lt;/lightning-radio-group&gt;" description="Radio Group Advanced- A radio button group that can have a single option selected." toReformat="true" toShortenFQNames="true">
+    <variable name="DISABLED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="OPTIONS" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="REQUIRED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="TYPE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="VALUE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="VARIANT" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-record-edit-form" value="&lt;lightning-record-edit-form&#10;  density=$DENSITY$&#10;  object-api-name={$OBJECT_API_NAME$}&#10;  record-id={$RECORD_ID$}&gt;&#10;  $END$&#10;&lt;/lightning-record-edit-form&gt;" description="Record Edit Form - Represents a record edit layout that displays one or more fields, provided by lightning-input-field." toReformat="true" toShortenFQNames="true">
+    <variable name="DENSITY" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="OBJECT_API_NAME" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="RECORD_ID" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-record-form" value="&lt;lightning-record-form&#10;  columns={$COLUMNS$}&#10;  layout-type=$LAYOUT_TYPE$&#10;  object-api-name={$OBJECT_API_NAME$}&#10;  record-id={$RECORD_ID$}&#10;  fields={$FIELDS$}&gt;&#10;&lt;/lightning-record-form&gt;" description="Record Form - Creates an editable form or display form for a record." toReformat="true" toShortenFQNames="true">
+    <variable name="COLUMNS" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="LAYOUT_TYPE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="OBJECT_API_NAME" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="RECORD_ID" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="FIELDS" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-record-view-form" value="&lt;lightning-record-view-form&#10;  density=$DENSITY$&#10;  object-api-name={$OBJECT_API_NAME$}&#10;  record-id={$RECORD_ID$}&gt;&#10;  $END$&#10;&lt;/lightning-record-view-form&gt;" description="Record View Form - Represents a record view layout that displays one or more fields, provided by lightning-output-field." toReformat="true" toShortenFQNames="true">
+    <variable name="DENSITY" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="OBJECT_API_NAME" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="RECORD_ID" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-relative-date-time" value="&lt;lightning-relative-date-time &#10;  value={$VALUE$}&gt;&#10;&lt;/lightning-relative-date-time&gt;" description="Relative Date Time - Displays the relative time difference between the source date-time and the provided date-time." toReformat="true" toShortenFQNames="true">
+    <variable name="VALUE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-rich-text-toolbar-button" value="&lt;lightning-rich-text-toolbar-button&#10;  disabled=$DISABLED$&#10;  icon-alternative-text=&quot;$ICON_ALTERNATIVE_TEXT$&quot;&#10;  icon-name=&quot;$ICON_NAME$&quot;&#10;  onclick={$ONCLICK$}&#10;  selected=$SELECTED$&gt;&#10;&lt;/lightning-rich-text-toolbar-button&gt;" description="Rich Text Toolbar Button - A custom button on the lightning-input-rich-text toolbar." toReformat="true" toShortenFQNames="true">
+    <variable name="DISABLED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="ICON_ALTERNATIVE_TEXT" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="ICON_NAME" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="ONCLICK" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="SELECTED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-rich-text-toolbar-button-group" value="&lt;lightning-rich-text-toolbar-button-group&#10;  slot=&quot;$SLOT$&quot;&#10;  aria-label=&quot;$ARIA_LABEL$&quot;&gt;&#10;  $END$&#10;&lt;/lightning-rich-text-toolbar-button-group&gt;" description="Rich Text Toolbar Button Group - Creates a custom button group in lightning-input-rich-text." toReformat="true" toShortenFQNames="true">
+    <variable name="SLOT" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="ARIA_LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-service-cloud-voice-toolkit-api" value="&lt;lightning-service-cloud-voice-toolkit-api&gt;&#10;&lt;/lightning-service-cloud-voice-toolkit-api&gt;" description="Service Cloud Voice Toolkit API - A collection of front-end event listeners and API methods for interacting with Service Cloud Voice. This component requires API version 52.0 and later." toReformat="true" toShortenFQNames="true" />
+  <template name="lwc-slider" value="&lt;lightning-slider &#10;  disabled=$DISABLED$&#10;  label=&quot;$LABEL$&quot; &#10;  max=&quot;$MAX$&quot;&#10;  min=&quot;$MIN$&quot;&#10;  size=$SIZE$&#10;  step=&quot;$STEP$&quot;&#10;  type=$TYPE$&#10;  value={$VALUE$}&#10;  variant=$VARIANT$&gt;&#10;&lt;/lightning-slider&gt;" description="Slider - An input range slider for specifying a value between two specified numbers." toReformat="true" toShortenFQNames="true">
+    <variable name="DISABLED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="MAX" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="MIN" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="SIZE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="STEP" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="TYPE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="VALUE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="VARIANT" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-spinner" value="&lt;lightning-spinner &#10;  alternative-text=&quot;$ALTERNATIVE_TEXT$&quot; &#10;  size=$SIZE$&#10;  variant=$VARIANT$&gt;&#10;&lt;/lightning-spinner&gt;" description="Spinner - Displays an animated spinner" toReformat="true" toShortenFQNames="true">
+    <variable name="ALTERNATIVE_TEXT" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="SIZE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="VARIANT" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-spinner-conditional" value="&lt;template lwc:if={$ELSEIF$}&gt;&#10;  &lt;!-- place loaded content here --&gt;&#10;  $END$&#10;&lt;/template&gt;&#10;&lt;template lwc:elseif={$ELSEIF$}&gt;&#10;  &lt;lightning-spinner &#10;    alternative-text=&quot;$ALTERNATIVE_TEXT$&quot; &#10;    size=$SIZE$&#10;    variant=$VARIANT$&gt;&#10;  &lt;/lightning-spinner&gt;&#10;&lt;/template&gt;" description="Spinner w/ Conditional- Displays an animated spinner" toReformat="true" toShortenFQNames="true">
+    <variable name="ELSEIF" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="ALTERNATIVE_TEXT" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="SIZE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="VARIANT" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-tab" value="&lt;lightning-tab &#10;  label=&quot;$LABEL$&quot;&gt;&#10;  &lt;!-- tab content --&gt;&#10;  $END$&#10;&lt;/lightning-tab&gt;" description="Tab - A single tab in a tabset component." toReformat="true" toShortenFQNames="true">
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-tab-advanced" value="&lt;lightning-tab &#10;  end-icon-alternative-text=&quot;$END_ICON_ALTERNATIVE_TEXT$&quot;&#10;  end-icon-name=&quot;$END_ICON_NAME$&quot;&#10;  icon-assistive-text=&quot;$ICON_ASSISTIVE_TEXT$&quot;&#10;  icon-name=&quot;$ICON_NAME$&quot;&#10;  label=&quot;$LABEL$&quot;&#10;  title=&quot;$TITLE$&quot;&#10;  value=&quot;$VALUE$&quot;&gt;&#10;  &lt;!-- tab content --&gt;&#10;  $END$&#10;&lt;/lightning-tab&gt;" description="Tab - A single tab in a tabset component." toReformat="true" toShortenFQNames="true">
+    <variable name="END_ICON_ALTERNATIVE_TEXT" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="END_ICON_NAME" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="ICON_ASSISTIVE_TEXT" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="ICON_NAME" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="TITLE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="VALUE" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-tabset" value="&lt;lightning-tabset &#10;  active-tab-value=&quot;$ACTIVE_TAB_VALUE$&quot;&#10;  variant=$VARIANT$&gt;&#10;  $END$&#10;&lt;/lightning-tabset&gt;" description="Tabset - Represents a list of tabs" toReformat="true" toShortenFQNames="true">
+    <variable name="ACTIVE_TAB_VALUE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="VARIANT" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-tabset-iteration" value="&lt;lightning-tabset &#10;  active-tab-value=&quot;$ACTIVE_TAB_VALUE$&quot;&#10;  variant=$VARIANT$&gt;&#10;  &lt;template for:each={$EACH$} for:item=&quot;$VALUE$&quot;&gt;&#10;    &lt;lightning-tab label={$VALUE$.$VALUE_LABEL$} key={$VALUE$.$VALUE_KEY$} value={$VALUE$.$VALUE_VALUE$} onactive={$ONACTIVE$}&gt;&#10;      {$VALUE$.content}&#10;    &lt;/lightning-tab&gt;&#10;  &lt;/template&gt;&#10;&lt;/lightning-tabset&gt;" description="Tabset Iterative - Represents a list of tabs" toReformat="true" toShortenFQNames="true">
+    <variable name="ACTIVE_TAB_VALUE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="VARIANT" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="EACH" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="VALUE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="VALUE_LABEL" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="VALUE_KEY" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="VALUE_VALUE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="ONACTIVE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-textarea" value="&lt;lightning-textarea &#10;  disabled=$DISABLED$&#10;  max-length=&quot;$MAX_LENGTH$&quot;&#10;  name=&quot;$NAME$&quot; &#10;  label=&quot;$LABEL$&quot; &#10;  placeholder=&quot;$PLACEHOLDER$&quot;&#10;  read-only=$READ_ONLY$&#10;  required=$REQUIRED$&#10;  value={$VALUE$}&#10;  variant=$VARIANT$&gt;&#10;&lt;/lightning-textarea&gt;" description="Textarea - Represents a multiline text input field." toReformat="true" toShortenFQNames="true">
+    <variable name="DISABLED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="MAX_LENGTH" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="PLACEHOLDER" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="READ_ONLY" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="REQUIRED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="VALUE" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="VARIANT" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-tile" value="&lt;lightning-tile&#10;  label=&quot;$LABEL$&quot;&#10;  href=&quot;$HREF$&quot;&#10;  actions={$ACTIONS$}&#10;  onactiontriggered={$ONACTIONTRIGGERED$}&gt;&#10;  $END$&#10;&lt;/lightning-tile&gt;" description="Tile - A grouping of related information associated with a record." toReformat="true" toShortenFQNames="true">
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="HREF" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="ACTIONS" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="ONACTIONTRIGGERED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-tile-avatar" value="&lt;lightning-tile&#10;  label=&quot;$LABEL$&quot;&#10;  href=&quot;$HREF$&quot;&#10;  actions={$ACTIONS$}&#10;  onactiontriggered={$ONACTIONTRIGGERED$}&#10;  type=&quot;media&quot;&gt;&#10;  &lt;lightning-avatar &#10;    slot=&quot;media&quot;&#10;    src=&quot;$SRC$&quot;&#10;    fallback-icon-name=&quot;$FALLBACK_ICON_NAME$&quot;&#10;    alternative-text=&quot;$ALTERNATIVE_TEXT$&quot;&gt;&#10;  &lt;/lightning-avatar&gt;&#10;  $END$&#10;&lt;/lightning-tile&gt;" description="Tile Avatar - A grouping of related information associated with a record." toReformat="true" toShortenFQNames="true">
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="HREF" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="ACTIONS" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="ONACTIONTRIGGERED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="SRC" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="FALLBACK_ICON_NAME" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="ALTERNATIVE_TEXT" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-tile-icon" value="&lt;lightning-tile&#10;  label=&quot;$LABEL$&quot;&#10;  href=&quot;$HREF$&quot;&#10;  actions={$ACTIONS$}&#10;  onactiontriggered={$ONACTIONTRIGGERED$}&#10;  type=&quot;media&quot;&gt;&#10;  &lt;lightning-icon &#10;    slot=&quot;media&quot;&#10;    icon-name=&quot;$ICON_NAME$&quot;&gt;&#10;  &lt;/lightning-icon&gt;&#10;  $END$&#10;&lt;/lightning-tile&gt;" description="Tile Icon - A grouping of related information associated with a record." toReformat="true" toShortenFQNames="true">
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="HREF" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="ACTIONS" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="ONACTIONTRIGGERED" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="ICON_NAME" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-tree" value="&lt;lightning-tree &#10;  items={$ITEMS$} &#10;  header=&quot;$HEADER$&quot;&gt;&#10;&lt;/lightning-tree&gt;" description="Tree - Displays a nested tree." toReformat="true" toShortenFQNames="true">
+    <variable name="ITEMS" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="HEADER" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-tree-grid" value="&lt;lightning-tree-grid&#10;  columns={$COLUMNS$}&#10;  data={$DATA$}&#10;  expanded-rows={$EXPANDED_ROWS$}&#10;  hide-checkbox-column=$HIDE_CHECKBOX_COLUMN$&#10;  is-loading=$IS_LOADING$&#10;  key-field=&quot;$KEY_FIELD$&quot;&#10;  show-row-number-column=$SHOW_ROW_NUMBER_COLUMN$&gt;&#10;&lt;/lightning-tree-grid&gt;" description="Tree Grid - Displays a hierarchical view of data in a table." toReformat="true" toShortenFQNames="true">
+    <variable name="COLUMNS" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="DATA" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="EXPANDED_ROWS" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="HIDE_CHECKBOX_COLUMN" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="IS_LOADING" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="KEY_FIELD" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="SHOW_ROW_NUMBER_COLUMN" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-vertical-navigation" value="&lt;lightning-vertical-navigation&gt;&#10;  $END$&#10;&lt;/lightning-vertical-navigation&gt;" description="Vertical Navigation - A vertical list of links that either take the user to another page or parts of the page the user is in." toReformat="true" toShortenFQNames="true" />
+  <template name="lwc-vertical-navigation-item" value="&lt;lightning-vertical-navigation-item &#10;  label=&quot;$LABEL$&quot; &#10;  name=&quot;$NAME$&quot; &gt;&#10;&lt;/lightning-vertical-navigation-item&gt;" description="Vertical Navigation Item - A text-only link within lightning-vertical-navigation-section or lightning-vertical-navigation-overflow." toReformat="true" toShortenFQNames="true">
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-vertical-navigation-badge" value="&lt;lightning-vertical-navigation-item-badge &#10;  assistive-text=&quot;$ASSISTIVE_TEXT$&quot;&#10;  badge-count=&quot;$BADGE_COUNT$&quot;&#10;  href=&quot;$HREF$&quot;&#10;  label=&quot;$LABEL$&quot; &#10;  name=&quot;$NAME$&quot; &gt;&#10;&lt;/lightning-vertical-navigation-item-badge&gt;" description="Vertical Navigation Item Badge - A link and badge within lightning-vertical-navigation-section or lightning-vertical-navigation-overflow." toReformat="true" toShortenFQNames="true">
+    <variable name="ASSISTIVE_TEXT" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="BADGE_COUNT" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="HREF" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-vertical-navigation-item-icon" value="&lt;lightning-vertical-navigation-item-icon&#10;  label=&quot;$LABEL$&quot; &#10;  name=&quot;$NAME$&quot; &#10;  icon-name=&quot;$ICON_NAME$&quot;&gt;&#10;&lt;/lightning-vertical-navigation-item-icon&gt;" description="Vertical Navigation Item Icon - A link and icon within lightning-vertical-navigation-section or lightning-vertical-navigation-overflow." toReformat="true" toShortenFQNames="true">
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="ICON_NAME" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-vertical-navigation-overflow" value="&lt;lightning-vertical-navigation-overflow&gt;&#10;  $END$&#10;&lt;/lightning-vertical-navigation-overflow&gt;" description="Vertical Navigation Overflow - Creates an expandable section of vertical navigation items." toReformat="true" toShortenFQNames="true" />
+  <template name="lwc-vertical-navigation-section" value="&lt;lightning-vertical-navigation-section label=&quot;$LABEL$&quot;&gt;&#10;  $END$&#10;&lt;/lightning-vertical-navigation-section&gt;" description="Vertical Navigation Section - provides a heading which has vertical navigation items nested underneath" toReformat="true" toShortenFQNames="true">
+    <variable name="LABEL" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-if" value="&lt;template lwc:if={$EXPR$}&gt;&#10;    $SELECTION$$END$&#10;&lt;/template&gt;" description="Inserts or surrounds the current selection with an LWC '&lt;template lwc:if={expr}&gt;...&lt;/template&gt;' conditional template." toReformat="true" toShortenFQNames="false">
+    <variable name="EXPR" expression="complete()" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="lwc-iterator" value="&lt;template iterator:$IT$={$LIST$}&gt;&#10;    $SELECTION$$END$&#10;&lt;/template&gt;" description="Inserts or surrounds the current selection with an LWC '&lt;template iterator:it={list}&gt;...&lt;/template&gt;' iterator template." toReformat="true" toShortenFQNames="false">
+    <variable name="LIST" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="IT" expression="" defaultValue="&quot;it&quot;" alwaysStopAt="true" />
+  </template>
+</templateSet>

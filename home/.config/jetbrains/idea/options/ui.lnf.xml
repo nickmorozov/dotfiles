@@ -1,6 +1,84 @@
 <application>
+  <component name="ProjectViewFileNesting">
+    <nesting-rules>
+      <NestingRule child-file-suffix=".app-meta.xml" parent-file-suffix=".app" />
+      <NestingRule child-file-suffix=".asset-meta.xml" parent-file-suffix=".asset" />
+      <NestingRule child-file-suffix=".auradoc-meta.xml" parent-file-suffix=".auradoc" />
+      <NestingRule child-file-suffix=".cjs.map" parent-file-suffix=".cjs" />
+      <NestingRule child-file-suffix=".cls-meta.xml" parent-file-suffix=".cls" />
+      <NestingRule child-file-suffix="Test.cls" parent-file-suffix=".cls" />
+      <NestingRule child-file-suffix="Test.cls-meta.xml" parent-file-suffix=".cls" />
+      <NestingRule child-file-suffix="Tests.cls" parent-file-suffix=".cls" />
+      <NestingRule child-file-suffix="Tests.cls-meta.xml" parent-file-suffix=".cls" />
+      <NestingRule child-file-suffix=".cmp-meta.xml" parent-file-suffix=".cmp" />
+      <NestingRule child-file-suffix=".component-meta.xml" parent-file-suffix=".component" />
+      <NestingRule child-file-suffix=".crt-meta.xml" parent-file-suffix=".crt" />
+      <NestingRule child-file-suffix=".css.map" parent-file-suffix=".css" />
+      <NestingRule child-file-suffix=".min.css" parent-file-suffix=".css" />
+      <NestingRule child-file-suffix=".min.css.map" parent-file-suffix=".css" />
+      <NestingRule child-file-suffix=".cjs" parent-file-suffix=".cts" />
+      <NestingRule child-file-suffix=".cjs.map" parent-file-suffix=".cts" />
+      <NestingRule child-file-suffix=".d.cts" parent-file-suffix=".cts" />
+      <NestingRule child-file-suffix=".d.cts.map" parent-file-suffix=".cts" />
+      <NestingRule child-file-suffix=".js" parent-file-suffix=".cts" />
+      <NestingRule child-file-suffix=".js.map" parent-file-suffix=".cts" />
+      <NestingRule child-file-suffix=".design-meta.xml" parent-file-suffix=".design" />
+      <NestingRule child-file-suffix=".digitalExperience-meta.xml" parent-file-suffix=".digitalExperience" />
+      <NestingRule child-file-suffix=".dwl-meta.xml" parent-file-suffix=".dwl" />
+      <NestingRule child-file-suffix=".email-meta.xml" parent-file-suffix=".email" />
+      <NestingRule child-file-suffix=".js" parent-file-suffix=".es6" />
+      <NestingRule child-file-suffix=".js.map" parent-file-suffix=".es6" />
+      <NestingRule child-file-suffix=".evt-meta.xml" parent-file-suffix=".evt" />
+      <NestingRule child-file-suffix=".geodata-meta.xml" parent-file-suffix=".geodata" />
+      <NestingRule child-file-suffix=".intf-meta.xml" parent-file-suffix=".intf" />
+      <NestingRule child-file-suffix="-compiled.js" parent-file-suffix=".js" />
+      <NestingRule child-file-suffix="-compiled.js.map" parent-file-suffix=".js" />
+      <NestingRule child-file-suffix=".js.map" parent-file-suffix=".js" />
+      <NestingRule child-file-suffix=".map" parent-file-suffix=".js" />
+      <NestingRule child-file-suffix=".min.js" parent-file-suffix=".js" />
+      <NestingRule child-file-suffix=".min.js.map" parent-file-suffix=".js" />
+      <NestingRule child-file-suffix=".js-meta.xml" parent-file-suffix=".js" />
+      <NestingRule child-file-suffix=".js" parent-file-suffix=".jsx" />
+      <NestingRule child-file-suffix=".js.map" parent-file-suffix=".jsx" />
+      <NestingRule child-file-suffix=".mjs.map" parent-file-suffix=".mjs" />
+      <NestingRule child-file-suffix=".d.mts" parent-file-suffix=".mts" />
+      <NestingRule child-file-suffix=".d.mts.map" parent-file-suffix=".mts" />
+      <NestingRule child-file-suffix=".js" parent-file-suffix=".mts" />
+      <NestingRule child-file-suffix=".js.map" parent-file-suffix=".mts" />
+      <NestingRule child-file-suffix=".mjs" parent-file-suffix=".mts" />
+      <NestingRule child-file-suffix=".mjs.map" parent-file-suffix=".mts" />
+      <NestingRule child-file-suffix=".networkBranding-meta.xml" parent-file-suffix=".networkBranding" />
+      <NestingRule child-file-suffix=".page-meta.xml" parent-file-suffix=".page" />
+      <NestingRule child-file-suffix=".resource-meta.xml" parent-file-suffix=".resource" />
+      <NestingRule child-file-suffix=".css" parent-file-suffix=".sass" />
+      <NestingRule child-file-suffix=".css.map" parent-file-suffix=".sass" />
+      <NestingRule child-file-suffix=".scf-meta.xml" parent-file-suffix=".scf" />
+      <NestingRule child-file-suffix=".css" parent-file-suffix=".scss" />
+      <NestingRule child-file-suffix=".css.map" parent-file-suffix=".scss" />
+      <NestingRule child-file-suffix=".site-meta.xml" parent-file-suffix=".site" />
+      <NestingRule child-file-suffix=".tokens-meta.xml" parent-file-suffix=".tokens" />
+      <NestingRule child-file-suffix=".trigger-meta.xml" parent-file-suffix=".trigger" />
+      <NestingRule child-file-suffix=".cjs" parent-file-suffix=".ts" />
+      <NestingRule child-file-suffix=".cjs.map" parent-file-suffix=".ts" />
+      <NestingRule child-file-suffix=".d.ts" parent-file-suffix=".ts" />
+      <NestingRule child-file-suffix=".d.ts.map" parent-file-suffix=".ts" />
+      <NestingRule child-file-suffix=".js" parent-file-suffix=".ts" />
+      <NestingRule child-file-suffix=".js.map" parent-file-suffix=".ts" />
+      <NestingRule child-file-suffix=".mjs" parent-file-suffix=".ts" />
+      <NestingRule child-file-suffix=".mjs.map" parent-file-suffix=".ts" />
+      <NestingRule child-file-suffix=".js-meta.xml" parent-file-suffix=".ts" />
+      <NestingRule child-file-suffix=".d.ts" parent-file-suffix=".tsx" />
+      <NestingRule child-file-suffix=".d.ts.map" parent-file-suffix=".tsx" />
+      <NestingRule child-file-suffix=".js" parent-file-suffix=".tsx" />
+      <NestingRule child-file-suffix=".js.map" parent-file-suffix=".tsx" />
+      <NestingRule child-file-suffix=".jsx" parent-file-suffix=".tsx" />
+      <NestingRule child-file-suffix=".jsx.map" parent-file-suffix=".tsx" />
+    </nesting-rules>
+  </component>
   <component name="UISettings">
     <option name="CONSOLE_CYCLE_BUFFER_SIZE_KB" value="25600" />
+    <option name="MARK_MODIFIED_TABS_WITH_ASTERISK" value="true" />
+    <option name="BORDERLESS_MODE" value="true" />
     <option name="OPEN_IN_PREVIEW_TAB_IF_POSSIBLE" value="true" />
     <option name="OVERRIDE_CONSOLE_CYCLE_BUFFER_SIZE" value="true" />
     <option name="SCROLL_TAB_LAYOUT_IN_EDITOR" value="false" />

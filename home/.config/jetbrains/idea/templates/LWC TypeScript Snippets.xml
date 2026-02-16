@@ -1,0 +1,8 @@
+<templateSet group="LWC TypeScript Snippets">
+  <template name="lwc-wire-mock" value="const $MOCK_IMPORT_NAME$ = $IMPORT_NAME$ as unknown as jest.MockInstance&lt;any, any&gt; &amp; $TEST_WIRE_ADAPTER_TYPE$$ADD_TEST_WIRE_ADAPTER_TYPE_IMPORT$;$END$" description="Declares a strongly-typed mock for an imported wire adapter" toReformat="true" toShortenFQNames="false">
+    <variable name="IMPORT_NAME" expression="lwcImportedWireAdapter()" defaultValue="" alwaysStopAt="true" />
+    <variable name="MOCK_IMPORT_NAME" expression="concat(IMPORT_NAME, &quot;Mock&quot;)" defaultValue="" alwaysStopAt="true" />
+    <variable name="TEST_WIRE_ADAPTER_TYPE" expression="lwcGetTestWireAdapterType(IMPORT_NAME)" defaultValue="" alwaysStopAt="true" />
+    <variable name="ADD_TEST_WIRE_ADAPTER_TYPE_IMPORT" expression="lwcAddImport(&quot;@salesforce/wire-service-jest-util&quot;, TEST_WIRE_ADAPTER_TYPE)" defaultValue="" alwaysStopAt="true" />
+  </template>
+</templateSet>

@@ -1,6 +1,7 @@
 <application>
   <component name="SettingsSyncLocalSettings">
-    <option name="knownAndAppliedServerId" value="EdzWoMMzr1gTe09.BDzHTItyDfXXdXsA" />
+    <option name="crossIdeSyncEnabled" value="true" />
+    <option name="knownAndAppliedServerId" value="ETkjZfBt__YtWlhc.igF9AGzVLGZdBdb" />
     <option name="providerCode" value="jba" />
     <option name="userId" value="jba" />
   </component>

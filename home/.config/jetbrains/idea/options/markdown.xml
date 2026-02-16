@@ -1,0 +1,10 @@
+<application>
+  <component name="MarkdownExtensionsSettings">
+    <enabledExtensions>
+      <entry key="PlantUMLLanguageExtension" value="true" />
+    </enabledExtensions>
+  </component>
+  <component name="MarkdownSettings">
+    <option name="fontSize" value="16" />
+  </component>
+</application>

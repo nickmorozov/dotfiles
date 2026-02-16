@@ -7,6 +7,10 @@
   <action id="ActivateBookmarksToolWindow" />
   <action id="ActivateCommitToolWindow" />
   <action id="ActivateFindToolWindow" />
+  <action id="ActivateGitHubActionsToolWindow">
+    <keyboard-shortcut first-keystroke="alt g" />
+    <keyboard-shortcut first-keystroke="ctrl alt g" />
+  </action>
   <action id="ActivateMessagesToolWindow">
     <keyboard-shortcut first-keystroke="shift meta m" />
   </action>
@@ -429,10 +433,6 @@
   <action id="ProblemsView.QuickFixes">
     <keyboard-shortcut first-keystroke="meta period" />
   </action>
-  <action id="RecentProjectListGroup">
-    <keyboard-shortcut first-keystroke="ctrl r" />
-    <keyboard-shortcut first-keystroke="shift meta alt o" />
-  </action>
   <action id="ReformatWithPrettierAction">
     <keyboard-shortcut first-keystroke="shift meta alt p" />
     <keyboard-shortcut first-keystroke="shift ctrl meta alt f" />
@@ -444,7 +444,10 @@
   </action>
   <action id="RenameElement">
     <keyboard-shortcut first-keystroke="f2" />
-    <keyboard-shortcut first-keystroke="shift alt r" />
+    <keyboard-shortcut first-keystroke="meta r" />
+  </action>
+  <action id="RenameFile">
+    <keyboard-shortcut first-keystroke="shift meta r" />
   </action>
   <action id="ResizeToolWindowDown" />
   <action id="ResizeToolWindowUp" />
@@ -475,6 +478,10 @@
   <action id="Terminal.PrevSplitter" />
   <action id="Terminal.SplitVertically">
     <keyboard-shortcut first-keystroke="shift ctrl 5" />
+  </action>
+  <action id="TextSearchAction">
+    <keyboard-shortcut first-keystroke="shift meta alt e" />
+    <keyboard-shortcut first-keystroke="alt p" />
   </action>
   <action id="ToggleBookmark0">
     <keyboard-shortcut first-keystroke="alt 0" />

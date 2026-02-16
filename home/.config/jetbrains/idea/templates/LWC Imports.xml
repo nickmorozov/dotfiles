@@ -1,0 +1,8 @@
+<templateSet group="LWC Imports">
+  <template name="importapex" value="import $ALIAS$ from '@salesforce/apex/$CLASS$.$MEMBER$';$END$" description="@AuraEnabled Apex class import statement - import alias from '@salesforce/apex/class.member';" toReformat="true" toShortenFQNames="true">
+    <variable name="CLASS" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="MEMBER" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="ALIAS" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+</templateSet>

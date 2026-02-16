@@ -1,0 +1,10 @@
+<templateSet group="HTTP Request">
+  <template name="AuthorizationToken" value="Authorization: Bearer {{$auth.token(&quot;$AUTH_ID$&quot;)}}" description="Authorization header with token, e.g. OAuth2" toReformat="false" toShortenFQNames="true">
+    <variable name="AUTH_ID" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="BearerToken" value="Bearer {{$auth.token(&quot;$AUTH_ID$&quot;)}}" description="Bearer with token, e.g. from OAuth2 configuration" toReformat="false" toShortenFQNames="true">
+    <variable name="AUTH_ID" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+</templateSet>

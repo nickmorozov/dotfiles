@@ -1,0 +1,26 @@
+<application>
+  <component name="GitToolBoxAppSettings2">
+    <option name="autoFetchIntervalMinutes" value="480" />
+    <option name="decorationParts">
+      <list>
+        <DecorationPartConfig>
+          <option name="type" value="BRANCH" />
+        </DecorationPartConfig>
+        <DecorationPartConfig>
+          <option name="type" value="STATUS" />
+        </DecorationPartConfig>
+        <DecorationPartConfig>
+          <option name="postfix" value=")" />
+          <option name="prefix" value="(" />
+          <option name="type" value="TAGS_ON_HEAD" />
+        </DecorationPartConfig>
+        <DecorationPartConfig>
+          <option name="prefix" value="/ " />
+          <option name="type" value="CHANGED_COUNT" />
+        </DecorationPartConfig>
+      </list>
+    </option>
+    <option name="showPromos" value="false" />
+    <option name="showStatusWidget" value="false" />
+  </component>
+</application>

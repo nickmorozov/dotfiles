@@ -1,0 +1,5 @@
+<application>
+  <component name="MLCompletionState">
+    <option name="uxMode" value="LookupItemWhenCollision" />
+  </component>
+</application>

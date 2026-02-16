@@ -1,0 +1,893 @@
+<application>
+  <component name="UserDefinedLanguageServerSettingsState">
+    <state>
+      <map>
+        <entry key="281f00e3-f721-40a7-9a28-1ad36378ef9d">
+          <value>
+            <UserDefinedLanguageServerItemSettings>
+              <option name="commandLine" value="sh -c ${BASE_DIR}/harper-ls --stdio" />
+              <option name="installAlreadyDone" value="true" />
+              <option name="installerConfigurationContent" value="{&#10;  &quot;id&quot;: &quot;harper-ls-installer&quot;,&#10;  &quot;name&quot;: &quot;harper-ls&quot;,&#10;  &quot;executeOnStartServer&quot;: false,&#10;  &quot;check&quot;: {&#10;    &quot;exec&quot;: {&#10;      &quot;name&quot;: &quot;Trying current command&quot;,&#10;      &quot;command&quot;: &quot;${server.command}&quot;,&#10;      &quot;timeout&quot;: 2000&#10;    }&#10;  },&#10;  &quot;run&quot;: {&#10;    &quot;download&quot;: {&#10;      &quot;name&quot;: &quot;Download harper-ls&quot;,&#10;      &quot;github&quot;: {&#10;        &quot;owner&quot;: &quot;Automattic&quot;,&#10;        &quot;repository&quot;: &quot;harper&quot;,&#10;        &quot;prerelease&quot;: false,&#10;        &quot;asset&quot;: {&#10;          &quot;windows&quot;: &quot;harper-ls-x86_64-pc-windows-msvc.zip&quot;,&#10;          &quot;unix&quot;: {&#10;            &quot;x86_64&quot;: &quot;harper-ls-x86_64-unknown-linux-gnu.tar.gz&quot;,&#10;            &quot;arm64&quot;: &quot;harper-ls-aarch64-unknown-linux-gnu.tar.gz&quot;&#10;          },&#10;          &quot;mac&quot;: {&#10;            &quot;x86_64&quot;: &quot;harper-ls-x86_64-apple-darwin.tar.gz&quot;,&#10;            &quot;arm64&quot;: &quot;harper-ls-aarch64-apple-darwin.tar.gz&quot;&#10;          }&#10;        }&#10;      },&#10;      &quot;output&quot;: {&#10;        &quot;dir&quot;: &quot;$USER_HOME$/.lsp4ij/lsp/harper-ls&quot;,&#10;        &quot;file&quot;: {&#10;          &quot;name&quot;: {&#10;            &quot;windows&quot;: &quot;harper-ls.exe&quot;,&#10;            &quot;unix&quot;: {&#10;              &quot;x86_64&quot;: &quot;harper-ls-x86_64-unknown-linux-gnu&quot;,&#10;              &quot;arm64&quot;: &quot;harper-ls-aarch64-unknown-linux-gnu&quot;&#10;            },&#10;            &quot;mac&quot;: {&#10;              &quot;x86_64&quot;: &quot;harper-ls-x86_64-apple-darwin&quot;,&#10;              &quot;arm64&quot;: &quot;harper-ls-aarch64-apple-darwin&quot;&#10;            }&#10;          },&#10;          &quot;executable&quot;: true&#10;        }&#10;      },&#10;      &quot;onSuccess&quot;: {&#10;        &quot;configureServer&quot;: {&#10;          &quot;name&quot;: &quot;Configure Harper Language server command&quot;,&#10;          &quot;command&quot;: &quot;${output.dir}/${output.file.name} --stdio&quot;,&#10;          &quot;update&quot;: true&#10;        }&#10;      }&#10;    }&#10;  }&#10;}&#10;" />
+              <option name="serverId" value="281f00e3-f721-40a7-9a28-1ad36378ef9d" />
+              <option name="serverName" value="Harper Language Server" />
+              <option name="serverUrl" value="https://github.com/redhat-developer/lsp4ij/tree/main/docs/user-defined-ls/harper-ls.md" />
+              <option name="templateId" value="harper-ls" />
+              <option name="mappings">
+                <ServerMappingSettings languageId="csharp">
+                  <fileType>
+                    <FileTypeSettings name="C#" />
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="haskell">
+                  <fileType>
+                    <FileTypeSettings name="Haskell" />
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="html">
+                  <fileType>
+                    <FileTypeSettings name="HTML" />
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="java">
+                  <fileType>
+                    <FileTypeSettings name="JAVA" />
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="javascript">
+                  <fileType>
+                    <FileTypeSettings name="JavaScript" />
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="kotlin">
+                  <fileType>
+                    <FileTypeSettings name="Kotlin" />
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="markdown">
+                  <fileType>
+                    <FileTypeSettings name="Markdown" />
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="php">
+                  <fileType>
+                    <FileTypeSettings name="PHP" />
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="typescript">
+                  <fileType>
+                    <FileTypeSettings name="TypeScript" />
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="c">
+                  <option name="fileNamePatterns">
+                    <list>
+                      <option value="*.c" />
+                      <option value="*.i" />
+                    </list>
+                  </option>
+                  <fileType>
+                    <FileTypeSettings>
+                      <option name="patterns">
+                        <option value="*.c" />
+                        <option value="*.i" />
+                      </option>
+                    </FileTypeSettings>
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="clojure">
+                  <option name="fileNamePatterns">
+                    <list>
+                      <option value="*.clj" />
+                      <option value="*.cljs" />
+                      <option value="*.cljc" />
+                      <option value="*.cljd" />
+                      <option value="*.cljr" />
+                      <option value="*.cljx" />
+                      <option value="*.clojure" />
+                      <option value="*.edn" />
+                      <option value="*.joke" />
+                      <option value="*.boot" />
+                      <option value="*.bb" />
+                      <option value="*.ly" />
+                      <option value="*.lpy" />
+                      <option value="*.calva-repl" />
+                      <option value="*.fiddle" />
+                    </list>
+                  </option>
+                  <fileType>
+                    <FileTypeSettings>
+                      <option name="patterns">
+                        <option value="*.clj" />
+                        <option value="*.cljs" />
+                        <option value="*.cljc" />
+                        <option value="*.cljd" />
+                        <option value="*.cljr" />
+                        <option value="*.cljx" />
+                        <option value="*.clojure" />
+                        <option value="*.edn" />
+                        <option value="*.joke" />
+                        <option value="*.boot" />
+                        <option value="*.bb" />
+                        <option value="*.ly" />
+                        <option value="*.lpy" />
+                        <option value="*.calva-repl" />
+                        <option value="*.fiddle" />
+                      </option>
+                    </FileTypeSettings>
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="cmake">
+                  <option name="fileNamePatterns">
+                    <list>
+                      <option value="*.cmake" />
+                      <option value="CMakelists.txt" />
+                    </list>
+                  </option>
+                  <fileType>
+                    <FileTypeSettings>
+                      <option name="patterns">
+                        <option value="*.cmake" />
+                        <option value="CMakelists.txt" />
+                      </option>
+                    </FileTypeSettings>
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="cpp">
+                  <option name="fileNamePatterns">
+                    <list>
+                      <option value="*.cpp" />
+                      <option value="*.cppm" />
+                      <option value="*.cc" />
+                      <option value="*.ccm" />
+                      <option value="*.cxx" />
+                      <option value="*.cxxm" />
+                      <option value="*.c++" />
+                      <option value="*.c++m" />
+                      <option value="*.hpp" />
+                      <option value="*.hh" />
+                      <option value="*.hxx" />
+                      <option value="*.h++" />
+                      <option value="*.h" />
+                      <option value="*.ii" />
+                      <option value="*.ino" />
+                      <option value="*.inl" />
+                      <option value="*.ipp" />
+                      <option value="*.ixx" />
+                      <option value="*.tpp" />
+                      <option value="*.txx" />
+                      <option value="*.hpp.in" />
+                      <option value="*.h.in" />
+                    </list>
+                  </option>
+                  <fileType>
+                    <FileTypeSettings>
+                      <option name="patterns">
+                        <option value="*.cpp" />
+                        <option value="*.cppm" />
+                        <option value="*.cc" />
+                        <option value="*.ccm" />
+                        <option value="*.cxx" />
+                        <option value="*.cxxm" />
+                        <option value="*.c++" />
+                        <option value="*.c++m" />
+                        <option value="*.hpp" />
+                        <option value="*.hh" />
+                        <option value="*.hxx" />
+                        <option value="*.h++" />
+                        <option value="*.h" />
+                        <option value="*.ii" />
+                        <option value="*.ino" />
+                        <option value="*.inl" />
+                        <option value="*.ipp" />
+                        <option value="*.ixx" />
+                        <option value="*.tpp" />
+                        <option value="*.txx" />
+                        <option value="*.hpp.in" />
+                        <option value="*.h.in" />
+                      </option>
+                    </FileTypeSettings>
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="csharp">
+                  <option name="fileNamePatterns">
+                    <list>
+                      <option value="*.cs" />
+                      <option value="*.csx" />
+                      <option value="*.cake" />
+                    </list>
+                  </option>
+                  <fileType>
+                    <FileTypeSettings>
+                      <option name="patterns">
+                        <option value="*.cs" />
+                        <option value="*.csx" />
+                        <option value="*.cake" />
+                      </option>
+                    </FileTypeSettings>
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="dart">
+                  <option name="fileNamePatterns">
+                    <list>
+                      <option value="*.dart" />
+                    </list>
+                  </option>
+                  <fileType>
+                    <FileTypeSettings>
+                      <option name="patterns">
+                        <option value="*.dart" />
+                      </option>
+                    </FileTypeSettings>
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="git-commit">
+                  <option name="fileNamePatterns">
+                    <list>
+                      <option value="git-commit" />
+                    </list>
+                  </option>
+                  <fileType>
+                    <FileTypeSettings>
+                      <option name="patterns">
+                        <option value="git-commit" />
+                      </option>
+                    </FileTypeSettings>
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="go">
+                  <option name="fileNamePatterns">
+                    <list>
+                      <option value="*.go" />
+                    </list>
+                  </option>
+                  <fileType>
+                    <FileTypeSettings>
+                      <option name="patterns">
+                        <option value="*.go" />
+                      </option>
+                    </FileTypeSettings>
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="haskell">
+                  <option name="fileNamePatterns">
+                    <list>
+                      <option value="*.hs" />
+                    </list>
+                  </option>
+                  <fileType>
+                    <FileTypeSettings>
+                      <option name="patterns">
+                        <option value="*.hs" />
+                      </option>
+                    </FileTypeSettings>
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="html">
+                  <option name="fileNamePatterns">
+                    <list>
+                      <option value="*.html" />
+                      <option value="*.htm" />
+                      <option value="*.shtml" />
+                      <option value="*.xhtml" />
+                      <option value="*.xht" />
+                      <option value="*.mdoc" />
+                      <option value="*.jsp" />
+                      <option value="*.asp" />
+                      <option value="*.aspx" />
+                      <option value="*.jshtm" />
+                      <option value="*.volt" />
+                      <option value="*.ejs" />
+                      <option value="*.rhtml" />
+                    </list>
+                  </option>
+                  <fileType>
+                    <FileTypeSettings>
+                      <option name="patterns">
+                        <option value="*.html" />
+                        <option value="*.htm" />
+                        <option value="*.shtml" />
+                        <option value="*.xhtml" />
+                        <option value="*.xht" />
+                        <option value="*.mdoc" />
+                        <option value="*.jsp" />
+                        <option value="*.asp" />
+                        <option value="*.aspx" />
+                        <option value="*.jshtm" />
+                        <option value="*.volt" />
+                        <option value="*.ejs" />
+                        <option value="*.rhtml" />
+                      </option>
+                    </FileTypeSettings>
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="ink">
+                  <option name="fileNamePatterns">
+                    <list>
+                      <option value="*.ink" />
+                    </list>
+                  </option>
+                  <fileType>
+                    <FileTypeSettings>
+                      <option name="patterns">
+                        <option value="*.ink" />
+                      </option>
+                    </FileTypeSettings>
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="java">
+                  <option name="fileNamePatterns">
+                    <list>
+                      <option value="*.java" />
+                    </list>
+                  </option>
+                  <fileType>
+                    <FileTypeSettings>
+                      <option name="patterns">
+                        <option value="*.java" />
+                      </option>
+                    </FileTypeSettings>
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="javascript">
+                  <option name="fileNamePatterns">
+                    <list>
+                      <option value="*.js" />
+                    </list>
+                  </option>
+                  <fileType>
+                    <FileTypeSettings>
+                      <option name="patterns">
+                        <option value="*.js" />
+                      </option>
+                    </FileTypeSettings>
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="javascriptreact">
+                  <option name="fileNamePatterns">
+                    <list>
+                      <option value="*.jsx" />
+                    </list>
+                  </option>
+                  <fileType>
+                    <FileTypeSettings>
+                      <option name="patterns">
+                        <option value="*.jsx" />
+                      </option>
+                    </FileTypeSettings>
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="kotlin">
+                  <option name="fileNamePatterns">
+                    <list>
+                      <option value="*.kt" />
+                    </list>
+                  </option>
+                  <fileType>
+                    <FileTypeSettings>
+                      <option name="patterns">
+                        <option value="*.kt" />
+                      </option>
+                    </FileTypeSettings>
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="lua">
+                  <option name="fileNamePatterns">
+                    <list>
+                      <option value="*.lua" />
+                    </list>
+                  </option>
+                  <fileType>
+                    <FileTypeSettings>
+                      <option name="patterns">
+                        <option value="*.lua" />
+                      </option>
+                    </FileTypeSettings>
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="markdown">
+                  <option name="fileNamePatterns">
+                    <list>
+                      <option value="*.md" />
+                    </list>
+                  </option>
+                  <fileType>
+                    <FileTypeSettings>
+                      <option name="patterns">
+                        <option value="*.md" />
+                      </option>
+                    </FileTypeSettings>
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="php">
+                  <option name="fileNamePatterns">
+                    <list>
+                      <option value="*.php" />
+                    </list>
+                  </option>
+                  <fileType>
+                    <FileTypeSettings>
+                      <option name="patterns">
+                        <option value="*.php" />
+                      </option>
+                    </FileTypeSettings>
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="plaintext">
+                  <option name="fileNamePatterns">
+                    <list>
+                      <option value="*.txt" />
+                    </list>
+                  </option>
+                  <fileType>
+                    <FileTypeSettings>
+                      <option name="patterns">
+                        <option value="*.txt" />
+                      </option>
+                    </FileTypeSettings>
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="python">
+                  <option name="fileNamePatterns">
+                    <list>
+                      <option value="*.py" />
+                      <option value="*.rpy" />
+                      <option value="*.pyw" />
+                      <option value="*.cpy" />
+                      <option value="*.gyp" />
+                      <option value="*.gypi" />
+                      <option value="*.pyi" />
+                      <option value="*.ipy" />
+                      <option value="*.pyt" />
+                    </list>
+                  </option>
+                  <fileType>
+                    <FileTypeSettings>
+                      <option name="patterns">
+                        <option value="*.py" />
+                        <option value="*.rpy" />
+                        <option value="*.pyw" />
+                        <option value="*.cpy" />
+                        <option value="*.gyp" />
+                        <option value="*.gypi" />
+                        <option value="*.pyi" />
+                        <option value="*.ipy" />
+                        <option value="*.pyt" />
+                      </option>
+                    </FileTypeSettings>
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="ruby">
+                  <option name="fileNamePatterns">
+                    <list>
+                      <option value="*.rb" />
+                      <option value="*.rbx" />
+                      <option value="*.rjs" />
+                      <option value="*.gemspec" />
+                      <option value="*.rake" />
+                      <option value="*.ru" />
+                      <option value="*.erb" />
+                      <option value="*.podspec" />
+                      <option value="*.rbi" />
+                      <option value="rakefile" />
+                      <option value="gemfile" />
+                      <option value="guardfile" />
+                      <option value="podfile" />
+                      <option value="capfile" />
+                      <option value="cheffile" />
+                      <option value="hobofile" />
+                      <option value="vagrantfile" />
+                      <option value="appraisals" />
+                      <option value="rantfile" />
+                      <option value="berksfile" />
+                      <option value="berksfile.lock" />
+                      <option value="thorfile" />
+                      <option value="puppetfile" />
+                      <option value="dangerfile" />
+                      <option value="brewfile" />
+                      <option value="fastfile" />
+                      <option value="appfile" />
+                      <option value="deliverfile" />
+                      <option value="matchfile" />
+                      <option value="scanfile" />
+                      <option value="snapfile" />
+                      <option value="gymfile" />
+                    </list>
+                  </option>
+                  <fileType>
+                    <FileTypeSettings>
+                      <option name="patterns">
+                        <option value="*.rb" />
+                        <option value="*.rbx" />
+                        <option value="*.rjs" />
+                        <option value="*.gemspec" />
+                        <option value="*.rake" />
+                        <option value="*.ru" />
+                        <option value="*.erb" />
+                        <option value="*.podspec" />
+                        <option value="*.rbi" />
+                        <option value="rakefile" />
+                        <option value="gemfile" />
+                        <option value="guardfile" />
+                        <option value="podfile" />
+                        <option value="capfile" />
+                        <option value="cheffile" />
+                        <option value="hobofile" />
+                        <option value="vagrantfile" />
+                        <option value="appraisals" />
+                        <option value="rantfile" />
+                        <option value="berksfile" />
+                        <option value="berksfile.lock" />
+                        <option value="thorfile" />
+                        <option value="puppetfile" />
+                        <option value="dangerfile" />
+                        <option value="brewfile" />
+                        <option value="fastfile" />
+                        <option value="appfile" />
+                        <option value="deliverfile" />
+                        <option value="matchfile" />
+                        <option value="scanfile" />
+                        <option value="snapfile" />
+                        <option value="gymfile" />
+                      </option>
+                    </FileTypeSettings>
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="rust">
+                  <option name="fileNamePatterns">
+                    <list>
+                      <option value="*.rs" />
+                    </list>
+                  </option>
+                  <fileType>
+                    <FileTypeSettings>
+                      <option name="patterns">
+                        <option value="*.rs" />
+                      </option>
+                    </FileTypeSettings>
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="scala">
+                  <option name="fileNamePatterns">
+                    <list>
+                      <option value="*.scala" />
+                      <option value="*.sbt" />
+                      <option value="*.sc" />
+                    </list>
+                  </option>
+                  <fileType>
+                    <FileTypeSettings>
+                      <option name="patterns">
+                        <option value="*.scala" />
+                        <option value="*.sbt" />
+                        <option value="*.sc" />
+                      </option>
+                    </FileTypeSettings>
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="shellscript">
+                  <option name="fileNamePatterns">
+                    <list>
+                      <option value="*.sh" />
+                      <option value="*.bash" />
+                      <option value="*.bashrc" />
+                      <option value="*.bash_aliases" />
+                      <option value="*.bash_profile" />
+                      <option value="*.bash_login" />
+                      <option value="*.ebuild" />
+                      <option value="*.eclass" />
+                      <option value="*.profile" />
+                      <option value="*.bash_logout" />
+                      <option value="*.xprofile" />
+                      <option value="*.xsession" />
+                      <option value="*.xsessionrc" />
+                      <option value="*.Xsession" />
+                      <option value="*.zsh" />
+                      <option value="*.zshrc" />
+                      <option value="*.zprofile" />
+                      <option value="*.zlogin" />
+                      <option value="*.zlogout" />
+                      <option value="*.zshenv" />
+                      <option value="*.zsh-theme" />
+                      <option value="*.fish" />
+                      <option value="*.ksh" />
+                      <option value="*.csh" />
+                      <option value="*.cshrc" />
+                      <option value="*.tcshrc" />
+                      <option value="*.yashrc" />
+                      <option value="*.yash_profile" />
+                      <option value="APKBUILD" />
+                      <option value="PKGBUILD" />
+                      <option value=".envrc" />
+                      <option value=".hushlogin" />
+                      <option value="zshrc" />
+                      <option value="zshenv" />
+                      <option value="zlogin" />
+                      <option value="zprofile" />
+                      <option value="zlogout" />
+                      <option value="bashrc_Apple_Terminal" />
+                      <option value="zshrc_Apple_Terminal" />
+                    </list>
+                  </option>
+                  <fileType>
+                    <FileTypeSettings>
+                      <option name="patterns">
+                        <option value="*.sh" />
+                        <option value="*.bash" />
+                        <option value="*.bashrc" />
+                        <option value="*.bash_aliases" />
+                        <option value="*.bash_profile" />
+                        <option value="*.bash_login" />
+                        <option value="*.ebuild" />
+                        <option value="*.eclass" />
+                        <option value="*.profile" />
+                        <option value="*.bash_logout" />
+                        <option value="*.xprofile" />
+                        <option value="*.xsession" />
+                        <option value="*.xsessionrc" />
+                        <option value="*.Xsession" />
+                        <option value="*.zsh" />
+                        <option value="*.zshrc" />
+                        <option value="*.zprofile" />
+                        <option value="*.zlogin" />
+                        <option value="*.zlogout" />
+                        <option value="*.zshenv" />
+                        <option value="*.zsh-theme" />
+                        <option value="*.fish" />
+                        <option value="*.ksh" />
+                        <option value="*.csh" />
+                        <option value="*.cshrc" />
+                        <option value="*.tcshrc" />
+                        <option value="*.yashrc" />
+                        <option value="*.yash_profile" />
+                        <option value="APKBUILD" />
+                        <option value="PKGBUILD" />
+                        <option value=".envrc" />
+                        <option value=".hushlogin" />
+                        <option value="zshrc" />
+                        <option value="zshenv" />
+                        <option value="zlogin" />
+                        <option value="zprofile" />
+                        <option value="zlogout" />
+                        <option value="bashrc_Apple_Terminal" />
+                        <option value="zshrc_Apple_Terminal" />
+                      </option>
+                    </FileTypeSettings>
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="swift">
+                  <option name="fileNamePatterns">
+                    <list>
+                      <option value="*.swiftinterface" />
+                      <option value="*.swift" />
+                    </list>
+                  </option>
+                  <fileType>
+                    <FileTypeSettings>
+                      <option name="patterns">
+                        <option value="*.swiftinterface" />
+                        <option value="*.swift" />
+                      </option>
+                    </FileTypeSettings>
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="solidity">
+                  <option name="fileNamePatterns">
+                    <list>
+                      <option value="*.sol" />
+                      <option value="*.s.sol" />
+                      <option value="*.t.sol" />
+                    </list>
+                  </option>
+                  <fileType>
+                    <FileTypeSettings>
+                      <option name="patterns">
+                        <option value="*.sol" />
+                        <option value="*.s.sol" />
+                        <option value="*.t.sol" />
+                      </option>
+                    </FileTypeSettings>
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="toml">
+                  <option name="fileNamePatterns">
+                    <list>
+                      <option value="*.toml" />
+                      <option value="*.tml" />
+                    </list>
+                  </option>
+                  <fileType>
+                    <FileTypeSettings>
+                      <option name="patterns">
+                        <option value="*.toml" />
+                        <option value="*.tml" />
+                      </option>
+                    </FileTypeSettings>
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="typescript">
+                  <option name="fileNamePatterns">
+                    <list>
+                      <option value="*.ts" />
+                    </list>
+                  </option>
+                  <fileType>
+                    <FileTypeSettings>
+                      <option name="patterns">
+                        <option value="*.ts" />
+                      </option>
+                    </FileTypeSettings>
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="typescriptreact">
+                  <option name="fileNamePatterns">
+                    <list>
+                      <option value="*.tsx" />
+                    </list>
+                  </option>
+                  <fileType>
+                    <FileTypeSettings>
+                      <option name="patterns">
+                        <option value="*.tsx" />
+                      </option>
+                    </FileTypeSettings>
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="typst">
+                  <option name="fileNamePatterns">
+                    <list>
+                      <option value="*.typ" />
+                    </list>
+                  </option>
+                  <fileType>
+                    <FileTypeSettings>
+                      <option name="patterns">
+                        <option value="*.typ" />
+                      </option>
+                    </FileTypeSettings>
+                  </fileType>
+                </ServerMappingSettings>
+              </option>
+            </UserDefinedLanguageServerItemSettings>
+          </value>
+        </entry>
+        <entry key="5a7be537-c093-42c0-a0b4-82e4e5d93948">
+          <value>
+            <UserDefinedLanguageServerItemSettings>
+              <option name="clientConfigurationContent" value="{&#10;  &quot;caseSensitive&quot;: true,&#10;  &quot;lineCommentPrefix&quot;: &quot;//&quot;,&#10;  &quot;blockCommentPrefix&quot;: &quot;/*&quot;,&#10;  &quot;blockCommentSuffix&quot;: &quot;*/&quot;,&#10;  &quot;statementTerminatorCharacters&quot;: &quot;;&quot;,&#10;  &quot;completion&quot;: {&#10;    &quot;useContextAwareSorting&quot;: true,&#10;    &quot;useTemplateForInvocationOnlySnippet&quot;: false&#10;  },&#10;  &quot;workspaceSymbol&quot;: {&#10;    &quot;supportsGotoClass&quot;: true&#10;  }&#10;}" />
+              <option name="commandLine" value="sourcekit-lsp" />
+              <option name="installAlreadyDone" value="true" />
+              <option name="installerConfigurationContent" value="{&#10;  &quot;id&quot;: &quot;sourcekit-lsp&quot;,&#10;  &quot;name&quot;: &quot;SourceKit-LSP&quot;,&#10;  &quot;executeOnStartServer&quot;: false,&#10;  &quot;check&quot;: {&#10;    &quot;exec&quot;: {&#10;      &quot;name&quot;: &quot;Trying current command&quot;,&#10;      &quot;command&quot;: &quot;${server.command}&quot;,&#10;      &quot;timeout&quot;: 2000,&#10;      &quot;onFail&quot;: {&#10;        &quot;exec&quot;: {&#10;          &quot;name&quot;: &quot;Checking swift&quot;,&#10;          &quot;command&quot;: {&#10;            &quot;windows&quot;: &quot;where swift&quot;,&#10;            &quot;default&quot;: &quot;which swift&quot;&#10;          },&#10;          &quot;onFail&quot;: {&#10;            &quot;showMessage&quot;: {&#10;              &quot;name&quot;: &quot;Swift SDK not found&quot;,&#10;              &quot;content&quot;: [&#10;                &quot;Install the &lt;a href=\&quot;https://www.swift.org/getting-started/\&quot;&gt;Swift toolchain&lt;/a&gt; (includes the &lt;a href=\&quot;https://github.com/apple/sourcekit-lsp\&quot;&gt;SourceKit-LSP&lt;/a&gt; language server).&quot;,&#10;                &quot;Make sure &lt;code&gt;swift&lt;/code&gt; is in your system PATH and restart your IDE.&quot;&#10;              ]&#10;            }&#10;          }&#10;        }&#10;      }&#10;    }&#10;  },&#10;  &quot;run&quot;: {&#10;    &quot;configureServer&quot;: {&#10;      &quot;name&quot;: &quot;Configure SourceKit-LSP command&quot;,&#10;      &quot;command&quot;: &quot;sourcekit-lsp&quot;,&#10;      &quot;update&quot;: true&#10;    }&#10;  }&#10;}" />
+              <option name="serverId" value="5a7be537-c093-42c0-a0b4-82e4e5d93948" />
+              <option name="serverName" value="SourceKit-LSP" />
+              <option name="serverUrl" value="https://github.com/redhat-developer/lsp4ij/tree/main/docs/user-defined-ls/sourcekit-lsp.md" />
+              <option name="templateId" value="sourcekit-lsp" />
+              <option name="mappings">
+                <ServerMappingSettings languageId="cpp">
+                  <fileType>
+                    <FileTypeSettings name="C++" />
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="swift">
+                  <option name="fileNamePatterns">
+                    <list>
+                      <option value="*.swiftinterface" />
+                      <option value="*.swift" />
+                    </list>
+                  </option>
+                  <fileType>
+                    <FileTypeSettings>
+                      <option name="patterns">
+                        <option value="*.swiftinterface" />
+                        <option value="*.swift" />
+                      </option>
+                    </FileTypeSettings>
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="objective-c">
+                  <option name="fileNamePatterns">
+                    <list>
+                      <option value="*.m" />
+                    </list>
+                  </option>
+                  <fileType>
+                    <FileTypeSettings>
+                      <option name="patterns">
+                        <option value="*.m" />
+                      </option>
+                    </FileTypeSettings>
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="objective-cpp">
+                  <option name="fileNamePatterns">
+                    <list>
+                      <option value="*.mm" />
+                    </list>
+                  </option>
+                  <fileType>
+                    <FileTypeSettings>
+                      <option name="patterns">
+                        <option value="*.mm" />
+                      </option>
+                    </FileTypeSettings>
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="c">
+                  <option name="fileNamePatterns">
+                    <list>
+                      <option value="*.c" />
+                      <option value="*.i" />
+                    </list>
+                  </option>
+                  <fileType>
+                    <FileTypeSettings>
+                      <option name="patterns">
+                        <option value="*.c" />
+                        <option value="*.i" />
+                      </option>
+                    </FileTypeSettings>
+                  </fileType>
+                </ServerMappingSettings>
+                <ServerMappingSettings languageId="cpp">
+                  <option name="fileNamePatterns">
+                    <list>
+                      <option value="*.cpp" />
+                      <option value="*.cppm" />
+                      <option value="*.cc" />
+                      <option value="*.ccm" />
+                      <option value="*.cxx" />
+                      <option value="*.cxxm" />
+                      <option value="*.c++" />
+                      <option value="*.c++m" />
+                      <option value="*.hpp" />
+                      <option value="*.hh" />
+                      <option value="*.hxx" />
+                      <option value="*.h++" />
+                      <option value="*.h" />
+                      <option value="*.ii" />
+                      <option value="*.ino" />
+                      <option value="*.inl" />
+                      <option value="*.ipp" />
+                      <option value="*.ixx" />
+                      <option value="*.tpp" />
+                      <option value="*.txx" />
+                      <option value="*.hpp.in" />
+                      <option value="*.h.in" />
+                    </list>
+                  </option>
+                  <fileType>
+                    <FileTypeSettings>
+                      <option name="patterns">
+                        <option value="*.cpp" />
+                        <option value="*.cppm" />
+                        <option value="*.cc" />
+                        <option value="*.ccm" />
+                        <option value="*.cxx" />
+                        <option value="*.cxxm" />
+                        <option value="*.c++" />
+                        <option value="*.c++m" />
+                        <option value="*.hpp" />
+                        <option value="*.hh" />
+                        <option value="*.hxx" />
+                        <option value="*.h++" />
+                        <option value="*.h" />
+                        <option value="*.ii" />
+                        <option value="*.ino" />
+                        <option value="*.inl" />
+                        <option value="*.ipp" />
+                        <option value="*.ixx" />
+                        <option value="*.tpp" />
+                        <option value="*.txx" />
+                        <option value="*.hpp.in" />
+                        <option value="*.h.in" />
+                      </option>
+                    </FileTypeSettings>
+                  </fileType>
+                </ServerMappingSettings>
+              </option>
+            </UserDefinedLanguageServerItemSettings>
+          </value>
+        </entry>
+      </map>
+    </state>
+  </component>
+</application>

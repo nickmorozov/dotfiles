@@ -12,6 +12,9 @@
       <option value="ChangeKeymap" />
       <option value="CodeFormatGroup" />
       <option value="ChangesView.ApplyPatchFromClipboard" />
+      <option value="Console.TableResult.ColumnSortingActions" />
+      <option value="EditorSortLines" />
+      <option value="WelcomeScreen.Plugins" />
     </ids>
   </component>
   <component name="EduSettings">
@@ -38,6 +41,9 @@
   </component>
   <component name="PropertyService"><![CDATA[{
   "keyToString": {
+    "AIHubNotificationManager.lastTariffQuotaAvailable": "277825.9",
+    "AIHubNotificationManager.lastUsedLicenseType": "FREE",
+    "AIPLUGIN_VERSION": "1.44.0-252",
     "ApexSupport.hideIgnoredTests": "false",
     "ApexSupport.hidePassedTests": "false",
     "ApexSupport.scrollToSource": "true",
@@ -45,17 +51,19 @@
     "BLOCK_TERMINAL_LAST_USED_DATE": "1716825545",
     "BLOCK_TERMINAL_LAST_USED_VERSION": "241.17011.79",
     "CUSTOMIZE_ACTIONS": "illum\nillu\nwidget",
+    "DiffRequestProcessor.BottomComponentSplitter": "0.99",
     "Educational.recentCoursesFilled": "true",
     "Educational.stepikOAuthReset": "true",
     "FindSplitterProportion": "0.42712843",
+    "GEMINI_INTELLIJ_INSTALLATION_ID": "17e70bff-404a-40af-9366-cf500479fc46",
     "GitExtensions.ExecutablePath": "",
-    "InstalledPluginsSearchHistory": "jest\nje\nj\neslint\n/downloaded",
+    "InstalledPluginsSearchHistory": "terminal\ntermin\ntermi\n/disabledPlease write a draft reply to the text below. In addition, please create it assuming that you will reply with a chat tool such as Slack. Text below: 92479\n/disabledPlease write a draft reply to the text below. In addition, please create it assuming that you will reply with a chat tool such as Slack. Text below:",
     "JestJavaScriptTestRunnerSupport.hideIgnoredTests": "true",
     "JestJavaScriptTestRunnerSupport.hidePassedTests": "false",
     "JestJavaScriptTestRunnerSupport.scrollToSource": "true",
     "JestJavaScriptTestRunnerSupport.selectFirtsDefect": "true",
     "KEYMAP": "bookmark",
-    "LAST_CALCULATED_COLOR_INDEX_KEY": "0",
+    "LAST_CALCULATED_COLOR_INDEX_KEY": "1",
     "LAST_EXTRACTOR_SCRIPTS_CLEANUP_VERSION/data/aggregators": "IU-241.17011.79",
     "LayoutCode.codeCleanup": "true",
     "LayoutCode.doNotKeepLineBreaks": "true",
@@ -64,15 +72,35 @@
     "LayoutCode.rearrangeEntriesApex": "false",
     "LayoutCode.rearrangeEntriesECMAScript 6": "false",
     "LogAnalyzerPanel.filterTextField": "paymentRequest\nMETHOD_ENTRY",
-    "MarketplacePluginsSearchHistory": "/suggested\nterminal\nmacos\nmacosde\nxcode",
+    "Markdown Split EditorLayout": "Editor only",
+    "MarketplacePluginsSearchHistory": "sourcekit\nsource\nsour\n/sortBy:rating\n/sortBy:rating /suggested",
+    "NEXT_SURVEY_TIMESTAMP": "2026-02-02T18:56:59.506518Z",
+    "PluginConfigurable.selectionTab": "1",
+    "RunOnceActivity.MCP settings loaded": "true",
     "RunOnceActivity.Run Grazie Token Refresher": "true",
+    "RunOnceActivity.TerminalFontSettingsService.fixStoredNonMonospacedFonts": "true",
+    "RunOnceActivity.TerminalOptionsProvider.migration.2025.1.1": "true",
     "RunOnceActivity.VFSInitializationConditionsToFusReporter": "true",
+    "RunOnceActivity.cache.folding.model.on.disk.true": "true",
+    "RunOnceActivity.cidr.test.framework.showIndexingAsTask": "true",
+    "RunOnceActivity.cidr.test.roots.only": "true",
+    "RunOnceActivity.git.modal.commit.toggle": "true",
     "RunOnceActivity.java.code.vision.default.position.was.set": "true",
+    "RunOnceActivity.llm.claude.code.byok.migration": "true",
     "RunOnceActivity.llm.installer.activate.toolwindow": "true",
+    "RunOnceActivity.llm.onboarding.window.launcher.v7": "true",
     "RunOnceActivity.llm.show.ai.promotion.window.on.start": "true",
+    "RunOnceActivity.reset.auto.reparse.settings.to.default": "true",
+    "RunOnceActivity.set.chat.model.provider.canary4": "true",
     "RunOnceActivity.zielu.gittoolbox.worktree.promo.1": "true",
-    "SettingsSearchHistory": "eslint\npre\nprettier\nreformat code\non save",
+    "STUDIOBOT_MCP_SERVERS_ENABLED": "true",
+    "SettingsSearchHistory": "terminal\ncopilo\nesc\neslint\npre",
+    "TEMPLATES_FILTER_HISTORY": "swif",
+    "TerminalCompletionPopupPromotion.shownCount": "1",
+    "WelcomeFeature.SHORT_WELCOME_GUIDE_SHOWN": "true",
     "ai.promo.window.was.actually.shown": "true",
+    "com.google.tools.ij.aiplugin.onboarding_session_index": "20260126_0000",
+    "com.intellij.ide.projectWizard.generators.JavaNewProjectWizard$Step.selectedStep": "IntelliJ",
     "com.intellij.openapi.roots.ui.configuration.TabbedModuleEditor.selectedEditor": "Sources",
     "defaultJdkConfigured": "true",
     "delete.locally.added.files": "true",
@@ -80,27 +108,36 @@
     "enter_selection_count": "3",
     "evlsprt3.241": "4",
     "evlsprt3.243": "6",
+    "evlsprt3.253": "3",
     "experimental.ui.on.first.startup": "true",
-    "experimental.ui.used.version": "243.25659.59",
+    "experimental.ui.used.version": "253.30387.90",
     "export.settings.path": "/Users/nick/Library/Mobile Documents/com~apple~CloudDocs/settings.zip",
-    "fileTypeChangedCounter": "84",
-    "fontSizeToResetConsole": "16.0",
-    "fontSizeToResetEditor": "16.0",
+    "fileTypeChangedCounter": "125",
+    "fontSizeToResetConsole": "13.0",
+    "fontSizeToResetEditor": "13.0",
+    "got.it.tooltip.Plugins Auto-Update": "1",
     "got.it.tooltip.copilot.inlayGotIt": "1",
     "got.it.tooltip.copilot.inlayPartialGotIt": "1",
+    "got.it.tooltip.github.copilot.inline.diffable.response": "1",
     "got.it.tooltip.new.terminal.promotion": "1",
     "got.it.tooltip.pwa.toggle": "1",
     "got.it.tooltip.reader.mode.got.it": "1",
     "got.it.tooltip.web.preview.reload.on.save": "1",
+    "ide.islands.ab3": "true",
     "ide.memory.adjusted": "true",
-    "ide.self.update.started.for.build": "IU-243.25659.59",
     "ideavim.statistics.timestamp": "1716328482414",
     "ift.hide.welcome.screen.promo": "true",
-    "installed.kotlin.plugin.version": "243.25659.59-IJ",
-    "llm.installer.last.toolwindow.state": "LLM_INSTALLER_HIDDEN",
+    "installed.kotlin.plugin.version": "253.30387.90-IJ",
+    "io.plugin.tsnode.version": "2024.08.16-1",
+    "last.imported.location": "/Users/nick/Projects/Repos/FocusriteVolumeControl",
+    "llm.chat.promo.event.codex_free_promo.codex_was_set": "true",
+    "llm.installer.last.toolwindow.state": "AI_ASSISTANT",
+    "llm.third.party.ai.services.acknowledgement.accepted": "true",
+    "migrate.android.sdk.path.to.roamable.storage": "false",
     "migrated.non.roamable.values.from.general.settings": "true",
-    "previousColorScheme": "_@user_Dark",
-    "registry.to.advanced.settings.migration.build": "IU-243.25659.59",
+    "previousColorScheme": "_@user_Islands Dark",
+    "project.wizard.group": "NPW.simple-module.Java",
+    "registry.to.advanced.settings.migration.build": "IU-253.30387.90",
     "settings.code.style.selected.tab.Apex": "Blank Lines",
     "settings.code.style.selected.tab.CSS": "Blank Lines",
     "settings.code.style.selected.tab.HTML": "Tabs and Indents",
@@ -110,22 +147,47 @@
     "settings.code.style.selected.tab.Markdown": "Wrapping and Braces",
     "settings.code.style.selected.tab.XML": "Tabs and Indents",
     "settings.code.style.selected.tab.yaml": "Wrapping and Braces",
+    "studio.bot.shown": "true",
     "tab_selection_count": "2",
+    "terminal.gen.one.option.visible": "false",
     "toolwindow.showToolWindowsNames.ts": "2024-05-20T12:32:42.259122",
     "toolwindow.showToolWindowsNames.value": "true",
-    "ts.lib.d.ts.version": "5.6.3",
-    "vcs.history.diff.splitter.proportion": "0.48521125"
+    "ts.lib.d.ts.version": "5.9.3",
+    "vcs.history.diff.splitter.proportion": "0.48521125",
+    "xcode.path": "/Applications/Xcode.app/Contents/Developer",
+    "xcode.version": "17C52"
   },
   "keyToStringList": {
+    "AIHubNotificationManager.gotItNotifications": [],
+    "AIHubNotificationManager.lastAllNotifications": [],
+    "AIHubNotificationManager.notifications": [
+      "LicenseExpiredFreeEnabled(BYOK)"
+    ],
+    "AIHubNotificationManager.seenNotifications": [],
+    "DAILY_ACTION_TIMESTAMPS": [
+      "2026-01-26T18:56:59.191058Z"
+    ],
     "fileTypeDetectors": [
       "com.intellij.ide.scratch.ScratchFileServiceImpl$Detector",
       "com.intellij.profiler.ultimate.hprof.impl.HprofFileTypeDetector",
+      "com.jetbrains.cidr.lang.OCHeaderFileTypeDetector",
       "com.intellij.javascript.debugger.sourcemap.SourceMapFileType$MyFileTypeDetector",
+      "com.android.tools.idea.profilers.capture.MemoryCaptureFileType$Detector",
+      "com.jetbrains.cidr.strings.OCBinaryStringsFileTypeDetector",
+      "com.jetbrains.cidr.xcode.plist.OCBinaryPlistFileTypeDetector",
       "org.jetbrains.plugins.textmate.TextMateFileType$TextMateFileDetector"
     ]
   }
 }]]></component>
+  <component name="XcodeSettings">
+    <option name="detectedXcodes">
+      <list>
+        <option value="/Applications/Xcode.app/Contents/Developer" />
+      </list>
+    </option>
+    <option name="selectedXcode" value="/Applications/Xcode.app/Contents/Developer" />
+  </component>
   <component name="json_parser_conf">
-    <option name="jsonParserLastDisplayTime" value="1717783894436" />
+    <option name="jsonParserLastDisplayTime" value="1769470728017" />
   </component>
 </application>

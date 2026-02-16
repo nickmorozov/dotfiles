@@ -2,7 +2,6 @@ AngularJS
 Docker
 HtmlTools
 JBoss
-JUnit
 Karma
 Lombook Plugin
 NodeJS
@@ -13,13 +12,11 @@ TestNG-J
 Tomcat
 XPathView
 com.android.tools.gradle.dcl
-com.godwin.json.parser
 com.intellij.aop
 com.intellij.beanValidation
 com.intellij.cdi
 com.intellij.database
 com.intellij.freemarker
-com.intellij.gradle
 com.intellij.grpc
 com.intellij.hibernate
 com.intellij.java-i18n
@@ -32,7 +29,6 @@ com.intellij.javaee.jakarta.data
 com.intellij.javaee.jpa
 com.intellij.javaee.reverseEngineering
 com.intellij.javaee.web
-com.intellij.jsonpath
 com.intellij.jsp
 com.intellij.kubernetes
 com.intellij.micronaut
@@ -64,21 +60,17 @@ com.jetbrains.gateway
 com.jetbrains.gateway.terminal
 com.jetbrains.plugins.webDeployment
 com.jetbrains.restWebServices
-ee.carlrobert.chatgpt
 hg4idea
 idea.plugin.protoeditor
 intellij.ktor
 intellij.nextjs
 intellij.platform.ijent.impl
-org.intellij.groovy
 org.jetbrains.idea.eclipse
-org.jetbrains.idea.gradle.dsl
 org.jetbrains.idea.gradle.ext
 org.jetbrains.idea.maven
 org.jetbrains.idea.maven.ext
 org.jetbrains.java.decompiler
 org.jetbrains.plugins.docker.gateway
-org.jetbrains.plugins.gradle
 org.jetbrains.plugins.gradle.analysis
 org.jetbrains.plugins.gradle.dependency.updater
 org.jetbrains.plugins.gradle.maven

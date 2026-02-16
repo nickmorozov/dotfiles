@@ -8,85 +8,123 @@
               <list>
                 <SfOrg>
                   <option name="accessToken" value="REDACTED" />
-                  <option name="alias" value="isys-dev" />
-                  <option name="instanceUrl" value="https://isyscm--corraodev.sandbox.my.salesforce.com" />
-                  <option name="lastUsed" value="1717784787599" />
-                  <option name="loginUrl" value="https://isyscm--corraodev.sandbox.my.salesforce.com/" />
-                  <option name="orgId" value="00DQL000001Tt8b2AC" />
-                  <option name="username" value="nmorozov@corraogroup.com.isys.corraodev" />
+                  <option name="alias" value="blusky-dev" />
+                  <option name="instanceUrl" value="https://bluskyrestoration--corraodev.sandbox.my.salesforce.com" />
+                  <option name="lastUsed" value="1769540059210" />
+                  <option name="loginUrl" value="https://bluskyrestoration--corraodev.sandbox.my.salesforce.com/" />
+                  <option name="orgId" value="00DTI000001H3fF2AS" />
+                  <option name="username" value="nmorozov_blusky@corraogroup.com.corraodev" />
                 </SfOrg>
                 <SfOrg>
                   <option name="accessToken" value="REDACTED" />
-                  <option name="alias" value="isys-prod" />
-                  <option name="instanceUrl" value="https://isyscm.my.salesforce.com" />
+                  <option name="alias" value="blusky-prod" />
+                  <option name="instanceUrl" value="https://bluskyrestoration.my.salesforce.com" />
                   <option name="isDevHub" value="true" />
-                  <option name="lastUsed" value="1717776667504" />
-                  <option name="loginUrl" value="https://isyscm.my.salesforce.com/" />
-                  <option name="orgId" value="00D80000000biiVEAQ" />
-                  <option name="username" value="nmorozov@corraogroup.com.isys" />
+                  <option name="lastUsed" value="1769473255698" />
+                  <option name="loginUrl" value="https://bluskyrestoration.my.salesforce.com/" />
+                  <option name="orgId" value="00D3t000001y4gIEAQ" />
+                  <option name="username" value="nmorozov_blusky@corraogroup.com" />
                 </SfOrg>
                 <SfOrg>
                   <option name="accessToken" value="REDACTED" />
-                  <option name="alias" value="isys-uat" />
-                  <option name="instanceUrl" value="https://isyscm--implement.sandbox.my.salesforce.com" />
-                  <option name="lastUsed" value="1717784787599" />
-                  <option name="loginUrl" value="https://isyscm--implement.sandbox.my.salesforce.com/" />
-                  <option name="orgId" value="00DVa0000005EQXMA2" />
-                  <option name="username" value="nmorozov@corraogroup.com.isys.implement" />
+                  <option name="alias" value="blusky-uat" />
+                  <option name="instanceUrl" value="https://bluskyrestoration--uat.sandbox.my.salesforce.com" />
+                  <option name="lastUsed" value="1769540061557" />
+                  <option name="loginUrl" value="https://test.salesforce.com/" />
+                  <option name="orgId" value="00Dcb000000QBHaEAO" />
+                  <option name="username" value="nmorozov_blusky@corraogroup.com.uat" />
                 </SfOrg>
                 <SfOrg>
                   <option name="accessToken" value="REDACTED" />
-                  <option name="alias" value="kurtz-fargo-dev" />
-                  <option name="instanceUrl" value="https://fun-enterprise-2884--devpro.sandbox.my.salesforce.com" />
-                  <option name="lastUsed" value="1717784787599" />
-                  <option name="loginUrl" value="https://fun-enterprise-2884--devpro.sandbox.my.salesforce.com/" />
-                  <option name="orgId" value="00DD7000000o6EEMAY" />
-                  <option name="username" value="cgadmin@kurtzfargo.com.devpro" />
+                  <option name="alias" value="cg-my-first-tpm" />
+                  <option name="instanceUrl" value="https://cgtpm-dev-ed.my.salesforce.com" />
+                  <option name="lastUsed" value="1769540061557" />
+                  <option name="loginUrl" value="https://cgtpm-dev-ed.my.salesforce.com/" />
+                  <option name="orgId" value="00D8Z000002ikjgUAA" />
+                  <option name="username" value="nmorozov@corraogroup.com.cgtpm" />
                 </SfOrg>
                 <SfOrg>
                   <option name="accessToken" value="REDACTED" />
-                  <option name="alias" value="kurtz-fargo-prod" />
-                  <option name="instanceUrl" value="https://fun-enterprise-2884.my.salesforce.com" />
-                  <option name="lastUsed" value="1717784787599" />
-                  <option name="loginUrl" value="https://fun-enterprise-2884.my.salesforce.com/" />
-                  <option name="orgId" value="00DHs000004MPhFMAW" />
-                  <option name="username" value="cgadmin@kurtzfargo.com" />
+                  <option name="alias" value="cg-partial" />
+                  <option name="instanceUrl" value="https://corraogroup--cgpartial.sandbox.my.salesforce.com" />
+                  <option name="lastUsed" value="1769540061553" />
+                  <option name="loginUrl" value="https://corraogroup--cgpartial.sandbox.my.salesforce.com/" />
+                  <option name="orgId" value="00DNq00000BxiWXMAZ" />
+                  <option name="username" value="nmorozov@corraogroup.com.cgpartial" />
                 </SfOrg>
                 <SfOrg>
                   <option name="accessToken" value="REDACTED" />
-                  <option name="alias" value="kurtz-fargo-uat" />
-                  <option name="instanceUrl" value="https://fun-enterprise-2884--uat.sandbox.my.salesforce.com" />
-                  <option name="lastUsed" value="1717784787599" />
-                  <option name="loginUrl" value="https://fun-enterprise-2884--uat.sandbox.my.salesforce.com/" />
-                  <option name="orgId" value="00DD7000000o5Y4MAI" />
-                  <option name="username" value="cgadmin@kurtzfargo.com.uat" />
+                  <option name="alias" value="cg-prod" />
+                  <option name="instanceUrl" value="https://corraogroup.my.salesforce.com" />
+                  <option name="isDevHub" value="true" />
+                  <option name="lastUsed" value="1769473221996" />
+                  <option name="loginUrl" value="https://corraogroup.my.salesforce.com/" />
+                  <option name="orgId" value="00DA0000000YcQYMA0" />
+                  <option name="username" value="nmorozov@corraogroup.com" />
                 </SfOrg>
                 <SfOrg>
                   <option name="accessToken" value="REDACTED" />
-                  <option name="alias" value="quantum-design-dev" />
-                  <option name="instanceUrl" value="https://quantumdesign--devpro.sandbox.my.salesforce.com" />
-                  <option name="lastUsed" value="1717789475089" />
-                  <option name="loginUrl" value="https://quantumdesign--devpro.sandbox.my.salesforce.com/" />
-                  <option name="orgId" value="00DcX0000001T9dUAE" />
-                  <option name="username" value="cgadmin@qdusa.com.prod.devpro" />
+                  <option name="alias" value="cgpm" />
+                  <option name="instanceUrl" value="https://cgpm-dev-ed.develop.my.salesforce.com" />
+                  <option name="lastUsed" value="1769540061554" />
+                  <option name="loginUrl" value="https://cgpm-dev-ed.develop.my.salesforce.com/" />
+                  <option name="namespacePrefix" value="cgpm" />
+                  <option name="orgId" value="00Dal00001HbStUEAV" />
+                  <option name="username" value="nmorozov.cgpm@corraogroup.com" />
                 </SfOrg>
                 <SfOrg>
                   <option name="accessToken" value="REDACTED" />
-                  <option name="alias" value="quantum-design-prod" />
-                  <option name="instanceUrl" value="https://quantumdesign.my.salesforce.com" />
-                  <option name="lastUsed" value="1717784787599" />
-                  <option name="loginUrl" value="https://quantumdesign.my.salesforce.com/" />
-                  <option name="orgId" value="00D3i000000GyD5EAK" />
-                  <option name="username" value="cgadmin@qdusa.com.prod" />
+                  <option name="alias" value="katzman-dev" />
+                  <option name="instanceUrl" value="https://katzman--cg.sandbox.my.salesforce.com" />
+                  <option name="lastUsed" value="1769540061552" />
+                  <option name="loginUrl" value="https://katzman--cg.sandbox.my.salesforce.com/" />
+                  <option name="orgId" value="00DcV000000KW5NUAW" />
+                  <option name="username" value="cgadmin.burl@katzman.com.cg" />
                 </SfOrg>
                 <SfOrg>
                   <option name="accessToken" value="REDACTED" />
-                  <option name="alias" value="quantum-design-uat" />
-                  <option name="instanceUrl" value="https://quantumdesign--partial.sandbox.my.salesforce.com" />
-                  <option name="lastUsed" value="1717784787599" />
-                  <option name="loginUrl" value="https://quantumdesign--partial.sandbox.my.salesforce.com/" />
-                  <option name="orgId" value="00DU7000000iGsHMAU" />
-                  <option name="username" value="cgadmin@qdusa.com.prod.partial" />
+                  <option name="alias" value="nick" />
+                  <option name="instanceUrl" value="https://nickmorozov-dev-ed.develop.my.salesforce.com" />
+                  <option name="isDevHub" value="true" />
+                  <option name="lastUsed" value="1769473255645" />
+                  <option name="loginUrl" value="https://nickmorozov-dev-ed.develop.my.salesforce.com/" />
+                  <option name="orgId" value="00Dbm000008dIFdEAM" />
+                  <option name="username" value="admin@nickmorozov.net" />
+                </SfOrg>
+                <SfOrg>
+                  <option name="accessToken" value="REDACTED" />
+                  <option name="alias" value="psi-prod" />
+                  <option name="instanceUrl" value="https://psi3g.my.salesforce.com" />
+                  <option name="lastUsed" value="1769540061552" />
+                  <option name="loginUrl" value="https://psi3g.my.salesforce.com/" />
+                  <option name="orgId" value="00D80000000PNJBEA4" />
+                  <option name="username" value="jcastelo@corraogroup.com.psi" />
+                </SfOrg>
+              </list>
+            </option>
+            <option name="scratchOrgs">
+              <list>
+                <SfOrg>
+                  <option name="accessToken" value="REDACTED" />
+                  <option name="alias" value="cgpm-dev" />
+                  <option name="created" value="1768274134000" />
+                  <option name="createdBy" value="nmorozov@corraogroup.com" />
+                  <option name="createdDate" value="1768274134000" />
+                  <option name="createdOrgInstance" value="USA22S" />
+                  <option name="devHubOrgId" value="00DA0000000YcQYMA0" />
+                  <option name="devHubUsername" value="nmorozov@corraogroup.com" />
+                  <option name="edition" value="Enterprise" />
+                  <option name="expirationDate" value="1770883200000" />
+                  <option name="instanceUrl" value="https://customer-data-9365.scratch.my.salesforce.com" />
+                  <option name="lastUsed" value="1769022132560" />
+                  <option name="loginUrl" value="https://customer-data-9365.scratch.my.salesforce.com" />
+                  <option name="namespace" value="cgpm" />
+                  <option name="namespacePrefix" value="cgpm" />
+                  <option name="orgId" value="00DEc00000YUpRJMA1" />
+                  <option name="orgName" value="CGPM" />
+                  <option name="signupUsername" value="test-jmvxjugqpx3h@example.com" />
+                  <option name="status" value="Active" />
+                  <option name="username" value="test-jmvxjugqpx3h@example.com" />
                 </SfOrg>
               </list>
             </option>
@@ -94,19 +132,21 @@
         </option>
       </SfOrgListResponse>
     </option>
-    <option name="orgListResponseLastPopulated" value="1718031721937" />
+    <option name="orgListResponseLastPopulated" value="1769540063560" />
     <option name="sfdxConfigFileChecksums">
       <map>
-        <entry key="alias.json" value="3796860374" />
-        <entry key="cgadmin@kurtzfargo.com.devpro.json" value="1576406284" />
-        <entry key="cgadmin@kurtzfargo.com.json" value="3461938211" />
-        <entry key="cgadmin@kurtzfargo.com.uat.json" value="3657553670" />
-        <entry key="cgadmin@qdusa.com.prod.devpro.json" value="2444482231" />
-        <entry key="cgadmin@qdusa.com.prod.json" value="2904254338" />
-        <entry key="cgadmin@qdusa.com.prod.partial.json" value="2721356374" />
-        <entry key="nmorozov@corraogroup.com.isys.corraodev.json" value="1851546723" />
-        <entry key="nmorozov@corraogroup.com.isys.implement.json" value="950284966" />
-        <entry key="nmorozov@corraogroup.com.isys.json" value="286075073" />
+        <entry key="admin@nickmorozov.net.json" value="197926042" />
+        <entry key="alias.json" value="3448301490" />
+        <entry key="cgadmin.burl@katzman.com.cg.json" value="489510729" />
+        <entry key="jcastelo@corraogroup.com.psi.json" value="2281489800" />
+        <entry key="nmorozov.cgpm@corraogroup.com.json" value="733134712" />
+        <entry key="nmorozov@corraogroup.com.cgpartial.json" value="1868145319" />
+        <entry key="nmorozov@corraogroup.com.cgtpm.json" value="4230153503" />
+        <entry key="nmorozov@corraogroup.com.json" value="2193330626" />
+        <entry key="nmorozov_blusky@corraogroup.com.corraodev.json" value="6466402" />
+        <entry key="nmorozov_blusky@corraogroup.com.json" value="4199902648" />
+        <entry key="nmorozov_blusky@corraogroup.com.uat.json" value="4050644054" />
+        <entry key="test-jmvxjugqpx3h@example.com.json" value="3536762565" />
       </map>
     </option>
   </component>

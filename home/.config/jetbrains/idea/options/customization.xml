@@ -1,27 +1,105 @@
 <application>
   <component name="com.intellij.ide.ui.customization.CustomActionsSchema">
+    <group value="Vcs.Operations.Popup" is_group="true" forse_popup="false" action_type="-1" position="29">
+      <path value="root" />
+    </group>
+    <group value="Vcs.Log.Toolbar.RightCorner" is_group="true" forse_popup="false" action_type="-1" position="28">
+      <path value="root" />
+    </group>
+    <group value="Vcs.Log.ChangesBrowser.Toolbar" is_group="true" forse_popup="false" action_type="-1" position="27">
+      <path value="root" />
+    </group>
+    <group value="ChangesViewToolbar" is_group="true" forse_popup="false" action_type="-1" position="26">
+      <path value="root" />
+    </group>
+    <group value="PY.Tables.Right.Toolbar.Customize.Actions.Group" is_group="true" forse_popup="false" action_type="-1" position="25">
+      <path value="root" />
+    </group>
+    <group value="StringManipulation.Group.SwitchCase" is_group="true" forse_popup="false" action_type="-1" position="24">
+      <path value="root" />
+    </group>
+    <group value="Vcs.Operations.Popup" is_group="true" forse_popup="false" action_type="-1" position="24">
+      <path value="root" />
+    </group>
+    <group value="StringManipulation.Group.Main" is_group="true" forse_popup="false" action_type="-1" position="23">
+      <path value="root" />
+    </group>
+    <group value="Vcs.Log.Toolbar.RightCorner" is_group="true" forse_popup="false" action_type="-1" position="23">
+      <path value="root" />
+    </group>
+    <group value="RunTab.TopToolbar" is_group="true" forse_popup="false" action_type="-1" position="22">
+      <path value="root" />
+    </group>
+    <group value="Vcs.Log.ChangesBrowser.Toolbar" is_group="true" forse_popup="false" action_type="-1" position="22">
+      <path value="root" />
+    </group>
     <group value="Vcs.Operations.Popup" is_group="true" forse_popup="false" action_type="-1" position="22">
+      <path value="root" />
+    </group>
+    <group value="RunTab.TopToolbar.More" is_group="true" forse_popup="false" action_type="-1" position="21">
+      <path value="root" />
+    </group>
+    <group value="ChangesViewToolbar" is_group="true" forse_popup="false" action_type="-1" position="21">
       <path value="root" />
     </group>
     <group value="Vcs.Log.Toolbar.RightCorner" is_group="true" forse_popup="false" action_type="-1" position="21">
       <path value="root" />
     </group>
+    <group value="Console.TableResult.FloatingToolbarGroup" is_group="true" forse_popup="false" action_type="-1" position="20">
+      <path value="root" />
+    </group>
+    <group value="StringManipulation.Group.SwitchCase" is_group="true" forse_popup="false" action_type="-1" position="20">
+      <path value="root" />
+    </group>
     <group value="Vcs.Log.ChangesBrowser.Toolbar" is_group="true" forse_popup="false" action_type="-1" position="20">
+      <path value="root" />
+    </group>
+    <group value="pdf.viewer.RightToolbarActionGroup" is_group="true" forse_popup="false" action_type="-1" position="19">
+      <path value="root" />
+    </group>
+    <group value="StringManipulation.Group.Main" is_group="true" forse_popup="false" action_type="-1" position="19">
       <path value="root" />
     </group>
     <group value="ChangesViewToolbar" is_group="true" forse_popup="false" action_type="-1" position="19">
       <path value="root" />
     </group>
+    <group value="pdf.viewer.LeftToolbarActionGroup" is_group="true" forse_popup="false" action_type="-1" position="18">
+      <path value="root" />
+    </group>
+    <group value="RunTab.TopToolbar" is_group="true" forse_popup="false" action_type="-1" position="18">
+      <path value="root" />
+    </group>
     <group value="StringManipulation.Group.SwitchCase" is_group="true" forse_popup="false" action_type="-1" position="18">
+      <path value="root" />
+    </group>
+    <group value="Markdown.Toolbar.Floating" is_group="true" forse_popup="false" action_type="-1" position="17">
+      <path value="root" />
+    </group>
+    <group value="RunTab.TopToolbar.More" is_group="true" forse_popup="false" action_type="-1" position="17">
       <path value="root" />
     </group>
     <group value="StringManipulation.Group.Main" is_group="true" forse_popup="false" action_type="-1" position="17">
       <path value="root" />
     </group>
+    <group value="JupyterEditorLeftToolbarCustomizeActionsGroup" is_group="true" forse_popup="false" action_type="-1" position="16">
+      <path value="root" />
+    </group>
+    <group value="Console.TableResult.FloatingToolbarGroup" is_group="true" forse_popup="false" action_type="-1" position="16">
+      <path value="root" />
+    </group>
     <group value="RunTab.TopToolbar" is_group="true" forse_popup="false" action_type="-1" position="16">
       <path value="root" />
     </group>
+    <group value="JupyterCodeCellToolbarCustomizeActionsGroup" is_group="true" forse_popup="false" action_type="-1" position="15">
+      <path value="root" />
+    </group>
+    <group value="Markdown.Toolbar.Floating" is_group="true" forse_popup="false" action_type="-1" position="15">
+      <path value="root" />
+    </group>
     <group value="RunTab.TopToolbar.More" is_group="true" forse_popup="false" action_type="-1" position="15">
+      <path value="root" />
+    </group>
+    <group value="Floating.CodeToolbar.JS" is_group="true" forse_popup="false" action_type="-1" position="14">
       <path value="root" />
     </group>
     <group value="Markdown.Toolbar.Floating" is_group="true" forse_popup="false" action_type="-1" position="14">
@@ -42,14 +120,32 @@
     <group value="XDebugger.ToolWindow.TopToolbar3.Extra" is_group="true" forse_popup="false" action_type="-1" position="9">
       <path value="root" />
     </group>
+    <group value="com.anthropic.code.plugin.actions.SendToClaudeAction" is_action="true" action_type="-1" position="9">
+      <path value="root" />
+      <path value="Floating Code Toolbar" />
+    </group>
     <group value="NavBarToolBar" is_group="true" forse_popup="false" action_type="-1" position="8">
       <path value="root" />
     </group>
     <group value="NavbarPopupMenu" is_group="true" forse_popup="false" action_type="-1" position="7">
       <path value="root" />
     </group>
+    <group value="ReformatCode" is_action="true" action_type="-1" position="7">
+      <path value="root" />
+      <path value="Floating Code Toolbar" />
+    </group>
+    <group value="com.anthropic.code.plugin.actions.OpenClaudeInTerminalAction" is_action="true" action_type="-1" position="7">
+      <path value="root" />
+      <path value="Main Toolbar" />
+      <path value="Right" />
+    </group>
     <group value="ScopeViewPopupMenu" is_group="true" forse_popup="false" action_type="-1" position="6">
       <path value="root" />
+    </group>
+    <group value="TrialStateWidget" is_action="true" action_type="-1" position="6">
+      <path value="root" />
+      <path value="Main Toolbar" />
+      <path value="Right" />
     </group>
     <group value="ProjectViewPopupMenu" is_group="true" forse_popup="false" action_type="-1" position="5">
       <path value="root" />
@@ -59,6 +155,10 @@
     </group>
     <group value="EditorGutterPopupMenu" is_group="true" forse_popup="false" action_type="-1" position="3">
       <path value="root" />
+    </group>
+    <group value="aiplugin.gemini.editor.group" is_group="true" forse_popup="false" action_type="-1" position="3">
+      <path value="root" />
+      <path value="Floating Code Toolbar" />
     </group>
     <group value="MainToolbarGeneralActionsGroup" is_group="true" forse_popup="false" action_type="-1" position="3">
       <path value="root" />
@@ -73,23 +173,37 @@
       <path value="Main Toolbar" />
       <path value="Left" />
     </group>
+    <group value="MainToolbarNewUI" is_group="true" forse_popup="false" action_type="-1" position="1">
+      <path value="root" />
+    </group>
+    <group value="CreateRuleFromSelectionAction" is_action="true" action_type="-1" position="1">
+      <path value="root" />
+      <path value="Floating Code Toolbar" />
+    </group>
     <group value="MainMenu" is_group="true" forse_popup="false" action_type="-1" position="0">
       <path value="root" />
     </group>
-    <group value="com.sburlyaev.cmd.plugin.actions.OpenTerminal" is_action="true" action_type="-1" position="0">
+    <group value="copilot.chat.inline" is_action="true" action_type="-1" position="0">
       <path value="root" />
-      <path value="Main Toolbar" />
-      <path value="Right" />
+      <path value="Floating Code Toolbar" />
     </group>
-    <group value="IlluminatedCloudToolsGroup" is_group="true" forse_popup="true" action_type="1" position="0">
+    <group value="StringManipulation.Group.Main" is_group="true" forse_popup="true" action_type="1" position="0">
       <path value="root" />
-      <path value="Main Toolbar" />
-      <path value="Right" />
+      <path value="Floating Code Toolbar" />
     </group>
-    <group value="Vcs.ShowTabbedFileHistory" is_action="true" action_type="1" position="1">
+    <group value="com.anthropic.code.plugin.actions.SendToClaudeAction" is_action="true" action_type="1" position="0">
+      <path value="root" />
+      <path value="Floating Code Toolbar" />
+      <path value="AIIntentionsToolbarActionGroup" />
+    </group>
+    <group value="com.anthropic.code.plugin.actions.OpenClaudeInTerminalAction" is_action="true" action_type="1" position="1">
       <path value="root" />
       <path value="Main Toolbar" />
       <path value="Center" />
+    </group>
+    <group value="EditorAddCaretPerSelectedLine" is_action="true" action_type="1" position="2">
+      <path value="root" />
+      <path value="Floating Code Toolbar" />
     </group>
     <group value="Git.CreateNewBranch" is_action="true" action_type="1" position="2">
       <path value="root" />
@@ -97,104 +211,139 @@
       <path value="Left" />
       <path value="VCS Group" />
     </group>
-    <group value="IlluminatedCloud.GenerateOfflineSymbolTable" is_action="true" action_type="1" position="2">
+    <group value="LocalHistory.ShowHistory" is_action="true" action_type="1" position="2">
       <path value="root" />
       <path value="Main Toolbar" />
       <path value="Center" />
     </group>
-    <group value="IlluminatedCloud.SfPull" is_action="true" action_type="1" position="3">
+    <group value="CreateRuleFromSelectionAction" is_action="true" action_type="1" position="3">
+      <path value="root" />
+      <path value="Floating Code Toolbar" />
+    </group>
+    <group value="LocalHistory.PutLabel" is_action="true" action_type="1" position="3">
       <path value="root" />
       <path value="Main Toolbar" />
       <path value="Center" />
     </group>
-    <group value="IlluminatedCloud.Retrieve.Sf" is_action="true" action_type="1" position="4">
+    <group value="Vcs.ShowTabbedFileHistory" is_action="true" action_type="1" position="4">
       <path value="root" />
       <path value="Main Toolbar" />
       <path value="Center" />
     </group>
-    <group value="IlluminatedCloud.Retrieve" is_action="true" action_type="1" position="5">
+    <group value="MoreRunToolbarActions" is_action="true" action_type="1" position="4">
+      <path value="root" />
+      <path value="Main Toolbar" />
+      <path value="Right" />
+    </group>
+    <group value="IlluminatedCloud.GenerateOfflineSymbolTable" is_action="true" action_type="1" position="5">
       <path value="root" />
       <path value="Main Toolbar" />
       <path value="Center" />
     </group>
-    <group value="IlluminatedCloud.SfPush" is_action="true" action_type="1" position="6">
+    <group value="IlluminatedCloud.SfPull" is_action="true" action_type="1" position="6">
       <path value="root" />
       <path value="Main Toolbar" />
       <path value="Center" />
     </group>
-    <group value="IlluminatedCloud.DeployModifiedMetadata.Sf" is_action="true" action_type="1" position="7">
+    <group value="IlluminatedCloud.Retrieve.Sf" is_action="true" action_type="1" position="7">
       <path value="root" />
       <path value="Main Toolbar" />
       <path value="Center" />
     </group>
-    <group value="IlluminatedCloud.DeployModifiedMetadata" is_action="true" action_type="1" position="8">
+    <group value="IlluminatedCloud.Retrieve" is_action="true" action_type="1" position="8">
       <path value="root" />
       <path value="Main Toolbar" />
       <path value="Center" />
     </group>
-    <group value="IlluminatedCloud.DeployAllMetadata.Sf" is_action="true" action_type="1" position="9">
+    <group value="IlluminatedCloud.SfPush" is_action="true" action_type="1" position="9">
       <path value="root" />
       <path value="Main Toolbar" />
       <path value="Center" />
     </group>
-    <group value="IlluminatedCloud.DeployAllMetadata" is_action="true" action_type="1" position="10">
+    <group value="IlluminatedCloud.DeployModifiedMetadata.Sf" is_action="true" action_type="1" position="10">
       <path value="root" />
       <path value="Main Toolbar" />
       <path value="Center" />
     </group>
-    <group value="IlluminatedCloud.Refresh" is_action="true" action_type="1" position="11">
+    <group value="IlluminatedCloud.DeployModifiedMetadata" is_action="true" action_type="1" position="11">
       <path value="root" />
       <path value="Main Toolbar" />
       <path value="Center" />
     </group>
-    <group value="IlluminatedCloud.CompareWithServer" is_action="true" action_type="1" position="12">
+    <group value="IlluminatedCloud.DeployAllMetadata.Sf" is_action="true" action_type="1" position="12">
       <path value="root" />
       <path value="Main Toolbar" />
       <path value="Center" />
     </group>
-    <group value="IlluminatedCloud.CompareWithServer.Sf" is_action="true" action_type="1" position="13">
+    <group value="IlluminatedCloud.DeployAllMetadata" is_action="true" action_type="1" position="13">
       <path value="root" />
       <path value="Main Toolbar" />
       <path value="Center" />
     </group>
-    <group value="IlluminatedCloud.CompareWithOtherServer" is_action="true" action_type="1" position="14">
+    <group value="IlluminatedCloud.Refresh" is_action="true" action_type="1" position="14">
       <path value="root" />
       <path value="Main Toolbar" />
       <path value="Center" />
     </group>
-    <group value="IlluminatedCloud.CompareWithOtherServer.Sf" is_action="true" action_type="1" position="15">
+    <group value="IlluminatedCloud.CompareWithServer" is_action="true" action_type="1" position="15">
       <path value="root" />
       <path value="Main Toolbar" />
       <path value="Center" />
     </group>
-    <group value="IlluminatedCloud.Delete" is_action="true" action_type="1" position="16">
+    <group value="IlluminatedCloud.CompareWithServer.Sf" is_action="true" action_type="1" position="16">
       <path value="root" />
       <path value="Main Toolbar" />
       <path value="Center" />
     </group>
-    <group value="IlluminatedCloud.Delete.Sf" is_action="true" action_type="1" position="17">
+    <group value="IlluminatedCloud.CompareWithOtherServer" is_action="true" action_type="1" position="17">
       <path value="root" />
       <path value="Main Toolbar" />
       <path value="Center" />
     </group>
-    <action id="main.toolbar.Project" icon="jar:file:/Users/nick/Applications/IntelliJ%20IDEA%20Ultimate.app/Contents/lib/app-client.jar!/expui/toolbar/unknown.svg" />
+    <group value="IlluminatedCloud.CompareWithOtherServer.Sf" is_action="true" action_type="1" position="18">
+      <path value="root" />
+      <path value="Main Toolbar" />
+      <path value="Center" />
+    </group>
+    <group value="IlluminatedCloud.Delete" is_action="true" action_type="1" position="19">
+      <path value="root" />
+      <path value="Main Toolbar" />
+      <path value="Center" />
+    </group>
+    <group value="IlluminatedCloud.Delete.Sf" is_action="true" action_type="1" position="20">
+      <path value="root" />
+      <path value="Main Toolbar" />
+      <path value="Center" />
+    </group>
+    <group value="IlluminatedCloudToolsGroup" is_group="true" forse_popup="true" action_type="1" position="21">
+      <path value="root" />
+      <path value="Main Toolbar" />
+      <path value="Center" />
+    </group>
     <action id="IlluminatedCloud.Retrieve" icon="Vcs.GetVersion" />
-    <action id="main.toolbar.Filename" icon="jar:file:/Applications/IntelliJ%20IDEA.app/Contents/lib/app-client.jar!/expui/toolbar/unknown.svg" />
-    <action id="IlluminatedCloudToolsGroup" icon="copilot.feedback" />
-    <action id="IlluminatedCloud.DeployModifiedMetadata" icon="Servers.Deploy" />
+    <action id="IlluminatedCloudToolsGroup" icon="IlluminatedCloud.OpenInSalesforceClassicSetup" />
     <action id="IlluminatedCloud.DeployAllMetadata" icon="IlluminatedCloud.SfdxPush" />
     <action id="NewUiRunWidget" icon="Run" />
     <action id="InspectCode" icon="ShowIntentionActions" />
     <action id="MainMenuAsSeparateToolbarAction" icon="jar:file:/Users/nick/Library/Application%20Support/JetBrains/IntelliJIdea2023.2/plugins/Atom%20Material%20Icons/lib/common.jar!/icons/expui/toolbar/unknown.svg" />
-    <action id="Git.CreateNewBranch" icon="jar:file:/Applications/IntelliJ%20IDEA.app/Contents/lib/app-client.jar!/expui/general/add.svg" />
     <action id="CustomizeModeWidget" icon="jar:file:/Users/nick/Applications/IntelliJ%20IDEA%20Ultimate.app/Contents/lib/app-client.jar!/expui/toolbar/unknown.svg" />
     <action id="tasks.switch" icon="AtomFileIcons.OldToolbar" />
     <action id="main.toolbar.git.MergeRebase" icon="jar:file:/Users/nick/Applications/IntelliJ%20IDEA%20Ultimate.app/Contents/lib/app-client.jar!/expui/toolbar/unknown.svg" />
     <action id="Vcs.ShowHistoryForBlock" icon="StringManipulation.ToolWindow.Replace.HistoryAction" />
     <action id="ExecutionTargets" icon="UsageGrouping.Scope" />
+    <action id="tasks.and.contexts" icon="FileChooser.GotoHome" />
+    <action id="ReformatWithPrettierAction" icon="ReformatCode" />
+    <action id="main.toolbar.Project" icon="jar:file:/Users/nick/Applications/IntelliJ%20IDEA%20Ultimate.app/Contents/lib/app-client.jar!/expui/toolbar/unknown.svg" />
+    <action id="EditorAddCaretPerSelectedLine" icon="Markdown.Table.SelectCurrentColumn.SelectContentCells" />
+    <action id="main.toolbar.Filename" icon="jar:file:/Applications/IntelliJ%20IDEA.app/Contents/lib/app-client.jar!/expui/toolbar/unknown.svg" />
+    <action id="IlluminatedCloud.DeployModifiedMetadata" icon="Servers.Deploy" />
+    <action id="EditorAddRectangularSelectionOnMouseDrag" icon="jar:file:/Applications/IntelliJ%20IDEA.app/Contents/lib/app.jar!/expui/toolbar/unknown.svg" />
+    <action id="Git.CreateNewBranch" icon="jar:file:/Applications/IntelliJ%20IDEA.app/Contents/lib/app-client.jar!/expui/general/add.svg" />
+    <action id="LocalHistory.ShowHistory" icon="$Undo" />
     <action id="AntBuildGroup" icon="jar:file:/Users/nick/Library/Application%20Support/JetBrains/IntelliJIdea2023.2/plugins/Atom%20Material%20Icons/lib/common.jar!/icons/toolbar/unknown.svg" />
     <action id="ToggleBookmark" icon="ActivateBookmarksToolWindow" />
     <action id="Git.Menu" icon="ActivateVersionControlToolWindow" />
-    <action id="tasks.and.contexts" icon="FileChooser.GotoHome" />
+    <action id="StringManipulation.Group.Main" icon="ActivateStringManipulationToolWindow" />
+    <action id="LocalHistory.PutLabel" icon="RunToolbarMoveToTopAction" />
   </component>
 </application>

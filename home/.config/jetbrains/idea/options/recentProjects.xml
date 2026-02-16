@@ -98,22 +98,6 @@
             </RecentProjectMetaInfo>
           </value>
         </entry>
-        <entry key="$USER_HOME$/Projects/Job/blue-sky">
-          <value>
-            <RecentProjectMetaInfo frameTitle="blue-sky [~/Projects/Job/blue-sky] – /Users/nick/Projects/Job/blue-sky/.idea/blue-sky.iml" projectWorkspaceId="2ihxbd5pNlLuiolcHxI4BZZONfM">
-              <option name="activationTimestamp" value="1719956902858" />
-              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
-              <option name="build" value="IU-241.18034.62" />
-              <option name="buildTimestamp" value="1718905980000" />
-              <option name="colorInfo">
-                <RecentProjectColorInfo associatedIndex="4" />
-              </option>
-              <frame x="4748" y="25" width="1897" height="2135" />
-              <option name="productionCode" value="IU" />
-              <option name="projectOpenTimestamp" value="1719956683675" />
-            </RecentProjectMetaInfo>
-          </value>
-        </entry>
         <entry key="$APPLICATION_CONFIG_DIR$/light-edit">
           <value>
             <RecentProjectMetaInfo hidden="true">
@@ -173,7 +157,7 @@
         </entry>
         <entry key="$USER_HOME$/Projects/Job/psi">
           <value>
-            <RecentProjectMetaInfo frameTitle="psi – README.md" opened="true" projectWorkspaceId="2v6AVVuDZSkDAWpRant0gX4VTpG">
+            <RecentProjectMetaInfo frameTitle="psi – README.md" projectWorkspaceId="2v6AVVuDZSkDAWpRant0gX4VTpG">
               <option name="activationTimestamp" value="1743455334989" />
               <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
               <option name="build" value="IU-243.25659.59" />
@@ -187,8 +171,40 @@
             </RecentProjectMetaInfo>
           </value>
         </entry>
+        <entry key="$USER_HOME$/Projects/Repos/focusrite-volume-control">
+          <value>
+            <RecentProjectMetaInfo frameTitle="focusrite-volume-control – ~/.config/github-copilot/mcp.json" opened="true" projectWorkspaceId="38o6dwrrI8UDAYcDcqMvbOVwvlV">
+              <option name="activationTimestamp" value="1769541817909" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="build" value="IU-253.29346.240" />
+              <option name="buildTimestamp" value="1767848460000" />
+              <option name="colorInfo">
+                <RecentProjectColorInfo associatedIndex="1" />
+              </option>
+              <frame x="10" y="10" width="3940" height="2140" />
+              <option name="productionCode" value="IU" />
+              <option name="projectOpenTimestamp" value="1769453668424" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Projects/Job/blue-sky">
+          <value>
+            <RecentProjectMetaInfo frameTitle="blue-sky – OpportunityTriggerHandler" opened="true" projectWorkspaceId="2ihxbd5pNlLuiolcHxI4BZZONfM">
+              <option name="activationTimestamp" value="1769541151118" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="build" value="IU-253.29346.240" />
+              <option name="buildTimestamp" value="1767848460000" />
+              <option name="colorInfo">
+                <RecentProjectColorInfo associatedIndex="4" />
+              </option>
+              <frame x="2568" y="10" width="5102" height="2140" />
+              <option name="productionCode" value="IU" />
+              <option name="projectOpenTimestamp" value="1769540048604" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
       </map>
     </option>
-    <option name="lastOpenedProject" value="$USER_HOME$/Projects/Job/psi" />
+    <option name="lastOpenedProject" value="$USER_HOME$/Projects/Repos/focusrite-volume-control" />
   </component>
 </application>

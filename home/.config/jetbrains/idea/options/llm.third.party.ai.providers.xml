@@ -1,0 +1,7 @@
+<application>
+  <component name="LLMThirdPartyAIProvidersSettings">
+    <option name="enabledThirdPartyAIProviders">
+      <option value="Anthropic" />
+    </option>
+  </component>
+</application>

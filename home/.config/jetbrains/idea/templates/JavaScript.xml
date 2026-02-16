@@ -1,0 +1,9 @@
+<templateSet group="JavaScript">
+  <template name="jsp" value="typeof $VAR$ === 'object' ? JSON.parse(JSON.stringify($VAR$)) : $VAR$$END$" description="JSON Stringify and Parse" toReformat="true" toShortenFQNames="true">
+    <variable name="VAR" expression="jsSuggestVariableName()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JS_CLASS_MEMBER_EXPRESSION" value="true" />
+      <option name="SLDS_VALIDATOR_FILES" value="true" />
+    </context>
+  </template>
+</templateSet>

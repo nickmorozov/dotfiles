@@ -1,0 +1,7 @@
+<templateSet group="SLDS Validator">
+  <template name="ign" value="$SELECTION_INDENT$$BEFORE_COMMENT$&#10;$SELECTION_INDENT$$SELECTION$$END$&#10;$SELECTION_INDENT$$AFTER_COMMENT$" description="Surrounds the selection with 'sldsValidatorIgnore' and 'sldsValidatorAllow' comments" toReformat="true" toShortenFQNames="false">
+    <variable name="SELECTION_INDENT" expression="icSelectionIndent()" defaultValue="" alwaysStopAt="false" />
+    <variable name="BEFORE_COMMENT" expression="icLineComment(&quot;sldsValidatorIgnore&quot;)" defaultValue="" alwaysStopAt="false" />
+    <variable name="AFTER_COMMENT" expression="icLineComment(&quot;sldsValidatorAllow&quot;)" defaultValue="" alwaysStopAt="false" />
+  </template>
+</templateSet>

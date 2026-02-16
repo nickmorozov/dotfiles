@@ -1,20 +1,15 @@
 <application>
   <component name="ToolWindowLayout"><![CDATA[{
-  "activeLayoutName": "Nick's Layout",
+  "activeLayoutName": "Default Wide",
   "layouts": {
-    "Nick's Layout": {
+    "Default Wide": {
       "v2": [
-        {
-          "id": "Bookmarks",
-          "isShowStripeButton": false,
-          "isSplit": true
-        },
         {
           "id": "Merge Requests",
           "isShowStripeButton": false
         },
         {
-          "id": "Pull Requests",
+          "id": "Backup and Sync History",
           "isShowStripeButton": false
         },
         {
@@ -27,39 +22,89 @@
           "contentUiType": "COMBO",
           "isActiveOnStart": true,
           "isVisible": true,
-          "weight": 0.21177456,
-          "sideWeight": 0.500503
-        },
-        {
-          "id": "Codiumate Chat",
-          "order": 1,
-          "isVisible": true,
-          "weight": 0.33035713
+          "weight": 0.07801488,
+          "sideWeight": 0.43592903
         },
         {
           "id": "Welcome to GitHub Copilot",
-          "order": 2,
+          "order": 1,
           "isShowStripeButton": false,
-          "weight": 0.32999486
+          "weight": 0.081183076
         },
         {
           "id": "Commit",
+          "order": 2,
+          "isActiveOnStart": true,
+          "isVisible": true,
+          "weight": 0.07801488,
+          "sideWeight": 0.56407094,
+          "isSplit": true
+        },
+        {
+          "id": "Pull Requests",
           "order": 3,
-          "weight": 0.19491525,
-          "sideWeight": 0.4996791,
+          "weight": 0.13384038,
+          "sideWeight": 0.56796503,
           "isSplit": true
         },
         {
           "id": "Structure",
           "order": 4,
-          "isActiveOnStart": true,
-          "isVisible": true,
-          "weight": 0.21177456,
-          "sideWeight": 0.499497,
+          "weight": 0.30889326,
+          "sideWeight": 0.49903148,
           "isSplit": true
         },
         {
-          "id": "TypeScript",
+          "id": "Bookmarks",
+          "order": 5,
+          "weight": 0.30889326,
+          "sideWeight": 0.49903148,
+          "isSplit": true
+        },
+        {
+          "id": "TODO",
+          "order": 6,
+          "weight": 0.16544844,
+          "sideWeight": 0.56847984,
+          "isSplit": true
+        },
+        {
+          "id": "Coverage",
+          "order": 7,
+          "weight": 0.20293543,
+          "sideWeight": 0.4997515
+        },
+        {
+          "id": "Find",
+          "order": 8,
+          "weight": 0.3713323,
+          "sideWeight": 0.5009713
+        },
+        {
+          "id": "VcsChanges",
+          "order": 9,
+          "weight": 0.13069403,
+          "sideWeight": 0.50030375
+        },
+        {
+          "id": "TMS",
+          "order": 10
+        },
+        {
+          "id": "Todo4me",
+          "order": 11,
+          "floatingBounds": [
+            1567,
+            856,
+            1686,
+            242
+          ],
+          "weight": 0.13403794,
+          "sideWeight": 0.1927663,
+          "isSplit": true
+        },
+        {
+          "id": "NextEditPredictionSettingsToolwindow",
           "anchor": "BOTTOM",
           "isShowStripeButton": false
         },
@@ -69,127 +114,184 @@
           "isShowStripeButton": false
         },
         {
-          "id": "TODO",
+          "id": "HfCacheToolWindow",
           "anchor": "BOTTOM",
           "isShowStripeButton": false
         },
         {
-          "id": "Python Console",
+          "id": "Semantic Tokens Inspector",
+          "anchor": "BOTTOM",
+          "isShowStripeButton": false
+        },
+        {
+          "id": "TypeScript",
+          "anchor": "BOTTOM",
+          "isShowStripeButton": false
+        },
+        {
+          "id": "Json Parser",
           "order": 0,
           "anchor": "BOTTOM",
-          "isShowStripeButton": false,
-          "weight": 0.33001807,
-          "sideWeight": 0.37885627,
+          "weight": 0.37646782,
+          "sideWeight": 0.36014056,
           "isSplit": true
         },
         {
-          "id": "Version Control",
+          "id": "Developer Tools",
           "order": 1,
           "anchor": "BOTTOM",
-          "weight": 0.33001807,
-          "sideWeight": 0.5003453
-        },
-        {
-          "id": "Problems",
-          "order": 2,
-          "anchor": "BOTTOM"
-        },
-        {
-          "id": "PackageSearch",
-          "order": 3,
-          "anchor": "BOTTOM",
-          "isShowStripeButton": false,
-          "weight": 0.33001807
-        },
-        {
-          "id": "GitHub Actions",
-          "order": 4,
-          "anchor": "BOTTOM",
-          "isShowStripeButton": false,
-          "weight": 0.33001807
-        },
-        {
-          "id": "Python Packages",
-          "order": 5,
-          "anchor": "BOTTOM",
-          "isShowStripeButton": false,
-          "weight": 0.33001807
-        },
-        {
-          "id": "Salesforce Functions",
-          "order": 6,
-          "anchor": "BOTTOM",
-          "isShowStripeButton": false
-        },
-        {
-          "id": "Services",
-          "order": 7,
-          "anchor": "BOTTOM",
-          "isShowStripeButton": false,
-          "weight": 0.33001807
-        },
-        {
-          "id": "SOQL Query",
-          "order": 8,
-          "anchor": "BOTTOM",
-          "weight": 0.33001807,
-          "sideWeight": 0.773794
-        },
-        {
-          "id": "Anonymous Apex",
-          "order": 9,
-          "anchor": "BOTTOM"
-        },
-        {
-          "id": "Terminal",
-          "order": 10,
-          "anchor": "BOTTOM",
-          "weight": 0.33001807,
-          "isSplit": true
-        },
-        {
-          "id": "Log Analyzer",
-          "order": 11,
-          "anchor": "BOTTOM",
-          "isSplit": true
-        },
-        {
-          "id": "Illuminated Cloud",
-          "order": 12,
-          "anchor": "BOTTOM",
-          "weight": 0.33001807,
-          "sideWeight": 0.19723435,
+          "weight": 0.33044496,
           "isSplit": true
         },
         {
           "id": "Messages",
-          "order": 13,
+          "order": 2,
           "anchor": "BOTTOM",
-          "weight": 0.33013698,
+          "weight": 0.3150463,
+          "sideWeight": 0.4482451,
           "isSplit": true
         },
         {
-          "id": "Run",
-          "order": 14,
+          "id": "Problems",
+          "order": 3,
           "anchor": "BOTTOM",
-          "isShowStripeButton": false,
-          "weight": 0.1992164,
-          "isSplit": true
+          "weight": 0.31518692
+        },
+        {
+          "id": "Salesforce Functions",
+          "order": 4,
+          "anchor": "BOTTOM",
+          "isShowStripeButton": false
+        },
+        {
+          "id": "Log Analyzer",
+          "order": 5,
+          "anchor": "BOTTOM",
+          "floatingBounds": [
+            0,
+            31,
+            2527,
+            2129
+          ],
+          "weight": 0.3150463,
+          "sideWeight": 0.6195717
+        },
+        {
+          "id": "Version Control",
+          "order": 6,
+          "anchor": "BOTTOM",
+          "weight": 0.3150463,
+          "sideWeight": 0.55175495
         },
         {
           "id": "Problems View",
-          "order": 15,
+          "order": 7,
           "anchor": "BOTTOM",
-          "weight": 0.33013698,
-          "isSplit": true
+          "weight": 0.31518692,
+          "sideWeight": 0.5002049
         },
         {
           "id": "Notifications",
+          "order": 8,
+          "anchor": "BOTTOM",
+          "weight": 0.29906905,
+          "sideWeight": 0.29323772
+        },
+        {
+          "id": "ExcelReader",
+          "order": 9,
+          "anchor": "BOTTOM",
+          "weight": 0.18711944,
+          "sideWeight": 0.5719774
+        },
+        {
+          "id": "ExcelEditor",
+          "order": 10,
+          "anchor": "BOTTOM",
+          "weight": 0.3299766,
+          "isSplit": true
+        },
+        {
+          "id": "Python Packages",
+          "order": 11,
+          "anchor": "BOTTOM",
+          "isShowStripeButton": false,
+          "weight": 0.3299766
+        },
+        {
+          "id": "Services",
+          "order": 12,
+          "anchor": "BOTTOM",
+          "isShowStripeButton": false,
+          "weight": 0.3299766
+        },
+        {
+          "id": "GitHub Copilot MCP Log",
+          "order": 13,
+          "anchor": "BOTTOM",
+          "isShowStripeButton": false
+        },
+        {
+          "id": "Language Servers",
+          "order": 14,
+          "anchor": "BOTTOM"
+        },
+        {
+          "id": "Ruff Logging",
+          "order": 15,
+          "anchor": "BOTTOM",
+          "isSplit": true
+        },
+        {
+          "id": "GraphQL",
+          "order": 16,
+          "anchor": "BOTTOM"
+        },
+        {
+          "id": "Better Comments",
           "order": 17,
           "anchor": "BOTTOM",
-          "weight": 0.33001807,
-          "sideWeight": 0.4996547,
+          "weight": 0.3150463,
+          "sideWeight": 0.50019825
+        },
+        {
+          "id": "TODO Exporter",
+          "order": 18,
+          "anchor": "BOTTOM"
+        },
+        {
+          "id": "PythonProcessOutput",
+          "order": 19,
+          "anchor": "BOTTOM",
+          "weight": 0.3150463,
+          "sideWeight": 0.50019825
+        },
+        {
+          "id": "Build",
+          "order": 20,
+          "anchor": "BOTTOM",
+          "weight": 0.31518692
+        },
+        {
+          "id": "Code Provenance",
+          "anchor": "RIGHT",
+          "isShowStripeButton": false,
           "isSplit": true
+        },
+        {
+          "id": "Plots",
+          "anchor": "RIGHT",
+          "isShowStripeButton": false
+        },
+        {
+          "id": "PR AI Assistant",
+          "anchor": "RIGHT",
+          "isShowStripeButton": false
+        },
+        {
+          "id": "SciView",
+          "anchor": "RIGHT",
+          "isShowStripeButton": false
         },
         {
           "id": "String Manipulation",
@@ -202,79 +304,210 @@
           "isShowStripeButton": false
         },
         {
-          "id": "Coverage",
+          "id": "documentation.v2",
           "anchor": "RIGHT",
           "isShowStripeButton": false,
           "isSplit": true
         },
         {
-          "id": "AIAssistant",
-          "order": 0,
+          "id": "Jupyter Variables",
           "anchor": "RIGHT",
           "isShowStripeButton": false,
-          "weight": 0.24987158
+          "isSplit": true
         },
         {
           "id": "Database",
+          "order": 0,
+          "anchor": "RIGHT",
+          "isShowStripeButton": false,
+          "weight": 0.33035713
+        },
+        {
+          "id": "Gradle",
           "order": 1,
           "anchor": "RIGHT",
           "weight": 0.25
         },
         {
-          "id": "Gradle",
+          "id": "Maven",
           "order": 2,
           "anchor": "RIGHT",
           "weight": 0.25
         },
         {
-          "id": "Maven",
+          "id": "CodeGPT",
           "order": 3,
           "anchor": "RIGHT",
-          "weight": 0.25
+          "weight": 0.13751483,
+          "sideWeight": 0.5002456,
+          "isSplit": true
         },
         {
-          "id": "CodeGPT",
+          "id": "Run",
           "order": 4,
           "anchor": "RIGHT",
-          "weight": 0.32999486
+          "isVisible": true,
+          "weight": 0.28886062,
+          "sideWeight": 0.32454413
         },
         {
-          "id": "Codiumate Tests",
+          "id": "Illuminated Cloud",
           "order": 5,
           "anchor": "RIGHT",
-          "isVisible": true,
-          "weight": 0.33035713
+          "isShowStripeButton": false,
+          "weight": 0.20058593,
+          "sideWeight": 0.55044734,
+          "isSplit": true
         },
         {
-          "id": "DevPilot",
+          "id": "Anonymous Apex",
           "order": 6,
-          "anchor": "RIGHT"
+          "anchor": "RIGHT",
+          "weight": 0.62913424,
+          "sideWeight": 0.36585957,
+          "isSplit": true
         },
         {
-          "id": "GitHub Copilot Chat",
+          "id": "SOQL Query",
           "order": 7,
           "anchor": "RIGHT",
-          "weight": 0.32999486
+          "weight": 0.4761784,
+          "sideWeight": 0.36585957,
+          "isSplit": true
+        },
+        {
+          "id": "AIAssistant",
+          "order": 8,
+          "anchor": "RIGHT",
+          "isShowStripeButton": false,
+          "weight": 0.4217221,
+          "sideWeight": 0.49963236,
+          "isSplit": true
+        },
+        {
+          "id": "Debug",
+          "order": 9,
+          "anchor": "RIGHT",
+          "weight": 0.47599763,
+          "sideWeight": 0.7552187
         },
         {
           "id": "github.copilotToolWindow",
-          "order": 8,
+          "order": 10,
           "anchor": "RIGHT",
-          "weight": 0.32999486
+          "weight": 0.4217221,
+          "sideWeight": 0.5242801,
+          "isSplit": true
         },
         {
-          "id": "Json Parser",
-          "order": 9,
+          "id": "Terminal",
+          "order": 11,
           "anchor": "RIGHT",
-          "weight": 0.32999486,
+          "isActiveOnStart": true,
+          "isVisible": true,
+          "weight": 0.28886062,
+          "sideWeight": 0.6754559,
           "isSplit": true
+        },
+        {
+          "id": "StudioBot",
+          "order": 12,
+          "anchor": "RIGHT",
+          "weight": 0.2869268,
+          "sideWeight": 0.5350621,
+          "isSplit": true
+        },
+        {
+          "id": "GitHub Copilot Chat",
+          "order": 13,
+          "anchor": "RIGHT",
+          "weight": 0.39095536,
+          "sideWeight": 0.6830986,
+          "isSplit": true
+        },
+        {
+          "id": "ClaudeMind",
+          "order": 14,
+          "anchor": "RIGHT",
+          "weight": 0.33013698,
+          "isSplit": true
+        },
+        {
+          "id": "EasyCode",
+          "order": 15,
+          "anchor": "RIGHT",
+          "weight": 0.33013698,
+          "isSplit": true
+        },
+        {
+          "id": "Python Console",
+          "order": 16,
+          "anchor": "RIGHT",
+          "isShowStripeButton": false,
+          "weight": 0.3306324
+        },
+        {
+          "id": "Agentforce for Developers",
+          "order": 17,
+          "anchor": "RIGHT",
+          "weight": 0.4760111,
+          "isSplit": true
+        },
+        {
+          "id": "ElectroJunToolWindow",
+          "order": 18,
+          "anchor": "RIGHT",
+          "weight": 0.3306324,
+          "sideWeight": 0.50036764
+        },
+        {
+          "id": "SOSL Query",
+          "order": 19,
+          "anchor": "RIGHT",
+          "isShowStripeButton": false,
+          "weight": 0.6136364
+        },
+        {
+          "id": "make",
+          "order": 20,
+          "anchor": "RIGHT",
+          "isShowStripeButton": false,
+          "isSplit": true
+        },
+        {
+          "id": "GitHub Actions",
+          "order": 21,
+          "anchor": "RIGHT",
+          "weight": 0.2869268,
+          "sideWeight": 0.5681818
+        },
+        {
+          "id": "GitHub Coding Agent Jobs",
+          "order": 22,
+          "anchor": "RIGHT",
+          "weight": 0.16446069
+        },
+        {
+          "id": "Code Iris",
+          "order": 23,
+          "anchor": "RIGHT"
+        },
+        {
+          "id": "UML Generator",
+          "order": 24,
+          "anchor": "RIGHT"
+        },
+        {
+          "id": "Diagram Generation",
+          "order": 25,
+          "anchor": "RIGHT"
         }
       ],
       "unifiedWeights": {
         "top": 0.33,
-        "left": 0.21177456,
-        "bottom": 0.33013698,
-        "right": 0.24987158
+        "left": 0.07801488,
+        "bottom": 0.31518692,
+        "right": 0.28886062
       }
     }
   }

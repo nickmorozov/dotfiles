@@ -7,6 +7,11 @@
         <entry key="*" value="true" />
       </map>
     </languageAllowList>
-    <option name="showIdeCompletions" value="true" />
+    <option name="selectedCompletionModel" value="gpt-41-copilot" />
+    <option name="terminalRulesVersion" value="1" />
+    <editAutoApprove />
+    <mcpSamplingAllowedModels>
+      <option value="claude-opus-4.5" />
+    </mcpSamplingAllowedModels>
   </component>
 </application>

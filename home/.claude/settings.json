@@ -4,7 +4,54 @@
       "Bash(sf apex run:*)",
       "Bash(sf project deploy start:*)",
       "Bash(sf apex get test:*)",
-      "WebFetch(domain:developer.salesforce.com)"
+      "WebFetch(domain:developer.salesforce.com)",
+      "Bash(cat:*)",
+      "Bash(chmod:*)",
+      "Bash(cp:*)",
+      "Bash(echo:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(ifconfig:*)",
+      "Bash(ipconfig:*)",
+      "Bash(ls:*)",
+      "Bash(lsof:*)",
+      "Bash(lsof :*)",
+      "Bash(mdfind:*)",
+      "Bash(mv:*)",
+      "Bash(nc:*)",
+      "Bash(networksetup:*)",
+      "Bash(node:*)",
+      "Bash(npm:*)",
+      "Bash(pgrep:*)",
+      "Bash(rm:*)",
+      "Bash(sed:*)",
+      "Bash(timeout:*)",
+      "Bash(wc:*)",
+      "Bash(strings:*)",
+      "Bash(xargs:*)",
+      "Bash(brew:*)",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(xxd:*)",
+      "Bash(tshark:*)",
+      "Bash(nm:*)",
+      "WebFetch(domain:ocaalliance.github.io)",
+      "WebFetch(domain:support.focusrite.com)",
+      "Bash(osascript:*)",
+      "Bash(xcodebuild:*)",
+      "Bash(open:*)",
+      "Bash(log show:*)",
+      "Bash(plutil:*)",
+      "Bash(pkill:*)",
+      "Bash(apkeep:*)",
+      "WebFetch(domain:apkpure.com)",
+      "Bash(python3:*)",
+      "Bash(source:*)",
+      "Bash(pip install:*)",
+      "Bash(dns-sd:*)",
+      "Bash(npx prettier:*)",
+      "Bash(screencapture:*)"
     ],
     "defaultMode": "default"
   },
@@ -20,38 +67,23 @@
     "code-review@claude-plugins-official": true,
     "commit-commands@claude-plugins-official": true,
     "security-guidance@claude-plugins-official": true,
-    "pr-review-toolkit@claude-plugins-official": true,
+    "pr-review-toolkit@claude-plugins-official": true,w
     "greptile@claude-plugins-official": true,
-    "slack@claude-plugins-official": true
-  },
-  "alwaysThinkingEnabled": true,
-  "hooks": {
-    "Notification": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "curl -X POST -H 'Content-type: application/json' --data '{\"text\":\"Claude Code needs your attention\"}' https://REDACTED"
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "curl -X POST -H 'Content-type: application/json' --data '{\"text\":\"Claude Code finished\"}' https://REDACTED"
-          }
-        ]
-      }
-    ]
+    "slack@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
+    "swift-lsp@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true,
+    "ralph-loop@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "plugin-dev@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true,
+    "claude-code-setup@claude-plugins-official": true,
+    "huggingface-skills@claude-plugins-official": true
   },
   "outputStyle": "Explanatory",
   "sandbox": {
-    "enabled": true,
+    "enabled": false,
     "autoAllowBashIfSandboxed": true
-  }
+  },
+  "alwaysThinkingEnabled": true
 }

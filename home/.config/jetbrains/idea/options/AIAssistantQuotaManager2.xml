@@ -1,0 +1,6 @@
+<application>
+  <component name="AIAssistantQuotaManager2">
+    <option name="nextRefill" value="{&#10;    &quot;type&quot;: &quot;Known&quot;,&#10;    &quot;next&quot;: &quot;2026-02-11T15:30:24.730Z&quot;,&#10;    &quot;tariff&quot;: {&#10;        &quot;amount&quot;: &quot;300000&quot;,&#10;        &quot;duration&quot;: &quot;PT720H&quot;&#10;    }&#10;}" />
+    <option name="quotaInfo" value="{&#10;    &quot;type&quot;: &quot;Available&quot;,&#10;    &quot;current&quot;: &quot;22174.1&quot;,&#10;    &quot;maximum&quot;: &quot;300000&quot;,&#10;    &quot;until&quot;: &quot;2026-02-25T21:00:00Z&quot;,&#10;    &quot;tariffQuota&quot;: {&#10;        &quot;current&quot;: &quot;22174.1&quot;,&#10;        &quot;maximum&quot;: &quot;300000&quot;,&#10;        &quot;available&quot;: &quot;277825.9&quot;&#10;    },&#10;    &quot;topUpQuota&quot;: null&#10;}" />
+  </component>
+</application>
