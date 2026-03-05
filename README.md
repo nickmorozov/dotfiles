@@ -101,13 +101,20 @@ Since `~/.config` is a symlink to the dotfiles repo, editing `~/.config/zsh/.zsh
 | `z <dir>` | zoxide | Frecency-based directory jumper |
 | `yy` | yazi | File manager with cwd tracking |
 
-### Git (OMZ git plugin + custom)
+### Git
 | Alias | Description |
 |-------|-------------|
 | `gst` / `gss` | Status / short status |
+| `gd` | Diff |
 | `gaa` | Add all |
-| `gcmsg "msg"` | Commit with message |
+| `gcm "msg"` | Commit with message |
+| `gcam "msg"` | Add all + commit with message |
+| `gco` / `gcb` | Checkout / checkout new branch |
 | `gp` / `gl` | Push / pull |
+| `gcl` | Clone with submodules |
+| `grs` / `grst` | Restore / restore staged |
+| `gsta` / `gstp` | Stash push / pop |
+| `grset` | Remote set-url |
 | `gcgp "msg"` | Commit + push |
 | `gcgpa "msg"` | Add all + commit + push |
 | `git-root` | cd to repo root |
@@ -115,6 +122,7 @@ Since `~/.config` is a symlink to the dotfiles repo, editing `~/.config/zsh/.zsh
 | `git l` / `git ll` | Pretty log / log with files |
 | `git amend` / `git undo` | Amend last / undo last commit |
 | `git sync` | Pull + push |
+| `als <keyword>` | Search aliases by keyword (OMZ aliases plugin) |
 
 ### Homebrew
 | Alias | Description |
@@ -149,7 +157,6 @@ Since `~/.config` is a symlink to the dotfiles repo, editing `~/.config/zsh/.zsh
 |-------|-------------|
 | `update` | Update everything (dotfiles, brew, zgenom) |
 | `reload` | Re-source ZSH config |
-| `password` | Random password to clipboard |
 | `myip` / `path` | Show local IP / readable PATH |
 | `f` | thefuck — correct previous command |
 

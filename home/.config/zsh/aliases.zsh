@@ -16,6 +16,25 @@ function yy() {
 # Current dir without path
 alias cwd='basename $PWD'
 
+# Git (replaces OMZ git plugin — only the aliases we actually use)
+alias gst='git status'
+alias gss='git status --short'
+alias gd='git diff'
+alias gaa='git add --all'
+alias gcm='git commit -m'
+alias gcam='git commit --all --message'
+alias gco='git checkout'
+alias gcb='git checkout -b'
+alias gp='git push'
+alias gl='git pull'
+alias gcl='git clone --recurse-submodules'
+alias grset='git remote set-url'
+alias gsta='git stash push'
+alias gstp='git stash pop'
+alias grs='git restore'
+alias grst='git restore --staged'
+alias git-root='cd $(git rev-parse --show-toplevel)'
+
 # Fast config edit
 alias ez="$EDITOR $ZDOTDIR/.zshrc"
 alias ezz="$EDITOR $ZDOTDIR/"

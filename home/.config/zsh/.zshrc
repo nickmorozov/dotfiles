@@ -44,7 +44,6 @@ if ! zgenom saved; then
     zgenom ohmyzsh
 
     # OhMyZsh plugins
-    zgenom ohmyzsh plugins/git
     zgenom ohmyzsh plugins/history-substring-search
     zgenom ohmyzsh plugins/sudo
     zgenom ohmyzsh plugins/command-not-found
@@ -57,6 +56,7 @@ if ! zgenom saved; then
     zgenom ohmyzsh plugins/thefuck
     zgenom ohmyzsh plugins/dotenv
     zgenom ohmyzsh plugins/ssh-agent
+    zgenom ohmyzsh plugins/aliases
 
     # Custom plugins
     zgenom load djui/alias-tips

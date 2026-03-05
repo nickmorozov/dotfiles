@@ -76,7 +76,6 @@ alias ghrc="gh repo create"
 alias ghrcp="ghrc --public --push --source='.' --description "
 alias ghrcpr="ghrc --private --push --source='.' --description "
 alias ghrv="gh repo view --web"
-alias git-root='cd $(git rev-parse --show-toplevel)'
 gst-find() {
   fd '.git' -exec zsh -c 'dir=$(echo {} | rev | cut -c 6- | rev) && echo -e "\\e[32m  ➜ $dir:\\e[0m" && git -C $dir status' \;
 }
@@ -87,7 +86,7 @@ gst-proj() {
   for dir in $HOME/Projects/*/*/; do _green "  ➜ $dir:" && [ -d "$dir/.git" ] && git -C "$dir" status || _red "  No git repository\!"; done
 }
 gcgp() {
-  gcmsg $@ && gp
+  gcm $@ && gp
 }
 gcgpa() {
   gcam $@ && gp

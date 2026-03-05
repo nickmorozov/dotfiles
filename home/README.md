@@ -26,9 +26,9 @@ Dotbot creates them automatically when you run `~/.dotfiles/install`.
 ### Git
 | Path | What it does |
 |------|-------------|
-| `.gitconfig` | Git aliases, colors, diff settings. Includes `.gitlocal` |
+| `.gitconfig` | Git config: 5 aliases (`l`, `ll`, `amend`, `undo`, `sync`), colors, diff. Includes `.gitlocal` |
 | `.gitlocal` | Your name and email for git commits (machine-specific, not shared) |
-| `.config/git/ignore` | Global gitignore patterns |
+| `.config/git/ignore` | Global gitignore (`.DS_Store`, Claude local settings) |
 
 ### Editors
 | Path | What it does |

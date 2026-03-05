@@ -12,7 +12,6 @@
       create: true
       relink: true
       force: true
-    ~/README.md: home/README.md
 
 - create:
     - ~/.config
