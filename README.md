@@ -179,6 +179,97 @@ bdump     # Save current brew state to Brewfile
 brew bundle --global   # Install everything from Brewfile
 ```
 
+## Neovim / Vim
+
+[NvChad](https://nvchad.com/) v2.5 on Neovim 0.11+. The config lives in `home/.config/nvim/` (a git submodule of [nickmorozov/NvChad](https://github.com/nickmorozov/NvChad)).
+
+### Structure
+
+```
+~/.config/nvim/
+├── init.lua            # Entry point: loads lazy.nvim, NvChad, and custom config
+├── vimrc               # Shared vim settings (also sourced by .ideavimrc)
+└── lua/
+    ├── chadrc.lua      # NvChad config: theme, highlights, UI options
+    ├── options.lua     # Custom Neovim options (relative numbers, tab width)
+    ├── mappings.lua    # Custom keymaps (; → :, visual indent stays selected)
+    ├── configs/
+    │   └── lspconfig.lua   # LSP server setup (html, cssls, ts_ls)
+    ├── plugins/
+    │   └── init.lua    # Custom plugin specs (conform, mason, treesitter overrides)
+    └── nvchad/         # NvChad core (upstream, don't edit)
+```
+
+### First-time Setup
+
+```sh
+# After cloning dotfiles, the submodule is already there:
+nvim    # Opens Neovim — lazy.nvim auto-installs all plugins on first launch
+
+# Inside Neovim:
+:Lazy sync          # Update all plugins
+:MasonInstallAll    # Install LSP servers and formatters
+:TSInstall all      # Install treesitter parsers
+```
+
+### Updating
+
+```sh
+# From the shell (updates NvChad submodule):
+cd ~/.dotfiles && git submodule update --remote home/.config/nvim
+
+# Inside Neovim:
+:Lazy update        # Update lazy.nvim plugins (including nvchad/ui — fixes deprecation warnings)
+```
+
+### Key Bindings
+
+| Key | Mode | Action |
+|-----|------|--------|
+| `Space` | — | Leader key |
+| `;` | Normal | Enter command mode (no shift needed) |
+| `jj` / `ff` | Insert | Escape to normal mode |
+| `Space ff` | Normal | Find files (Telescope) |
+| `Space fw` | Normal | Live grep (Telescope) |
+| `Space th` | Normal | Switch color theme |
+| `Space fm` | Normal | Format file (conform) |
+| `Space /` | Normal/Visual | Toggle comment |
+| `Ctrl+n` | Normal | Toggle file tree (NvimTree) |
+| `Tab` / `Shift+Tab` | Normal | Next/prev buffer |
+| `Space x` | Normal | Close buffer |
+| `Space ch` | Normal | NvChad cheatsheet |
+| `gd` / `gD` | Normal | Go to definition / declaration |
+
+### Shared vimrc
+
+`~/.config/nvim/vimrc` is sourced by both Neovim and JetBrains IDEs (via `.ideavimrc`). It contains only settings that make sense in both environments: jj/ff escape, search behavior, bracket matching.
+
+## Salesforce CLI
+
+SF aliases live in `~/.config/zsh/sf.zsh`. Global org management is done via shell aliases; per-project work uses `npm run` scripts.
+
+### Global Aliases
+| Alias | Description |
+|-------|-------------|
+| `sfa <domain>` | Auth to any org (auto-detects sandbox/dev-ed/prod) |
+| `sfl` | List all authenticated orgs |
+| `sfd <alias>...` | Logout from orgs |
+| `sfo` / `sfoo <alias>` | Open org in browser |
+| `sfop` | Open org in private/incognito window |
+| `sfct` / `sfctg` / `sfctdh` | Set target org (local/global/dev hub) |
+| `sfconf` / `sfwho` | Show config / full org details |
+
+### Per-Project (npm run)
+| Command | Description |
+|---------|-------------|
+| `sfpush` / `sfpull` / `sfdiff` | Deploy / retrieve / preview changes |
+| `sfreset` | Reset source tracking |
+| `sft` / `sfta` | Run all tests / apex tests |
+| `sfdata` / `sfdi` / `sfde` | Data tool / import / export |
+| `sfsync` | Sync template + submodules + npm install |
+
+See `sf.zsh` for the full reference of `npm run` commands available per project.
+
 ## fzf
 
 [fzf](https://github.com/junegunn/fzf) is a fuzzy finder installed via Homebrew and configured by the `fzf-zsh-plugin`. It's used for:

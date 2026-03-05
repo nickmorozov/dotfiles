@@ -33,8 +33,11 @@ Dotbot creates them automatically when you run `~/.dotfiles/install`.
 ### Editors
 | Path | What it does |
 |------|-------------|
-| `.config/nvim/` | Neovim config ([NvChad](https://nvchad.com/) fork, git submodule) |
-| `.config/nvim/vimrc` | Traditional vim settings shared with IdeaVim |
+| `.config/nvim/` | Neovim config ([NvChad](https://nvchad.com/) v2.5 fork, git submodule) |
+| `.config/nvim/lua/chadrc.lua` | Theme (bearded-arc), highlights, UI config |
+| `.config/nvim/lua/plugins/init.lua` | Custom plugin specs (LSP, treesitter, conform, mason) |
+| `.config/nvim/lua/configs/lspconfig.lua` | LSP servers: html, cssls, ts_ls |
+| `.config/nvim/vimrc` | Shared vim settings (sourced by both nvim and IdeaVim) |
 | `.ideavimrc` | JetBrains IdeaVim config. Sources `~/.config/nvim/vimrc` |
 
 ### Dev Tools

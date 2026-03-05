@@ -91,3 +91,6 @@ alias xr="x -r"
 # Rsync
 alias rs="rsync -Puha"
 
+# Shortcuts
+alias tt="tree -L 2 -I 'node_modules'" # TODO: read .gitignore if present. could be a useful string and/or array in general.
+

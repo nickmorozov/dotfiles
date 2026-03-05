@@ -10,7 +10,8 @@
       "Bash(do echo:*)",
       "Bash(gh repo:*)",
       "Bash(ln:*)",
-      "Bash(do:*)"
+      "Bash(do:*)",
+      "Bash(nvim:*)"
     ]
   }
 }
