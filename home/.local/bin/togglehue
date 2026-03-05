@@ -1,0 +1,26 @@
+#!/usr/bin/osascript
+
+set appName to "Hue Sync"
+
+if application appName is running then
+	try
+		with timeout of 5 seconds
+			tell application appName to quit
+		end timeout
+	on error
+		do shell script "killall -9 " & quoted form of appName
+	end try
+else
+	tell application appName to activate
+	delay 1.5
+	tell application "System Events"
+		tell process appName
+			set frontmost to true
+			try
+				set miniaturized of window 1 to true
+			on error
+				keystroke "m" using command down
+			end try
+		end tell
+	end tell
+end if

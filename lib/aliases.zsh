@@ -1,7 +1,3 @@
-# .zshenv → .zprofile → .zshrc → .zlogin → .zlogout
-
-test $(command -v _exists) || source ../home/.zshenv
-
 #############################################
 # Aliases
 #############################################

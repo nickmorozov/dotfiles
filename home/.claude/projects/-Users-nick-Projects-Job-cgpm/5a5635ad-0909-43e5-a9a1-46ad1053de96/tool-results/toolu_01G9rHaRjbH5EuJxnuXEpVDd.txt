@@ -1,1 +1,0 @@
-File created successfully at: /Users/nick/Projects/Job/cgpm/force-app/main/default/lwc/workItemGanttTimeline/__tests__/workItemGanttTimeline.test.js

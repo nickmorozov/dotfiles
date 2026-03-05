@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="zip">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/home/.local/share/sf/node_modules/zip/zip.zip!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

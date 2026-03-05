@@ -1,4 +1,0 @@
-/Users/nick/Projects/Job/cgpm/force-app/main/examples/lwc/cGPromotionInterface/cGPromotionInterface.js-meta.xml
-/Users/nick/Projects/Job/cgpm/force-app/main/examples/lwc/cGPromotionInterface/cGPromotionInterface.css
-/Users/nick/Projects/Job/cgpm/force-app/main/examples/lwc/cGPromotionInterface/cGPromotionInterface.js
-/Users/nick/Projects/Job/cgpm/force-app/main/examples/lwc/cGPromotionInterface/cGPromotionInterface.html

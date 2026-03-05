@@ -52,3 +52,21 @@ target/
 /.illuminatedCloud/
 **/tsconfig*.json
 **/*.tsbuildinfo
+
+# JetBrains IDE
+.idea/
+**/.idea/
+
+# Claude Code session data (keep settings, plugins, and memory)
+home/.claude/backups/
+home/.claude/image-cache/
+home/.claude/paste-cache/
+home/.claude/plans/
+home/.claude/tasks/
+home/.claude/todos/
+home/.claude/projects/**/subagents/
+home/.claude/projects/**/tool-results/
+home/.claude/projects/**/*.jsonl
+home/.claude/security_warnings_state_*
+home/.claude/projects/**/sessions-index.json
+home/.claude/telemetry/

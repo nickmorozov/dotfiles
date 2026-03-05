@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="ideolog">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/ideolog/lib/ideolog.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

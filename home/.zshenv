@@ -98,9 +98,6 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 
-# Z Navigation
-export _Z_DATA="$ZDOTDIR/.z"
-
 # Homebrew
 export HOMEBREW_NO_ENV_HINTS="true"
 export HOMEBREW_INSTALL_BADGE="☕️"

@@ -1,1 +1,0 @@
-96:        const openPromise = element.open(options);

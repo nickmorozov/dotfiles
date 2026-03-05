@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="ini">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/home/.config/jetbrains/idea/plugins/ini/lib/ini.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

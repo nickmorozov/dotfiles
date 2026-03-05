@@ -11,26 +11,6 @@
 
 setopt NUMERIC_GLOB_SORT
 
-# Start the SSH agent if not already running
-if [ -z "$SSH_AUTH_SOCK" ]; then
-  eval "$(ssh-agent -s)"
-fi
-
-# Add SSH key
-ssh-add -l &>/dev/null
-if [ $? -eq 1 ]; then
-  if [[ -f "$HOME/.ssh/id_rsa" ]]; then
-    ssh-add --apple-use-keychain "$HOME/.ssh/id_rsa"
-  elif [[ -f "$HOME/.ssh/id_ed25519" ]]; then
-    ssh-add --apple-use-keychain "$HOME/.ssh/id_ed25519"
-  fi
-fi
-
-HB_CNF_HANDLER="$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
-if [ -f "$HB_CNF_HANDLER" ]; then
-    source "$HB_CNF_HANDLER"
-fi
-
 # Do not override files using `>`, but it's still possible using `>!`
 set -o noclobber
 
@@ -45,19 +25,15 @@ ZSH_DISABLE_COMPFIX=true
 # Autoload node version when changing cwd
 zstyle ':omz:plugins:nvm' autoload true
 
-# Use passphase from macOS keychain
+# Use passphrase from macOS keychain
 if [[ "$OSTYPE" == "darwin"* ]]; then
   zstyle :omz:plugins:ssh-agent ssh-add-args --apple-load-keychain
 fi
+zstyle :omz:plugins:ssh-agent identities id_rsa
 
 # ------------------------------------------------------------------------------
 # Dependencies
 # ------------------------------------------------------------------------------
-
-function zvm_config() {
-  ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
-  ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
-}
 
 # Load zgenom
 source "${ZDOTDIR}/.zgenom/zgenom.zsh"
@@ -77,7 +53,6 @@ if ! zgenom saved; then
     zgenom ohmyzsh plugins/extract
     zgenom ohmyzsh plugins/macos
     zgenom ohmyzsh plugins/gh
-    zgenom ohmyzsh plugins/common-aliases
     zgenom ohmyzsh plugins/brew
     zgenom ohmyzsh plugins/sfdx
     zgenom ohmyzsh plugins/aliases
@@ -87,15 +62,11 @@ if ! zgenom saved; then
     zgenom ohmyzsh plugins/ssh-agent
 
     # Custom plugins
-    # zgenom load jeffreytse/zsh-vi-mode
     zgenom load djui/alias-tips
-    zgenom load agkozak/zsh-z
     zgenom load marzocchi/zsh-notify
     zgenom load hlissner/zsh-autopair
-    zgenom load zsh-users/zsh-syntax-highlighting
     zgenom load zdharma-continuum/fast-syntax-highlighting
     zgenom load zsh-users/zsh-autosuggestions
-    zgenom load unixorn/autoupdate-zgenom
     zgenom load unixorn/fzf-zsh-plugin
     zgenom load amyreese/zsh-titles
 
@@ -116,10 +87,6 @@ if ! zgenom saved; then
     zgenom compile $ZGEN_RESET_ON_CHANGE
 fi
 
-zstyle :omz:plugins:ssh-agent identities id_rsa
-
-zgenom clean
-
 # Diff - lib/theme-and-appearance.zsh has its own function which we override here
 if _exists diff-so-fancy; then
   quiet unset diff
@@ -135,6 +102,14 @@ fi
 # Per-directory configs
 if command -v direnv >/dev/null 2>&1; then
   eval "$(direnv hook zsh)"
+fi
+
+# ------------------------------------------------------------------------------
+# Zoxide (directory jumper)
+# ------------------------------------------------------------------------------
+
+if _exists zoxide; then
+  eval "$(zoxide init zsh)"
 fi
 
 # ------------------------------------------------------------------------------
@@ -154,27 +129,9 @@ iterm2_print_user_vars() {
 # bun completions
 if [ -s "$HOME/.bun/_bun" ]; then
   source "$HOME/.bun/_bun"
-  export BUN_INSTALL="$HOME/.bun"
-  export PATH="$BUN_INSTALL/bin:$PATH"
 fi
 
-# Fuzzy finder bindings
-export FZF_BASE="$HOME/.fzf"
-if [ -f "$HOME/.fzf.zsh" ]; then
-  source "$HOME/.fzf.zsh"
-  eval "$(fzf --zsh)"
-fi
-
-
-
-. "$HOME/.local/share/../bin/env"
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/nick/.lmstudio/bin"
-
-HOMEBREW_COMMAND_NOT_FOUND_HANDLER="$(brew --repository)/Library/Homebrew/command-not-found/handler.sh"
-if [ -f "$HOMEBREW_COMMAND_NOT_FOUND_HANDLER" ]; then
-  source "$HOMEBREW_COMMAND_NOT_FOUND_HANDLER";
-fi
+# LM Studio CLI
+_extend_path "$HOME/.lmstudio/bin"
 
 export CLAUDE_CODE_SHELL="$(which bash)"

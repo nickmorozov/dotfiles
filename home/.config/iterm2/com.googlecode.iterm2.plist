@@ -32,7 +32,7 @@
 	<key>AiMaxTokens</key>
 	<integer>200000</integer>
 	<key>AiModel</key>
-	<string>claude-sonnet-4-0</string>
+	<string>claude-sonnet-4-5</string>
 	<key>AiResponseMaxTokens</key>
 	<integer>64000</integer>
 	<key>AitermURL</key>
@@ -84804,7 +84804,7 @@
 			<key>Close Sessions On End</key>
 			<integer>1</integer>
 			<key>Columns</key>
-			<integer>300</integer>
+			<integer>282</integer>
 			<key>Command</key>
 			<string>zsh</string>
 			<key>Cursor Boost</key>
@@ -85551,7 +85551,7 @@
 			<key>Right Option Key Sends</key>
 			<integer>0</integer>
 			<key>Rows</key>
-			<integer>100</integer>
+			<integer>118</integer>
 			<key>Screen</key>
 			<integer>-2</integer>
 			<key>Scrollback Lines</key>
@@ -86640,7 +86640,7 @@
 			<key>Close Sessions On End</key>
 			<integer>1</integer>
 			<key>Columns</key>
-			<integer>300</integer>
+			<integer>282</integer>
 			<key>Command</key>
 			<string>zsh</string>
 			<key>Cursor Boost</key>
@@ -87401,7 +87401,7 @@
 			<key>Right Option Key Sends</key>
 			<integer>0</integer>
 			<key>Rows</key>
-			<integer>100</integer>
+			<integer>118</integer>
 			<key>Screen</key>
 			<integer>-2</integer>
 			<key>Scrollback Lines</key>
