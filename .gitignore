@@ -59,7 +59,8 @@ home/.claude/backups/
 home/.claude/image-cache/
 home/.claude/paste-cache/
 home/.claude/plans/
-home/.claude/tasks/
+home/.claude/tasks/*/.highwatermark
+home/.claude/tasks/*/.lock
 home/.claude/todos/
 home/.claude/telemetry/
 home/.claude/plugins/blocklist.json

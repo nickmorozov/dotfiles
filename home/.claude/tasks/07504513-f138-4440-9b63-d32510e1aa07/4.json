@@ -1,0 +1,9 @@
+{
+    "id": "4",
+    "subject": "Fix WorkItemHistorySelectorTest history tracking assertion",
+    "description": "Test asserts history records exist after a Status update, but field history tracking may not be enabled for Status__c on the scratch org. The test should be resilient to org configuration.",
+    "activeForm": "Fixing history selector test",
+    "status": "pending",
+    "blocks": [],
+    "blockedBy": []
+}

@@ -1,0 +1,9 @@
+{
+    "id": "1",
+    "subject": "Fix picklist value mismatch: 'Edit' → 'Read/Write' in tests",
+    "description": "The Global Value Set 'Access_Level' has values: No Access, Read Only, Read/Write. But 3 test classes and TestDataFactory still reference 'Edit' and 'Full Access' (old values). Fix all callers passing 'Edit' to use 'Read/Write', and fix the assertion in ResourceTypeTemplateSelectorTest.",
+    "activeForm": "Fixing picklist value references",
+    "status": "completed",
+    "blocks": [],
+    "blockedBy": []
+}

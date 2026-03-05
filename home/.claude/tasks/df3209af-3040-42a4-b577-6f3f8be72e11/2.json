@@ -1,0 +1,9 @@
+{
+    "id": "2",
+    "subject": "Convert TemplateSelector.cls (14 queries)",
+    "description": "Convert all 14 raw SOQL queries in TemplateSelector.cls to Query builder. Includes simple queries, COUNT, complex OR+AND conditions for status-linked indirect paths, and ORDER BY patterns. All use .asUserMode(false) for SYSTEM_MODE.",
+    "activeForm": "Converting TemplateSelector.cls queries",
+    "status": "pending",
+    "blocks": [],
+    "blockedBy": []
+}

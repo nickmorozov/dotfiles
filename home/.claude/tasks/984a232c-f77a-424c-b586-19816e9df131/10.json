@@ -1,0 +1,9 @@
+{
+    "id": "10",
+    "subject": "Task 8: Manual verification — run export and check results",
+    "description": "Run export with --source-orgs 0004, verify KPI_Set has ~11 records (promo + CBP + RTR), verify Account_Template and RTR lookups restored, verify junction used expanded CSV",
+    "activeForm": "Verifying export results",
+    "status": "pending",
+    "blocks": [],
+    "blockedBy": []
+}

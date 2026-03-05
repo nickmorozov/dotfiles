@@ -1,0 +1,9 @@
+{
+    "id": "7",
+    "subject": "Implement Tasks 2-4: Union feature (csvManager + config + dataManager)",
+    "description": "Task 2: csvManager getParentExternalIdsFromSalesOrg uses parent.field || parent.externalId. Task 3: config.js add unionObjects getter. Task 4: dataManager add exportUnions() method and update transferData phase ordering (unions before junctions)",
+    "activeForm": "Implementing union feature",
+    "status": "completed",
+    "blocks": [],
+    "blockedBy": []
+}

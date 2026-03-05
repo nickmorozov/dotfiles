@@ -1,0 +1,9 @@
+{
+    "id": "3",
+    "subject": "Phase 3: Clarifying Questions - Resolve ambiguities",
+    "description": "Identify underspecified aspects of the feature and ask user for clarification before designing",
+    "activeForm": "Gathering clarifications",
+    "status": "completed",
+    "blocks": [],
+    "blockedBy": []
+}

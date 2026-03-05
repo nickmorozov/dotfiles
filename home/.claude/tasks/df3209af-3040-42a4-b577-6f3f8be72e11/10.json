@@ -1,0 +1,9 @@
+{
+    "id": "10",
+    "subject": "Convert trigger handler + action test files (~87 queries, 6 files)",
+    "description": "Convert raw SOQL in: WorkItemAssignmentTriggerHandlerTest (33), TemplateConfigTriggerHandlerTest (24), WorkItemTriggerHandlerTest (16), ResourceAssignmentTriggerHandlerTest (10), SetStartedOnActionTest (2), SetFinishedOnActionTest (2).",
+    "activeForm": "Converting trigger handler test files",
+    "status": "pending",
+    "blocks": [],
+    "blockedBy": []
+}

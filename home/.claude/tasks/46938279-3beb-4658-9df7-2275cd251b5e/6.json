@@ -1,0 +1,9 @@
+{
+    "id": "6",
+    "subject": "Phase 6: Delete old controller and test files (16 files)",
+    "description": "Delete the 4 old controllers + their meta.xml and 4 old test classes + their meta.xml",
+    "activeForm": "Deleting old files",
+    "status": "pending",
+    "blocks": [],
+    "blockedBy": []
+}

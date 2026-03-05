@@ -1,0 +1,9 @@
+{
+    "id": "1",
+    "subject": "Phase 1: Add 8 methods + 3 inner classes to WorkItemController",
+    "description": "Move methods from TimeLogController, WorkItemNoteController, ProjectResourceController, and ProjectRoleController into WorkItemController.cls",
+    "activeForm": "Adding methods to WorkItemController",
+    "status": "completed",
+    "blocks": [],
+    "blockedBy": []
+}

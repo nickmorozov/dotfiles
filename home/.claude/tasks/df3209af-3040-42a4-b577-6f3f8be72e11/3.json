@@ -1,0 +1,9 @@
+{
+    "id": "3",
+    "subject": "Convert SharingSelector.cls (11 queries)",
+    "description": "Convert all 11 raw SOQL queries in SharingSelector.cls to Query builder. Simple SELECT+WHERE IN patterns. Class is 'without sharing' so no .asUserMode() needed. Includes share objects (Project__Share, Work_Item__Share).",
+    "activeForm": "Converting SharingSelector.cls queries",
+    "status": "pending",
+    "blocks": [],
+    "blockedBy": []
+}

@@ -1,0 +1,9 @@
+{
+    "id": "16",
+    "subject": "Fix modal: replace combobox with lightning-record-picker for Blocked By",
+    "description": "Replace c-input-field type=\"combobox\" with lightning-record-picker for the blocker field. Rename label from \"Blocker Work Item\" to \"Blocked By\". Remove workItemOptions @api prop and blockerWorkItemOptions getter. Update handleBlockerChange for record-picker's event format (detail.recordId).",
+    "activeForm": "Replacing combobox with record picker",
+    "status": "completed",
+    "blocks": [],
+    "blockedBy": []
+}

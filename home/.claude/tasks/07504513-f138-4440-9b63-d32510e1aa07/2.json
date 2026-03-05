@@ -1,0 +1,9 @@
+{
+    "id": "2",
+    "subject": "Fix FieldInfo namespace resolution for packaged fields",
+    "description": "FieldInfo.resolveFieldInfo() does fields.get(fieldName.toLowerCase()) but in the installed package context, the field map keys include namespace prefix (cgpm__status__c). When Template_Field_Config__c stores 'Status__c', it doesn't match. Need to handle namespace-stripped lookups in FieldInfo, or fix tests. Also fix FieldInfoTest.testNumericFieldStep which assumes Opportunity.Probability has scale=2 but org has scale=0.",
+    "activeForm": "Fixing FieldInfo namespace resolution",
+    "status": "in_progress",
+    "blocks": [],
+    "blockedBy": []
+}

@@ -1,0 +1,9 @@
+{
+    "id": "8",
+    "subject": "Implement Tasks 5-6: Normalize junctions and hierarchies to arrays",
+    "description": "Task 5: exportExtraJunctions normalizes junction to array, OR-combines parent IDs across junction configs, collects shared objects from all. Task 6: updateSelfLookups normalizes hierarchy to array, loops each with temporary config view",
+    "activeForm": "Normalizing junctions and hierarchies to arrays",
+    "status": "completed",
+    "blocks": [],
+    "blockedBy": []
+}

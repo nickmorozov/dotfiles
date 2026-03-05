@@ -1,0 +1,9 @@
+{
+    "id": "11",
+    "subject": "Final deploy, full test suite, and verification",
+    "description": "Deploy all changes, run full Apex test suite and LWC tests. Grep verification: ensure no raw SOQL remains in production classes or test files.",
+    "activeForm": "Running final verification",
+    "status": "pending",
+    "blocks": [],
+    "blockedBy": []
+}

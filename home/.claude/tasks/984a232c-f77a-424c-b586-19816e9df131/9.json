@@ -1,0 +1,9 @@
+{
+    "id": "9",
+    "subject": "Implement Task 7: Add union configs to KPI_Set in data.yaml",
+    "description": "Add union property to cgcloud__KPI_Set__c with two parent sources: Account_Template (field: cgcloud__KPI_Set_Plan_Dependent__r.Name) and RTR_Report_Configuration (field: cgcloud__Reporting_KPI_Set__r.Name)",
+    "activeForm": "Adding union configs to data.yaml",
+    "status": "completed",
+    "blocks": [],
+    "blockedBy": []
+}

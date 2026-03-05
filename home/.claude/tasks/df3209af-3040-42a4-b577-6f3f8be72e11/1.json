@@ -1,0 +1,9 @@
+{
+    "id": "1",
+    "subject": "Fix Query.cls AccessLevel bug",
+    "description": "Fix the bug where .asUserMode() / .asUserMode(false) store a boolean but execution methods never pass AccessLevel to Database.query(). Change default from `true` to `null` (tri-state), then patch toSObjectList(), countQuery(), aggregate(), and getQueryLocator() to conditionally pass AccessLevel.",
+    "activeForm": "Fixing Query.cls AccessLevel bug",
+    "status": "pending",
+    "blocks": [],
+    "blockedBy": []
+}

@@ -1,0 +1,9 @@
+{
+    "id": "6",
+    "subject": "Implement Task 1: Multi-YAML ConfigLoader",
+    "description": "Replace single-file loader with multi-YAML: load all .yaml/.yml from config/, merge objects, validate no duplicate objectNames, error on conflicting name/dataDir/tmpDir/salesOrg",
+    "activeForm": "Implementing multi-YAML configLoader",
+    "status": "completed",
+    "blocks": [],
+    "blockedBy": []
+}
