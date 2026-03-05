@@ -14,7 +14,8 @@
             "Bash(nvim:*)",
             "Bash(command:*)",
             "Bash(mv:*)",
-            "Bash(time zsh:*)"
+            "Bash(time zsh:*)",
+            "Bash(zsh:*)"
         ]
     }
 }

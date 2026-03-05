@@ -29,8 +29,8 @@ alias q="~ && clear"
 # ------------------------------------------------------------------------------
 
 # Folder shortcuts
-[ -d ~/iCloud] && alias ic='cd ~/iCloud'
-[ -d ~/Documents] && alias ds='cd ~/Documents'
+[ -d ~/iCloud ] && alias ic='cd ~/iCloud'
+[ -d ~/Documents ] && alias ds='cd ~/Documents'
 [ -d ~/Downloads ] && alias dl='cd ~/Downloads'
 [ -d ~/Desktop ] && alias dt='cd ~/Desktop'
 [ -d ~/Projects ] && alias pj='cd ~/Projects'
@@ -72,9 +72,13 @@ alias oa='open -a'
 
 # lsd (ls replacement)
 if _exists lsd; then
-    unalias ls 2> /dev/null
+    unalias ls l la ll lsa 2> /dev/null
     alias ls='lsd -v'
-    alias ltree='lsd --tree'
+    alias l='ls -1'
+    alias ll='ls -lh'
+    alias la='ls -lAh'
+    alias lt='la --timesort'
+    alias ltree='ls --tree'
 fi
 
 # bat (cat replacement)
@@ -85,10 +89,11 @@ fi
 
 # Tree (respects .gitignore when in a git repo)
 tt() {
+    local depth="${1:-2}"
     if git rev-parse --is-inside-work-tree &> /dev/null; then
-        tree -L 2 --gitignore
+        tree -L "$depth" --gitignore
     else
-        tree -L 2 -I 'node_modules|.git'
+        tree -L "$depth" -I 'node_modules|.git'
     fi
 }
 
