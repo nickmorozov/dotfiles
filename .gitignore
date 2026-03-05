@@ -51,8 +51,10 @@ backup
 target/
 
 # -----------------------------------------------------------------------------
-# Claude Code (keep settings, plugins, and memory — ignore session data)
+# Claude Code (keep settings and memory — ignore session/plugin data and secrets)
 # -----------------------------------------------------------------------------
+home/.claude/.env
+home/.claude/mcp-needs-auth-cache.json
 home/.claude/backups/
 home/.claude/image-cache/
 home/.claude/paste-cache/
@@ -60,6 +62,10 @@ home/.claude/plans/
 home/.claude/tasks/
 home/.claude/todos/
 home/.claude/telemetry/
+home/.claude/plugins/blocklist.json
+home/.claude/plugins/config.json
+home/.claude/plugins/installed_plugins.json
+home/.claude/plugins/known_marketplaces.json
 home/.claude/projects/**/subagents/
 home/.claude/projects/**/tool-results/
 home/.claude/projects/**/*.jsonl
@@ -95,6 +101,12 @@ home/.config/swiftpm/
 home/.config/jgit/
 home/.config/neovide/
 home/.config/.android/
+
+# Symlinks that shouldn't be tracked
+home/.settings
+
+# Secrets
+home/.local/bin/.env
 
 # Salesforce dataloader (large Java app, install separately)
 home/.local/share/dataloader/

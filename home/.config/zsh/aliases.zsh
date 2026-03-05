@@ -113,7 +113,7 @@ fi
 # Core git aliases (replaces OMZ git plugin — only the aliases we actually use)
 alias gst='git status'
 alias gss='git status --short'
-alias gd='git diff'
+alias gd='git diff && git diff --cached'
 alias ga='git add'
 alias gaa='git add --all'
 alias gcm='git commit -m'
@@ -258,3 +258,9 @@ else
   alias py="python"
 fi
 alias pym="py main.py"
+
+# ------------------------------------------------------------------------------
+# Claude
+# ------------------------------------------------------------------------------
+
+alias clauder="claude --resume"

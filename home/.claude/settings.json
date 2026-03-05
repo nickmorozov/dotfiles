@@ -1,8 +1,4 @@
 {
-  "env": {
-    "CLAUDE_CODE_SHELL": "/bin/bash",
-    "GITHUB_PERSONAL_ACCESS_TOKEN": "REDACTED_TOKEN"
-  },
   "permissions": {
     "allow": [
       "Bash(apkeep:*)",
