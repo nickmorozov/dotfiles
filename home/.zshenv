@@ -16,13 +16,10 @@ _exists() {
   command -v $1 > /dev/null 2>&1
 }
 
-# Extend $PATH without duplicates
+# Extend $PATH without duplicates (pure zsh, no forks)
 _extend_path() {
   [[ -d "$1" ]] || return
-
-  if ! $( echo "$PATH" | tr ":" "\n" | grep -qx "$1" ) ; then
-    export PATH="$1:$PATH"
-  fi
+  [[ ":$PATH:" == *":$1:"* ]] || export PATH="$1:$PATH"
 }
 
 # Colored output
@@ -132,7 +129,6 @@ ZGEN_RESET_ON_CHANGE=(
   ${ZDOTDIR}/.zlogout
   ${ZDOTDIR}/zsh.${HOST}
   ${ZDOTDIR}/*.zsh
-  ${DOTFILES}/lib/*.zsh # Upstream scripts
   ${SPACESHIP_CONFIG}
 )
 
@@ -154,21 +150,9 @@ _extend_path "/Applications/Xcode.app/Contents/Developer/usr/bin"
 
 export LIBRARY_PATH="$LIBRARY_PATH:/opt/homebrew/lib"
 
-# ------------------------------------------------------------------------------
-# Overrides
-# ------------------------------------------------------------------------------
-
-if [ -f "$ZDOTDIR/aliases.zsh" ]; then
-  source "$ZDOTDIR/aliases.zsh"
-
-  for s in $ZDOTDIR/*.zsh; do
-    source $s
-  done
-fi
-
 # Source local configuration
-if [ -f "zsh.$HOST" ]; then
-  source "zsh.$HOST"
+if [ -f "$ZDOTDIR/zsh.$HOST" ]; then
+  source "$ZDOTDIR/zsh.$HOST"
 fi
 
 # Rust

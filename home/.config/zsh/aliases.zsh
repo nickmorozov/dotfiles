@@ -3,6 +3,46 @@
 # Aliases
 #############################################
 
+# ------------------------------------------------------------------------------
+# System & Environment
+# ------------------------------------------------------------------------------
+
+# Enable askpass for Sudo
+if _exists askpass; then
+  if askpass -c; then
+    alias sudo='sudo -A '
+  else
+    askpass -s && \
+    alias sudo='sudo -A '
+  fi
+fi
+
+# Reboot without user password on login - useful for encrypted system with Bluetooth keyboards
+alias restart="sudo fdesetup authrestart -delayminutes 0"
+
+alias clr='clear'
+
+# Go to ~ and clear terminal
+alias q="~ && clear"
+
+# ------------------------------------------------------------------------------
+# Navigation
+# ------------------------------------------------------------------------------
+
+# Folder shortcuts
+[ -d ~/Downloads ]            && alias dl='cd ~/Downloads'
+[ -d ~/Desktop ]              && alias dt='cd ~/Desktop'
+[ -d ~/Projects ]             && alias pj='cd ~/Projects'
+[ -d ~/Projects/Enum ]        && alias pje='cd ~/Projects/Enum'
+[ -d ~/Projects/Forks ]       && alias pjf='cd ~/Projects/Forks'
+[ -d ~/Projects/Hobbies ]     && alias pjh='cd ~/Projects/Hobbies'
+[ -d ~/Projects/Job ]         && alias pjj='cd ~/Projects/Job'
+[ -d ~/Projects/Playground ]  && alias pjl='cd ~/Projects/Playground'
+[ -d ~/Projects/Repos ]       && alias pjr='cd ~/Projects/Repos'
+
+# Current dir without path
+alias cwd='basename $PWD'
+
 # File Manager (yazi with cwd tracking)
 function yy() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
@@ -13,10 +53,64 @@ function yy() {
 	rm -f -- "$tmp"
 }
 
-# Current dir without path
-alias cwd='basename $PWD'
+# ------------------------------------------------------------------------------
+# Editor & Files
+# ------------------------------------------------------------------------------
 
-# Git (replaces OMZ git plugin — only the aliases we actually use)
+alias e="$EDITOR"
+alias vim="$EDITOR"
+alias v="$VIEWER"
+alias -- +x='chmod +x'
+alias x+='chmod +x'
+
+# Open
+alias open='open_command'
+alias o='open'
+alias oo='open .'
+alias oa='open -a'
+alias term='oa iTerm.app'
+
+# lsd (ls replacement)
+if _exists lsd; then
+  unalias ls 2>/dev/null
+  alias ls='lsd -v'
+  alias ltree='lsd --tree'
+fi
+
+# bat (cat replacement)
+if _exists bat; then
+  export BAT_THEME='gruvbox-dark'
+  alias cat="bat --paging=never"
+fi
+
+# Tree (respects .gitignore when in a git repo)
+tt() {
+  if git rev-parse --is-inside-work-tree &>/dev/null; then
+    tree -L 2 --gitignore
+  else
+    tree -L 2 -I 'node_modules|.git'
+  fi
+}
+
+# Fast config edit
+alias ez="$EDITOR $ZDOTDIR/.zshrc"
+alias ezz="$EDITOR $ZDOTDIR/"
+alias ea="$EDITOR $ZDOTDIR/aliases.zsh"
+alias eaa="$EDITOR $ZDOTDIR/*.zsh"
+
+# Quick jump to dotfiles
+alias dotfiles="$EDITOR $DOTFILES"
+
+# tldr as help
+if _exists tldr; then
+  alias help="tldr"
+fi
+
+# ------------------------------------------------------------------------------
+# Git
+# ------------------------------------------------------------------------------
+
+# Core git aliases (replaces OMZ git plugin — only the aliases we actually use)
 alias gst='git status'
 alias gss='git status --short'
 alias gd='git diff'
@@ -35,11 +129,79 @@ alias grs='git restore'
 alias grst='git restore --staged'
 alias git-root='cd $(git rev-parse --show-toplevel)'
 
-# Fast config edit
-alias ez="$EDITOR $ZDOTDIR/.zshrc"
-alias ezz="$EDITOR $ZDOTDIR/"
-alias ea="$EDITOR $ZDOTDIR/aliases.zsh"
-alias eaa="$EDITOR $ZDOTDIR/*.zsh"
+# Commit + push combos
+gcgp()  { gcm "$@" && gp; }
+gcagp() { gcam "$@" && gp; }
+gtag() { git tag "$@" && gp origin "$@" }
+
+# GitHub CLI
+alias ghrc="gh repo create"
+alias ghrcp="ghrc --public --push --source='.' --description "
+alias ghrcpr="ghrc --private --push --source='.' --description "
+alias ghrv="gh repo view --web"
+
+# Recursive git status — shows only repos that need attention (dirty or unpushed)
+gst-dirs() {
+  local dir dirty ahead
+  for dir in */; do
+    [ -d "$dir/.git" ] || continue
+    dirty=$(git -C "$dir" status --porcelain 2>/dev/null)
+    ahead=$(git -C "$dir" rev-list --count @{upstream}..HEAD 2>/dev/null)
+    if [[ -n "$dirty" || "${ahead:-0}" -gt 0 ]]; then
+      _green "  ➜ $dir"
+      [[ -n "$dirty" ]] && echo "    $(echo "$dirty" | wc -l | tr -d ' ') dirty file(s)"
+      [[ "${ahead:-0}" -gt 0 ]] && echo "    $ahead commit(s) to push"
+    fi
+  done
+}
+
+gst-proj() {
+  local dir dirty ahead found=0
+  for dir in $HOME/Projects/*/*/; do
+    [ -d "$dir/.git" ] || continue
+    dirty=$(git -C "$dir" status --porcelain 2>/dev/null)
+    ahead=$(git -C "$dir" rev-list --count @{upstream}..HEAD 2>/dev/null)
+    if [[ -n "$dirty" || "${ahead:-0}" -gt 0 ]]; then
+      _green "  ➜ ${dir/#$HOME/~}"
+      [[ -n "$dirty" ]] && echo "    $(echo "$dirty" | wc -l | tr -d ' ') dirty file(s)"
+      [[ "${ahead:-0}" -gt 0 ]] && echo "    $ahead commit(s) to push"
+      found=1
+    fi
+  done
+  [[ $found -eq 0 ]] && _green "  All repos clean and pushed!"
+}
+
+# Find git repos using fd
+gst-find() {
+  fd '.git' -exec zsh -c 'dir=$(echo {} | rev | cut -c 6- | rev) && echo -e "\\e[32m  ➜ $dir:\\e[0m" && git -C $dir status' \;
+}
+
+# ------------------------------------------------------------------------------
+# Shell & System
+# ------------------------------------------------------------------------------
+
+# Run scripts
+alias update="source $DOTFILES/scripts/update"
+alias bootstrap="source $DOTFILES/scripts/bootstrap"
+
+# Quick reload of zsh environment
+alias reload="source $HOME/.zshenv && source $ZDOTDIR/.zprofile && source $ZDOTDIR/.zshrc"
+
+alias myip='ifconfig | sed -En "s/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p"'
+alias path='echo -e ${PATH//:/\\n}'
+alias grab="sudo chown $USER"
+
+# Download
+alias getpage='wget --no-clobber --page-requisites --html-extension --convert-links --no-host-directories'
+alias get="curl -O -L"
+
+# Rsync
+alias rs="rsync -Puha"
+
+# thefuck
+if _exists fuck; then
+  alias f="fuck"
+fi
 
 # Remove empty directories recursively
 rdf() {
@@ -48,6 +210,29 @@ rdf() {
     return 1
   fi
   find "${1}" -type d -empty -exec rmdir {} \+
+}
+
+# Sanitize filenames: replace non-alphanumeric chars with underscores (preserves extensions)
+# usage: sanitize <DIR>
+sanitize() {
+  local dir="${1:-.}"
+  # Rename directories first (bottom-up so child renames don't break parent paths)
+  find "$dir" -depth -type d ! -path "$dir" | while read -r d; do
+    local parent="${d:h}" name="${d:t}"
+    local clean="${name//[^a-zA-Z0-9._-]/_}"
+    [[ "$name" != "$clean" ]] && mv -n "$d" "$parent/$clean" && echo "dir:  $name → $clean"
+  done
+  # Then rename files
+  find "$dir" -type f | while read -r f; do
+    local parent="${f:h}" name="${f:t}"
+    local stem="${name%.*}" ext="${name##*.}"
+    if [[ "$name" == *.* ]]; then
+      local clean="${stem//[^a-zA-Z0-9._-]/_}.$ext"
+    else
+      local clean="${name//[^a-zA-Z0-9._-]/_}"
+    fi
+    [[ "$name" != "$clean" ]] && mv -n "$f" "$parent/$clean" && echo "file: $name → $clean"
+  done
 }
 
 # Crontab
@@ -60,7 +245,13 @@ dot-save() {
   ln -s "$HOME/.dotfiles/home/$1"
 }
 
+# Extract (uses OMZ extract plugin `x`)
+alias xr="x -r"
+
+# ------------------------------------------------------------------------------
 # Homebrew
+# ------------------------------------------------------------------------------
+
 alias bi="brew install"
 alias brm="brew remove"
 alias bs="brew search"
@@ -71,7 +262,10 @@ alias bl="brew list -ltr"
 alias bcaveats="brew caveats \$(brew list)"
 alias bdeps="brew deps --tree --installed"
 
+# ------------------------------------------------------------------------------
 # Python
+# ------------------------------------------------------------------------------
+
 alias vact="source ./venv/bin/activate"
 alias venv="virtualenv venv && vact"
 alias pipreq="pip install -r requirements.txt"
@@ -81,16 +275,3 @@ else
   alias py="python"
 fi
 alias pym="py main.py"
-
-# CLI
-alias grab="sudo chown $USER"
-
-# Extract (uses OMZ extract plugin `x`)
-alias xr="x -r"
-
-# Rsync
-alias rs="rsync -Puha"
-
-# Shortcuts
-alias tt="tree -L 2 -I 'node_modules'" # TODO: read .gitignore if present. could be a useful string and/or array in general.
-

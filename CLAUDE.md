@@ -37,7 +37,6 @@ This is a macOS-focused dotfiles repository managed by [Dotbot](https://github.c
 |-----------|---------|
 | `home/` | Symlinked dotfiles (`.zshenv`, `.gitconfig`, `.config/`, `.claude/`, `.ideavimrc`, etc.) |
 | `home/.config/zsh/` | ZSH config: `.zshrc`, per-host files (`zsh.$HOST`), topic scripts (`sf.zsh`, `work.zsh`, `osx.zsh`) |
-| `lib/` | Upstream ZSH scripts loaded by zgenom: `aliases.zsh`, `smartdots.zsh`, `lscolors.zsh` |
 | `custom/` | Custom zgenom plugins (loaded via `zgenom load $DOTFILES/custom`) |
 | `bin/` | Executable scripts added to `$PATH` (`git-cleanup`, `git-fork`, `emptytrash`, `password`, etc.) |
 | `scripts/` | Setup/maintenance scripts (`bootstrap`, `update`, `osx`, `zgenom`, `services`, `downloads`) |
@@ -66,7 +65,7 @@ zgenom (in `.zshrc`) manages Oh-My-Zsh plugins and third-party ZSH plugins. The 
 - Shell scripts use `#!/usr/bin/env zsh` or `#!/usr/bin/env bash`
 - The `$DOTFILES` env var always points to this repo root (`~/.dotfiles`)
 - New executable scripts go in `bin/`; new ZSH topic configs go in `home/.config/zsh/`
-- Aliases and shell functions shared across machines go in `lib/aliases.zsh`
+- All aliases and shell functions go in `home/.config/zsh/aliases.zsh`
 - Homebrew packages are tracked in `home/.Brewfile` (symlinked to `~/.Brewfile`; root `Brewfile` symlinks to it)
 - Custom tool repos live as git submodules in `home/.local/repos/` with symlinks from `home/.local/bin/`
 - Run `zgenom reset` in a terminal after modifying the plugin list in `.zshrc`

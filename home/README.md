@@ -14,7 +14,7 @@ Dotbot creates them automatically when you run `~/.dotfiles/install`.
 |------|-------------|
 | `.zshenv` | Environment vars, `$PATH`, helper functions. Loaded by every zsh instance |
 | `.config/zsh/.zshrc` | Interactive shell config — plugins, completions, prompt |
-| `.config/zsh/aliases.zsh` | Personal aliases (brew, python, yazi, config editing) |
+| `.config/zsh/aliases.zsh` | All aliases and functions (git, brew, python, nav, editor, system) |
 | `.config/zsh/osx.zsh` | macOS helpers: dock management, app control, Launchpad |
 | `.config/zsh/sf.zsh` | Salesforce CLI aliases and scratch org workflows |
 | `.config/zsh/work.zsh` | Work/personal focus mode toggle (`dbw`, `dbp`, `dbt`) |

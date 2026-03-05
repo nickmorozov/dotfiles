@@ -50,7 +50,6 @@ reload    # re-sources zsh without restarting terminal
 │
 ├── bin/                # Standalone scripts (added to PATH)
 ├── scripts/            # Install/update/bootstrap scripts
-├── lib/                # ZSH libraries loaded by zgenom (aliases, smartdots, lscolors)
 ├── custom/             # Custom ZSH files loaded by zgenom
 └── backup/             # macOS defaults backup
 ```
@@ -67,13 +66,12 @@ Since `~/.config` is a symlink to the dotfiles repo, editing `~/.config/zsh/.zsh
 ### ZSH Loading Order
 
 ```
-~/.zshenv          → Environment vars, PATH, helper functions (_exists, _extend_path, etc.)
+~/.zshenv          → Environment vars, PATH, helper functions, sources $ZDOTDIR/*.zsh
 ~/.config/zsh/
   .zprofile        → Login shell setup
   .zshrc           → Interactive shell: zgenom plugins, completions, prompt
-    lib/*.zsh      → Core aliases, lscolors, smartdots
     custom/*.zsh   → (empty by default)
-  aliases.zsh      → Personal aliases (brew, python, yazi, config editing)
+  aliases.zsh      → All aliases and shell functions (git, brew, python, nav, system)
   osx.zsh          → macOS helpers (dock, launchpad, app control)
   sf.zsh           → Salesforce CLI aliases and workflows
   work.zsh         → Work/personal focus mode toggle
