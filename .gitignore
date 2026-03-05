@@ -105,8 +105,13 @@ home/.config/.android/
 # Symlinks that shouldn't be tracked
 home/.settings
 
-# Secrets
+# Secrets and credentials
 home/.local/bin/.env
+home/.sfdx/
+home/.config/jetbrains/idea/options/illuminatedCloudSfdxCache.xml
+home/.config/raycast/config.json
+home/.ssh/id_rsa
+home/.ssh/id_ed25519
 
 # Salesforce dataloader (large Java app, install separately)
 home/.local/share/dataloader/
