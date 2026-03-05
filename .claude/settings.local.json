@@ -9,7 +9,8 @@
       "Bash(do git:*)",
       "Bash(do echo:*)",
       "Bash(gh repo:*)",
-      "Bash(ln:*)"
+      "Bash(ln:*)",
+      "Bash(do:*)"
     ]
   }
 }

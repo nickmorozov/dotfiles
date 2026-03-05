@@ -5,7 +5,7 @@
 
 # GitHub Create Repo From Current Dir
 gh-repo-from-dir() {
-  git init && gaa && gcmsg init && gh repo create "$(basename "$PWD")" --private --source . --remote=upstream && gp
+  git init && gaa && gcm init && gh repo create "$(basename "$PWD")" --private --source . --remote=upstream && gp
 }
 
 # Default Browser
