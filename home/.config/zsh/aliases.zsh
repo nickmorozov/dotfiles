@@ -114,6 +114,7 @@ fi
 alias gst='git status'
 alias gss='git status --short'
 alias gd='git diff'
+alias ga='git add'
 alias gaa='git add --all'
 alias gcm='git commit -m'
 alias gcam='git commit --all --message'
@@ -130,9 +131,9 @@ alias grst='git restore --staged'
 alias git-root='cd $(git rev-parse --show-toplevel)'
 
 # Commit + push combos
-gcgp()  { gcm "$@" && gp; }
-gcagp() { gcam "$@" && gp; }
-gtag() { git tag "$@" && gp origin "$@" }
+gcgp()  { git commit -m "$@" && git push; }
+gcagp() { git commit --all --message "$@" && git push; }
+gtag() { git tag "$@" && git push origin "$@"; }
 
 # GitHub CLI
 alias ghrc="gh repo create"
@@ -141,26 +142,13 @@ alias ghrcpr="ghrc --private --push --source='.' --description "
 alias ghrv="gh repo view --web"
 
 # Recursive git status — shows only repos that need attention (dirty or unpushed)
-gst-dirs() {
-  local dir dirty ahead
-  for dir in */; do
-    [ -d "$dir/.git" ] || continue
-    dirty=$(git -C "$dir" status --porcelain 2>/dev/null)
-    ahead=$(git -C "$dir" rev-list --count @{upstream}..HEAD 2>/dev/null)
-    if [[ -n "$dirty" || "${ahead:-0}" -gt 0 ]]; then
-      _green "  ➜ $dir"
-      [[ -n "$dirty" ]] && echo "    $(echo "$dirty" | wc -l | tr -d ' ') dirty file(s)"
-      [[ "${ahead:-0}" -gt 0 ]] && echo "    $ahead commit(s) to push"
-    fi
-  done
-}
-
-gst-proj() {
-  local dir dirty ahead found=0
-  for dir in $HOME/Projects/*/*/; do
-    [ -d "$dir/.git" ] || continue
-    dirty=$(git -C "$dir" status --porcelain 2>/dev/null)
-    ahead=$(git -C "$dir" rev-list --count @{upstream}..HEAD 2>/dev/null)
+# usage: gstr [dir]  (defaults to current directory, searches recursively)
+gstr() {
+  local root="${1:-.}" found=0
+  find "$root" -maxdepth 3 -name .git -type d -prune 2>/dev/null | while read gitdir; do
+    local dir="${gitdir%/.git}"
+    local dirty=$(git -C "$dir" status --porcelain 2>/dev/null)
+    local ahead=$(git -C "$dir" rev-list --count @{upstream}..HEAD 2>/dev/null)
     if [[ -n "$dirty" || "${ahead:-0}" -gt 0 ]]; then
       _green "  ➜ ${dir/#$HOME/~}"
       [[ -n "$dirty" ]] && echo "    $(echo "$dirty" | wc -l | tr -d ' ') dirty file(s)"
@@ -169,11 +157,6 @@ gst-proj() {
     fi
   done
   [[ $found -eq 0 ]] && _green "  All repos clean and pushed!"
-}
-
-# Find git repos using fd
-gst-find() {
-  fd '.git' -exec zsh -c 'dir=$(echo {} | rev | cut -c 6- | rev) && echo -e "\\e[32m  ➜ $dir:\\e[0m" && git -C $dir status' \;
 }
 
 # ------------------------------------------------------------------------------
@@ -185,7 +168,7 @@ alias update="source $DOTFILES/scripts/update"
 alias bootstrap="source $DOTFILES/scripts/bootstrap"
 
 # Quick reload of zsh environment
-alias reload="source $HOME/.zshenv && source $ZDOTDIR/.zprofile && source $ZDOTDIR/.zshrc"
+alias reload="find $ZDOTDIR -name '*.zwc' -delete 2>/dev/null; source $HOME/.zshenv && source $ZDOTDIR/.zprofile && source $ZDOTDIR/.zshrc"
 
 alias myip='ifconfig | sed -En "s/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p"'
 alias path='echo -e ${PATH//:/\\n}'
