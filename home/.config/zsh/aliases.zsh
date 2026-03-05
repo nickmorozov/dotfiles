@@ -1,4 +1,3 @@
-
 #############################################
 # Aliases
 #############################################
@@ -9,12 +8,12 @@
 
 # Enable askpass for Sudo
 if _exists askpass; then
-  if askpass -c; then
-    alias sudo='sudo -A '
-  else
-    askpass -s && \
-    alias sudo='sudo -A '
-  fi
+    if askpass -c; then
+        alias sudo='sudo -A '
+    else
+        askpass -s \
+            && alias sudo='sudo -A '
+    fi
 fi
 
 # Reboot without user password on login - useful for encrypted system with Bluetooth keyboards
@@ -30,27 +29,27 @@ alias q="~ && clear"
 # ------------------------------------------------------------------------------
 
 # Folder shortcuts
-[ -d ~/Downloads ]            && alias dl='cd ~/Downloads'
-[ -d ~/Desktop ]              && alias dt='cd ~/Desktop'
-[ -d ~/Projects ]             && alias pj='cd ~/Projects'
-[ -d ~/Projects/Enum ]        && alias pje='cd ~/Projects/Enum'
-[ -d ~/Projects/Forks ]       && alias pjf='cd ~/Projects/Forks'
-[ -d ~/Projects/Hobbies ]     && alias pjh='cd ~/Projects/Hobbies'
-[ -d ~/Projects/Job ]         && alias pjj='cd ~/Projects/Job'
-[ -d ~/Projects/Playground ]  && alias pjl='cd ~/Projects/Playground'
-[ -d ~/Projects/Repos ]       && alias pjr='cd ~/Projects/Repos'
+[ -d ~/Downloads ] && alias dl='cd ~/Downloads'
+[ -d ~/Desktop ] && alias dt='cd ~/Desktop'
+[ -d ~/Projects ] && alias pj='cd ~/Projects'
+[ -d ~/Projects/Enum ] && alias pje='cd ~/Projects/Enum'
+[ -d ~/Projects/Forks ] && alias pjf='cd ~/Projects/Forks'
+[ -d ~/Projects/Hobbies ] && alias pjh='cd ~/Projects/Hobbies'
+[ -d ~/Projects/Job ] && alias pjj='cd ~/Projects/Job'
+[ -d ~/Projects/Playground ] && alias pjl='cd ~/Projects/Playground'
+[ -d ~/Projects/Repos ] && alias pjr='cd ~/Projects/Repos'
 
 # Current dir without path
 alias cwd='basename $PWD'
 
 # File Manager (yazi with cwd tracking)
 function yy() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+    yazi "$@" --cwd-file="$tmp"
+    if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+        cd -- "$cwd"
+    fi
+    rm -f -- "$tmp"
 }
 
 # ------------------------------------------------------------------------------
@@ -72,24 +71,24 @@ alias term='oa iTerm.app'
 
 # lsd (ls replacement)
 if _exists lsd; then
-  unalias ls 2>/dev/null
-  alias ls='lsd -v'
-  alias ltree='lsd --tree'
+    unalias ls 2> /dev/null
+    alias ls='lsd -v'
+    alias ltree='lsd --tree'
 fi
 
 # bat (cat replacement)
 if _exists bat; then
-  export BAT_THEME='gruvbox-dark'
-  alias cat="bat --paging=never"
+    export BAT_THEME='gruvbox-dark'
+    alias cat="bat --paging=never"
 fi
 
 # Tree (respects .gitignore when in a git repo)
 tt() {
-  if git rev-parse --is-inside-work-tree &>/dev/null; then
-    tree -L 2 --gitignore
-  else
-    tree -L 2 -I 'node_modules|.git'
-  fi
+    if git rev-parse --is-inside-work-tree &> /dev/null; then
+        tree -L 2 --gitignore
+    else
+        tree -L 2 -I 'node_modules|.git'
+    fi
 }
 
 # Fast config edit
@@ -103,7 +102,7 @@ alias dotfiles="$EDITOR $DOTFILES"
 
 # tldr as help
 if _exists tldr; then
-  alias help="tldr"
+    alias help="tldr"
 fi
 
 # ------------------------------------------------------------------------------
@@ -131,7 +130,7 @@ alias grst='git restore --staged'
 alias git-root='cd $(git rev-parse --show-toplevel)'
 
 # Commit + push combos
-gcgp()  { git commit -m "$@" && git push; }
+gcgp() { git commit -m "$@" && git push; }
 gcagp() { git commit --all --message "$@" && git push; }
 gtag() { git tag "$@" && git push origin "$@"; }
 
@@ -144,19 +143,19 @@ alias ghrv="gh repo view --web"
 # Recursive git status — shows only repos that need attention (dirty or unpushed)
 # usage: gstr [dir]  (defaults to current directory, searches recursively)
 gstr() {
-  local root="${1:-.}" found=0
-  find "$root" -maxdepth 3 -name .git -type d -prune 2>/dev/null | while read gitdir; do
-    local dir="${gitdir%/.git}"
-    local dirty=$(git -C "$dir" status --porcelain 2>/dev/null)
-    local ahead=$(git -C "$dir" rev-list --count @{upstream}..HEAD 2>/dev/null)
-    if [[ -n "$dirty" || "${ahead:-0}" -gt 0 ]]; then
-      _green "  ➜ ${dir/#$HOME/~}"
-      [[ -n "$dirty" ]] && echo "    $(echo "$dirty" | wc -l | tr -d ' ') dirty file(s)"
-      [[ "${ahead:-0}" -gt 0 ]] && echo "    $ahead commit(s) to push"
-      found=1
-    fi
-  done
-  [[ $found -eq 0 ]] && _green "  All repos clean and pushed!"
+    local root="${1:-.}" found=0
+    find "$root" -maxdepth 3 -name .git -type d -prune 2> /dev/null | while read gitdir; do
+        local dir="${gitdir%/.git}"
+        local dirty=$(git -C "$dir" status --porcelain 2> /dev/null)
+        local ahead=$(git -C "$dir" rev-list --count @{upstream}..HEAD 2> /dev/null)
+        if [[ -n "$dirty" || "${ahead:-0}" -gt 0 ]]; then
+            _green "  ➜ ${dir/#$HOME/~}"
+            [[ -n "$dirty" ]] && echo "    $(echo "$dirty" | wc -l | tr -d ' ') dirty file(s)"
+            [[ "${ahead:-0}" -gt 0 ]] && echo "    $ahead commit(s) to push"
+            found=1
+        fi
+    done
+    [[ $found -eq 0 ]] && _green "  All repos clean and pushed!"
 }
 
 # ------------------------------------------------------------------------------
@@ -166,6 +165,8 @@ gstr() {
 # Run scripts
 alias update="source $DOTFILES/scripts/update"
 alias bootstrap="source $DOTFILES/scripts/bootstrap"
+alias snapshot="$DOTFILES/scripts/snapshot"
+alias restore="$DOTFILES/scripts/restore"
 
 # Quick reload of zsh environment
 alias reload="find $ZDOTDIR -name '*.zwc' -delete 2>/dev/null; source $HOME/.zshenv && source $ZDOTDIR/.zprofile && source $ZDOTDIR/.zshrc"
@@ -183,39 +184,39 @@ alias rs="rsync -Puha"
 
 # thefuck
 if _exists fuck; then
-  alias f="fuck"
+    alias f="fuck"
 fi
 
 # Remove empty directories recursively
 rdf() {
-  if [[ -z $1 ]]; then
-    echo "Usage: rdf <DIR>"
-    return 1
-  fi
-  find "${1}" -type d -empty -exec rmdir {} \+
+    if [[ -z $1 ]]; then
+        echo "Usage: rdf <DIR>"
+        return 1
+    fi
+    find "${1}" -type d -empty -exec rmdir {} \+
 }
 
 # Sanitize filenames: replace non-alphanumeric chars with underscores (preserves extensions)
 # usage: sanitize <DIR>
 sanitize() {
-  local dir="${1:-.}"
-  # Rename directories first (bottom-up so child renames don't break parent paths)
-  find "$dir" -depth -type d ! -path "$dir" | while read -r d; do
-    local parent="${d:h}" name="${d:t}"
-    local clean="${name//[^a-zA-Z0-9._-]/_}"
-    [[ "$name" != "$clean" ]] && mv -n "$d" "$parent/$clean" && echo "dir:  $name → $clean"
-  done
-  # Then rename files
-  find "$dir" -type f | while read -r f; do
-    local parent="${f:h}" name="${f:t}"
-    local stem="${name%.*}" ext="${name##*.}"
-    if [[ "$name" == *.* ]]; then
-      local clean="${stem//[^a-zA-Z0-9._-]/_}.$ext"
-    else
-      local clean="${name//[^a-zA-Z0-9._-]/_}"
-    fi
-    [[ "$name" != "$clean" ]] && mv -n "$f" "$parent/$clean" && echo "file: $name → $clean"
-  done
+    local dir="${1:-.}"
+    # Rename directories first (bottom-up so child renames don't break parent paths)
+    find "$dir" -depth -type d ! -path "$dir" | while read -r d; do
+        local parent="${d:h}" name="${d:t}"
+        local clean="${name//[^a-zA-Z0-9._-]/_}"
+        [[ "$name" != "$clean" ]] && mv -n "$d" "$parent/$clean" && echo "dir:  $name → $clean"
+    done
+    # Then rename files
+    find "$dir" -type f | while read -r f; do
+        local parent="${f:h}" name="${f:t}"
+        local stem="${name%.*}" ext="${name##*.}"
+        if [[ "$name" == *.* ]]; then
+            local clean="${stem//[^a-zA-Z0-9._-]/_}.$ext"
+        else
+            local clean="${name//[^a-zA-Z0-9._-]/_}"
+        fi
+        [[ "$name" != "$clean" ]] && mv -n "$f" "$parent/$clean" && echo "file: $name → $clean"
+    done
 }
 
 # Crontab
@@ -223,9 +224,9 @@ alias crontab-save="crontab -l > $HOME/.crontab"
 
 # Dotfiles: move a file into dotfiles and symlink it back
 dot-save() {
-  test -z $1 && return 1
-  mv "$1" "$HOME/.dotfiles/home"
-  ln -s "$HOME/.dotfiles/home/$1"
+    test -z $1 && return 1
+    mv "$1" "$HOME/.dotfiles/home"
+    ln -s "$HOME/.dotfiles/home/$1"
 }
 
 # Extract (uses OMZ extract plugin `x`)
@@ -253,9 +254,9 @@ alias vact="source ./venv/bin/activate"
 alias venv="virtualenv venv && vact"
 alias pipreq="pip install -r requirements.txt"
 if _exists python3; then
-  alias py="python3"
+    alias py="python3"
 else
-  alias py="python"
+    alias py="python"
 fi
 alias pym="py main.py"
 
@@ -263,4 +264,11 @@ alias pym="py main.py"
 # Claude
 # ------------------------------------------------------------------------------
 
-alias clauder="claude --resume"
+alias cld="claude"
+alias cldr="claude --resume"
+
+# ------------------------------------------------------------------------------
+# Prettier
+# ------------------------------------------------------------------------------
+
+alias fm="prettier --write"

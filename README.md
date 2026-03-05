@@ -20,8 +20,8 @@ git config -f ~/.gitlocal user.name "Your Name"
 ## Updating
 
 ```sh
-update    # pulls dotfiles, updates submodules, runs install, updates brew + zgenom
-reload    # re-sources zsh without restarting terminal
+update # pulls dotfiles, updates submodules, runs install, updates brew + zgenom
+reload # re-sources zsh without restarting terminal
 ```
 
 ## Architecture
@@ -57,6 +57,7 @@ reload    # re-sources zsh without restarting terminal
 ### How Symlinks Work
 
 Dotbot globs `home/.*` and symlinks each entry to `~/`. So:
+
 - `home/.config` → `~/.config`
 - `home/.zshenv` → `~/.zshenv`
 - `home/.Brewfile` → `~/.Brewfile`
@@ -79,102 +80,122 @@ Since `~/.config` is a symlink to the dotfiles repo, editing `~/.config/zsh/.zsh
 
 ### Submodules
 
-| Submodule | Path | Purpose |
-|-----------|------|---------|
-| [dotbot](https://github.com/anishathalye/dotbot) | `dotbot/` | Symlink manager |
-| [NvChad](https://github.com/nickmorozov/NvChad) | `home/.config/nvim/` | Neovim config (Lua) |
-| [iTerm2-Color-Schemes](https://github.com/mbadolato/iTerm2-Color-Schemes) | `home/.config/iterm2/iTerm2-Color-Schemes/` | Terminal color themes |
-| [focus-manager](https://github.com/nickmorozov/focus-manager) | `home/.local/repos/focus-manager/` | macOS Focus mode CLI |
-| [osx-calendar-syncer](https://github.com/nickmorozov/osx-calendar-syncer) | `home/.local/repos/osx-calendar-syncer/` | Calendar sync tool |
-| [sudo-askpass-security](https://github.com/nickmorozov/sudo-askpass-security) | `home/.local/repos/sudo-askpass-security/` | macOS Keychain sudo |
+| Submodule                                                                     | Path                                        | Purpose               |
+| ----------------------------------------------------------------------------- | ------------------------------------------- | --------------------- |
+| [dotbot](https://github.com/anishathalye/dotbot)                              | `dotbot/`                                   | Symlink manager       |
+| [NvChad](https://github.com/nickmorozov/NvChad)                               | `home/.config/nvim/`                        | Neovim config (Lua)   |
+| [iTerm2-Color-Schemes](https://github.com/mbadolato/iTerm2-Color-Schemes)     | `home/.config/iterm2/iTerm2-Color-Schemes/` | Terminal color themes |
+| [focus-manager](https://github.com/nickmorozov/focus-manager)                 | `home/.local/repos/focus-manager/`          | macOS Focus mode CLI  |
+| [osx-calendar-syncer](https://github.com/nickmorozov/osx-calendar-syncer)     | `home/.local/repos/osx-calendar-syncer/`    | Calendar sync tool    |
+| [sudo-askpass-security](https://github.com/nickmorozov/sudo-askpass-security) | `home/.local/repos/sudo-askpass-security/`  | macOS Keychain sudo   |
 
 ## Aliases Cheat Sheet
 
 ### Navigation
-| Alias | Command | Description |
-|-------|---------|-------------|
-| `..` / `...` / `....` | `cd ../..` etc. | Quick parent traversal (smartdots) |
-| `dl` / `dt` / `pj` | `cd ~/Downloads` etc. | Folder shortcuts |
-| `pjj` / `pjr` / `pjf` / `pjl` | `cd ~/Projects/Job` etc. | Project folder shortcuts |
-| `z <dir>` | zoxide | Frecency-based directory jumper |
-| `yy` | yazi | File manager with cwd tracking |
+
+| Alias                         | Command                  | Description                        |
+| ----------------------------- | ------------------------ | ---------------------------------- |
+| `..` / `...` / `....`         | `cd ../..` etc.          | Quick parent traversal (smartdots) |
+| `dl` / `dt` / `pj`            | `cd ~/Downloads` etc.    | Folder shortcuts                   |
+| `pjj` / `pjr` / `pjf` / `pjl` | `cd ~/Projects/Job` etc. | Project folder shortcuts           |
+| `z <dir>`                     | zoxide                   | Frecency-based directory jumper    |
+| `yy`                          | yazi                     | File manager with cwd tracking     |
 
 ### Git
-| Alias | Description |
-|-------|-------------|
-| `gst` / `gss` | Status / short status |
-| `gd` | Diff |
-| `gaa` | Add all |
-| `gcm "msg"` | Commit with message |
-| `gcam "msg"` | Add all + commit with message |
-| `gco` / `gcb` | Checkout / checkout new branch |
-| `gp` / `gl` | Push / pull |
-| `gcl` | Clone with submodules |
-| `grs` / `grst` | Restore / restore staged |
-| `gsta` / `gstp` | Stash push / pop |
-| `grset` | Remote set-url |
-| `gcgp "msg"` | Commit + push |
-| `gcgpa "msg"` | Add all + commit + push |
-| `git-root` | cd to repo root |
-| `gst-dirs` / `gst-proj` | Status across multiple repos |
-| `git l` / `git ll` | Pretty log / log with files |
-| `git amend` / `git undo` | Amend last / undo last commit |
-| `git sync` | Pull + push |
-| `als <keyword>` | Search aliases by keyword (OMZ aliases plugin) |
+
+| Alias                    | Description                                    |
+| ------------------------ | ---------------------------------------------- |
+| `gst` / `gss`            | Status / short status                          |
+| `gd`                     | Diff                                           |
+| `gaa`                    | Add all                                        |
+| `gcm "msg"`              | Commit with message                            |
+| `gcam "msg"`             | Add all + commit with message                  |
+| `gco` / `gcb`            | Checkout / checkout new branch                 |
+| `gp` / `gl`              | Push / pull                                    |
+| `gcl`                    | Clone with submodules                          |
+| `grs` / `grst`           | Restore / restore staged                       |
+| `gsta` / `gstp`          | Stash push / pop                               |
+| `grset`                  | Remote set-url                                 |
+| `gcgp "msg"`             | Commit + push                                  |
+| `gcgpa "msg"`            | Add all + commit + push                        |
+| `git-root`               | cd to repo root                                |
+| `gst-dirs` / `gst-proj`  | Status across multiple repos                   |
+| `git l` / `git ll`       | Pretty log / log with files                    |
+| `git amend` / `git undo` | Amend last / undo last commit                  |
+| `git sync`               | Pull + push                                    |
+| `als <keyword>`          | Search aliases by keyword (OMZ aliases plugin) |
 
 ### Homebrew
-| Alias | Description |
-|-------|-------------|
-| `bi` / `brm` / `bs` | Install / remove / search |
-| `bsd` | Search with descriptions |
-| `bdump` | Dump Brewfile |
-| `bl` | List installed (sorted by date) |
-| `bdeps` | Show dependency tree |
-| `badopt` | Install cask with --adopt |
+
+| Alias               | Description                     |
+| ------------------- | ------------------------------- |
+| `bi` / `brm` / `bs` | Install / remove / search       |
+| `bsd`               | Search with descriptions        |
+| `bdump`             | Dump Brewfile                   |
+| `bl`                | List installed (sorted by date) |
+| `bdeps`             | Show dependency tree            |
+| `badopt`            | Install cask with --adopt       |
 
 ### Work Mode
-| Alias | Description |
-|-------|-------------|
-| `dbw` | Switch to work focus (Chrome, Slack, Teams, IDE) |
-| `dbp` | Switch to personal focus (Safari) |
-| `dbt` | Toggle work/personal |
-| `dbm` / `dbmc` | Start/stop music apps |
-| `dbs` / `dbc` | Default browser Safari/Chrome |
+
+| Alias          | Description                                      |
+| -------------- | ------------------------------------------------ |
+| `dbw`          | Switch to work focus (Chrome, Slack, Teams, IDE) |
+| `dbp`          | Switch to personal focus (Safari)                |
+| `dbt`          | Toggle work/personal                             |
+| `dbm` / `dbmc` | Start/stop music apps                            |
+| `dbs` / `dbc`  | Default browser Safari/Chrome                    |
 
 ### Editor & Files
-| Alias | Description |
-|-------|-------------|
-| `e` / `vim` | Open in $EDITOR (nvim) |
-| `v` / `cat` | View with bat (syntax highlighting) |
-| `ls` / `ltree` | lsd with tree view |
-| `ez` / `ezz` | Edit .zshrc / zsh config dir |
-| `dotfiles` | Open dotfiles in editor |
+
+| Alias          | Description                         |
+| -------------- | ----------------------------------- |
+| `e` / `vim`    | Open in $EDITOR (nvim)              |
+| `v` / `cat`    | View with bat (syntax highlighting) |
+| `ls` / `ltree` | lsd with tree view                  |
+| `ez` / `ezz`   | Edit .zshrc / zsh config dir        |
+| `dotfiles`     | Open dotfiles in editor             |
 
 ### Misc
-| Alias | Description |
-|-------|-------------|
-| `update` | Update everything (dotfiles, brew, zgenom) |
-| `reload` | Re-source ZSH config |
-| `myip` / `path` | Show local IP / readable PATH |
-| `f` | thefuck — correct previous command |
+
+| Alias           | Description                                               |
+| --------------- | --------------------------------------------------------- |
+| `update`        | Update everything (dotfiles, brew, zgenom)                |
+| `reload`        | Re-source ZSH config                                      |
+| `snapshot`      | Capture machine state (Brewfile + project repos manifest) |
+| `restore`       | Clone project repos from snapshot manifest                |
+| `fm <file>`     | Format file with prettier                                 |
+| `myip` / `path` | Show local IP / readable PATH                             |
+| `f`             | thefuck — correct previous command                        |
 
 ## Crontab
 
 The `.crontab` file defines scheduled tasks. Load with `crontab ~/.crontab`.
 
-| Schedule | Command | Purpose |
-|----------|---------|---------|
-| Every hour 8am-midnight | `shortcuts run "Sync Events"` | Sync calendar events via Shortcuts |
-| Weekdays 8-10am | `focus -g \| grep 'Work' \|\| dbw` | Auto-switch to work mode if Focus is Work |
-| Daily 6-10pm | `focus -g \| grep 'Work' && dbp` | Auto-switch to personal if still in Work focus |
+| Schedule                | Command                            | Purpose                                        |
+| ----------------------- | ---------------------------------- | ---------------------------------------------- |
+| Every hour 8am-midnight | `shortcuts run "Sync Events"`      | Sync calendar events via Shortcuts             |
+| Weekdays 8-10am         | `focus -g \| grep 'Work' \|\| dbw` | Auto-switch to work mode if Focus is Work      |
+| Daily 6-10pm            | `focus -g \| grep 'Work' && dbp`   | Auto-switch to personal if still in Work focus |
+
+## Snapshot / Restore
+
+Disaster recovery for a new machine: capture your current state, then restore it later.
+
+```sh
+snapshot # Dumps ~/.Brewfile + saves ~/Projects repo manifest to scripts/repos.txt
+restore  # Clones all repos from scripts/repos.txt back into ~/Projects/
+```
+
+The workflow: run `snapshot` periodically (or before wiping a machine), commit the updated `home/.Brewfile` and `scripts/repos.txt`, then on a fresh machine run `./install` → `bootstrap` → `restore`.
 
 ## Brewfile
 
 `~/.Brewfile` (symlinked from `home/.Brewfile`) is the source of truth for all Homebrew packages. The root `Brewfile` is a symlink to it.
 
 ```sh
-bdump     # Save current brew state to Brewfile
-brew bundle --global   # Install everything from Brewfile
+bdump                # Save current brew state to Brewfile
+brew bundle --global # Install everything from Brewfile
 ```
 
 ## Neovim / Vim
@@ -202,12 +223,12 @@ brew bundle --global   # Install everything from Brewfile
 
 ```sh
 # After cloning dotfiles, the submodule is already there:
-nvim    # Opens Neovim — lazy.nvim auto-installs all plugins on first launch
+nvim # Opens Neovim — lazy.nvim auto-installs all plugins on first launch
 
 # Inside Neovim:
-:Lazy sync          # Update all plugins
-:MasonInstallAll    # Install LSP servers and formatters
-:TSInstall all      # Install treesitter parsers
+:Lazy sync       # Update all plugins
+:MasonInstallAll # Install LSP servers and formatters
+:TSInstall all   # Install treesitter parsers
 ```
 
 ### Updating
@@ -217,26 +238,26 @@ nvim    # Opens Neovim — lazy.nvim auto-installs all plugins on first launch
 cd ~/.dotfiles && git submodule update --remote home/.config/nvim
 
 # Inside Neovim:
-:Lazy update        # Update lazy.nvim plugins (including nvchad/ui — fixes deprecation warnings)
+:Lazy update # Update lazy.nvim plugins (including nvchad/ui — fixes deprecation warnings)
 ```
 
 ### Key Bindings
 
-| Key | Mode | Action |
-|-----|------|--------|
-| `Space` | — | Leader key |
-| `;` | Normal | Enter command mode (no shift needed) |
-| `jj` / `ff` | Insert | Escape to normal mode |
-| `Space ff` | Normal | Find files (Telescope) |
-| `Space fw` | Normal | Live grep (Telescope) |
-| `Space th` | Normal | Switch color theme |
-| `Space fm` | Normal | Format file (conform) |
-| `Space /` | Normal/Visual | Toggle comment |
-| `Ctrl+n` | Normal | Toggle file tree (NvimTree) |
-| `Tab` / `Shift+Tab` | Normal | Next/prev buffer |
-| `Space x` | Normal | Close buffer |
-| `Space ch` | Normal | NvChad cheatsheet |
-| `gd` / `gD` | Normal | Go to definition / declaration |
+| Key                 | Mode          | Action                               |
+| ------------------- | ------------- | ------------------------------------ |
+| `Space`             | —             | Leader key                           |
+| `;`                 | Normal        | Enter command mode (no shift needed) |
+| `jj` / `ff`         | Insert        | Escape to normal mode                |
+| `Space ff`          | Normal        | Find files (Telescope)               |
+| `Space fw`          | Normal        | Live grep (Telescope)                |
+| `Space th`          | Normal        | Switch color theme                   |
+| `Space fm`          | Normal        | Format file (conform)                |
+| `Space /`           | Normal/Visual | Toggle comment                       |
+| `Ctrl+n`            | Normal        | Toggle file tree (NvimTree)          |
+| `Tab` / `Shift+Tab` | Normal        | Next/prev buffer                     |
+| `Space x`           | Normal        | Close buffer                         |
+| `Space ch`          | Normal        | NvChad cheatsheet                    |
+| `gd` / `gD`         | Normal        | Go to definition / declaration       |
 
 ### Shared vimrc
 
@@ -247,24 +268,26 @@ cd ~/.dotfiles && git submodule update --remote home/.config/nvim
 SF aliases live in `~/.config/zsh/sf.zsh`. Global org management is done via shell aliases; per-project work uses `npm run` scripts.
 
 ### Global Aliases
-| Alias | Description |
-|-------|-------------|
-| `sfa <domain>` | Auth to any org (auto-detects sandbox/dev-ed/prod) |
-| `sfl` | List all authenticated orgs |
-| `sfd <alias>...` | Logout from orgs |
-| `sfo` / `sfoo <alias>` | Open org in browser |
-| `sfop` | Open org in private/incognito window |
-| `sfct` / `sfctg` / `sfctdh` | Set target org (local/global/dev hub) |
-| `sfconf` / `sfwho` | Show config / full org details |
+
+| Alias                       | Description                                        |
+| --------------------------- | -------------------------------------------------- |
+| `sfa <domain>`              | Auth to any org (auto-detects sandbox/dev-ed/prod) |
+| `sfl`                       | List all authenticated orgs                        |
+| `sfd <alias>...`            | Logout from orgs                                   |
+| `sfo` / `sfoo <alias>`      | Open org in browser                                |
+| `sfop`                      | Open org in private/incognito window               |
+| `sfct` / `sfctg` / `sfctdh` | Set target org (local/global/dev hub)              |
+| `sfconf` / `sfwho`          | Show config / full org details                     |
 
 ### Per-Project (npm run)
-| Command | Description |
-|---------|-------------|
-| `sfpush` / `sfpull` / `sfdiff` | Deploy / retrieve / preview changes |
-| `sfreset` | Reset source tracking |
-| `sft` / `sfta` | Run all tests / apex tests |
-| `sfdata` / `sfdi` / `sfde` | Data tool / import / export |
-| `sfsync` | Sync template + submodules + npm install |
+
+| Command                        | Description                              |
+| ------------------------------ | ---------------------------------------- |
+| `sfpush` / `sfpull` / `sfdiff` | Deploy / retrieve / preview changes      |
+| `sfreset`                      | Reset source tracking                    |
+| `sft` / `sfta`                 | Run all tests / apex tests               |
+| `sfdata` / `sfdi` / `sfde`     | Data tool / import / export              |
+| `sfsync`                       | Sync template + submodules + npm install |
 
 See `sf.zsh` for the full reference of `npm run` commands available per project.
 

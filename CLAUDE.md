@@ -11,8 +11,10 @@ This is a macOS-focused dotfiles repository managed by [Dotbot](https://github.c
 - **Install/sync dotfiles:** `./install` (runs Dotbot with `install.conf.yaml`)
 - **Update everything:** `update` (alias for `source $DOTFILES/scripts/update` — updates dotfiles, brew, apt)
 - **Bootstrap new machine:** `./scripts/bootstrap` (interactive — installs Homebrew, git, zsh, software, npm packages)
+- **Snapshot machine state:** `./scripts/snapshot` (reverse of bootstrap — dumps Brewfile + saves `~/Projects` repo manifest to `scripts/repos.txt`)
+- **Restore project repos:** `./scripts/restore` (reads `scripts/repos.txt` and clones repos back into `~/Projects/`)
 - **Reload shell config:** `reload` (alias that re-sources `.zshenv`, `.zprofile`, `.zshrc`)
-- **Format shell scripts:** `npx prettier --write <file>` (prettier + prettier-plugin-sh configured in `package.json`)
+- **Format files:** `fm <file>` (alias for `prettier --write`, uses prettier + prettier-plugin-sh from `package.json`)
 
 ## Architecture
 
@@ -33,15 +35,23 @@ This is a macOS-focused dotfiles repository managed by [Dotbot](https://github.c
 
 ### Directory Roles
 
-| Directory | Purpose |
-|-----------|---------|
-| `home/` | Symlinked dotfiles (`.zshenv`, `.gitconfig`, `.config/`, `.claude/`, `.ideavimrc`, etc.) |
-| `home/.config/zsh/` | ZSH config: `.zshrc`, per-host files (`zsh.$HOST`), topic scripts (`sf.zsh`, `work.zsh`, `osx.zsh`) |
-| `custom/` | Custom zgenom plugins (loaded via `zgenom load $DOTFILES/custom`) |
-| `bin/` | Executable scripts added to `$PATH` (`git-cleanup`, `git-fork`, `emptytrash`, `password`, etc.) |
-| `scripts/` | Setup/maintenance scripts (`bootstrap`, `update`, `osx`, `zgenom`, `services`, `downloads`) |
-| `dotbot/` | Dotbot submodule |
-| `backup/` | Backup storage for dotfile sync |
+| Directory           | Purpose                                                                                                                        |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `home/`             | Symlinked dotfiles (`.zshenv`, `.gitconfig`, `.config/`, `.claude/`, `.ideavimrc`, etc.)                                       |
+| `home/.config/zsh/` | ZSH config: `.zshrc`, per-host files (`zsh.$HOST`), topic scripts (`sf.zsh`, `work.zsh`, `osx.zsh`)                            |
+| `custom/`           | Custom zgenom plugins (loaded via `zgenom load $DOTFILES/custom`)                                                              |
+| `bin/`              | Executable scripts added to `$PATH` (`git-cleanup`, `git-fork`, `emptytrash`, `password`, etc.)                                |
+| `scripts/`          | Setup/maintenance scripts (`bootstrap`, `update`, `snapshot`, `restore`, `osx`, `zgenom`, `services`, `downloads`, `projects`) |
+| `hooks/`            | Git hooks (`pre-commit`) — symlinked into `.git/hooks/` by dotbot or manually                                                  |
+| `dotbot/`           | Dotbot submodule                                                                                                               |
+| `backup/`           | Backup storage for dotfile sync                                                                                                |
+
+### Snapshot / Restore Workflow
+
+The `snapshot` + `restore` scripts provide disaster recovery for project repos:
+
+1. **`scripts/snapshot`** — Runs `brew bundle dump` to update `~/.Brewfile`, then scans `~/Projects/` for git repos and writes their relative paths + remote URLs to `scripts/repos.txt` (tab-separated)
+2. **`scripts/restore`** — Reads `scripts/repos.txt` and clones each repo into `~/Projects/` at its original path, skipping repos that already exist
 
 ### Plugin Management
 
@@ -68,4 +78,6 @@ zgenom (in `.zshrc`) manages Oh-My-Zsh plugins and third-party ZSH plugins. The 
 - All aliases and shell functions go in `home/.config/zsh/aliases.zsh`
 - Homebrew packages are tracked in `home/.Brewfile` (symlinked to `~/.Brewfile`; root `Brewfile` symlinks to it)
 - Custom tool repos live as git submodules in `home/.local/repos/` with symlinks from `home/.local/bin/`
+- Code formatting uses prettier (`.prettierrc` at repo root, `prettier-plugin-sh` for shell scripts)
 - Run `zgenom reset` in a terminal after modifying the plugin list in `.zshrc`
+- Project folders are scaffolded under `~/Projects/` with subdirs: `Repos`, `Forks`, `Job`, `Playground`

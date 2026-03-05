@@ -1,0 +1,97 @@
+#!/usr/bin/env zsh
+
+# Sibling to bootstrap: restores project repos from snapshot manifest
+# Reads scripts/repos.txt and clones repos into ~/Projects/
+
+trap on_error SIGTERM
+
+e='\033'
+RESET="${e}[0m"
+BOLD="${e}[1m"
+CYAN="${e}[0;96m"
+RED="${e}[0;91m"
+YELLOW="${e}[0;93m"
+GREEN="${e}[0;92m"
+
+info()    { echo -e "${CYAN}${*}${RESET}" }
+error()   { echo -e "${RED}${*}${RESET}" }
+success() { echo -e "${GREEN}${*}${RESET}" }
+warn()    { echo -e "${YELLOW}${*}${RESET}" }
+finish()  { success "Done!"; echo; sleep 1 }
+
+export DOTFILES=${DOTFILES:-"$HOME/.dotfiles"}
+PROJECTS_DIR="$HOME/Projects"
+REPOS_MANIFEST="$DOTFILES/scripts/repos.txt"
+
+on_start() {
+  info '           __        __   ____ _  __            '
+  info '      ____/ /____   / /_ / __/(_)/ /___   _____ '
+  info '     / __  // __ \ / __// /_ / // // _ \ / ___/ '
+  info '  _ / /_/ // /_/ // /_ / __// // //  __/(__  )  '
+  info ' (_)\__,_/ \____/ \__//_/  /_//_/ \___//____/   '
+  info '                                                '
+  info '              by @nickmorozov                   '
+  info '                                                '
+  info '  restore: cloning project repos                '
+  info '                                                '
+}
+
+restore_repos() {
+  if [ ! -f "$REPOS_MANIFEST" ]; then
+    error "No repos manifest found at $REPOS_MANIFEST"
+    error "Run ./scripts/snapshot first to create one."
+    return 1
+  fi
+
+  local total=$(wc -l < "$REPOS_MANIFEST" | tr -d ' ')
+  info "Restoring $total repo(s) from manifest..."
+  echo
+
+  local cloned=0 skipped=0 failed=0
+
+  while IFS=$'\t' read -r rel url; do
+    # Skip empty lines and comments
+    [[ -z "$rel" || "$rel" == \#* ]] && continue
+
+    local target="$PROJECTS_DIR/$rel"
+
+    if [ -d "$target/.git" ]; then
+      warn "  ~ $rel (already exists, skipping)"
+      ((skipped++))
+      continue
+    fi
+
+    info "  Cloning $rel..."
+    mkdir -p "$(dirname "$target")"
+    if git clone --recurse-submodules "$url" "$target" 2>/dev/null; then
+      success "  + $rel"
+      ((cloned++))
+    else
+      error "  ! $rel (clone failed)"
+      ((failed++))
+    fi
+  done < "$REPOS_MANIFEST"
+
+  echo
+  success "Restored: $cloned cloned, $skipped already existed, $failed failed"
+  finish
+}
+
+on_finish() {
+  echo
+  success "Restore complete!"
+  echo
+}
+
+on_error() {
+  error "Something went wrong during restore!"
+  exit 1
+}
+
+main() {
+  on_start
+  restore_repos
+  on_finish
+}
+
+main
