@@ -67,5 +67,6 @@ zgenom (in `.zshrc`) manages Oh-My-Zsh plugins and third-party ZSH plugins. The 
 - The `$DOTFILES` env var always points to this repo root (`~/.dotfiles`)
 - New executable scripts go in `bin/`; new ZSH topic configs go in `home/.config/zsh/`
 - Aliases and shell functions shared across machines go in `lib/aliases.zsh`
-- Homebrew packages are tracked in `Brewfile` (root-level, for `brew bundle`)
-- The `.Brewfile` in `home/` is a separate/older Brewfile symlinked to `~/.Brewfile`
+- Homebrew packages are tracked in `home/.Brewfile` (symlinked to `~/.Brewfile`; root `Brewfile` symlinks to it)
+- Custom tool repos live as git submodules in `home/.local/repos/` with symlinks from `home/.local/bin/`
+- Run `zgenom reset` in a terminal after modifying the plugin list in `.zshrc`

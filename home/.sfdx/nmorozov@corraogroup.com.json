@@ -1,0 +1,12 @@
+{
+  "accessToken": "REDACTED",
+  "instanceUrl": "https://corraogroup.my.salesforce.com",
+  "orgId": "00DA0000000YcQYMA0",
+  "username": "nmorozov@corraogroup.com",
+  "loginUrl": "https://corraogroup.my.salesforce.com/",
+  "refreshToken": "REDACTED",
+  "clientId": "PlatformCLI",
+  "isDevHub": true,
+  "instanceApiVersion": "66.0",
+  "instanceApiVersionLastRetrieved": "3/4/2026, 8:42:21 AM"
+}

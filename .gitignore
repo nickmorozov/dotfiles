@@ -1,34 +1,32 @@
-# Backup folder
-backup
+# =============================================================================
+# Dotfiles .gitignore
+# =============================================================================
+# This file controls what gets tracked in the dotfiles repo.
+# Since dotbot symlinks home/.* → ~/, anything in home/ appears in ~.
+# Be deliberate about what lives here vs what's auto-generated.
+# =============================================================================
 
-# Compiled ZGenom
+# -----------------------------------------------------------------------------
+# Build artifacts & caches
+# -----------------------------------------------------------------------------
 *.zwc
-
-# Homebrew bundle log
-Brewfile.lock.json
-
-# Compiled Python files
 *.pyc
-
-# Folder view configuration files
+*.log
+*.tsbuildinfo
+**/tsconfig*.json
 .DS_Store
 desktop.ini
-
-# Thumbnail cache files
 Thumbs.db
-
-# Installed NPM modules
 node_modules
-
-# Logs
-*.log
-
-# Installed Bower packages
 bower_components
-
+Brewfile.lock.json
 .Trash
+backup
 
-# Home
+# -----------------------------------------------------------------------------
+# Home directories that exist on disk but shouldn't be tracked
+# (dotbot globs home/.* — these are excluded to avoid pulling in huge dirs)
+# -----------------------------------------------------------------------------
 /home/Library
 /home/Applications
 /home/Desktop
@@ -41,32 +39,62 @@ bower_components
 /home/Torrents
 /home/iCloud*
 
-
-# Added by Illuminated Cloud
-.sf/
-.sfdx/
-.localdev/
-/IlluminatedCloud/
-/out/
-target/
-/.illuminatedCloud/
-**/tsconfig*.json
-**/*.tsbuildinfo
-
+# -----------------------------------------------------------------------------
 # JetBrains IDE
+# -----------------------------------------------------------------------------
 .idea/
 **/.idea/
+/IlluminatedCloud/
+/.illuminatedCloud/
+.localdev/
+/out/
+target/
 
-# Claude Code session data (keep settings, plugins, and memory)
+# -----------------------------------------------------------------------------
+# Claude Code (keep settings, plugins, and memory — ignore session data)
+# -----------------------------------------------------------------------------
 home/.claude/backups/
 home/.claude/image-cache/
 home/.claude/paste-cache/
 home/.claude/plans/
 home/.claude/tasks/
 home/.claude/todos/
+home/.claude/telemetry/
 home/.claude/projects/**/subagents/
 home/.claude/projects/**/tool-results/
 home/.claude/projects/**/*.jsonl
-home/.claude/security_warnings_state_*
 home/.claude/projects/**/sessions-index.json
-home/.claude/telemetry/
+home/.claude/security_warnings_state_*
+
+# -----------------------------------------------------------------------------
+# Raycast (extensions are compiled JS, auto-updated — ~900 MB)
+# -----------------------------------------------------------------------------
+home/.config/raycast/extensions/
+
+# -----------------------------------------------------------------------------
+# Binaries installed by package managers — not tracked
+# These get reinstalled via brew/pip/npm/cargo, not from this repo.
+# -----------------------------------------------------------------------------
+home/.local/bin/uv
+home/.local/bin/uvx
+home/.local/bin/lsp-*.jar
+home/.local/bin/claude
+home/.local/bin/env
+home/.local/bin/env.fish
+home/.local/bin/*.png
+
+# -----------------------------------------------------------------------------
+# App configs — auto-generated, not needed, or removed
+# -----------------------------------------------------------------------------
+home/.config/github-copilot/
+home/.config/fish/
+home/.config/StardewValley/
+home/.config/qBittorrent/
+home/.config/Autodesk/
+home/.config/swiftpm/
+home/.config/jgit/
+home/.config/neovide/
+home/.config/.android/
+
+# Salesforce dataloader (large Java app, install separately)
+home/.local/share/dataloader/

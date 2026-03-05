@@ -1,19 +1,21 @@
 #!/usr/bin/env zsh
 
-TARGET="/Users/$USER/Downloads"
-SOURCE="/Users/$USER/Library/Mobile Documents/com~apple~CloudDocs/Downloads"
+# Symlinks ~/Downloads to iCloud Downloads folder
+# Only runs on macOS. Backs up existing Downloads to dotfiles backup dir.
+
+TARGET="$HOME/Downloads"
+SOURCE="$HOME/Library/Mobile Documents/com~apple~CloudDocs/Downloads"
 
 if [ "$(uname)" != "Darwin" ]; then
-  echo "Skipping Downloads pointing on non-MacOS platform"
+  echo "Skipping Downloads pointing on non-macOS platform"
   exit 0
 fi
 
 if [ ! -h "$TARGET" ]; then
   if [ -d "$TARGET" ]; then
-    sudo mv "$TARGET" "/Users/$USER/.dotfiles/backup/$TARGET"
-    sudo rm -rf "$TARGET"
+    mv "$TARGET" "$HOME/.dotfiles/backup/Downloads"
   fi
 
   ln -s "$SOURCE" "$TARGET"
-  chmod -h 700 "$TARGET" 
+  chmod -h 700 "$TARGET"
 fi

@@ -1,200 +1,186 @@
-# Nick Morozov’s dotfiles
+# Nick Morozov's dotfiles
 
-<p align="center">
-  <img alt="Spaceship with Hyper and One Dark" src="https://user-images.githubusercontent.com/10276208/36086434-5de52ace-0ff2-11e8-8299-c67f9ab4e9bd.gif" width="980px">
-</p>
+Managed with [Dotbot](https://github.com/anishathalye/dotbot). ZSH plugins via [zgenom](https://github.com/jandamm/zgenom). Prompt by [Spaceship](https://github.com/spaceship-prompt/spaceship-prompt).
 
-There are tons of useful things in here:
-
-- The usefulness of [“Oh My ZSH!”](http://ohmyz.sh/) is already built–in.
-- [🚀⭐️ Spaceships](https://github.com/spaceship-prompt/spaceship-prompt) as a prompt.
-- 🐟 [Fish](https://fishshell.com/)-like autosuggestions.
-- Syntax highlighting of commands while they are typed.
-- Automatically closing and deleting of quotes and brackets when you type them.
-- Browser-like substring search for history.
-- [zgen](https://github.com/tarjoilija/zgen) for dependency management.
-- Useful [aliases](./lib/aliases.zsh).
-- Git config, global `.gitignore` file and aliases.
-- Dotfiles synchronization (`sync.py`) with backup.
-- Restoring old dotfiles (`restore.py`) from backup.
-- A lot of [useful bins](https://github.com/nickmorozov/dotfiles/tree/master/bin).
-- `update` script for updating dotfiles, npm, brew, gems, etc.
-
-Missing feature? 🍴 Fork this repo and make it better!
-
-## Installation
-
-Dotfiles are installed by running one of the following commands in your terminal, just copy one of the following commands and execute in the terminal:
-
-Tell Git who you are using these commands:
+## Quick Start
 
 ```sh
-git config -f ~/.gitlocal user.email "email@yoursite.com"
-git config -f ~/.gitlocal user.name "Name Lastname"
-```
+# Clone
+git clone https://github.com/nickmorozov/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
 
-Clone dotfiles repo:
-
-```sh
-# Clone dotfiles repo
-git clone https://github.com/nickmorozov/dotfiles.git $HOME/.dotfiles
-
-# Go to the dotfiles directory
-cd $HOME/.dotfiles
-
-# Install dotfiles
+# Install (symlinks, submodules, zgenom, bootstrap)
 ./install
+
+# Set your git identity
+git config -f ~/.gitlocal user.email "you@example.com"
+git config -f ~/.gitlocal user.name "Your Name"
 ```
 
 ## Updating
 
-Use single command to get latest updates:
-
-```
-update
-```
-
-This command will update dotfiles, their dependencies, `brew` or `apt-get` packages, global `npm` dependencies, `gem`s, `apm` plugins.
-
-## Under the hood
-
-> **Note:** You may put your custom settings into `~/.zshlocal`.
-
-### Projects tree
-
-I suggest you to organize project folder as follows:
-
-```
-~/Projects
-├── Forks       # for GitHub fork
-├── Job         # for job projects
-├── Playground  # for short-term experiments
-└── Repos       # for long-term projects
+```sh
+update    # pulls dotfiles, updates submodules, runs install, updates brew + zgenom
+reload    # re-sources zsh without restarting terminal
 ```
 
-### Aliases
+## Architecture
 
-Aliases are gonna make your work fast and enjoyable. See code in `$DOTFILES/lib/aliases.zsh`. Here is what's included:
+```
+~/.dotfiles/
+├── install.conf.yaml   # Dotbot config — symlinks home/.* → ~/
+├── install             # Dotbot runner
+├── .gitmodules         # Git submodules (dotbot, nvim, iterm themes, custom tools)
+├── Brewfile            # Symlink to home/.Brewfile
+│
+├── home/               # Everything here gets symlinked to ~/
+│   ├── .config/        # XDG configs (zsh, nvim, iterm2, jetbrains, raycast, gh, etc.)
+│   ├── .local/
+│   │   ├── bin/        # User scripts + symlinks to repos
+│   │   └── repos/      # Git submodules (focus-manager, calendar-syncer, askpass)
+│   ├── .claude/        # Claude Code settings, plugins, and project memory
+│   ├── .sf/ .sfdx/     # Salesforce CLI auth and org configs
+│   ├── .Brewfile       # Homebrew bundle (all packages, casks, taps, mas apps)
+│   ├── .gitconfig      # Git config (sources ~/.gitlocal for user identity)
+│   ├── .gitlocal       # Git user identity (name, email) — machine-specific
+│   ├── .ideavimrc      # IdeaVim config (sources shared vimrc)
+│   ├── .zshenv         # ZSH env vars, PATH, helper functions
+│   ├── .crontab        # Cron jobs (save with crontab-save, load with crontab ~/.crontab)
+│   └── .ssh            # Symlink to iCloud SSH keys
+│
+├── bin/                # Standalone scripts (added to PATH)
+├── scripts/            # Install/update/bootstrap scripts
+├── lib/                # ZSH libraries loaded by zgenom (aliases, smartdots, lscolors)
+├── custom/             # Custom ZSH files loaded by zgenom
+└── backup/             # macOS defaults backup
+```
 
-- Aliases from Oh-My-Zsh. See [Oh-My-Zsh Cheatsheet](https://github.com/robbyrussell/oh-my-zsh/wiki/Cheatsheet#commands) for more.
-- Easier navigation
-  - **`..`** → `cd ..`
-  - **`...`** → `cd ../..`
-  - **`....`** → `cd ../../..`
-  - **`.....`** → `cd ../../../..`
-  - **`~`** → `cd ~`
-  - **`-`** → `cd -`
-- Folders shortcuts
-  - **`dl`** → `cd ~/Downloads`
-  - **`dt`** → `cd ~/Desktop`
-  - **`pj`** → `cd ~/Projects`
-  - **`pjr`** → `cd ~/Projects/_Repos`
-  - **`pjf`** → `cd ~/Projects/_Forks`
-  - **`pl`** → `cd ~/Projects/_Playground/`
-- Commands Shortcuts
-  - **`e`** → `$EDITOR`
-  - **`+x`** → `chmod +x`
-  - **`x+`** → `chmod +x`
-  - **`ll`** → `ls -alF`
-  - **`la`** → `ls -A`
-  - **`l`** → `ls -CF`
-- Open
-  - **`open <FILE>`** — open file from terminal.
-  - **`o <FILE>`** — open file from terminal.
-  - **`oo`** — open current folder.
-- Misc
-  - **`update`** — get updates (Runs `$DOTFILES/scripts/update.zsh`).
-  - **`dotfiles`** — jump quickly into dotfiles folder.
-  - **`myip`** — my local IP address.
-  - **`password`** — generate random password, copies it into clipboard and outputs it to terminal.
-  - **`path`** — print $PATH in readable view.
-  - **`getpage`** — download web page with all assets.
-  - **`get`** — download file with original filename.
+### How Symlinks Work
 
-### Oh-My-Zsh plugins
+Dotbot globs `home/.*` and symlinks each entry to `~/`. So:
+- `home/.config` → `~/.config`
+- `home/.zshenv` → `~/.zshenv`
+- `home/.Brewfile` → `~/.Brewfile`
 
-These OMZ plugins are included:
+Since `~/.config` is a symlink to the dotfiles repo, editing `~/.config/zsh/.zshrc` directly edits the tracked file.
 
-- [`git`](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/git) — git aliases and functions.
-- [`npm`](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/npm) — provides completion as well as adding many useful aliases.
-- [`yarn`](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/yarn) — the same as for `npm`, but for `yarn`
-- [`nvm`](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/nvm) — auto-sourcing `nvm`.
-- [`sudo`](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/sudo) — `[Esc] [Esc]` to re-run previous command with sudo.
-- [`ssh-agent`](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/ssh-agent) — automatically starts ssh-agent to set up and load whichever credentials you want for ssh connections.
-- [`gpg-agent`](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/gpg-agent) — enables `gpg-agent` if it is not running.
-- More are listed in `.zshrc` (it's hard to keep the list updated).
+### ZSH Loading Order
 
-### Bin
+```
+~/.zshenv          → Environment vars, PATH, helper functions (_exists, _extend_path, etc.)
+~/.config/zsh/
+  .zprofile        → Login shell setup
+  .zshrc           → Interactive shell: zgenom plugins, completions, prompt
+    lib/*.zsh      → Core aliases, lscolors, smartdots
+    custom/*.zsh   → (empty by default)
+  aliases.zsh      → Personal aliases (brew, python, yazi, config editing)
+  osx.zsh          → macOS helpers (dock, launchpad, app control)
+  sf.zsh           → Salesforce CLI aliases and workflows
+  work.zsh         → Work/personal focus mode toggle
+```
 
-Dotfiles also include some functions that will make your life easier. See code in [`bin/`](./bin).
+### Submodules
 
-- `emptytrash` — empty the Trash on all mounted volumes and the main HDD.
-- `git-cleanup` — removes old Git branches and does other cleanup.
-- `git-fork` — add remote upsteam.
-- `git-upstream` — sync branch with upstream.
-- `gz` — get gzipped file size
-- `n` — runs given command using binary in `node_modules/.bin` of the current project.
-- `nyan` — print [nyan cat](https://www.youtube.com/watch?v=QH2-TGUlwu4).
-- `server` — start an HTTP server from a directory.
+| Submodule | Path | Purpose |
+|-----------|------|---------|
+| [dotbot](https://github.com/anishathalye/dotbot) | `dotbot/` | Symlink manager |
+| [NvChad](https://github.com/nickmorozov/NvChad) | `home/.config/nvim/` | Neovim config (Lua) |
+| [iTerm2-Color-Schemes](https://github.com/mbadolato/iTerm2-Color-Schemes) | `home/.config/iterm2/iTerm2-Color-Schemes/` | Terminal color themes |
+| [focus-manager](https://github.com/nickmorozov/focus-manager) | `home/.local/repos/focus-manager/` | macOS Focus mode CLI |
+| [osx-calendar-syncer](https://github.com/nickmorozov/osx-calendar-syncer) | `home/.local/repos/osx-calendar-syncer/` | Calendar sync tool |
+| [sudo-askpass-security](https://github.com/nickmorozov/sudo-askpass-security) | `home/.local/repos/sudo-askpass-security/` | macOS Keychain sudo |
 
-### Git
+## Aliases Cheat Sheet
 
-> **Note:** Add your git user data and custom settings to `~/.gitlocal`.
+### Navigation
+| Alias | Command | Description |
+|-------|---------|-------------|
+| `..` / `...` / `....` | `cd ../..` etc. | Quick parent traversal (smartdots) |
+| `dl` / `dt` / `pj` | `cd ~/Downloads` etc. | Folder shortcuts |
+| `pjj` / `pjr` / `pjf` / `pjl` | `cd ~/Projects/Job` etc. | Project folder shortcuts |
+| `z <dir>` | zoxide | Frecency-based directory jumper |
+| `yy` | yazi | File manager with cwd tracking |
 
-#### Configuration
+### Git (OMZ git plugin + custom)
+| Alias | Description |
+|-------|-------------|
+| `gst` / `gss` | Status / short status |
+| `gaa` | Add all |
+| `gcmsg "msg"` | Commit with message |
+| `gp` / `gl` | Push / pull |
+| `gcgp "msg"` | Commit + push |
+| `gcgpa "msg"` | Add all + commit + push |
+| `git-root` | cd to repo root |
+| `gst-dirs` / `gst-proj` | Status across multiple repos |
+| `git l` / `git ll` | Pretty log / log with files |
+| `git amend` / `git undo` | Amend last / undo last commit |
+| `git sync` | Pull + push |
 
-- UI color is `auto`.
-- Diff colors are:
-  - `white bold` for meta information;
-  - `cyan bold` for frag;
-  - `red bold` for old lines;
-  - `green bold` for new lines.
-- Default editor is [Vim](http://www.vim.org/) instead of [Vi](http://www.tutorialspoint.com/unix/unix-vi-editor.htm).
-- `push.default` set as `current`.
-- Automatic replacement `git://github.com/`, `gh:`, `github:` addresses as `git@github.com:` for GitHub.
-- Automatic replacement `git://gist.github.com/`, `gst:`, `gist:` addresses as `git@gist.github.com:` for Gists.
-- User custom settings gets from a `~/.gitlocal` file.
+### Homebrew
+| Alias | Description |
+|-------|-------------|
+| `bi` / `brm` / `bs` | Install / remove / search |
+| `bsd` | Search with descriptions |
+| `bdump` | Dump Brewfile |
+| `bl` | List installed (sorted by date) |
+| `bdeps` | Show dependency tree |
+| `badopt` | Install cask with --adopt |
 
-#### Git Aliases
+### Work Mode
+| Alias | Description |
+|-------|-------------|
+| `dbw` | Switch to work focus (Chrome, Slack, Teams, IDE) |
+| `dbp` | Switch to personal focus (Safari) |
+| `dbt` | Toggle work/personal |
+| `dbm` / `dbmc` | Start/stop music apps |
+| `dbs` / `dbc` | Default browser Safari/Chrome |
 
-- **`git a`** → `git add` — patch mode for specified files.
-- **`git ua`** → `git reset HEAD` — unstage files.
-- **`git b`** → `git branch` — list, create, or delete branches.
-- **`git c`** → `git commit` — record changes to the repository.
-- **`git co`** → `git checkout` — checkout a branch or paths to the working tree.
-- **`git ap`** → `git add -p` — add file contents to the index.
-- **`git ca`** → `git commit -a` — commit with automatically stage files that have been modified and deleted.
-- **`git cm`** → `git commit -m` — commit with commit message.
-- **`git cam`** → `git commit -am` — add all files and commit with message.
-- **`git s`** → `git status -sb` — short status with current branch.
-- **`git master`** — go to `master` branch and pull from remote.
-- **`git develop`** — go to `develop` branch and pull from remote.
-- **`git git`** — do not complain about `git git`.
-- **`git l`** — commits log with pretty single line format.
-- **`git ll`** — log with list of changed files for each commit.
-- **`git ignore`** — ignore files: append file to `.gitignore`.
-- **`git this`** — initialize, add all files and commit.
-- **`git amend`** — amend last commit.
-- **`git redo`** — amend last commit with its original message.
-- **`git undo`** → `reset --mixed HEAD^` — reset index changes, but not the working tree.
-- **`git discard`** → `checkout --` — discard changes.
-- **`git contrib`** — list of contributors and how many commits each person has.
-- **`git today`** — see how many lines of code you have written today.
-- **`git stat`** — how many lines of code in repo.
-- **`git sync`** — pull and push changes from/to remote.
-- **`git-root`** — go to repo root.
-- **`git-cleanup [--force]`** — removes old Git branches.
-- **`git-fork <original-author>`** — add remote upstream.
-- **`git-upstream [branch]`** — sync branch with upstream (as default `master`).
+### Editor & Files
+| Alias | Description |
+|-------|-------------|
+| `e` / `vim` | Open in $EDITOR (nvim) |
+| `v` / `cat` | View with bat (syntax highlighting) |
+| `ls` / `ltree` | lsd with tree view |
+| `ez` / `ezz` | Edit .zshrc / zsh config dir |
+| `dotfiles` | Open dotfiles in editor |
 
-## Resources
+### Misc
+| Alias | Description |
+|-------|-------------|
+| `update` | Update everything (dotfiles, brew, zgenom) |
+| `reload` | Re-source ZSH config |
+| `password` | Random password to clipboard |
+| `myip` / `path` | Show local IP / readable PATH |
+| `f` | thefuck — correct previous command |
 
-Resources that I used to make these dotfiles better:
+## Crontab
 
-- [GitHub ❤ ~/](http://dotfiles.github.com/)
-- [Artem Sapegin’s dotfiles](https://github.com/sapegin/dotfiles)
-- [Mathias’s dotfiles](https://github.com/mathiasbynens/dotfiles)
+The `.crontab` file defines scheduled tasks. Load with `crontab ~/.crontab`.
+
+| Schedule | Command | Purpose |
+|----------|---------|---------|
+| Every hour 8am-midnight | `shortcuts run "Sync Events"` | Sync calendar events via Shortcuts |
+| Weekdays 8-10am | `focus -g \| grep 'Work' \|\| dbw` | Auto-switch to work mode if Focus is Work |
+| Daily 6-10pm | `focus -g \| grep 'Work' && dbp` | Auto-switch to personal if still in Work focus |
+
+## Brewfile
+
+`~/.Brewfile` (symlinked from `home/.Brewfile`) is the source of truth for all Homebrew packages. The root `Brewfile` is a symlink to it.
+
+```sh
+bdump     # Save current brew state to Brewfile
+brew bundle --global   # Install everything from Brewfile
+```
+
+## fzf
+
+[fzf](https://github.com/junegunn/fzf) is a fuzzy finder installed via Homebrew and configured by the `fzf-zsh-plugin`. It's used for:
+
+- **`Ctrl+R`** — fuzzy search command history
+- **`Ctrl+T`** — fuzzy find files in current directory
+- **`Alt+C`** — fuzzy cd into subdirectories
+- **`**<Tab>`** — trigger fzf completion (e.g., `vim **<Tab>`, `cd **<Tab>`)
 
 ## License
 
-MIT © [Nick Morozov](https://nickmorozov.com)
+MIT

@@ -15,13 +15,6 @@ fi
 # Reboot without user password on login - useful for encrypted system with Bluetooth keyboards
 alias restart="sudo fdesetup authrestart -delayminutes 0"
 
-# Avoid stupidity with trash-cli:
-# https://github.com/sindresorhus/trash-cli
-# or use default rm -i
-if _exists trash; then
-  # alias rm='trash'
-fi
-
 # Just bcoz clr shorter than clear
 alias clr='clear'
 

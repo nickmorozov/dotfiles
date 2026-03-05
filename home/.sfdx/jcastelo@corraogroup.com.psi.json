@@ -1,0 +1,19 @@
+{
+  "accessToken": "REDACTED",
+  "instanceUrl": "https://psi3g.my.salesforce.com",
+  "orgId": "00D80000000PNJBEA4",
+  "username": "jcastelo@corraogroup.com.psi",
+  "loginUrl": "https://psi3g.my.salesforce.com/",
+  "refreshToken": "REDACTED",
+  "clientId": "PlatformCLI",
+  "isDevHub": false,
+  "instanceApiVersion": "66.0",
+  "instanceApiVersionLastRetrieved": "2/24/2026, 12:29:06 PM",
+  "name": "Partition Specialties, Inc.",
+  "instanceName": "USA640",
+  "namespacePrefix": null,
+  "isSandbox": false,
+  "isScratch": false,
+  "trailExpirationDate": null,
+  "tracksSource": false
+}

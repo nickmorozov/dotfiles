@@ -48,14 +48,11 @@ if ! zgenom saved; then
     zgenom ohmyzsh plugins/history-substring-search
     zgenom ohmyzsh plugins/sudo
     zgenom ohmyzsh plugins/command-not-found
-    zgenom ohmyzsh plugins/npm
     zgenom ohmyzsh plugins/nvm
     zgenom ohmyzsh plugins/extract
-    zgenom ohmyzsh plugins/macos
     zgenom ohmyzsh plugins/gh
     zgenom ohmyzsh plugins/brew
     zgenom ohmyzsh plugins/sfdx
-    zgenom ohmyzsh plugins/aliases
     zgenom ohmyzsh plugins/iterm2
     zgenom ohmyzsh plugins/thefuck
     zgenom ohmyzsh plugins/dotenv

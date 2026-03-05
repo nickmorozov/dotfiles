@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(vim:*)",
+      "Bash(comm -13 /tmp/dotfiles_config.txt /tmp/actual_config.txt)",
+      "Bash(git:*)",
+      "Bash(xargs du:*)",
+      "Bash(xargs:*)",
+      "Bash(do git:*)",
+      "Bash(do echo:*)",
+      "Bash(gh repo:*)",
+      "Bash(ln:*)"
+    ]
+  }
+}

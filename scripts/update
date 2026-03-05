@@ -61,6 +61,7 @@ update_dotfiles() {
 
   cd "$DOTFILES" || exit
   git pull origin master
+  git submodule update --init --recursive
   ./install --except shell
   cd - > /dev/null 2>&1 || exit
 

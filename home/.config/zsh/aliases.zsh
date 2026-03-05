@@ -3,12 +3,7 @@
 # Aliases
 #############################################
 
-alias pm="postman"
-
-alias zshplugins="la $ZGEN_SOURCE/sources/ohmyzsh/ohmyzsh/___/plugins"
-alias pslist="ps -U nick | grep Applications | sed -E 's/.*Applications\/(.*)\.app\/.*/\1/g' | sed -E 's/.*Web App.*bundlepath.*Applications\/(.*)\.app --sand.*/\1/g' | grep -v 'tty' | grep -v 'Frameworks' | g | sort -u"
-
-# File Manager
+# File Manager (yazi with cwd tracking)
 function yy() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
 	yazi "$@" --cwd-file="$tmp"
@@ -22,26 +17,26 @@ function yy() {
 alias cwd='basename $PWD'
 
 # Fast config edit
-alias ez="$EDITOR $ZDOTDIR/zshenv"
+alias ez="$EDITOR $ZDOTDIR/.zshrc"
 alias ezz="$EDITOR $ZDOTDIR/"
 alias ea="$EDITOR $ZDOTDIR/aliases.zsh"
 alias eaa="$EDITOR $ZDOTDIR/*.zsh"
 
+# Remove empty directories recursively
 rdf() {
   if [[ -z $1 ]]; then
-    echo "$0 <DIR>"
+    echo "Usage: rdf <DIR>"
+    return 1
   fi
-
   find "${1}" -type d -empty -exec rmdir {} \+
 }
 
 # Crontab
-alias crontab-save="crontab -l >> $HOME/.crontab"
+alias crontab-save="crontab -l > $HOME/.crontab"
 
-# Dotfiles
+# Dotfiles: move a file into dotfiles and symlink it back
 dot-save() {
   test -z $1 && return 1
-
   mv "$1" "$HOME/.dotfiles/home"
   ln -s "$HOME/.dotfiles/home/$1"
 }
@@ -54,7 +49,7 @@ alias bsd="brew search --desc --eval-all"
 alias bdump="brew bundle dump --describe --global --formula --cask --tap --mas --force --quiet"
 alias badopt="brew install --cask --adopt"
 alias bl="brew list -ltr"
-alias bcaveats="brew caveats $(brew list)"
+alias bcaveats="brew caveats \$(brew list)"
 alias bdeps="brew deps --tree --installed"
 
 # Python
@@ -70,13 +65,8 @@ alias pym="py main.py"
 
 # CLI
 alias grab="sudo chown $USER"
-alias rmf="rm -f"
-alias rmr="rm -r"
-alias rmrf="rm -rf"
 
-# Extract helper
-alias unrar="7z"
-alias unzip="7z x"
+# Extract (uses OMZ extract plugin `x`)
 alias xr="x -r"
 
 # Rsync
