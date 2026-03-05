@@ -148,13 +148,17 @@ Since `~/.config` is a symlink to the dotfiles repo, editing `~/.config/zsh/.zsh
 
 ### Editor & Files
 
-| Alias          | Description                         |
-| -------------- | ----------------------------------- |
-| `e` / `vim`    | Open in $EDITOR (nvim)              |
-| `v` / `cat`    | View with bat (syntax highlighting) |
-| `ls` / `ltree` | lsd with tree view                  |
-| `ez` / `ezz`   | Edit .zshrc / zsh config dir        |
-| `dotfiles`     | Open dotfiles in editor             |
+| Alias        | Description                         |
+| ------------ | ----------------------------------- |
+| `e` / `vim`  | Open in $EDITOR (nvim)              |
+| `v`          | View with bat (syntax highlighting) |
+| `l`          | List one file per line              |
+| `ll`         | Long list with human sizes          |
+| `la`         | Long list including hidden files    |
+| `lt`         | Long list sorted by time            |
+| `ltree`      | Tree view                           |
+| `ez` / `ezz` | Edit .zshrc / zsh config dir        |
+| `dotfiles`   | Open dotfiles in editor             |
 
 ### Misc
 

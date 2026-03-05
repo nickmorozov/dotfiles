@@ -81,12 +81,6 @@ if _exists lsd; then
     alias ltree='ls --tree'
 fi
 
-# bat (cat replacement)
-if _exists bat; then
-    export BAT_THEME='gruvbox-dark'
-    alias cat="bat --paging=never"
-fi
-
 # Tree (respects .gitignore when in a git repo)
 tt() {
     local depth="${1:-2}"

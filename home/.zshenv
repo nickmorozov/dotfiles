@@ -68,7 +68,8 @@ if [[ -n "$SSH_CONNECTION" ]]; then
 else
   export EDITOR='nvim'
   if _exists bat; then
-    export VIEWER='bat'
+    export VIEWER='bat --paging=never'
+    export BAT_THEME='gruvbox-dark'
   else
     export VIEWER='cat'
   fi
