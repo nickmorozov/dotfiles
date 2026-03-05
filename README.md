@@ -183,11 +183,11 @@ The `.crontab` file defines scheduled tasks. Load with `crontab ~/.crontab`.
 Disaster recovery for a new machine: capture your current state, then restore it later.
 
 ```sh
-snapshot # Dumps ~/.Brewfile + saves ~/Projects repo manifest to scripts/repos.txt
-restore  # Clones all repos from scripts/repos.txt back into ~/Projects/
+snapshot # Dumps ~/.Brewfile + saves ~/Projects repo manifest to ~/.repos
+restore  # Clones all repos from ~/.repos back into ~/Projects/
 ```
 
-The workflow: run `snapshot` periodically (or before wiping a machine), commit the updated `home/.Brewfile` and `scripts/repos.txt`, then on a fresh machine run `./install` → `bootstrap` → `restore`.
+The workflow: run `snapshot` periodically (or before wiping a machine), commit the updated `home/.Brewfile` and `home/.repos`, then on a fresh machine run `./install` → `bootstrap` → `restore`.
 
 ## Brewfile
 

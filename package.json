@@ -1,6 +1,13 @@
 {
-  "dependencies": {
-    "prettier": "^3.6.2",
-    "prettier-plugin-sh": "^0.18.0"
-  }
+    "dependencies": {
+        "prettier": "^3.6.2",
+        "prettier-plugin-sh": "^0.18.0"
+    },
+    "devDependencies": {
+        "lint-staged": "^15.5.1"
+    },
+    "lint-staged": {
+        "*.{js,ts,jsx,tsx,json,css,md,yaml,yml}": "prettier --write",
+        "*.{sh,bash,zsh}": "prettier --write"
+    }
 }

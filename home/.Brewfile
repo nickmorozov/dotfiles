@@ -153,7 +153,6 @@ brew "pcre"
 brew "pdftohtml", link: false
 brew "pkgconf"
 brew "poppler"
-brew "prettier"
 brew "pygments"
 brew "python@3.11"
 brew "qpdf"

@@ -29,6 +29,8 @@ alias q="~ && clear"
 # ------------------------------------------------------------------------------
 
 # Folder shortcuts
+[ -d ~/iCloud] && alias ic='cd ~/iCloud'
+[ -d ~/Documents] && alias ds='cd ~/Documents'
 [ -d ~/Downloads ] && alias dl='cd ~/Downloads'
 [ -d ~/Desktop ] && alias dt='cd ~/Desktop'
 [ -d ~/Projects ] && alias pj='cd ~/Projects'
@@ -67,7 +69,6 @@ alias open='open_command'
 alias o='open'
 alias oo='open .'
 alias oa='open -a'
-alias term='oa iTerm.app'
 
 # lsd (ls replacement)
 if _exists lsd; then
@@ -271,4 +272,4 @@ alias cldr="claude --resume"
 # Prettier
 # ------------------------------------------------------------------------------
 
-alias fm="prettier --write"
+alias fm="npx prettier --write"

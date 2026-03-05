@@ -11,8 +11,8 @@ This is a macOS-focused dotfiles repository managed by [Dotbot](https://github.c
 - **Install/sync dotfiles:** `./install` (runs Dotbot with `install.conf.yaml`)
 - **Update everything:** `update` (alias for `source $DOTFILES/scripts/update` — updates dotfiles, brew, apt)
 - **Bootstrap new machine:** `./scripts/bootstrap` (interactive — installs Homebrew, git, zsh, software, npm packages)
-- **Snapshot machine state:** `./scripts/snapshot` (reverse of bootstrap — dumps Brewfile + saves `~/Projects` repo manifest to `scripts/repos.txt`)
-- **Restore project repos:** `./scripts/restore` (reads `scripts/repos.txt` and clones repos back into `~/Projects/`)
+- **Snapshot machine state:** `./scripts/snapshot` (reverse of bootstrap — dumps Brewfile + saves `~/Projects` repo manifest to `~/.repos`)
+- **Restore project repos:** `./scripts/restore` (reads `~/.repos` and clones repos back into `~/Projects/`)
 - **Reload shell config:** `reload` (alias that re-sources `.zshenv`, `.zprofile`, `.zshrc`)
 - **Format files:** `fm <file>` (alias for `prettier --write`, uses prettier + prettier-plugin-sh from `package.json`)
 
@@ -50,8 +50,8 @@ This is a macOS-focused dotfiles repository managed by [Dotbot](https://github.c
 
 The `snapshot` + `restore` scripts provide disaster recovery for project repos:
 
-1. **`scripts/snapshot`** — Runs `brew bundle dump` to update `~/.Brewfile`, then scans `~/Projects/` for git repos and writes their relative paths + remote URLs to `scripts/repos.txt` (tab-separated)
-2. **`scripts/restore`** — Reads `scripts/repos.txt` and clones each repo into `~/Projects/` at its original path, skipping repos that already exist
+1. **`scripts/snapshot`** — Runs `brew bundle dump` to update `~/.Brewfile`, then scans `~/Projects/` for git repos and writes their relative paths + remote URLs to `home/.repos` (tab-separated, symlinked to `~/.repos`)
+2. **`scripts/restore`** — Reads `~/.repos` and clones each repo into `~/Projects/` at its original path, skipping repos that already exist
 
 ### Plugin Management
 

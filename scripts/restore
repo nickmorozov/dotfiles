@@ -1,7 +1,7 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 # Sibling to bootstrap: restores project repos from snapshot manifest
-# Reads scripts/repos.txt and clones repos into ~/Projects/
+# Reads ~/.repos and clones repos into ~/Projects/
 
 trap on_error SIGTERM
 
@@ -13,15 +13,15 @@ RED="${e}[0;91m"
 YELLOW="${e}[0;93m"
 GREEN="${e}[0;92m"
 
-info()    { echo -e "${CYAN}${*}${RESET}" }
-error()   { echo -e "${RED}${*}${RESET}" }
-success() { echo -e "${GREEN}${*}${RESET}" }
-warn()    { echo -e "${YELLOW}${*}${RESET}" }
-finish()  { success "Done!"; echo; sleep 1 }
+info()    { echo -e "${CYAN}${*}${RESET}"; }
+error()   { echo -e "${RED}${*}${RESET}"; }
+success() { echo -e "${GREEN}${*}${RESET}"; }
+warn()    { echo -e "${YELLOW}${*}${RESET}"; }
+finish()  { success "Done!"; echo; sleep 1; }
 
 export DOTFILES=${DOTFILES:-"$HOME/.dotfiles"}
 PROJECTS_DIR="$HOME/Projects"
-REPOS_MANIFEST="$DOTFILES/scripts/repos.txt"
+REPOS_MANIFEST="$DOTFILES/home/.repos"
 
 on_start() {
   info '           __        __   ____ _  __            '

@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 # Reverse of bootstrap: captures current machine state
 # - Dumps Homebrew packages to Brewfile
@@ -13,14 +13,14 @@ CYAN="${e}[0;96m"
 RED="${e}[0;91m"
 GREEN="${e}[0;92m"
 
-info()    { echo -e "${CYAN}${*}${RESET}" }
-error()   { echo -e "${RED}${*}${RESET}" }
-success() { echo -e "${GREEN}${*}${RESET}" }
-finish()  { success "Done!"; echo; sleep 1 }
+info()    { echo -e "${CYAN}${*}${RESET}"; }
+error()   { echo -e "${RED}${*}${RESET}"; }
+success() { echo -e "${GREEN}${*}${RESET}"; }
+finish()  { success "Done!"; echo; sleep 1; }
 
 export DOTFILES=${DOTFILES:-"$HOME/.dotfiles"}
 PROJECTS_DIR="$HOME/Projects"
-REPOS_MANIFEST="$DOTFILES/scripts/repos.txt"
+REPOS_MANIFEST="$DOTFILES/home/.repos"
 
 on_start() {
   info '           __        __   ____ _  __            '
@@ -59,21 +59,23 @@ dump_repos() {
   > "$REPOS_MANIFEST"
 
   # Find all git repos and record their relative path + remote URL
-  find "$PROJECTS_DIR" -maxdepth 3 -name .git -type d 2>/dev/null | sort | while read gitdir; do
+  while IFS= read -r gitdir; do
     local dir="${gitdir%/.git}"
     local rel="${dir#$PROJECTS_DIR/}"
-    local url=$(git -C "$dir" remote get-url origin 2>/dev/null)
+    local url
+    url=$(git -C "$dir" remote get-url origin 2>/dev/null)
 
     if [ -n "$url" ]; then
-      echo "${rel}	${url}" >> "$REPOS_MANIFEST"
+      printf '%s\t%s\n' "$rel" "$url" >> "$REPOS_MANIFEST"
       success "  + $rel"
     else
       info "  ~ $rel (no remote, skipped)"
     fi
-  done
+  done < <(find "$PROJECTS_DIR" -maxdepth 3 -name .git -type d 2>/dev/null | sort)
 
-  local count=$(wc -l < "$REPOS_MANIFEST" | tr -d ' ')
-  success "Saved $count repo(s) to scripts/repos.txt"
+  local count
+  count=$(wc -l < "$REPOS_MANIFEST" | tr -d ' ')
+  success "Saved $count repo(s) to ~/.repos"
   finish
 }
 
@@ -82,7 +84,7 @@ on_finish() {
   success "Snapshot complete!"
   info "Files updated:"
   info "  ~/.Brewfile          (Homebrew packages)"
-  info "  scripts/repos.txt    (Project repositories)"
+  info "  ~/.repos             (Project repositories)"
   echo
   info "Run 'git diff' in dotfiles to review changes."
   echo
