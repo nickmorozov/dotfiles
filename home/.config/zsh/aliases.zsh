@@ -223,9 +223,6 @@ sanitize() {
     done
 }
 
-# Crontab
-alias crontab-save="crontab -l > $HOME/.crontab"
-
 # Dotfiles: move a file into dotfiles and symlink it back
 dot-save() {
     test -z $1 && return 1
@@ -268,8 +265,18 @@ alias pym="py main.py"
 # Claude
 # ------------------------------------------------------------------------------
 
-alias cld="claude"
-alias cldr="claude --resume"
+alias C="claude"
+
+CC() {
+    local latest
+    latest=$(ls -t ~/.claude/projects/*/[0-9a-f]*.jsonl 2> /dev/null | head -1)
+    if [[ -n "$latest" ]]; then
+        local session_id="${latest:t}"
+        command claude --resume "${session_id%.jsonl}" "$@"
+    else
+        command claude --resume "$@"
+    fi
+}
 
 # ------------------------------------------------------------------------------
 # Prettier

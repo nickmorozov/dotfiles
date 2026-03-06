@@ -35,6 +35,29 @@ on_start() {
   info '                                                '
 }
 
+dump_services() {
+  if [ "$(uname)" != "Darwin" ]; then
+    return
+  fi
+
+  info "Saving macOS Services..."
+  cp -r "$HOME/Library/Services" "$DOTFILES/.services" > /dev/null 2>&1
+  success "Services saved to .services/"
+  finish
+}
+
+dump_crontab() {
+  if ! crontab -l > /dev/null 2>&1; then
+    info "No crontab found, skipping"
+    return
+  fi
+
+  info "Saving crontab..."
+  crontab -l > "$DOTFILES/home/.crontab"
+  success "Crontab saved to ~/.crontab"
+  finish
+}
+
 dump_brew() {
   if ! command -v brew > /dev/null 2>&1; then
     error "Homebrew not found, skipping Brewfile dump"
@@ -83,6 +106,8 @@ on_finish() {
   echo
   success "Snapshot complete!"
   info "Files updated:"
+  info "  .services/           (macOS Services)"
+  info "  ~/.crontab           (Cron jobs)"
   info "  ~/.Brewfile          (Homebrew packages)"
   info "  ~/.repos             (Project repositories)"
   echo
@@ -98,8 +123,8 @@ on_error() {
 main() {
   on_start
 
-  cp -r "$HOME/Library/Services" "$HOME/.dotfiles/.services" > /dev/null 2>&1
-
+  dump_services
+  dump_crontab
   dump_brew
   dump_repos
   on_finish

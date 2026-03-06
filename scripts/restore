@@ -77,6 +77,19 @@ restore_repos() {
   finish
 }
 
+restore_crontab() {
+  local crontab_file="$DOTFILES/home/.crontab"
+  if [ ! -f "$crontab_file" ]; then
+    warn "No .crontab file found, skipping"
+    return
+  fi
+
+  info "Restoring crontab..."
+  crontab "$crontab_file"
+  success "Crontab restored"
+  finish
+}
+
 on_finish() {
   echo
   success "Restore complete!"
@@ -91,6 +104,7 @@ on_error() {
 main() {
   on_start
   restore_repos
+  restore_crontab
   on_finish
 }
 
