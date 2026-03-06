@@ -73,12 +73,16 @@ alias oa='open -a'
 # lsd (ls replacement)
 if _exists lsd; then
     unalias ls l la ll lsa 2> /dev/null
-    alias ls='lsd -v'
+    alias ls='lsd -Fvg --group-directories-first'
     alias l='ls -1'
-    alias ll='ls -lh'
-    alias la='ls -lAh'
-    alias lt='la --timesort'
-    alias ltree='ls --tree'
+    alias ll='ls -lh --date=relative'
+    alias lr='ll -R'
+    alias la='ll -A'
+    alias lt='la --tree'
+    alias lT='la -t'
+    alias lS='la -S'
+    alias lSS='la -S --total-size'
+    alias lX='la -X'
 fi
 
 # Tree (respects .gitignore when in a git repo)
@@ -272,3 +276,10 @@ alias cldr="claude --resume"
 # ------------------------------------------------------------------------------
 
 alias fm="npx prettier --write"
+
+# ------------------------------------------------------------------------------
+# OSX
+# ------------------------------------------------------------------------------
+
+alias hide='chflags hidden'
+alias unhide='chflags nohidden'
