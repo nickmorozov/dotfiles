@@ -5,8 +5,7 @@ if [ "$(uname)" != "Darwin" ]; then
   exit 0
 fi
 
-# Copy services from iCloud
-SOURCE="$HOME/Library/Mobile Documents/com~apple~CloudDocs/Services"
+SOURCE="$HOME/.dotfiles/.services"
 TARGET="$HOME/Library/Services"
 
 if [ -d "$TARGET" ]; then

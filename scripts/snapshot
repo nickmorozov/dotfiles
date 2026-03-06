@@ -97,6 +97,9 @@ on_error() {
 
 main() {
   on_start
+
+  cp -r "$HOME/Library/Services" "$HOME/.dotfiles/.services" > /dev/null 2>&1
+
   dump_brew
   dump_repos
   on_finish
