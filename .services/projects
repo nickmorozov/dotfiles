@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+
+if [ "$(uname)" != "Darwin" ]; then
+  echo "Skipping Projects scaffolding on non-MacOS platform"
+  exit 0
+fi
+
+mkdir -p "$HOME/Projects/Repos"
+mkdir -p "$HOME/Projects/Forks"
+mkdir -p "$HOME/Projects/Job"
+mkdir -p "$HOME/Projects/Playground"

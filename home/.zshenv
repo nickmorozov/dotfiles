@@ -56,25 +56,6 @@ less_opts=(
 )
 export LESS="${less_opts[*]}"
 
-# Default editor for local and remote sessions
-if [[ -n "$SSH_CONNECTION" ]]; then
-  # on the server
-  export VIEWER='cat'
-  if _exists vim; then
-    export EDITOR='vim'
-  else
-    export EDITOR='vi'
-  fi
-else
-  export EDITOR='nvim'
-  if _exists bat; then
-    export VIEWER='bat --paging=never'
-    export BAT_THEME='gruvbox-dark'
-  else
-    export VIEWER='cat'
-  fi
-fi
-
 # ZSH Specific envs
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
@@ -148,6 +129,25 @@ _extend_path "$HOME/.bun/bin"
 _extend_path "$DOTFILES/bin"
 _extend_path "$XDG_CONFIG_HOME/yarn/global/node_modules/.bin"
 _extend_path "/Applications/Xcode.app/Contents/Developer/usr/bin"
+
+# Default editor for local and remote sessions
+if [[ -n "$SSH_CONNECTION" ]]; then
+  # on the server
+  export VIEWER='cat'
+  if _exists vim; then
+    export EDITOR='vim'
+  else
+    export EDITOR='vi'
+  fi
+else
+  export EDITOR='nvim'
+  if _exists bat; then
+    export VIEWER='bat --paging=never'
+    export BAT_THEME='gruvbox-dark'
+  else
+    export VIEWER='cat'
+  fi
+fi
 
 export LIBRARY_PATH="$LIBRARY_PATH:/opt/homebrew/lib"
 
