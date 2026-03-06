@@ -70,7 +70,8 @@
             "WebFetch(domain:*.githubusercontent.com)",
             "WebFetch(domain:*.salesforce.com)",
             "WebFetch(domain:smithery.ai)",
-            "WebSearch"
+            "WebSearch",
+            "mcp__salesforce__sf*"
         ],
         "defaultMode": "default"
     },
