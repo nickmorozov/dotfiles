@@ -132,6 +132,9 @@ alias gstp='git stash pop'
 alias grs='git restore'
 alias grst='git restore --staged'
 alias git-root='cd $(git rev-parse --show-toplevel)'
+alias gwt='git worktree list'
+alias gwa='git worktree add'    # <path> [-b] <branch>
+alias gwr='git worktree remove' # <path>
 
 # Commit + push combos
 gcgp() { git commit -m "$@" && git push; }
@@ -193,11 +196,7 @@ fi
 
 # Remove empty directories recursively
 rdf() {
-    if [[ -z $1 ]]; then
-        echo "Usage: rdf <DIR>"
-        return 1
-    fi
-    find "${1}" -type d -empty -exec rmdir {} \+
+    find "${1:-.}" -type d -empty -exec rmdir {} \+
 }
 
 # Sanitize filenames: replace non-alphanumeric chars with underscores (preserves extensions)
@@ -265,17 +264,17 @@ alias pym="py main.py"
 # Claude
 # ------------------------------------------------------------------------------
 
-alias C="claude"
+alias CC="claude --continue"
+alias CR="claude --resume"
 
-CC() {
-    local latest
-    latest=$(ls -t ~/.claude/projects/*/[0-9a-f]*.jsonl 2> /dev/null | head -1)
-    if [[ -n "$latest" ]]; then
-        local session_id="${latest:t}"
-        command claude --resume "${session_id%.jsonl}" "$@"
-    else
-        command claude --resume "$@"
-    fi
+C() {
+    NAME=${1:-$(cwd)}
+    claude --name "$NAME"
+}
+
+CW() {
+    NAME=${1:-$(cwd)}
+    claude --worktree "$NAME" --name "$NAME"
 }
 
 # ------------------------------------------------------------------------------
@@ -285,8 +284,59 @@ CC() {
 alias fm="npx prettier --write"
 
 # ------------------------------------------------------------------------------
+# Utilities
+# ------------------------------------------------------------------------------
+
+# Retry a command in a loop with a spinner during the wait interval.
+# The spinner shows when it's safe to Ctrl+C; command output means it's running.
+# usage: retry <seconds> <command...>
+# example: retry 10 sf package:install:report -i 0HfNq000002jP7ZKAU -o user@org
+retry() {
+    local interval="${1:?usage: retry <seconds> <command...>}"
+    shift
+    [[ $# -eq 0 ]] && echo "usage: retry <seconds> <command...>" && return 1
+    local spin='⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏'
+    trap 'printf "\033[?25h"; trap - INT; return 130' INT
+    while true; do
+        echo "\n--- $(date +%H:%M:%S) ---"
+        "$@"
+        local i=0 end=$((SECONDS + interval))
+        printf "\033[?25l"
+        while [[ $SECONDS -lt $end ]]; do
+            printf "\r ${spin:$((i++ % ${#spin})):1} %d ${spin:$((i++ % ${#spin})):1}" $((end - SECONDS))
+            sleep 0.1
+        done
+        printf "\033[?25h\r\033[K"
+    done
+}
+
+# ------------------------------------------------------------------------------
 # OSX
 # ------------------------------------------------------------------------------
 
 alias hide='chflags hidden'
 alias unhide='chflags nohidden'
+
+# ------------------------------------------------------------------------------
+# Claude Memory Stack (claude-mem + mcp-memory-service)
+# ------------------------------------------------------------------------------
+
+alias memui-cm='open http://localhost:37701/'
+alias memui-mcp='open http://localhost:8000/'
+alias memui='memui-cm && memui-mcp'
+
+memstatus() {
+    print -P "%F{cyan}claude-mem (:37701)%f"
+    curl -sS -m 2 http://localhost:37701/api/health \
+        | jq -r '"  v\(.version)  pid \(.pid)  uptime \(.uptime/1000|floor)s  mcpReady=\(.mcpReady)"' 2> /dev/null \
+        || echo "  DOWN"
+    print -P "%F{cyan}mcp-memory   (:8000)%f"
+    curl -sS -m 2 http://localhost:8000/api/health \
+        | jq -r '"  status=\(.status)"' 2> /dev/null \
+        || echo "  DOWN"
+    print -P "%F{cyan}launchd%f"
+    launchctl list | awk '/claude-mem|mcp-memory-service/ {printf "  %-30s pid=%s status=%s\n",$3,$1,$2}'
+}
+
+alias memlogs-cm='tail -f ~/.claude-mem/launchd-stderr.log'
+alias memlogs-mcp='tail -f ~/.local/share/mcp-memory-service/launchd-stderr.log'
