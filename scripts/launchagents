@@ -1,0 +1,31 @@
+#!/usr/bin/env zsh
+# Symlink tracked LaunchAgent plists into ~/Library/LaunchAgents and (re)load
+# them. Mirrors the .services convention but for per-user launchd jobs. Stored
+# as symlinks (not copies) so editing the tracked plist takes effect directly.
+#
+# Idempotent: safe to run on every `./install`. launchctl resolves symlinks, so
+# a symlinked plist loads exactly like a real file.
+
+if [ "$(uname)" != "Darwin" ]; then
+  echo "Skipping LaunchAgents on non-macOS platform"
+  exit 0
+fi
+
+SOURCE="$HOME/.dotfiles/.launchagents"
+TARGET="$HOME/Library/LaunchAgents"
+
+[ -d "$SOURCE" ] || exit 0
+mkdir -p "$TARGET"
+
+for plist in "$SOURCE"/*.plist(N); do
+  name="${plist:t}"
+  link="$TARGET/$name"
+
+  # Replace any existing file/symlink with a fresh symlink to the tracked plist.
+  [ -e "$link" ] || [ -h "$link" ] && rm -f "$link"
+  ln -s "$plist" "$link"
+
+  # Reload: unload an old definition if present, then load the current one.
+  launchctl unload "$link" 2>/dev/null
+  launchctl load "$link" && echo "Loaded $name"
+done
