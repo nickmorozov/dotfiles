@@ -1,9 +1,0 @@
-{
-    "id": "17",
-    "subject": "Add blocker name to blocked alert banner",
-    "description": "Add @api blockerWorkItemName to workItemAlertBanners. Include blocker name in blockedMessage (e.g. \"Blocked by: Task Name - details\"). Pass blocker-work-item-name from workItemCard.html and workItemCardCompact.html.",
-    "activeForm": "Adding blocker name to alert banner",
-    "status": "completed",
-    "blocks": [],
-    "blockedBy": []
-}

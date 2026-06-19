@@ -1,9 +1,0 @@
-{
-    "id": "18",
-    "subject": "Update callers and tests",
-    "description": "Remove workItemOptions from all 3 callers (workItemCard, workItemCardContainer, recordDetails). Update workItemNoteModal tests (remove blockerWorkItemOptions tests, update handleBlockerChange event format). Update workItemAlertBanners tests for blockerWorkItemName. Update workItemCard tests for new alert banner prop.",
-    "activeForm": "Updating callers and tests",
-    "status": "in_progress",
-    "blocks": [],
-    "blockedBy": []
-}

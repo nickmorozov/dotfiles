@@ -1,9 +1,0 @@
-{
-    "id": "7",
-    "subject": "Phase 7: Run verification (tests, lint, grep)",
-    "description": "Run npm test, npm run lint, npm run prettier, and grep for stale references",
-    "activeForm": "Running verification",
-    "status": "pending",
-    "blocks": [],
-    "blockedBy": []
-}

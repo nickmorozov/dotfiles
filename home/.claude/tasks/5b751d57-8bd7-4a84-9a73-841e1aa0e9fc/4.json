@@ -1,9 +1,0 @@
-{
-    "id": "4",
-    "subject": "Deploy, test, and verify fixes on scratch org",
-    "description": "Push changes to scratch org, run Apex tests, then update work item to In Progress and Complete to verify actions fire correctly.",
-    "activeForm": "Deploying and testing fixes",
-    "status": "in_progress",
-    "blocks": [],
-    "blockedBy": []
-}

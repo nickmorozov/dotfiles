@@ -1,9 +1,0 @@
-{
-    "id": "3",
-    "subject": "Fix DataController error-wrapping tests expecting AuraHandledException",
-    "description": "Tests catch AuraHandledException but AppException only converts to AuraHandledException in Aura/Lightning context (Theme4d/Theme4t). In test context, isAuraContext() returns false so AppException is thrown directly. Fix tests to catch AppException or fix AppException behavior.",
-    "activeForm": "Fixing error-wrapping test expectations",
-    "status": "pending",
-    "blocks": [],
-    "blockedBy": []
-}

@@ -1,9 +1,0 @@
-{
-    "id": "3",
-    "subject": "Phase 3: Update LWC Jest test mocks (7 files)",
-    "description": "Update mock paths in 5 test files, clean up stale mocks in 2 test files",
-    "activeForm": "Updating Jest test mocks",
-    "status": "pending",
-    "blocks": [],
-    "blockedBy": []
-}

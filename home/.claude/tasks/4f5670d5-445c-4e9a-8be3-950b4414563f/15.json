@@ -1,9 +1,0 @@
-{
-    "id": "15",
-    "subject": "Fix modal: type=\"boolean\" → type=\"checkbox\" for At Risk/Blocked",
-    "description": "Change c-input-field type from \"boolean\" to \"checkbox\" for At Risk and Blocked fields in workItemNoteModal.html. The \"boolean\" type doesn't exist in inputField's TYPE_MAP — only \"checkbox\" maps to BOOLEAN.",
-    "activeForm": "Fixing checkbox types in modal",
-    "status": "completed",
-    "blocks": [],
-    "blockedBy": []
-}

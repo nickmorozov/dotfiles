@@ -1,9 +1,0 @@
-{
-    "id": "6",
-    "subject": "Deploy and test Phase 1 (production selectors)",
-    "description": "Deploy all production selector changes with npm run source:push, then run all Apex tests to verify no regressions.",
-    "activeForm": "Deploying and testing Phase 1",
-    "status": "pending",
-    "blocks": [],
-    "blockedBy": []
-}

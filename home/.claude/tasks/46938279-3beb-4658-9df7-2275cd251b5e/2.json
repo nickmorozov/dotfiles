@@ -1,9 +1,0 @@
-{
-    "id": "2",
-    "subject": "Phase 2: Update LWC source imports (4 files)",
-    "description": "Update import paths in dataManager.js, timeLogModal.js, workItemNoteModal.js, and workItemHistoryModal.js",
-    "activeForm": "Updating LWC imports",
-    "status": "in_progress",
-    "blocks": [],
-    "blockedBy": []
-}

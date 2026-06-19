@@ -1,9 +1,0 @@
-{
-    "id": "4",
-    "subject": "Phase 4: Architecture Design - Design implementation approaches",
-    "description": "Launch code-architect agents to design multiple approaches with different trade-offs, present recommendation to user",
-    "activeForm": "Designing architecture",
-    "status": "in_progress",
-    "blocks": [],
-    "blockedBy": []
-}

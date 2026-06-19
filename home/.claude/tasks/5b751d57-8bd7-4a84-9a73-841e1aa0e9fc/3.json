@@ -1,9 +1,0 @@
-{
-    "id": "3",
-    "subject": "Investigate and fix \"status not persisting on refresh\" UI bug",
-    "description": "Server-side DML works fine. Status persists via Apex anonymous. The 'not persisting' issue is likely client-side in the LWC. Will investigate separately if still happening after the action config fixes.",
-    "activeForm": "Investigating status persistence bug",
-    "status": "completed",
-    "blocks": [],
-    "blockedBy": []
-}

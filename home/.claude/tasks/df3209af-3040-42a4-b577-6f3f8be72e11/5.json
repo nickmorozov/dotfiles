@@ -1,9 +1,0 @@
-{
-    "id": "5",
-    "subject": "Convert WorkItemAssignmentSelector.cls + WorkItemHistorySelector.cls",
-    "description": "Convert 1 query each. WorkItemAssignmentSelector: countByResourceAssignment COUNT query. WorkItemHistorySelector: History object query with explicit field list. Update class comment about History objects.",
-    "activeForm": "Converting remaining selectors",
-    "status": "pending",
-    "blocks": [],
-    "blockedBy": []
-}

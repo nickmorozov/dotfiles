@@ -1,9 +1,0 @@
-{
-    "id": "4",
-    "subject": "Convert WorkItemSelector.cls (4 queries)",
-    "description": "Convert bottom 4 methods in WorkItemSelector.cls to Query builder to match top half already using it. Methods: getSiblingsByParent, getRootSiblingsByProject, getDescendantIds, getForHoursCalculation.",
-    "activeForm": "Converting WorkItemSelector.cls queries",
-    "status": "pending",
-    "blocks": [],
-    "blockedBy": []
-}

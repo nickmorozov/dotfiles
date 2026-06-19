@@ -1,9 +1,0 @@
-{
-    "id": "5",
-    "subject": "Create TriggerContextAction interface for Before-timing actions",
-    "description": "Create interface that actions implement to modify trigger records directly in Before context, avoiding SELF_REFERENCE_FROM_TRIGGER. Modify TriggerActionService to use it, update SetStartedOnAction and SetFinishedOnAction to implement it.",
-    "activeForm": "Creating TriggerContextAction interface",
-    "status": "completed",
-    "blocks": [],
-    "blockedBy": []
-}

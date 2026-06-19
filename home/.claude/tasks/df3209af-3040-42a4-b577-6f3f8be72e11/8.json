@@ -1,9 +1,0 @@
-{
-    "id": "8",
-    "subject": "Convert service test files (~203 queries, 9 files)",
-    "description": "Convert raw SOQL in service tests: SharingServiceTest (69), TriggerActionServiceTest (59), WorkItemHoursCalculatorTest (16), ProjectRoleServiceTest (13), plus 5 smaller files.",
-    "activeForm": "Converting service test files",
-    "status": "pending",
-    "blocks": [],
-    "blockedBy": []
-}

@@ -1,9 +1,0 @@
-{
-    "id": "2",
-    "subject": "Fix TriggerActionService grouping for status-linked actions",
-    "description": "TriggerActionService groups actions by ac.Work_Item_Template__c, which is null for status-linked-only configs. Need to fall back to Template_Status__r.Work_Item_Template__c when the direct field is null.",
-    "activeForm": "Fixing TriggerActionService grouping",
-    "status": "completed",
-    "blocks": [],
-    "blockedBy": []
-}

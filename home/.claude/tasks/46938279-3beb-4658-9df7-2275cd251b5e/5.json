@@ -1,9 +1,0 @@
-{
-    "id": "5",
-    "subject": "Phase 5: Update metadata profiles and permission sets",
-    "description": "Update Admin.profile-meta.xml and User.permissionset-meta.xml class access entries",
-    "activeForm": "Updating metadata",
-    "status": "pending",
-    "blocks": [],
-    "blockedBy": []
-}

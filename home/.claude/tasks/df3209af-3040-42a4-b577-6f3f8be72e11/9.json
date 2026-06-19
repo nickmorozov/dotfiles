@@ -1,9 +1,0 @@
-{
-    "id": "9",
-    "subject": "Convert controller test files (~121 queries, 6 files)",
-    "description": "Convert raw SOQL in controller tests: DataControllerTest (41), DataControllerTimeLogTest (22), DataControllerResourceTest (21), DataControllerCreateTest (20), DataControllerNoteTest (12), DataControllerRoleTest (5).",
-    "activeForm": "Converting controller test files",
-    "status": "pending",
-    "blocks": [],
-    "blockedBy": []
-}

@@ -1,9 +1,0 @@
-{
-    "id": "1",
-    "subject": "Fix TemplateSelector to find status-linked action configs",
-    "description": "The TemplateSelector.getActionConfigs() query only finds action configs where Work_Item_Template__c directly matches. It misses configs linked only via Template_Status__r.Work_Item_Template__c. Same issue for getActionConfigsForProject().",
-    "activeForm": "Fixing TemplateSelector query",
-    "status": "completed",
-    "blocks": [],
-    "blockedBy": []
-}
