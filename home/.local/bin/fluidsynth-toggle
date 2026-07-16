@@ -1,0 +1,22 @@
+#!/bin/zsh
+LABEL="com.user.fluidsynth"
+PLIST="$HOME/Library/LaunchAgents/$LABEL.plist"
+
+# Disable if any DAW is running
+DAWS=("Logic Pro X" "Reaper" "Ableton Live" "GarageBand" "Pro Tools")
+for daw in "${DAWS[@]}"; do
+  if pgrep -x "$daw" > /dev/null; then
+    echo "🎛️  $daw is running — stopping FluidSynth"
+    launchctl unload "$PLIST"
+    exit 0
+  fi
+done
+
+# Toggle otherwise
+if launchctl list | grep -q "$LABEL"; then
+  echo "🔇 Stopping FluidSynth"
+  launchctl unload "$PLIST"
+else
+  echo "🎹 Starting FluidSynth"
+  launchctl load "$PLIST"
+fi
