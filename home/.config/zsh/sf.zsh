@@ -6,9 +6,16 @@
 _exists sf || return 0
 
 # --- org management (global, not project-specific) ---
+export SF_AUTOUPDATE_DISABLE=false
+export SF_DISABLE_AUTOUPDATE=false
+export SF_CAPITALIZE_RECORD_TYPES=false
+export SF_ORG_METADATA_REST_DEPLOY=true
+export SF_IMPROVED_CODE_COVERAGE=true
+export SF_ORG_MAX_QUERY_LIMIT=200000
 
 # List all authenticated orgs
-alias sfl="sf org list --all --verbose"
+alias sfl="sf org list --skip-connection-status"
+alias sfla="sf org list --all --verbose"
 
 # Logout from orgs
 # usage: sfd alias1 alias2 ...
@@ -69,6 +76,8 @@ sfwho() {
     echo ""
     sf org display --verbose 2> /dev/null
 }
+
+alias sfi="sf org display --verbose"
 
 # --- npm run wrappers ---
 # Most SF work now goes through per-project npm scripts.

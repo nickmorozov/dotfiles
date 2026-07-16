@@ -173,7 +173,7 @@
         </entry>
         <entry key="$USER_HOME$/Projects/Repos/focusrite-volume-control">
           <value>
-            <RecentProjectMetaInfo frameTitle="focusrite-volume-control – ~/.config/github-copilot/mcp.json" opened="true" projectWorkspaceId="38o6dwrrI8UDAYcDcqMvbOVwvlV">
+            <RecentProjectMetaInfo frameTitle="focusrite-volume-control – ~/.config/github-copilot/mcp.json" projectWorkspaceId="38o6dwrrI8UDAYcDcqMvbOVwvlV">
               <option name="activationTimestamp" value="1769541817909" />
               <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
               <option name="build" value="IU-253.29346.240" />
@@ -189,7 +189,7 @@
         </entry>
         <entry key="$USER_HOME$/Projects/Job/blue-sky">
           <value>
-            <RecentProjectMetaInfo frameTitle="blue-sky – OpportunityTriggerHandler" opened="true" projectWorkspaceId="2ihxbd5pNlLuiolcHxI4BZZONfM">
+            <RecentProjectMetaInfo frameTitle="blue-sky – OpportunityTriggerHandler" projectWorkspaceId="2ihxbd5pNlLuiolcHxI4BZZONfM">
               <option name="activationTimestamp" value="1769541151118" />
               <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
               <option name="build" value="IU-253.29346.240" />
@@ -203,8 +203,24 @@
             </RecentProjectMetaInfo>
           </value>
         </entry>
+        <entry key="/Applications/Raycast Companion.app">
+          <value>
+            <RecentProjectMetaInfo frameTitle="Raycast Companion.app" opened="true" projectWorkspaceId="3Ae1uMx1KiFC5gL5cPv7BN59bGq">
+              <option name="activationTimestamp" value="1772938448449" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="build" value="IU-253.31033.145" />
+              <option name="buildTimestamp" value="1771592160000" />
+              <option name="colorInfo">
+                <RecentProjectColorInfo associatedIndex="2" />
+              </option>
+              <frame x="3140" y="595" width="1400" height="1000" />
+              <option name="productionCode" value="IU" />
+              <option name="projectOpenTimestamp" value="1772938446265" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
       </map>
     </option>
-    <option name="lastOpenedProject" value="$USER_HOME$/Projects/Repos/focusrite-volume-control" />
+    <option name="lastOpenedProject" value="/Applications/Raycast Companion.app" />
   </component>
 </application>

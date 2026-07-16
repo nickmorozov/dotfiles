@@ -1,3 +1,4 @@
 {
-  "target-org": "corrao-group-prod"
+    "target-org": "enumsync-dev-ed",
+    "org-capitalize-record-types": "true"
 }

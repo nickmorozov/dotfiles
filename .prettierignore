@@ -1,0 +1,2 @@
+# zsh files using parameter-expansion syntax that prettier-plugin-sh (sh-syntax) cannot parse
+home/.config/zsh/sf.zsh

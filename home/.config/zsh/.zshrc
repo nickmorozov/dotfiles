@@ -151,3 +151,7 @@ fi
 # LM Studio CLI
 _extend_path "$HOME/.lmstudio/bin"
 
+
+# Claude Chat
+CLAUDEVOICE_FULL_CONTEXT=true      # gives it your MCP tools + skills
+CLAUDEVOICE_MODEL=claude-sonnet-4-6

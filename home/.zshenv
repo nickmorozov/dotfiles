@@ -93,6 +93,11 @@ export SPACESHIP_CONFIG="$XDG_CONFIG_HOME/spaceship/config.zsh"
 export IDEA_PROPERTIES="$XDG_CONFIG_HOME/jetbrains/idea/idea.properties"
 export IDEA_VM_OPTIONS="$XDG_CONFIG_HOME/jetbrains/idea/idea.vmoptions"
 
+# Salesforce CLI: store the auth master key in ~/.sfdx/key.json (file store)
+# instead of the macOS Keychain. Avoids the recurring "Keychain Not Found /
+# cannot be found to store 'local'" prompt loop from sf and the Salesforce MCP.
+export SF_USE_GENERIC_UNIX_KEYCHAIN=true
+
 # Create host file
 if [ ! -f "$ZDOTDIR/zsh.$HOST" ]; then
   touch "$ZDOTDIR/zsh.$HOST"
